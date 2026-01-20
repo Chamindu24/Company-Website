@@ -140,7 +140,7 @@ export default function Homepage() {
       </section>
 
       {/* Services */}
-      <section className="px-6 py-32  relative">
+      <section className="px-6 py-20  relative">
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row gap-24">
@@ -245,21 +245,107 @@ export default function Homepage() {
       </section>
 
       {/* Join */}
-      <section className="px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold">Unlock Success with Our Software Project Base</h2>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-          Contribute to our software projects and grow your skills with real professional experience.
-        </p>
+      <section className="px-6 py-20">
+        <div className="max-w-6xl mx-auto border bg-white border-gray-300 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-emerald-100/40">
+          
+          {/* Grid Header */}
+          <div className="flex flex-col lg:flex-row items-center justify-between p-8 lg:p-14 bg-white border-b border-gray-300 relative overflow-hidden">
+            
+            {/* Background Detail - Subtle Grid Pattern (Common in Big Tech) */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+                style={{ backgroundImage: `radial-gradient(#000 0.5px, transparent 0.5px)`, backgroundSize: '24px 24px' }}>
+            </div>
 
-        <button className="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-            onClick={() => navigate("/project-base")}
-        >
-          JOIN Now
-        </button>
+            {/* Left: System Identity */}
+            <div className="relative z-10 max-w-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-1.5 px-3 py-1 bg-green-50 rounded-md border border-green-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                  <span className="text-[13px] font-mono font-bold text-green-700 uppercase tracking-widest">JOIN Now</span>
+                </div>
+              </div>
+              
+              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tighter leading-[0.9] mb-6">
+                Project <span className="text-gray-500 font-light">Inventory.</span>
+              </h2>
+              
+              <p className="text-gray-500 text-base md:text-lg max-w-lg leading-relaxed font-medium">
+                Contribute to our software projects and smoothen your skills with professional experience.
+              </p>
+            </div>
+            
+            {/* Right: Technical Metadata & Action */}
+            <div className="relative z-10 mt-12 lg:mt-0 flex flex-col items-center lg:items-end">
+
+              <button 
+                onClick={() => navigate("/project-base")}
+                className="group relative px-10 py-4 bg-gray-900 text-white text-[14px] font-bold tracking-[0.2em] rounded-md transition-all duration-300 hover:bg-green-600 hover:translate-y-[-2px] active:translate-y-[0px] shadow-xl shadow-gray-200"
+              >
+                <span className="relative z-10">Learn More</span>
+                {/* Subtle bottom-glow effect on hover */}
+                <div className="absolute inset-0 rounded-md bg-green-400 opacity-0 group-hover:opacity-20 blur-lg transition-opacity"></div>
+              </button>
+              
+            </div>
+
+          </div>
+
+          {/* The Metric Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-gray-300">
+            
+            {/* Metric 01 */}
+            <div className="p-12 group hover:bg-green-50/20 transition-all duration-500">
+              <p className="text-[14px]  text-gray-600 uppercase tracking-widest mb-4 group-hover:text-green-600 transition-colors">
+                Deployed
+              </p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-black text-gray-900 tracking-tighter tabular-nums">52</span>
+                <span className="ml-2 w-1.5 h-1.5 rounded-full bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              </div>
+              <p className="mt-4 text-xs font-medium text-gray-400">Verified production repos</p>
+            </div>
+
+            {/* Metric 02 */}
+            <div className="p-12 group hover:bg-green-50/20 transition-all duration-500">
+              <p className="text-[14px]  text-gray-600 uppercase tracking-widest mb-4 group-hover:text-green-600 transition-colors">
+                Active
+              </p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-black text-gray-900 tracking-tighter tabular-nums">14</span>
+              </div>
+              <p className="mt-4 text-xs font-medium text-gray-400">Concurrent sprint cycles</p>
+            </div>
+
+            {/* Metric 03 */}
+            <div className="p-12 group hover:bg-green-50/20 transition-all duration-500">
+              <p className="text-[14px]  text-gray-600 uppercase tracking-widest mb-4 group-hover:text-green-600 transition-colors">
+                Years Of Experience
+              </p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-black  tracking-tighter tabular-nums text-emerald-600">8</span>
+                <span className="text-2xl text-gray-500 font-light ml-1">+</span>
+              </div>
+              <p className="mt-4 text-xs font-medium text-gray-400">Global open-source talent</p>
+            </div>
+
+            {/* Metric 04 */}
+            <div className="p-12 group hover:bg-green-50/20 transition-all duration-500">
+              <p className="text-[14px]  text-gray-600 uppercase tracking-widest mb-4 group-hover:text-green-600 transition-colors">
+                Reliability
+              </p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-black text-gray-900 tracking-tighter tabular-nums">98</span>
+                <span className="text-2xl font-light text-gray-500 ml-1">%</span>
+              </div>
+              <p className="mt-4 text-xs font-medium text-gray-400">Uptime across all builds</p>
+            </div>
+
+          </div>
+        </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="px-6 py-32  relative overflow-hidden">
+      <section className="px-6 py-28  relative overflow-hidden">
 
         <div className="max-w-6xl mx-auto relative z-10">
           
