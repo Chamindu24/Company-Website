@@ -53,19 +53,75 @@ export default function Homepage() {
     <div className="text-gray-800">
 
       {/* Hero Section */}
-      <section className="px-6 py-24 text-center ">
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Innovative Software Solutions
-        </h1>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-          Empowering Businesses with Revolutionary Software.<br />
-          We develop bespoke software platforms for global businesses with quality, reliability, and customer satisfaction.
-        </p>
+      <section className="relative px-6 pt-32 pb-24 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+          
+          {/* LEFT SIDE — IMAGE */}
+          <div className="flex justify-center lg:justify-start">
+            <img 
+              src="/hero/hero1.png"
+              alt="Hero"
+              className="w-full max-w-lg object-contain"
+            />
+          </div>
 
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-          Learn More
-        </button>
+          {/* RIGHT SIDE — THE EXISTING CONTENT */}
+          <div className="flex flex-col items-center lg:items-end text-center lg:text-right">
+            
+            {/* 2. The "Pre-Header" Badge */}
+            <div className="mb-6 px-4 py-1.5 bg-stone-50 border border-stone-100 rounded-full">
+              <span className="text-[10px] font-bold tracking-[0.3em] text-emerald-600 uppercase">
+                Future-Proof Architecture
+              </span>
+            </div>
+
+            {/* 3. High-Impact Typography */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-900 leading-[0.9]">
+              Innovative Software <br />
+              <span
+                className="text-transparent"
+                style={{ WebkitTextStroke: "1.5px #1c1917" }}
+              >
+                Solutions.
+              </span>
+            </h1>
+
+            {/* 4. Elegant Description */}
+            <p className="mt-10 text-lg md:text-xl text-stone-500 max-w-2xl font-light leading-relaxed">
+              Empowering global enterprises with{" "}
+              <span className="text-stone-900 font-medium">bespoke platforms</span>.
+              We bridge the gap between complex engineering and intuitive user
+              experience.
+            </p>
+
+            {/* 5. Professional Call-to-Action Buttons */}
+            <div className="mt-12 flex flex-col sm:flex-row lg:justify-end items-center gap-6">
+              
+              {/* Main Button */}
+              <button className="relative px-10 py-4 overflow-hidden group border border-stone-900 rounded-full transition-all duration-500">
+                <span className="absolute inset-0 w-0 h-full bg-stone-900 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
+                <span className="relative z-10 text-[11px] font-bold tracking-[0.2em] uppercase text-stone-900 group-hover:text-white transition-colors duration-500">
+                  Start Your Project
+                </span>
+              </button>
+
+              {/* Secondary Button */}
+              <button className="text-[11px] font-bold tracking-[0.2em] uppercase text-stone-400 hover:text-stone-900 transition-colors flex items-center gap-2 group">
+                Our Portfolio
+                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
+
+            {/* 6. Social Proof */}
+            <div className="mt-20 pt-10 border-t border-stone-100 w-full">
+              <p className="text-[10px] font-bold tracking-[0.4em] text-stone-300 uppercase">
+                Trusted by Industry Leaders Worldwide
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
+
 
       {/* Our Story Section */}
       <section className="relative px-6 py-20  overflow-hidden">
