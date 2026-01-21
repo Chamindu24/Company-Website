@@ -62,7 +62,7 @@ export default function Homepage() {
             {/* 2. High-Impact Typography */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-900 leading-[0.85]">
               Innovative <br />
-              <span className="text-green-600">Software</span>
+              <span className="text-emerald-600">Software</span>
               <br />
               <span
                 className="text-transparent"
@@ -122,10 +122,23 @@ export default function Homepage() {
           <div className="flex justify-center lg:justify-end order-1 lg:order-2 relative group">
             
             {/* Soft organic glow (no square edges) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-emerald-500/30 blur-[120px] rounded-full z-0" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-emerald-500/25 blur-[120px] rounded-full z-0" />
+              <div className="absolute -top-6 left-0 w-28 h-28 rounded-full z-0 
+                  bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-900 
+                  shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.4),_0_20_40px_rgba(16,185,129,0.3)] " 
+                />
+              <div className="absolute top-1/2 -right-10 w-18 h-18 rounded-full z-0 
+                bg-emerald-600 
+                shadow-[inset_-5px_-5px_15px_rgba(0,0,0,0.5)] " 
+              />
+              <div className="absolute -bottom-10 left-1/3 w-12 h-12 rounded-full z-0 
+                bg-emerald-600 shadow-[inset_-5px_-5px_15px_rgba(0,0,0,0.5)] 
+                 opacity-100" 
+              />
+
             <div className="relative">
               <img
-                src="/hero/hero4.png"
+                src="/hero/hero6.png"
                 alt="Software Graphics"
                 className="
                   w-full
@@ -136,7 +149,7 @@ export default function Homepage() {
                   object-contain
                   brightness-110
                   relative z-10
-                  drop-shadow-[20px_30px_20px_rgba(0,0,0,0.2)]
+                  drop-shadow-[20px_30px_20px_rgba(0,0,0,0.3)]
                 "
               />
             </div>
@@ -272,7 +285,7 @@ export default function Homepage() {
               </div>
             </div>
 
-            <div className="lg:w-2/3 space-y-6">
+            <div className="lg:w-1/2 space-y-6">
               {services.map((service) => (
                 <div 
                   key={service.number}
@@ -510,7 +523,7 @@ export default function Homepage() {
       </section>
 
       {/* Software Products */}
-      <section className="px-6 py-24  relative">
+      <section className="px-6 py-8  relative">
 
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -704,95 +717,93 @@ export default function Homepage() {
       </section>
 
       {/* Visit Lush Web Designers */}
-<section className="relative px-6 py-28  overflow-hidden selection:bg-emerald-100">
-      {/* Background Architectural Elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      
-      {/* Decorative Blur Orbs */}
-      <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-purple-100/30 rounded-full blur-[100px]" />
-      <div className="absolute -bottom-[10%] -left-[5%] w-[400px] h-[400px] bg-emerald-100/30 rounded-full blur-[100px]" />
+      <section className="relative w-full bg-white/60 py-24 sm:py-32 overflow-hidden">
+        {/* The Image as a subtle 'Background Mask' */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.19] grayscale hover:opacity-30 hover:grayscale-0 transition-all duration-1000"
+          style={{ 
+            backgroundImage: "url('/bg6.jpg')", 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center',
+            maskImage: 'linear-gradient(to bottom, transparent, black, transparent)'
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col items-center">
+            <div className="text-center">
+                <h2
+                  className="
+                    text-4xl 
+                    sm:text-5xl 
+                    md:text-6xl 
+                    lg:text-7xl 
+                    font-extrabold 
+                    tracking-tight 
+                    text-stone-900 
+                    leading-tight
+                  "
+                >
+                  Lush{" "}
+                  <span className="text-emerald-600 drop-shadow-sm">Web</span>{" "}
+                  <span
+                    className="text-transparent drop-shadow-sm"
+                    style={{ WebkitTextStroke: "1.5px #1c1917" }}
+                  >
+                    Designers.
+                  </span>
+                </h2>
+                <p className="mx-auto max-w-xl mt-2 text-lg sm:text-xl text-slate-500 leading-relaxed tracking-wide">
+                  Professional <span className="text-slate-900 font-semibold">website design</span> and 
+                  <span className="text-slate-900 font-semibold"> social media promotion</span> services for your business.
+                </p>
+              <div className="mt-8">
+                <button
+                  onClick={() => window.open("https://lushwebdesigners.com/", "_blank")}
+                  className="
+                    relative px-12 py-4 overflow-hidden group 
+                    bg-stone-900 rounded-full 
+                    transition-all duration-300 
+                    hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)]
+                  "
+                >
+                  {/* Hover Fill Animation */}
+                  <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-out group-hover:w-full"></span>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
-          
-          {/* TEXT CONTENT: The "Authority" Column */}
-          <div className="w-full lg:w-1/2 space-y-12 order-2 lg:order-1">
-            <div className="space-y-6">
-              {/* Premium Label */}
-              <div className="inline-flex items-center gap-3 px-3 py-1 bg-white border border-slate-200 rounded-full shadow-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Verified Partner</span>
+                  {/* Text + Arrow */}
+                  <span className="relative z-10 flex items-center gap-3 text-[11px] font-bold tracking-[0.2em] uppercase text-white">
+                    Explore Services
+
+                    <span className="h-5 w-5 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors flex items-center justify-center">
+                      <svg
+                        className="w-3 h-3 group-hover:translate-x-0.5 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={4}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+
               </div>
-
-              <h2 className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tighter leading-[0.9] lg:max-w-md">
-                Modernizing <br />
-                <span className="text-slate-400 font-light">The Web.</span>
-              </h2>
-
-              <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed max-w-xl">
-                LushWare ORG is proud to integrate with <span className="text-slate-900 font-medium">Lush Web Designers</span>—fusing technical architecture with world-class digital aesthetics.
-              </p>
             </div>
 
-            {/* Interactive CTA Section */}
-            <div className="flex flex-wrap items-center gap-6">
-              <button
-                onClick={() => window.open("https://lushwebdesigners.com/", "_blank")}
-                className="group relative flex items-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold transition-all hover:bg-emerald-600 hover:-translate-y-1 active:scale-95 shadow-xl shadow-slate-200"
-              >
-                Launch Experience
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-              
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Inquiry</span>
-                <span className="text-sm font-bold text-slate-900 border-b border-slate-200 hover:border-emerald-500 cursor-pointer transition-colors">
-                  View Full Suite
-                </span>
+        {/* Bottom Logotypes / Social Proof (Clean slate look) */}
+              <div className="mt-8 flex flex-wrap justify-center gap-x-12 gap-y-8 opacity-30">
+                <span className="text-slate-900 font-black text-xl tracking-tighter">DESIGN.</span>
+                <span className="text-slate-900 font-black text-xl tracking-tighter">BUILD.</span>
+                <span className="text-slate-900 font-black text-xl tracking-tighter">SCALE.</span>
               </div>
-            </div>
-
-            {/* Micro-Stats Footer */}
-            <div className="pt-10 border-t border-slate-100 flex gap-10">
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Reach</span>
-                <span className="text-sm font-bold text-slate-900">Global Focus</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Stack</span>
-                <span className="text-sm font-bold text-slate-900">Next-Gen UX</span>
-              </div>
-            </div>
           </div>
-
-          {/* VISUAL CONTENT: The "Stage" Column */}
-          <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            <div className="relative group">
-              {/* Architectural Framing Elements */}
-              <div className="absolute -top-6 -right-6 w-32 h-32  rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              
-              {/* Main Image Stage */}
-              <div className="relative p-3    rounded-[3rem]  transition-transform duration-700 group-hover:scale-[1.02]">
-                <div className="rounded-[2.2rem] overflow-hidden  ">
-                  <img 
-                    src="/hero/hero1.png" // Replace with your link
-                    alt="Collaboration Highlight" 
-                    className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+
 
 
     </div>
