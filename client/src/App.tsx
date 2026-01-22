@@ -1,6 +1,7 @@
 import './App.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import ScrollToTop from './components/ScrollToTop'
 import Homepage from './pages/Homepage'
 import SolutionsPage from './pages/SolutionsPage'
 import WorkPage from './pages/WorkPage'
@@ -55,6 +56,7 @@ function App() {
 
       {/* 3. CONTENT LAYOUT */}
       <Navbar />
+      {/*<ScrollToTop />*/}
       
       <main className="relative z-10">
         <Routes>

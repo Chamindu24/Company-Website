@@ -149,7 +149,7 @@ export default function Homepage() {
                   object-contain
                   brightness-110
                   relative z-10
-                  drop-shadow-[20px_30px_20px_rgba(0,0,0,0.3)]
+                  drop-shadow-[20px_30px_20px_rgba(0,0,0,0.4)]
                 "
               />
             </div>

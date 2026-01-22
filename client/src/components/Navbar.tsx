@@ -30,7 +30,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
         
         {/* Logo Section */}
-        <Link to="/" className="flex items-center group">
+        <Link 
+          to="/" 
+          className="flex items-center group"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <div className="relative h-12 w-14  rounded-xl  mr-3 ">
             <img
               src="/logo.jpeg"
