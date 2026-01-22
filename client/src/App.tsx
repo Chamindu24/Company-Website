@@ -56,7 +56,7 @@ function App() {
 
       {/* 3. CONTENT LAYOUT */}
       <Navbar />
-      {/*<ScrollToTop />*/}
+      <ScrollToTop />
       
       <main className="relative z-10">
         <Routes>

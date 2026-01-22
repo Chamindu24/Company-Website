@@ -204,7 +204,7 @@ export default function ConsultationPageV15() {
                         />
 
                         {/* Emerald Hover Sweep */}
-                        <div className="absolute inset-0 z-0 h-full w-0 bg-emerald-500 transition-all duration-500 ease-out group-hover:w-full"></div>
+                        <div className="absolute inset-0 z-0 h-full w-0 bg-emerald-600 transition-all duration-500 ease-out group-hover:w-full"></div>
                       </button>
 
                       {/* Trust Label */}
