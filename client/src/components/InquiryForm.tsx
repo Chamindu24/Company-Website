@@ -315,7 +315,6 @@ export default function InquiryForm({
               fontSize: "14px",
               cursor: "pointer",
               "&:hover": {
-                ...base["&:hover"],
                 borderBottomColor: "#10b981",
               },
               "&:focus-within": {

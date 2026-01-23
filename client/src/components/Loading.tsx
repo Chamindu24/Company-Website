@@ -35,7 +35,7 @@ export default function Loading() {
 
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes reveal-clip {
           0% { clip-path: inset(0 100% 0 0); }
           50% { clip-path: inset(0 0% 0 0); }
