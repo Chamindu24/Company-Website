@@ -167,7 +167,7 @@ export default function SolutionsPage() {
         <InquiryForm 
           inquiryType="solution"
           topic={selectedSolution.title}
-          industry={selectedSolution.subtitle}
+          industry={selectedSolution.title}
           onSuccess={() => setSelectedSolution(null)}
           onClose={() => setSelectedSolution(null)}
           showCloseButton={true}

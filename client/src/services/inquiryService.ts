@@ -6,7 +6,10 @@
  * - Free Tech Consultation
  */
 
+
+
 export type InquiryType = 'solution' | 'project' | 'consultation';
+const BACKEND_URL = import.meta.env.VITE_API_URL;
 
 export interface InquiryFormData {
   // Common fields
@@ -71,13 +74,14 @@ export const submitInquiry = async (data: InquiryFormData): Promise<{ success: b
       }),
     };
 
-    const response = await fetch("/api/inquiries", {
+    const response = await fetch(`${BACKEND_URL}/api/inquiries`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     });
+    console.log('response form form', response);
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
