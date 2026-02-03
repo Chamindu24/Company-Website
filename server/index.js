@@ -9,9 +9,33 @@ const adminRoutes = require("./routes/admin");
 const app = express();
 const port = process.env.PORT || 5000;
 
+// CORS Configuration for production
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:5000',
+      'https://lushware.vercel.app',
+      'https://lushware-api.vercel.app'
+    ];
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
 // Middleware
-app.use(cors());          // Allow requests from frontend
-app.use(express.json());  // Parse JSON bodies
+app.use(cors(corsOptions));  // Allow requests from frontend with proper config
+app.use(express.json());     // Parse JSON bodies
 
 // --------------------------
 // MongoDB Connection
@@ -43,6 +67,15 @@ app.get("/api", async (req, res) => {
 // --------------------------
 // Routes
 // --------------------------
+// Health check route
+app.get("/", (req, res) => {
+  res.json({ 
+    status: "Server is running",
+    message: "LushWare API is operational",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Mount inquiry routes
 app.use("/api/inquiries", inquiryRoutes);
 
@@ -52,8 +85,9 @@ app.use("/api/admin", adminRoutes);
 // --------------------------
 // Start server
 // --------------------------
-
-
 app.listen(port, () => {
   console.log(`🚀 Server running on http://localhost:${port}`);
 });
+
+// Export for Vercel serverless
+module.exports = app;
