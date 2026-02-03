@@ -2,6 +2,7 @@ import './App.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import ScrollToTop from './components/ScrollToTop'
+import WhatsAppButton from './components/WhatsAppButton'
 import ProtectedRoute from './components/ProtectedRoute'
 import Homepage from './pages/Homepage'
 import SolutionsPage from './pages/SolutionsPage'
@@ -62,6 +63,7 @@ function App() {
       {/* 3. CONTENT LAYOUT */}
       {!isAdminPage && <Navbar />}
       <ScrollToTop />
+      {!isAdminPage && <WhatsAppButton />}
       
       <main className="relative z-10">
         <Routes>
