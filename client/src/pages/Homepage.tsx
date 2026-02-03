@@ -184,12 +184,25 @@ export default function Homepage() {
       </section>
 
       {/* Our Story Section */}
-      <section data-reveal className="reveal-section relative px-10 md:px-6 py-8 md:py-20  overflow-hidden">
+      <section data-reveal className="reveal-section relative px-10 md:px-2 py-12 md:py-20 overflow-hidden bg-white ">
+        
+        {/* Creative Background Elements */}
+        <div className="absolute inset-0 z-0">
+          {/* Primary Emerald Wash - Softer for light mode */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
+          
+          {/* Secondary Accent Orb */}
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-200/30 rounded-full blur-[80px] pointer-events-none" />
+          
+          {/* Subtle Grid Pattern Overlay - Darkened for visibility on light bg */}
+          <div className="absolute inset-0 opacity-[0.09] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" 
+              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23059669\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E")' }} 
+          />
+        </div>
 
-        <div className="max-w-6xl mx-auto relative">
-          {/* Grid Container for 2 Columns */}
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            
+                  
             <div className="text-left space-y-6">
               <div className="inline-flex items-center group cursor-default">
                 <div className="relative flex items-center">
@@ -235,26 +248,27 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* Right Column: Narrative & CTA */}
-              <div className="relative group">
-                {/* Decorative Quote Mark */}
-                <span className="absolute -top-6 -left-4 text-8xl text-emerald-100 font-serif select-none">“</span>
-                <p className="text-xl md:text-2xl text-slate-800 leading-relaxed font-light px-4">
-                  At <span className="font-semibold text-slate-900">LushWare ORG</span>, we design software that goes beyond solving problems—
-                  it transforms how people and businesses experience technology. 
-                  Our focus is on crafting stable, scalable, and intuitive solutions that empower progress and meet the evolving 
-                  needs of the 
-                  <span className="underline decoration-emerald-200 decoration-4 underline-offset-4">
-                    modern global community
+            <div className="relative">
+              {/* Soft shadow instead of dark glow */}
+              <div className="absolute -inset-4 bg-emerald-600/5 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-white backdrop-blur-md border border-emerald-100 p-8 md:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+                <span className="absolute -top-8 -left-2 text-9xl text-emerald-600/10 font-serif select-none">“</span>
+                
+                <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-light">
+                  At <span className="font-semibold text-slate-950">LushWare ORG</span>, we design software that goes beyond solving problems—
+                  it <span className="text-emerald-600 font-medium">transforms</span> how people experience technology. 
+                  Our focus is on crafting stable, scalable solutions that empower the 
+                  <span className="relative inline-block px-1 ml-1">
+                    <span className="relative z-10 text-slate-900 font-medium">modern global community</span>
+                    <span className="absolute bottom-1 left-0 w-full h-3 bg-emerald-200/50 -rotate-1" />
                   </span>.
                 </p>
-
               </div>
+            </div>
 
           </div>
         </div>
       </section>
-
       {/* Services */}
       <section data-reveal className="reveal-section px-6 py-20  relative">
         
@@ -361,10 +375,20 @@ export default function Homepage() {
       </section>
 
       {/* Join */}
-      <section data-reveal className="reveal-section px-4 py-16  overflow-hidden relative">
-        {/* Ambient Background Elements */}
-        <div className="absolute top-0 -right-20 w-[600px] h-[600px] bg-emerald-100/30 rounded-full blur-[140px] pointer-events-none"></div>
-        <div className="absolute bottom-0 -left-20 w-[600px] h-[600px] bg-blue-50/40 rounded-full blur-[140px] pointer-events-none"></div>
+      <section data-reveal className="reveal-section px-4 py-16  overflow-hidden relative bg-white">
+        <div className="absolute inset-0 z-0">
+          {/* Primary Emerald Wash - Softer for light mode */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
+          
+          {/* Secondary Accent Orb */}
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-200/30 rounded-full blur-[80px] pointer-events-none" />
+          
+          {/* Subtle Grid Pattern Overlay - Darkened for visibility on light bg */}
+          <div className="absolute inset-0 opacity-[0.09] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" 
+              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23059669\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E")' }} 
+          />
+        </div>
+
 
         <div className="max-w-7xl mx-auto relative z-10 px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
@@ -378,7 +402,7 @@ export default function Homepage() {
                 <span className="bg-emerald-600 bg-clip-text text-transparent"> Inventory.</span>
               </h2>
               
-              <p className="text-xl text-gray-500 max-w-md leading-relaxed mb-12 mx-auto lg:mx-0 font-medium">
+              <p className="text-xl text-gray-600 max-w-md leading-relaxed mb-12 mx-auto lg:mx-0 font-medium">
                 Join our growing team and work on real-world projects. Develop your skills, collaborate with talented professionals, and make a real impact.
               </p>
 
@@ -457,20 +481,19 @@ export default function Homepage() {
       </section>
 
       {/* Why Choose Us */}
-      <section data-reveal className="reveal-section px-6 pb-20 pt-10  relative overflow-hidden">
-
+      <section data-reveal className="reveal-section px-6 pb-20 pt-10 relative overflow-hidden ">
+        
         <div className="max-w-7xl mx-auto relative z-10">
           
-          <div className="max-w-6xl mx-auto mb-20 border-b border-slate-200 pb-10">
+          {/* Header Section */}
+          <div className="max-w-6xl mx-auto mb-20 border-b border-slate-300 pb-10">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-              
               <div className="max-w-2xl pl-4 md:pl-0">
                 <div className="flex items-center gap-2 mb-6">
                   <div className="px-2 py-0.5 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
-                   Why Choose Us
+                    Why Choose Us
                   </div>
                 </div>
-                
                 <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tighter leading-[0.95]">
                   Our Unique <br />
                   <span className="text-emerald-600">Value Proposition.</span>
@@ -478,7 +501,7 @@ export default function Homepage() {
               </div>
 
               <div className="max-w-sm">
-                <p className="text-slate-500 font-medium leading-relaxed border-l-2 border-emerald-500/30 pl-6 py-2">
+                <p className="text-slate-500 font-medium text-lg leading-relaxed border-l-2 border-emerald-500/30 pl-6 py-2">
                   We prioritize stability and security at every layer, building 
                   software architectures that remain 
                   <span className="text-slate-900"> resilient as your business grows.</span>
@@ -487,59 +510,78 @@ export default function Homepage() {
             </div>
           </div>
 
+          {/* Cards Grid */}
           <div className="grid md:grid-cols-3 gap-8">
-            
-            <div className="group relative p-px bg-gradient-to-b from-emerald-300 to-transparent rounded-[2.5rem] hover:from-emerald-500 transition-all duration-500">
-              <div className="h-full p-12 bg-white rounded-[2.4rem] flex flex-col shadow-sm group-hover:shadow-2xl group-hover:shadow-emerald-900/5 transition-all">
-                <div className="mb-6">
-                  <div className="text-4xl font-black text-emerald-400 group-hover:text-emerald-600 transition-colors duration-500 italic">
-                    01
+            {[
+              { 
+                num: '01', 
+                title: 'Innovation', 
+                desc: 'We constantly innovate and push boundaries to develop revolutionary software platforms that set new industry standards.',
+                link: 'Read Case Study'
+              },
+              { 
+                num: '02', 
+                title: 'Reliability', 
+                desc: 'Count on us for reliable software solutions that meet the highest standards of quality and performance.',
+                link: 'Infrastructure Specs',
+                offset: true 
+              },
+              { 
+                num: '03', 
+                title: 'Customer Focus', 
+                desc: 'Customer satisfaction is our top priority, and we strive to exceed expectations in every project we undertake.',
+                link: 'Our Methods'
+              }
+            ].map((card, idx) => (
+              <div 
+                key={idx}
+                className={`group relative h-[380px] rounded-[2.5rem] bg-white border-2 border-emerald-400 overflow-hidden transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-emerald-900/20 ${card.offset ? 'md:translate-y-8' : ''}`}
+              >
+                {/* THE BG FILL: Expands from the top-left circle on hover */}
+                <div className="absolute top-10 left-10 w-15 h-15 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full scale-0 group-hover:scale-[12] transition-transform duration-700 ease-in-out z-0" />
+
+                {/* Content Layer */}
+                <div className="relative z-10 h-full p-10 flex flex-col">
+                  
+                  {/* Top Area */}
+                  <div className="mb-8 flex justify-between items-center">
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 group-hover:bg-white/20 flex items-center justify-center transition-colors duration-500">
+                      <span className="text-emerald-600 group-hover:text-white font-bold transition-colors">
+                        {card.num}
+                      </span>
+                    </div>
+
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="space-y-4">
+                    <h4 className="text-2xl font-bold text-slate-900 group-hover:text-white transition-colors duration-500 tracking-tight">
+                      {card.title}
+                    </h4>
+                    <p className="text-slate-600 group-hover:text-white leading-relaxed text-md transition-colors duration-500">
+                      {card.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom Interaction */}
+                  <div className="mt-auto pt-2 flex items-center justify-between">
+                    <div className="flex items-center gap-2 cursor-pointer">
+                      <span className="text-xs font-bold text-slate-900 group-hover:text-white uppercase tracking-widest transition-colors">
+                        {card.link}
+                      </span>
+                      <div className="w-8 h-[2px] bg-emerald-500 group-hover:bg-white transition-all duration-500" />
+                    </div>
+                    
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-x-2 group-hover:translate-x-0">
+                      <span className="text-white text-lg">→</span>
+                    </div>
                   </div>
                 </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">Innovation</h4>
-                <p className="text-slate-500 leading-relaxed text-sm mb-4">
-                  We constantly innovate and push boundaries to develop revolutionary software platforms that set new industry standards.
-                </p>
-                <div className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-600 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                  Read Case Study <span className="text-lg">→</span>
-                </div>
-              </div>
-            </div>
 
-            <div className="group relative p-px bg-gradient-to-b from-emerald-300 to-transparent rounded-[2.5rem] hover:from-emerald-500 transition-all duration-500 translate-y-0 md:translate-y-8">
-              <div className="h-full p-12 bg-white rounded-[2.4rem] flex flex-col shadow-md shadow-emerald-900/10 ring-1 ring-emerald-100">
-                <div className="mb-6">
-                  <div className="text-4xl font-black text-emerald-400 group-hover:text-emerald-600 transition-colors duration-500 italic">
-                    02
-                  </div>
-                </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">Reliability</h4>
-                <p className="text-slate-500 leading-relaxed text-sm mb-4">
-                  Count on us for reliable software solutions that meet the highest standards of quality and performance.
-                </p>
-                <div className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-700 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                  Infrastructure Specs <span className="text-lg">→</span>
-                </div>
+                {/* Glass Glare Overlay for extra depth in light mode */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-            </div>
-
-            <div className="group relative p-px bg-gradient-to-b from-emerald-300 to-transparent rounded-[2.5rem] hover:from-emerald-500 transition-all duration-500">
-              <div className="h-full p-12 bg-white rounded-[2.4rem] flex flex-col shadow-sm group-hover:shadow-2xl group-hover:shadow-emerald-900/5 transition-all">
-                <div className="mb-6">
-                  <div className="text-4xl font-black text-emerald-400 group-hover:text-emerald-600 transition-colors duration-500 italic">
-                    03
-                  </div>
-                </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">Customer Focus</h4>
-                <p className="text-slate-500 leading-relaxed text-sm mb-4">
-                  Customer satisfaction is our top priority, and we strive to exceed expectations in every project we undertake.
-                </p>
-                <div className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-600 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                  Our Methods <span className="text-lg">→</span>
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
