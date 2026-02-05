@@ -58,7 +58,7 @@ export default function ProjectBasePage() {
 
           {/* HEADER */}
           <div className="mb-20 text-center relative">
-            <h2 className="text-5xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-5xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight hero-line">
               Become a{" "}
               <span className="relative inline-block text-emerald-600">
                 Product Builder
@@ -85,14 +85,14 @@ export default function ProjectBasePage() {
           {/* PRIMARY CTA HERO */}
           <div className="grid lg:grid-cols-2 gap-14 items-center bg-emerald-50/60 border border-emerald-100 rounded-3xl p-10 md:p-16 text-slate-900 mb-28">
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold leading-tight">
+              <h3 className="text-3xl md:text-4xl font-bold leading-tight hero-line">
                 Build real products.{" "}
                 <span className="text-emerald-600">
                   Work like an industry engineer.
                 </span>
               </h3>
 
-              <p className="mt-4 text-slate-600 max-w-xl">
+              <p className="mt-4 text-slate-700 max-w-xl hero-line">
                 Collaborate with teams, solve real problems, and gain experience that
                 actually matters.
               </p>
@@ -102,14 +102,14 @@ export default function ProjectBasePage() {
                   const element = document.getElementById('active-programs');
                   element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="mt-10 px-10 py-4 bg-emerald-600 text-white font-bold rounded-full transition-all duration-300 hover:bg-emerald-700 hover:scale-105 shadow-xl shadow-emerald-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+                className="mt-10 px-10 py-4 bg-emerald-600 hero-line text-white font-bold rounded-full transition-all duration-300 hover:bg-emerald-700 hover:scale-105 shadow-xl shadow-emerald-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               >
                 Start My Journey →
               </button>
             </div>
 
-            <div className="border-l border-emerald-200 pl-10 hidden lg:block">
-              <p className="text-slate-500 italic text-lg leading-relaxed">
+            <div className="border-l border-emerald-200 pl-10 hidden lg:block hero-line">
+              <p className="text-slate-700 italic text-lg leading-relaxed">
                 “You don’t learn by watching — you learn by building.  
                 Here, your work becomes part of real products.”
               </p>

@@ -67,9 +67,9 @@ export default function SolutionsPage() {
   }, []);
 
   return (
-<section id="solutions" className="scroll-mt-24  px-6 py-30">
+    <section id="solutions" className="scroll-mt-24  px-6 py-30">
       <div className="mx-auto  max-w-7xl">
-        <p className="py-6 text-4xl md:text-5xl mb-6 text-center font-bold tracking-tight text-slate-900 leading-[1.1]">
+        <p className="py-6 text-4xl md:text-5xl mb-6 text-center font-bold tracking-tight text-slate-900 leading-[1.1] hero-line">
           Tailored software solutions <br />
           <span className="inline-block mt-2 px-4 py-1 rounded-xl border border-emerald-100 bg-emerald-50/30 text-emerald-600 shadow-sm shadow-emerald-100/50">
             designed to power your success.

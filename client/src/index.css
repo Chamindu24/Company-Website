@@ -39,3 +39,30 @@ button {
 	opacity: 1;
 	transform: translateY(0);
 }
+
+/* Staggered Line-by-Line Animation */
+@keyframes smoothSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(5px); /* Optional: adds a motion-blur feel */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.hero-line {
+    /* Using a 'Quintic' ease-out for a more premium feel */
+    animation: smoothSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    will-change: transform, opacity; /* Optimizes GPU rendering */
+}
+
+/* Tighter delays (0.1s gaps) make the sequence feel like a single fluid wave */
+.hero-line:nth-child(1) { animation-delay: 0.1s; }
+.hero-line:nth-child(2) { animation-delay: 0.2s; }
+.hero-line:nth-child(3) { animation-delay: 0.3s; }
+.hero-line:nth-child(4) { animation-delay: 0.4s; }

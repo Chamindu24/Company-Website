@@ -111,12 +111,12 @@ export default function ConsultationPageV15() {
           
           {/* LEFT: The Proposition (Column Span 5) */}
           <div className="lg:col-span-5 px-4 md:px-0">
-            <h2 className="text-5xl font-medium tracking-tighter text-gray-900 sm:text-7xl leading-[1.05]">
+            <h2 className="text-5xl font-medium tracking-tighter text-gray-900 sm:text-7xl leading-[1.05] hero-line">
               Book a free <br />
               <span className="text-emerald-600">consultancy.</span>
             </h2>
             
-            <p className="mt-10 text-xl text-gray-500 leading-relaxed max-w-md">
+            <p className="mt-10 text-xl text-gray-700 leading-relaxed max-w-md hero-line">
               Connect with our team and get the support you need. Start your journey with LushWare ORG today.
             </p>
 
@@ -127,7 +127,7 @@ export default function ConsultationPageV15() {
                 {['Client Support', 'Project Guidance', 'Quick Assistance'].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle2 size={18} className="text-emerald-600" />
-                    <span className="text-md font-bold text-gray-800 tracking-tight">{item}</span>
+                    <span className="text-md font-bold text-gray-800 tracking-tight hero-line">{item}</span>
                   </div>
                 ))}
               </div>

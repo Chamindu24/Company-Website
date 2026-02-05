@@ -83,10 +83,10 @@ export default function Homepage() {
         <div className="relative max-w-7xl mt-12 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
           
           {/* LEFT SIDE — TEXT */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 space-y-8">
 
             {/* 2. High-Impact Typography */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-900 leading-[0.85]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-900 leading-[0.85] hero-line">
               Innovative <br />
               <span className="text-emerald-600">Software</span>
               <br />
@@ -99,14 +99,14 @@ export default function Homepage() {
             </h1>
 
             {/* 3. Elegant Description */}
-            <p className="mt-8 text-lg md:text-xl text-stone-600 max-w-xl font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-stone-700 max-w-xl font-normal leading-relaxed hero-line">
               We develop{" "}
               <span className="text-emerald-900 font-semibold italic">bespoke software platforms</span>
               under new concepts for global businesses, prioritizing quality, reliability, and customer satisfaction.
             </p>
 
             {/* 4. Professional CTA Section */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center gap-8">
+            <div className="flex flex-col sm:flex-row items-center gap-8 hero-line">
               <button 
                     onClick={() => navigate("/contact")}  
                     className="relative px-12 py-4 overflow-hidden group bg-stone-900 rounded-full transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(5,150,105,0.3)]">
@@ -242,8 +242,8 @@ export default function Homepage() {
                   <div className="w-px h-10 bg-gradient-to-b from-emerald-500 to-transparent" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-[11px] font-bold text-slate-900 uppercase tracking-[0.2em]">The Journey Continues</p>
-                  <p className="text-sm text-slate-500 font-light">Evolving the standard of digital simplicity since 2020.</p>
+                  <p className="text-[12px] font-bold text-slate-900 uppercase tracking-[0.2em]">The Journey Continues</p>
+                  <p className="text-md text-slate-900 font-light">Evolving the standard of digital simplicity since 2020.</p>
                 </div>
               </div>
             </div>
@@ -412,7 +412,7 @@ export default function Homepage() {
                   className="group relative px-10 py-4 overflow-hidden bg-stone-900 text-white rounded-full font-bold transition-all duration-500 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)]"
                 >
                   <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
-                  <span className="relative z-10 text-[11px] font-bold tracking-[0.2em] uppercase">Join Now</span>
+                  <span className="relative z-10 text-[13px] font-bold tracking-[0.2em] uppercase">Join Now</span>
                 </button>
                 
 
@@ -798,7 +798,7 @@ export default function Homepage() {
                 <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
                 
                 {/* The Text */}
-                <span className="relative z-10 text-[12px] font-bold tracking-[0.2em] uppercase text-white transition-colors duration-500">
+                <span className="relative z-10 text-[13px] font-bold tracking-[0.2em] uppercase text-white transition-colors duration-500">
                   View All Works
                 </span>
                 

@@ -96,7 +96,7 @@ export default function WorkPage() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-950 tracking-tighter leading-none">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-950 tracking-tighter leading-none hero-line">
                 Our Projects <span className="text-gray-500 font-light mx-1">— </span> 
                 <span className="relative inline-block text-emerald-600">
                   Showcasing Innovation
