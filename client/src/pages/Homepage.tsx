@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import WorkCard, { type WorkProject } from "../components/WorkCard";
 
 
 export default function Homepage() {
@@ -72,6 +73,29 @@ export default function Homepage() {
       tags: ["Gen AI", "Neural Workflows"],
       color: "group-hover:text-rose-600"
     }
+  ];
+
+  const featuredProjects: WorkProject[] = [
+    {
+      name: "All-in-one Travel Agency Web Application",
+      client: "Islekey Holidays",
+      summary:
+        "Islekey Holidays is a unified platform for travel agencies to manage bookings, inventory, and customer journeys.",
+      description:
+        "We delivered a scalable system that centralizes B2B/B2C workflows, improving operations and customer experiences.",
+      image: "/work/islekeyholidays.png",
+      link: "https://islekeyholidays.com/",
+    },
+    {
+      name: "Speedboat Ticket Booking System",
+      client: "Dream Speed",
+      summary:
+        "A real-time ticketing platform for maritime travel with live route availability and instant booking.",
+      description:
+        "Built to handle vessel capacity, passenger validation, and fast checkouts across busy routes.",
+      image: "/work/dreamspeed.png",
+      link: "https://www.dreamspeedmaldives.com/",
+    },
   ];
 
 
@@ -189,10 +213,8 @@ export default function Homepage() {
         {/* Creative Background Elements */}
         <div className="absolute inset-0 z-0">
           {/* Primary Emerald Wash - Softer for light mode */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
           
-          {/* Secondary Accent Orb */}
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-200/30 rounded-full blur-[80px] pointer-events-none" />
           
           {/* Subtle Grid Pattern Overlay - Darkened for visibility on light bg */}
           <div className="absolute inset-0 opacity-[0.09] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" 
@@ -380,8 +402,6 @@ export default function Homepage() {
           {/* Primary Emerald Wash - Softer for light mode */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
           
-          {/* Secondary Accent Orb */}
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-200/30 rounded-full blur-[80px] pointer-events-none" />
           
           {/* Subtle Grid Pattern Overlay - Darkened for visibility on light bg */}
           <div className="absolute inset-0 opacity-[0.09] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" 
@@ -587,8 +607,8 @@ export default function Homepage() {
       </section>
 
       {/* Software Products */}
-      <section data-reveal className="reveal-section px-6 py-8  relative">
-
+      <section data-reveal className="reveal-section px-6 py-8  relative ">
+        
         <div className="max-w-7xl mx-auto relative z-10">
           
           {/* Tech-Spec Header */}
@@ -617,177 +637,22 @@ export default function Homepage() {
           </div>
 
           {/* The Technical Grid */}
-          <div className="max-w-7xl mx-auto px-6 space-y-16">
-            
-            <div className="group border border-slate-300 bg-white shadow-sm hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden">
-              <div className="flex items-center justify-between px-6 py-3 border-b border-slate-300 bg-slate-50/50">
-                <div className="flex gap-2 group/controls">
-                  {/* Red / Close */}
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f57] border border-[#e0443e] relative flex items-center justify-center">
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[6px] h-[0.5px] bg-[#4c0000] rotate-45 absolute"></div>
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[6px] h-[0.5px] bg-[#4c0000] -rotate-45 absolute"></div>
-                  </div>
-                  
-                  {/* Yellow / Minimize */}
-                  <div className="w-3 h-3 rounded-full bg-[#febc2e] border border-[#d8a124] relative flex items-center justify-center">
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[6px] h-[1px] bg-[#9a5700]"></div>
-                  </div>
-                  
-                  {/* Green / Maximize */}
-                  <div className="w-3 h-3 rounded-full bg-[#28c840] border border-[#1aab29] relative flex items-center justify-center">
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[4px] h-[4px] border-t border-l border-[#006500] rotate-[-45deg] absolute translate-x-[-1px] translate-y-[-1px]"></div>
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[4px] h-[4px] border-b border-r border-[#006500] rotate-[-45deg] absolute translate-x-[1px] translate-y-[1px]"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid lg:grid-cols-2">
-                {/* Content Side */}
-                <div className="px-10 lg:px-16 py-14 border-r border-slate-100">
-                  <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-tighter mb-6">
-                    System Core
-                  </div>
-                  
-                  <h4 className="text-5xl font-bold tracking-tighter text-slate-900 mb-2">Islekey Holidays</h4>
-                  <h1 className="text-slate-500 text-md font-medium mb-8">All-in-one Travel Agency Web Application</h1>
-                  
-                  <p className="text-slate-600 text-lg leading-relaxed mb-12 border-l-4 border-emerald-500 pl-6">
-                    An enterprise-grade orchestration layer for travel agencies. 
-                    Centralizing B2B/B2C logic into a high-availability API.
-                  </p>
-
-                  <button 
-                    onClick={() => window.open("https://islekeyholidays.com/", "_blank")}
-                    className="relative px-6 py-3 overflow-hidden group bg-stone-900 rounded-full transition-all duration-500 hover:border-emerald-600 flex items-center gap-2"
-                  >
-                    {/* The color layer that slides in */}
-                    <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
-                    
-                    {/* The Text */}
-                    <span className="relative z-10 text-[11px] font-bold tracking-[0.2em] uppercase text-white transition-colors duration-500">
-                      View Live
-                    </span>
-                    
-                    {/* Globe Icon */}
-                    <svg 
-                      width="14" 
-                      height="14" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="white" 
-                      strokeWidth="2.5" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      className="relative z-10 transition-transform duration-700 group-hover:rotate-[360deg]"
-                    >
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                {/* Visual Side */}
-                <div className="relative bg-slate-50 flex items-center justify-center p-1 lg:p-2">
-                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                  <div className="relative h-full aspect-video rounded-r-lg overflow-hidden border border-slate-200">
-                    <img 
-                      src="/islekeyholidays.png" 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                      alt="System UI"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Block 02 */}
-            <div className="group border border-slate-300 bg-white shadow-sm hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden">
-              <div className="flex items-center justify-between px-6 py-3 border-b border-slate-300 bg-slate-50/50">
-                <div className="flex gap-2 group/controls">
-                  {/* Red / Close */}
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f57] border border-[#e0443e] relative flex items-center justify-center">
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[6px] h-[0.5px] bg-[#4c0000] rotate-45 absolute"></div>
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[6px] h-[0.5px] bg-[#4c0000] -rotate-45 absolute"></div>
-                  </div>
-                  
-                  {/* Yellow / Minimize */}
-                  <div className="w-3 h-3 rounded-full bg-[#febc2e] border border-[#d8a124] relative flex items-center justify-center">
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[6px] h-[1px] bg-[#9a5700]"></div>
-                  </div>
-                  
-                  {/* Green / Maximize */}
-                  <div className="w-3 h-3 rounded-full bg-[#28c840] border border-[#1aab29] relative flex items-center justify-center">
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[4px] h-[4px] border-t border-l border-[#006500] rotate-[-45deg] absolute translate-x-[-1px] translate-y-[-1px]"></div>
-                    <div className="opacity-0 group-hover/controls:opacity-100 transition-opacity w-[4px] h-[4px] border-b border-r border-[#006500] rotate-[-45deg] absolute translate-x-[1px] translate-y-[1px]"></div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div className="grid lg:grid-cols-2">
-                {/* Visual Side (Reversed) */}
-                <div className="relative bg-slate-50 flex items-center justify-center p-1 lg:p-2 order-2 lg:order-1">
-                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                  <div className="relative w-full aspect-video rounded-l-lg   overflow-hidden border border-slate-200">
-                    <img 
-                      src="/dreamspeed.png" 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                      alt="System UI"
-                    />
-                  </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="px-10 lg:px-16 py-14 border-l border-slate-100 order-1 lg:order-2">
-                  <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-tighter mb-6">
-                    Real-time Engine
-                  </div>
-                  
-                  <h4 className="text-5xl font-bold tracking-tighter text-slate-900 mb-2">Dream Speed</h4>
-                  <h1 className="text-slate-500 text-md font-medium mb-8">Speedboat Ticket Booking System</h1>
-                  
-                  <p className="text-slate-600 text-lg leading-relaxed mb-12 border-l-4 border-emerald-500 pl-6">
-                    Logistics automation for maritime ticketing. Handling real-time 
-                    vessel capacity and instantaneous passenger validation.
-                  </p>
-
-                  <button 
-                    onClick={() => window.open("https://www.dreamspeedmaldives.com/", "_blank")}
-                    className="relative px-6 py-3 overflow-hidden group bg-stone-900 rounded-full transition-all duration-500 hover:border-emerald-600 flex items-center gap-2"
-                  >
-                    {/* The color layer that slides in */}
-                    <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
-                    
-                    {/* The Text */}
-                    <span className="relative z-10 text-[11px] font-bold tracking-[0.2em] uppercase text-white transition-colors duration-500">
-                      View Live
-                    </span>
-                    
-                    {/* Globe Icon */}
-                    <svg 
-                      width="14" 
-                      height="14" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="white" 
-                      strokeWidth="2.5" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      className="relative z-10 transition-transform duration-700 group-hover:rotate-[360deg]"
-                    >
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20">
+              {featuredProjects.map((project, index) => (
+                <WorkCard
+                  key={project.name}
+                  project={project}
+                  index={index}
+                  ctaAlign="start"
+                  ctaClassName="mt-8"
+                />
+              ))}
             </div>
           </div>
 
           {/* The Footer Bar */}
-          <div className="mt-16 mb-8 flex flex-col items-center">
+          <div className="mt-24 mb-2 flex flex-col items-center">
             <div className="text-center">
               {/* Call to Action Button */}
               <button 
