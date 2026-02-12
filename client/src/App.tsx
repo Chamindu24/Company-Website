@@ -6,6 +6,11 @@ import WhatsAppButton from './components/WhatsAppButton'
 import ProtectedRoute from './components/ProtectedRoute'
 import Homepage from './pages/Homepage'
 import SolutionsPage from './pages/SolutionsPage'
+import AIAgents from './pages/solutions/AIAgents'
+import BPM from './pages/solutions/BPM'
+import CRM from './pages/solutions/CRM'
+import MobileApps from './pages/solutions/MobileApps'
+import Websites from './pages/solutions/Websites'
 import WorkPage from './pages/WorkPage'
 import ProjectBasePage from './pages/ProjectBasePage'
 import ConsultationPage from './pages/ConsultationPage'
@@ -29,7 +34,7 @@ function App() {
 
   return (
     /* 1. Ensure the parent is relative and has a min-height */
-    <div className="relative min-h-screen  bg-white">
+    <div className="relative min-h-screen  bg-[#FFFFFF]">
       
       <div className="fixed top-1/2 right-[-25%] -translate-y-1/2 w-[800px] md:w-[1000px] aspect-square pointer-events-none select-none opacity-[0.09] z-0">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-emerald-600">
@@ -69,6 +74,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/solutions/crm" element={<CRM />} />
+          <Route path="/solutions/ai-agents" element={<AIAgents />} />
+          <Route path="/solutions/bpm" element={<BPM />} />
+          <Route path="/solutions/websites" element={<Websites />} />
+          <Route path="/solutions/mobile-apps" element={<MobileApps />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/project-base" element={<ProjectBasePage />} />
           <Route path="/contact" element={<ConsultationPage />} />

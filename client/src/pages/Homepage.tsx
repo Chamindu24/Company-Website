@@ -1,7 +1,16 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import WorkCard, { type WorkProject } from "../components/WorkCard";
+import ValueCard from "../components/ValueCard";
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade, Pagination,Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
+import GlobalPresence from "@/components/GlobalPresence";
 
 export default function Homepage() {
 
@@ -98,114 +107,157 @@ export default function Homepage() {
     },
   ];
 
+  const heroSlides = [
+    {
+      id: "01",
+      titleTop: "Customer ",
+      titleHighlight: "Relationship",
+      titleOutline: "Management.",
+      description:
+        "Powerful CRM platforms designed to strengthen customer engagement, automate workflows, and scale relationships.",
+      image: "/hero/crm.jpg",
+    },
+    {
+      id: "02",
+      titleTop: "AI Agents &",
+      titleHighlight: "AI Chatbots",
+      titleOutline: "Solutions.",
+      description:
+        "Intelligent AI agents and chatbots that automate support, sales, and internal operations with precision.",
+      image: "/hero/chat.png",
+    },
+    {
+      id: "03",
+      titleTop: "Business",
+      titleHighlight: "Process",
+      titleOutline: "Management.",
+      description:
+        "Streamline operations with BPM systems built for efficiency, visibility, and long-term growth.",
+      image: "/hero/bm.jpg",
+    },
+    {
+      id: "04",
+      titleTop: "Business &",
+      titleHighlight: "Corporate",
+      titleOutline: "Websites.",
+      description:
+        "High-end corporate websites crafted to communicate trust, clarity, and brand authority.",
+      image: "/hero/bc.jpg",
+    },
+    {
+      id: "05",
+      titleTop: "Mobile",
+      titleHighlight: "Applications",
+      titleOutline: "Development.",
+      description:
+        "Scalable iOS and Android applications engineered for performance and user experience.",
+      image: "/hero/app.jpg",
+    },
+  ];
 
   return (
     <div className="text-gray-800">
 
       {/* Hero Section */}
-      <section  className=" relative px-6 pt-32 pb-20 overflow-hidden">
-        <div className="relative max-w-7xl mt-12 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
-          
-          {/* LEFT SIDE — TEXT */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 space-y-8">
-
-            {/* 2. High-Impact Typography */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-stone-900 leading-[0.85] hero-line">
-              Innovative <br />
-              <span className="text-emerald-600">Software</span>
-              <br />
-              <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: "1px #1c1917" }}
-              >
-                Solutions.
-              </span>
-            </h1>
-
-            {/* 3. Elegant Description */}
-            <p className="text-lg md:text-xl text-stone-700 max-w-xl font-normal leading-relaxed hero-line">
-              We develop{" "}
-              <span className="text-emerald-900 font-semibold italic">bespoke software platforms</span>
-              under new concepts for global businesses, prioritizing quality, reliability, and customer satisfaction.
-            </p>
-
-            {/* 4. Professional CTA Section */}
-            <div className="flex flex-col sm:flex-row items-center gap-8 hero-line">
-              <button 
-                    onClick={() => navigate("/contact")}  
-                    className="relative px-12 py-4 overflow-hidden group bg-stone-900 rounded-full transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(5,150,105,0.3)]">
-                <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span className="relative z-10 text-[11px] font-bold tracking-[0.2em] uppercase text-white">
-                  Start Your Project
-                </span>
-              </button>
+    <section className="relative w-full h-screen  flex items-center justify-center overflow-hidden">
+    
+      
+      <Swiper
+        modules={[Autoplay, EffectFade, Navigation, Pagination]}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        speed={1200}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        slidesPerView={1}
+        loop={true}
+        className="h-full w-full hero-swiper"
+      >
+        {heroSlides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="relative h-full w-full px-6 lg:px-20 flex flex-col justify-center z-10 overflow-hidden">
               
-              {/* Trust Indicator */}
-              <div className="flex flex-col items-start gap-1 mt-2">
-                <div className="flex -space-x-2">
-                  <img
-                  className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100&h=100"
-                  alt="Executive Partner"
-                />
-                <img
-                  className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100"
-                  alt="Tech Lead"
-                />
-                <img
-                  className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100"
-                  alt="Product Director"
-                />
-                <div className="flex items-center justify-center h-8 w-8 rounded-full ring-1 ring-gray-300 bg-gray-100 text-[10px] font-bold text-emerald-700">
-                  +50
+              {/* 2. THE MAIN WIDE GRID */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 w-full items-center">
+                
+                {/* LEFT BLOCK: Massive Left-Aligned Typography */}
+                <div className="lg:col-span-8 flex flex-col">
+                  <h1 className="flex flex-col gap-0 select-none">
+
+                    
+                    {/* Consistent Massive Sizing with tight tracking */}
+                    <span className="text-7xl md:text-8xl lg:text-[8rem] font-bold tracking-tighter text-stone-300 uppercase leading-[0.8] mb-1">
+                      {slide.titleTop}
+                    </span>
+                    <span className="text-7xl md:text-8xl lg:text-[8rem] font-black text-stone-900 uppercase leading-[0.8] tracking-tighter">
+                      {slide.titleHighlight}
+                    </span>
+                    <span className="text-7xl md:text-8xl lg:text-[8rem] font-medium text-emerald-700 uppercase leading-[0.8] tracking-tighter opacity-80">
+                      {slide.titleOutline}
+                    </span>
+                  </h1>
                 </div>
+
+                {/* RIGHT BLOCK: The "Concierge" Action Area */}
+                <div className="lg:col-span-4 flex flex-col items-start lg:items-end text-left lg:text-right mt-16 lg:mt-0">
+                  <div className="max-w-md flex flex-col lg:items-end">
+                    
+                    {/* Sophisticated Description with vertical line detail */}
+                    <div className="relative mb-12 lg:pr-0">
+                      <p className="text-stone-800 text-xl md:text-2xl font-light leading-relaxed tracking-wide">
+                        {slide.description}
+                      </p>
+                      <div className="mt-6 h-[2px] w-20 bg-emerald-800 ml-auto hidden lg:block"></div>
+                    </div>
+
+                    {/* Action Group */}
+                    <div className="flex flex-col md:flex-row lg:flex-col gap-6 w-full lg:w-max">
+                      <button 
+                        onClick={() => navigate("/contact")}
+                        className="group relative px-12 py-6 bg-stone-900 overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105"
+                      >
+                        <span className="relative z-10 text-[12px] font-bold tracking-[0.6em] uppercase text-white">
+                          Initiate Build
+                        </span>
+                        {/* Liquid effect hover */}
+                        <div className="absolute inset-0 bg-emerald-900 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
+                      </button>
+
+
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[11px] font-medium text-stone-600 uppercase tracking-widest">
-                  <span className="text-emerald-700">Fortune</span> Partners
-                </p>
               </div>
-            </div>
-          </div>
 
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2 relative group">
-            
-            {/* Soft organic glow (no square edges) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-emerald-500/25 blur-[120px] rounded-full z-0" />
-              <div className="absolute -top-6 left-0 w-28 h-28 rounded-full z-0 
-                  bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-900 
-                  shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.4),_0_20_40px_rgba(16,185,129,0.3)] " 
-                />
-              <div className="absolute top-1/2 -right-10 w-18 h-18 rounded-full z-0 
-                bg-emerald-600 
-                shadow-[inset_-5px_-5px_15px_rgba(0,0,0,0.5)] " 
-              />
-              <div className="absolute -bottom-10 left-1/3 w-12 h-12 rounded-full z-0 
-                bg-emerald-600 shadow-[inset_-5px_-5px_15px_rgba(0,0,0,0.5)] 
-                 opacity-100" 
-              />
-
-            <div className="relative">
-              <img
-                src="/hero/hero6.png"
-                alt="Software Graphics"
-                className="
-                  w-full
-                  max-w-2xl
-                  md:max-w-4xl
-                  lg:max-w-5xl
-                  xl:max-w-6xl
-                  object-contain
-                  brightness-110
-                  relative z-10
-                  drop-shadow-[20px_30px_20px_rgba(0,0,0,0.4)]
-                "
-              />
             </div>
-          </div>
-        </div>
-      </section>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+
+
+      <style jsx global>{`
+        .hero-swiper .swiper-slide {
+          opacity: 0;
+          transition: opacity 600ms ease;
+        }
+        .hero-swiper .swiper-slide-active {
+          opacity: 1;
+        }
+        .swiper-pagination-bullets {
+          bottom: 10% !important;
+        }
+        .swiper-pagination-bullet {
+          background: #d6d3d1 !important;
+          opacity: 1 !important;
+          margin: 0 10px !important;
+        }
+        .swiper-pagination-bullet-active {
+          background: #065f46 !important;
+          transform: scale(1.5);
+        }
+      `}</style>
+    </section>
+
 
       {/* Our Story Section */}
       <section data-reveal className="reveal-section relative px-10 md:px-2 py-12 md:py-20 overflow-hidden bg-white ">
@@ -291,6 +343,198 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+
+      {/* Solutions Section */}
+      <section className="relative px-10 py-24 bg-white overflow-hidden font-sans">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            
+            {/* LEFT SIDE: CRM TEXT CONTENT */}
+            <div className="lg:col-span-6">
+              <div className="space-y-10">
+
+                {/* Badge */}
+                <div className="inline-flex items-center gap-3 px-5 py-1.5 bg-emerald-50/50 rounded-none border-l-2 border-emerald-800">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.4em] text-emerald-900/70">
+                    Customer Relationship Management
+                  </span>
+                </div>
+
+                {/* Headline */}
+                <h2 className="text-6xl md:text-7xl font-serif text-[#0f172a] leading-[1.1] tracking-tight">
+                  Transforming <br />
+                  <span className=" text-emerald-800">
+                    Client Relationships
+                  </span>
+                </h2>
+
+                {/* Description */}
+                <div className="space-y-6 text-slate-800 text-xl  leading-relaxed max-w-2xl">
+                  <p>
+                    Our Customer Relationship Management platform centralizes 
+                    <span className="text-emerald-900 font-normal"> client data</span>, 
+                    interactions, and business intelligence into a single, secure ecosystem.
+                  </p>
+
+                  <p>
+                    From first contact to long-term partnerships, we empower teams to 
+                    build trust, improve engagement, and drive measurable growth through 
+                    actionable insights.
+                  </p>
+
+                  {/* Quote */}
+                  <div className="relative py-2">
+                    <div className="absolute left-0 top-0 h-full w-[1px] bg-emerald-400"></div>
+                    <p className="pl-8 italic text-slate-800 text-lg">
+                      “One unified source of truth for every client, every interaction,
+                      and every opportunity.”
+                    </p>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="pt-6 flex items-center gap-8">
+                  {/* Primary Button → CRM Route */}
+                  <Link
+                    to="/solutions/crm"
+                    className="px-10 py-5 bg-emerald-950 text-white rounded-none font-medium text-xs tracking-[0.2em] uppercase hover:bg-emerald-800 transition-all duration-700 shadow-[20px_20px_60px_rgba(6,78,59,0.1)]"
+                    style={{ color: "#ffffff" }}
+                  >
+                    Explore CRM Solution
+                  </Link>
+
+                  {/* Secondary */}
+                  <button className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-800 border-b border-slate-200 pb-1 hover:border-emerald-800 hover:text-emerald-900 transition-all duration-300">
+                    How It Works
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* RIGHT SIDE: THE "REAL" PHONE MOCKUP */}
+            <div className="lg:col-span-6 flex justify-center lg:justify-center relative">
+              <div className="relative">
+                
+                {/* Subtle Shadow & Glow */}
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-10 bg-black/20 blur-[50px] rounded-[100%]" />
+                
+                {/* PHYSICAL PHONE BODY (The Chassis) */}
+                <div className="relative w-[300px] h-[610px] bg-[#d1d5db] rounded-[3rem] p-[3px] shadow-[inset_0_0_2px_2px_rgba(255,255,255,0.8),0_25px_50px_-12px_rgba(0,0,0,0.25)] border-b-[4px] border-r-[2px] border-slate-400">
+                  
+                  {/* Inner Black Bezel */}
+                  <div className="w-full h-full bg-[#0a0a0a] rounded-[2.8rem] p-[10px] relative overflow-hidden">
+                    
+                    {/* THE GLASS REFLECTION (Makes it look real) */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 via-transparent to-transparent z-20 pointer-events-none" />
+
+                    {/* Dynamic Island / Notch Area */}
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-full z-30 flex items-center justify-end px-4 gap-2">
+                      <div className="w-1 h-1 bg-blue-900/30 rounded-full border border-blue-400/20" /> {/* Camera Lens detail */}
+                      <div className="w-2 h-2 bg-slate-900 rounded-full border border-slate-800" />
+                    </div>
+
+                    {/* THE SCREEN CONTENT */}
+                    <div className="w-full h-full bg-white rounded-[2.2rem] overflow-hidden flex flex-col">
+                      
+                      {/* App Header */}
+                      <div className="bg-emerald-900 p-8 pt-14 text-white">
+                        <p className="text-[10px] uppercase tracking-widest opacity-60 mb-1">Secure Dashboard</p>
+                        <h4 className="text-xl font-serif">CRM Enterprise</h4>
+                      </div>
+
+                        {/* App Content */}
+                        <div className="p-5 space-y-6">
+                          {/* Search Bar Mockup */}
+                          <div className="relative">
+                            <div className="h-9 w-full bg-slate-50 border border-slate-200 rounded-xl flex items-center px-3 gap-2">
+                              <div className="w-3 h-3 rounded-full border-2 border-slate-300" />
+                              <span className="text-[10px] text-slate-400 font-medium">Search clients...</span>
+                            </div>
+                          </div>
+
+                          {/* KPI Stats Cards */}
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-white rounded-2xl border border-slate-100 p-3 shadow-sm">
+                              <p className="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Revenue</p>
+                              <p className="text-lg font-serif text-emerald-900 leading-tight mt-1">£124,500</p>
+                              <div className="mt-2 flex items-center gap-1">
+                                <span className="text-[8px] text-emerald-500 font-bold">+12%</span>
+                                <div className="h-[2px] w-8 bg-emerald-100 rounded-full" />
+                              </div>
+                            </div>
+                            <div className="bg-white rounded-2xl border border-slate-100 p-3 shadow-sm">
+                              <p className="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Active Deals</p>
+                              <p className="text-lg font-serif text-slate-800 leading-tight mt-1">42</p>
+                              <div className="mt-2 flex items-center gap-1">
+                                <span className="text-[8px] text-amber-500 font-bold">High Priority</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Recent Interactions / Lead List */}
+                          <div className="space-y-4">
+                            <h5 className="text-[10px] uppercase tracking-[0.15em] font-bold text-slate-900 border-b border-slate-100 pb-2">
+                              Recent Leads
+                            </h5>
+                            
+                            <div className="space-y-3">
+                              {[
+                                { name: "Alexander Sterling", company: "Mayfair Holdings", status: "Negotiation" },
+                                { name: "Sophia Chen", company: "Aura Tech Ltd", status: "Follow up" },
+                                { name: "Julian Rossi", company: "Global Logistics", status: "Qualified" }
+                              ].map((lead, i) => (
+                                <div key={i} className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors group">
+                                  <div className="w-10 h-10 rounded-full bg-emerald-900 flex items-center justify-center text-[10px] text-white font-bold">
+                                    {lead.name.split(' ').map(n => n[0]).join('')}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-[11px] font-bold text-slate-900 truncate">{lead.name}</p>
+                                    <p className="text-[9px] text-slate-400 truncate">{lead.company}</p>
+                                  </div>
+                                  <div className="text-right">
+                                    <div className={`text-[8px] px-2 py-0.5 rounded-full inline-block ${
+                                      i === 0 ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600'
+                                    }`}>
+                                      {lead.status}
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Bottom Action Button */}
+                          <button className="w-full py-3 bg-emerald-900 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-emerald-900/20">
+                            + Add New Entry
+                          </button>
+                        </div>
+
+                      {/* Home Indicator */}
+                      <div className="mt-auto pb-2 flex justify-center">
+                        <div className="w-20 h-1 bg-slate-200 rounded-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hardware Buttons */}
+                  <div className="absolute -left-[3px] top-24 w-[3px] h-8 bg-[#94a3b8] rounded-l-sm" />
+                  <div className="absolute -left-[3px] top-40 w-[3px] h-14 bg-[#94a3b8] rounded-l-sm" />
+                  <div className="absolute -left-[3px] top-56 w-[3px] h-14 bg-[#94a3b8] rounded-l-sm" />
+                  <div className="absolute -right-[3px] top-36 w-[3px] h-20 bg-[#94a3b8] rounded-r-sm" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <GlobalPresence />
+
+
       {/* Services */}
       <section data-reveal className="reveal-section px-6 py-20  relative">
         
@@ -553,54 +797,14 @@ export default function Homepage() {
                 link: 'Our Methods'
               }
             ].map((card, idx) => (
-              <div 
+              <ValueCard
                 key={idx}
-                className={`group relative h-[380px] rounded-[2.5rem] bg-white border-2 border-emerald-400 overflow-hidden transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-emerald-900/20 ${card.offset ? 'md:translate-y-8' : ''}`}
-              >
-                {/* THE BG FILL: Expands from the top-left circle on hover */}
-                <div className="absolute top-10 left-10 w-15 h-15 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full scale-0 group-hover:scale-[12] transition-transform duration-700 ease-in-out z-0" />
-
-                {/* Content Layer */}
-                <div className="relative z-10 h-full p-10 flex flex-col">
-                  
-                  {/* Top Area */}
-                  <div className="mb-8 flex justify-between items-center">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 group-hover:bg-white/20 flex items-center justify-center transition-colors duration-500">
-                      <span className="text-emerald-600 group-hover:text-white font-bold transition-colors">
-                        {card.num}
-                      </span>
-                    </div>
-
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="space-y-4">
-                    <h4 className="text-2xl font-bold text-slate-900 group-hover:text-white transition-colors duration-500 tracking-tight">
-                      {card.title}
-                    </h4>
-                    <p className="text-slate-600 group-hover:text-white leading-relaxed text-md transition-colors duration-500">
-                      {card.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Interaction */}
-                  <div className="mt-auto pt-2 flex items-center justify-between">
-                    <div className="flex items-center gap-2 cursor-pointer">
-                      <span className="text-xs font-bold text-slate-900 group-hover:text-white uppercase tracking-widest transition-colors">
-                        {card.link}
-                      </span>
-                      <div className="w-8 h-[2px] bg-emerald-500 group-hover:bg-white transition-all duration-500" />
-                    </div>
-                    
-                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-x-2 group-hover:translate-x-0">
-                      <span className="text-white text-lg">→</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Glass Glare Overlay for extra depth in light mode */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/0 via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+                num={card.num}
+                title={card.title}
+                desc={card.desc}
+                link={card.link}
+                offset={card.offset}
+              />
             ))}
           </div>
         </div>

@@ -239,6 +239,100 @@ const sendInquiryEmail = async (inquiry) => {
   }
 };
 
+const sendUserConfirmationEmail = async (inquiry) => {
+  try {
+    const transporter = createEmailTransporter();
+    console.log('inquiry is ',inquiry);
+
+    const mailOptions = {
+      from: `"LushWare Team" <${process.env.MAIL_USER || process.env.SMTP_USER}>`,
+      to: inquiry.email,
+      subject: "We’ve received your inquiry – LushWare",
+      html: `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Inter', -apple-system, system-ui, sans-serif; color: #111827; }
+    .container { max-width: 650px; margin: 40px auto; background-color: #ffffff; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .inner { padding: 40px; border-left: 6px solid #059669; }
+    .title { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+    .text { font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table td { padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; vertical-align: top; }
+    .footer { padding: 24px 40px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="inner">
+      <h1 class="title">Thank you, ${inquiry.firstName} 👋</h1>
+
+      <p class="text">
+        We’ve successfully received your inquiry at <strong>LushWare</strong>.
+        Our team is currently reviewing your request, and one of our members
+        will get in touch with you as soon as possible.
+      </p>
+
+      <p class="text">
+        Below is a summary of the information you submitted:
+      </p>
+
+      <table>
+        <tr><td><strong>Name</strong></td><td>${inquiry.firstName} ${inquiry.lastName}</td></tr>
+        <tr><td><strong>Email</strong></td><td>${inquiry.email}</td></tr>
+        <tr><td><strong>Country</strong></td><td>${inquiry.country}</td></tr>
+        <tr><td><strong>WhatsApp</strong></td><td>${inquiry.whatsapp}</td></tr>
+        <tr><td><strong>Inquiry Type</strong></td><td>${inquiry.inquiryType}</td></tr>
+
+        ${inquiry.organization ? `<tr><td><strong>Organization</strong></td><td>${inquiry.organization}</td></tr>` : ''}
+        ${inquiry.industry ? `<tr><td><strong>Industry</strong></td><td>${inquiry.industry}</td></tr>` : ''}
+        ${inquiry.project ? `<tr><td><strong>Project</strong></td><td>${inquiry.project}</td></tr>` : ''}
+        ${inquiry.requirements ? `<tr><td><strong>Requirements</strong></td><td>${inquiry.requirements}</td></tr>` : ''}
+        ${inquiry.message ? `<tr><td><strong>Message</strong></td><td>${inquiry.message}</td></tr>` : ''}
+      </table>
+
+      <p class="text" style="margin-top: 24px;">
+        If you have any additional details to share, feel free to reply to this email.
+        We look forward to connecting with you.
+      </p>
+
+      <p class="text">
+        Best regards,<br />
+        <strong>LushWare Team</strong>
+      </p>
+    </div>
+
+    <div class="footer">
+      © 2026 LushWare ORG · 
+    </div>
+  </div>
+</body>
+</html>
+      `,
+    };
+
+    try {
+      await transporter.verify();
+    } catch (verifyErr) {
+      console.error('SMTP transporter verification failed for user confirmation email:', verifyErr);
+    }
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log("User confirmation email sent:", info && info.messageId);
+    if (info && info.accepted) console.log('Accepted recipients:', info.accepted);
+    if (info && info.rejected) console.log('Rejected recipients:', info.rejected);
+    return true;
+  } catch (error) {
+    console.error("Error sending user confirmation email:", error);
+    return false;
+  }
+};
+
+
 module.exports = {
   sendInquiryEmail,
+  sendUserConfirmationEmail
 };

@@ -1,5 +1,5 @@
 const Inquiry = require("../models/Inquiry");
-const { sendInquiryEmail } = require("../utils/emailService");
+const { sendInquiryEmail, sendUserConfirmationEmail } = require("../utils/emailService");
 
 /**
  * Submit a new inquiry
@@ -47,6 +47,7 @@ const submitInquiry = async (req, res) => {
 
     // Send email notification to LushWare
     await sendInquiryEmail(savedInquiry);
+    await sendUserConfirmationEmail(savedInquiry);
 
     res.status(201).json({
       message: "Inquiry submitted successfully",

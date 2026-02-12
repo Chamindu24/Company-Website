@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -13,8 +14,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const solutionLinks = [
+    { name: "Customer Relationship Management Software", to: "/solutions/crm" },
+    { name: "AI Agents & AI Chatbots", to: "/solutions/ai-agents" },
+    { name: "Business Process Management Software", to: "/solutions/bpm" },
+    { name: "Business & Corporate Websites", to: "/solutions/websites" },
+    { name: "Mobile Apps", to: "/solutions/mobile-apps" },
+    { name: "Travel Solutions", to: "/solutions" },
+  ];
+
   const links = [
-    { name: "Our Solutions", to: "/solutions" },
     { name: "Our Work", to: "/work" },
     { name: "Project Base", to: "/project-base" },
   ];
@@ -23,7 +32,7 @@ export default function Navbar() {
     <nav 
       className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? "bg-white/80 backdrop-blur-md py-3 shadow-sm" 
+          ? "bg-white/90 backdrop-blur-md py-3 shadow-sm" 
           : "bg-transparent py-5"
       }`}
     >
@@ -35,32 +44,89 @@ export default function Navbar() {
           className="flex items-center group"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <div className="relative h-12 w-14  rounded-xl  mr-3 ">
+          <div className="relative h-12 w-15  rounded-xl  mr-3 ">
             <img
               src="/logo.jpeg"
               alt="LushWare ORG"
-              className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+              className="h-full w-full object-cover  "
             />
           </div>
           <div className="flex flex-col ">
-            <span className="text-xl font-black tracking-tighter text-stone-700 leading-none">
+            <span className="text-2xl font-black tracking-wider text-stone-700 leading-none">
               LUSH<span style={{ WebkitTextStroke: '0.5px #1c1917', color: 'transparent' }}>WARE</span>
             </span>
-            <span className="text-[8px] tracking-[0.4em] text-emerald-600 font-bold uppercase leading-none mt-1">
-              Organization
+            <span className="text-[8.5px] tracking-tighter text-emerald-600 font-bold uppercase leading-none mt-0.5">
+              Hoisting Your Life to The Next Level
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-10">
-          <div className="flex space-x-8">
+          <div className="flex items-center space-x-8">
+            <div className="relative group">
+              <div
+                className={`text-md font-medium cursor-pointer tracking-wide transition-all duration-300 hover:text-emerald-900 flex items-center gap-2 relative ${
+                  location.pathname.startsWith("/solutions") ? "text-emerald-900" : "text-stone-800"
+                }`}
+              >
+                Our Solutions
+                {/* Elegant Chevron Icon */}
+                <svg 
+                  className={`w-3 h-3 transition-transform duration-300 group-hover:rotate-180 ${
+                    location.pathname.startsWith("/solutions") ? "text-emerald-900" : "text-stone-800"
+                  }`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+
+                <span className={`absolute -bottom-1 left-0 h-0.5  bg-emerald-500 transition-all duration-300 ${
+                  location.pathname.startsWith("/solutions") ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+              </div>
+                <div className="pointer-events-none absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
+                  <div className="w-[420px] overflow-hidden rounded-sm border border-stone-200 bg-white shadow-[0_60px_100px_-20px_rgba(0,0,0,0.15)]">
+                    
+                    <div className="relative p-12">
+                      <nav className="relative z-10 space-y-8">
+                        {solutionLinks.map((item) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            className="group/item flex items-start pl-10"
+                          >
+                            {/* The Dot on the Line */}
+                            <div className="absolute left-[3.5px] mt-2 h-1.5 w-1.5 rounded-full border border-white bg-stone-200 transition-all duration-500 group-hover/item:scale-150 group-hover/item:bg-stone-900" />
+
+                            <div className="flex flex-col">
+                              <span className={`text-[13px] tracking-widest uppercase transition-all duration-500 ${
+                                location.pathname === item.to 
+                                  ? "text-stone-950 font-bold" 
+                                  : "text-stone-800 font-medium group-hover/item:text-emerald-800 group-hover/item:translate-x-1"
+                              }`}>
+                                {item.name}
+                              </span>
+                              
+                            </div>
+                          </Link>
+                        ))}
+                      </nav>
+
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+
             {links.map((link) => (
               <Link 
                 key={link.name} 
                 to={link.to} 
                 className={`text-md font-medium tracking-wide transition-all duration-300 hover:text-emerald-600 relative group ${
-                  location.pathname === link.to ? "text-emerald-700" : "text-stone-600"
+                  location.pathname === link.to ? "text-emerald-700" : "text-stone-800"
                 }`}
               >
                 {link.name}
@@ -141,14 +207,51 @@ export default function Navbar() {
 
               {/* Navigation Links */}
               <div className="flex flex-col px-4 py-6 space-y-6">
+                <button
+                  onClick={() => setMobileSolutionsOpen((prev) => !prev)}
+                  className="group px-4 py-3 text-stone-700 hover:text-emerald-600 hover:bg-emerald-50/60 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden text-left"
+                  style={{ animation: "slideIn 0.5s ease-out 0s backwards" }}
+                >
+                  <span className="relative z-10 flex items-center justify-between">
+                    <span className="flex items-center">Our Solutions</span>
+                    <span className="text-emerald-600 transition-transform duration-300">
+                      {mobileSolutionsOpen ? "−" : "+"}
+                    </span>
+                  </span>
+                </button>
+
+                {mobileSolutionsOpen && (
+                  <div className="flex flex-col gap-2 pl-4">
+                    {solutionLinks.map((item, i) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => {
+                          setOpen(false);
+                          setMobileSolutionsOpen(false);
+                        }}
+                        className="px-4 py-2 text-sm font-semibold text-stone-700 hover:text-emerald-600 hover:bg-emerald-50/60 rounded-xl transition-all duration-300"
+                        style={{
+                          animation: `slideIn 0.5s ease-out ${0.1 + i * 0.08}s backwards`
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
                 {links.map((link, i) => (
                   <Link
                     key={link.name}
                     to={link.to}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      setMobileSolutionsOpen(false);
+                    }}
                     className="group px-4 py-3 text-stone-700 hover:text-emerald-600 hover:bg-emerald-50/60 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden"
                     style={{ 
-                      animation: `slideIn 0.5s ease-out ${i * 0.1}s backwards`
+                      animation: `slideIn 0.5s ease-out ${0.2 + i * 0.1}s backwards`
                     }}
                   >
                     <span className="relative z-10 flex items-center justify-between">
