@@ -51,13 +51,13 @@ export default function ProjectBasePage() {
   }, []);
 
   return (
-    <section id="project-base" className="scroll-mt-24 px-6 py-16">
-      <div className="mx-auto max-w-6xl">
-        <div className="max-w-7xl mt-20 mx-auto px-6">
+    <section id="project-base" className="scroll-mt-24 py-16">
+      <div className="mx-auto">
+        <div className="mt-20 mx-auto">
 
 
           {/* HEADER */}
-          <div className="mb-20 text-center relative">
+          <div className="mb-20 max-w-7xl mx-auto px-6 text-center relative">
             <h2 className="text-5xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight hero-line">
               Become a{" "}
               <span className="relative inline-block text-emerald-600">
@@ -80,43 +80,57 @@ export default function ProjectBasePage() {
             </p>
           </div>
 
+        </div>
 
+        {/* PRIMARY CTA HERO - FULL WIDTH */}
+        <div className="w-full mb-28 ">
+          <div className="relative overflow-hidden bg-gradient-to-br from-emerald-700 via-emerald-800 to-emerald-900 border-t-4 border-emerald-400 p-10 md:p-14 shadow-2xl flex flex-col items-center text-center">
+            
+            {/* Decorative background element for texture */}
+            <div className="absolute inset-0 opacity-50 pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+            </div>
 
-          {/* PRIMARY CTA HERO */}
-          <div className="grid lg:grid-cols-2 gap-14 items-center bg-emerald-50/60 border border-emerald-100 rounded-3xl p-10 md:p-16 text-slate-900 mb-28">
-            <div>
-              <h3 className="text-3xl md:text-4xl font-bold leading-tight hero-line">
+            <div className="relative z-10 max-w-5xl">
+              <h3 className="text-4xl md:text-6xl font-serif font-medium tracking-tight text-white hero-line">
                 Build real products.{" "}
-                <span className="text-emerald-600">
+                <span className=" text-emerald-50 block md:inline">
                   Work like an industry engineer.
                 </span>
               </h3>
 
-              <p className="mt-4 text-slate-700 max-w-xl hero-line">
+              <p className="mt-5 text-white text-lg md:text-xl  tracking-wide max-w-2xl mx-auto hero-line">
                 Collaborate with teams, solve real problems, and gain experience that
                 actually matters.
               </p>
 
-              <button 
-                onClick={() => {
-                  const element = document.getElementById('active-programs');
-                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
-                className="mt-10 px-10 py-4 bg-emerald-600 hero-line text-white font-bold rounded-full transition-all duration-300 hover:bg-emerald-700 hover:scale-105 shadow-xl shadow-emerald-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
-              >
-                Start My Journey →
-              </button>
-            </div>
+              {/* The Quote: Styled as a sophisticated callout below the text */}
+              <div className="mt-10 lg:block hero-line">
+                <p className="text-white  text-lg font-serif">
+                  "You don't learn by watching — you learn by building.  
+                  Here, your work becomes part of real products."
+                </p>
+              </div>
 
-            <div className="border-l border-emerald-200 pl-10 hidden lg:block hero-line">
-              <p className="text-slate-700 italic text-lg leading-relaxed">
-                “You don’t learn by watching — you learn by building.  
-                Here, your work becomes part of real products.”
-              </p>
+              {/* Button: Centered with a premium 'glass' shadow effect */}
+              <div className="mt-16 flex justify-center">
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('active-programs');
+                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="group relative px-14 py-5 bg-white text-emerald-900 hero-line font-bold uppercase tracking-[0.2em] text-xs transition-all duration-500 hover:bg-emerald-50 hover:tracking-[0.3em] shadow-[0_10px_40px_rgba(0,0,0,0.3)]"
+                >
+                  <span className="relative z-10">Start My Journey →</span>
+                  <div className="absolute inset-0 translate-x-2 translate-y-2 border border-emerald-400/50 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300"></div>
+                </button>
+              </div>
             </div>
           </div>
+        </div>
 
-      <div className="grid md:grid-cols-2 gap-0 mb-20 border-y bg-white border-slate-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid max-w-6xl md:grid-cols-2 gap-0 mb-20 border-y bg-white border-slate-200">
 
         {/* SECTION 1: THE CORE */}
         <div className="group relative py-16 pr-8 md:pr-16 border-b md:border-b-0 md:border-r border-slate-200">

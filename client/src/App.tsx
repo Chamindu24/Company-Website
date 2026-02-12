@@ -34,7 +34,7 @@ function App() {
 
   return (
     /* 1. Ensure the parent is relative and has a min-height */
-    <div className="relative min-h-screen  bg-[#FFFFFF]">
+    <div className="relative min-h-screen   bg-[#FFFFFF]">
       
       <div className="fixed top-1/2 right-[-25%] -translate-y-1/2 w-[800px] md:w-[1000px] aspect-square pointer-events-none select-none opacity-[0.09] z-0">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-emerald-600">

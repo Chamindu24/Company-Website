@@ -49,7 +49,7 @@ const MobileApps: React.FC = () => {
           <div className="absolute inset-0 bg-blue-100/50 rounded-[3rem] blur-3xl transform scale-90 -z-10"></div>
           <div className="relative rounded-[2.5rem] overflow-hidden border-[12px] border-white shadow-2xl">
             <img
-              src="/hero/app.jpg"
+              src="/hero/app2.jpg"
               alt="Mobile App Interface"
               className="w-full h-[500px] object-cover"
             />

@@ -2,15 +2,9 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import WorkCard, { type WorkProject } from "../components/WorkCard";
 import ValueCard from "../components/ValueCard";
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Pagination,Navigation } from 'swiper/modules';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
 import GlobalPresence from "@/components/GlobalPresence";
+import HeroSection from "@/components/HeroSection";
+import JoinSection from "@/components/JoinSection";
 
 export default function Homepage() {
 
@@ -107,242 +101,12 @@ export default function Homepage() {
     },
   ];
 
-  const heroSlides = [
-    {
-      id: "01",
-      titleTop: "Customer ",
-      titleHighlight: "Relationship",
-      titleOutline: "Management.",
-      description:
-        "Powerful CRM platforms designed to strengthen customer engagement, automate workflows, and scale relationships.",
-      image: "/hero/crm.jpg",
-    },
-    {
-      id: "02",
-      titleTop: "AI Agents &",
-      titleHighlight: "AI Chatbots",
-      titleOutline: "Solutions.",
-      description:
-        "Intelligent AI agents and chatbots that automate support, sales, and internal operations with precision.",
-      image: "/hero/chat.png",
-    },
-    {
-      id: "03",
-      titleTop: "Business",
-      titleHighlight: "Process",
-      titleOutline: "Management.",
-      description:
-        "Streamline operations with BPM systems built for efficiency, visibility, and long-term growth.",
-      image: "/hero/bm.jpg",
-    },
-    {
-      id: "04",
-      titleTop: "Business &",
-      titleHighlight: "Corporate",
-      titleOutline: "Websites.",
-      description:
-        "High-end corporate websites crafted to communicate trust, clarity, and brand authority.",
-      image: "/hero/bc.jpg",
-    },
-    {
-      id: "05",
-      titleTop: "Mobile",
-      titleHighlight: "Applications",
-      titleOutline: "Development.",
-      description:
-        "Scalable iOS and Android applications engineered for performance and user experience.",
-      image: "/hero/app.jpg",
-    },
-  ];
-
   return (
     <div className="text-gray-800">
 
       {/* Hero Section */}
-    <section className="relative w-full h-screen  flex items-center justify-center overflow-hidden">
-    
-      
-      <Swiper
-        modules={[Autoplay, EffectFade, Navigation, Pagination]}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        speed={1200}
-        autoplay={{ delay: 6000, disableOnInteraction: false }}
-        slidesPerView={1}
-        loop={true}
-        className="h-full w-full hero-swiper"
-      >
-        {heroSlides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div className="relative h-full w-full px-6 lg:px-20 flex flex-col justify-center z-10 overflow-hidden">
-              
-              {/* 2. THE MAIN WIDE GRID */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 w-full items-center">
-                
-                {/* LEFT BLOCK: Massive Left-Aligned Typography */}
-                <div className="lg:col-span-8 flex flex-col">
-                  <h1 className="flex flex-col gap-0 select-none">
+      <HeroSection />
 
-                    
-                    {/* Consistent Massive Sizing with tight tracking */}
-                    <span className="text-7xl md:text-8xl lg:text-[8rem] font-bold tracking-tighter text-stone-300 uppercase leading-[0.8] mb-1">
-                      {slide.titleTop}
-                    </span>
-                    <span className="text-7xl md:text-8xl lg:text-[8rem] font-black text-stone-900 uppercase leading-[0.8] tracking-tighter">
-                      {slide.titleHighlight}
-                    </span>
-                    <span className="text-7xl md:text-8xl lg:text-[8rem] font-medium text-emerald-700 uppercase leading-[0.8] tracking-tighter opacity-80">
-                      {slide.titleOutline}
-                    </span>
-                  </h1>
-                </div>
-
-                {/* RIGHT BLOCK: The "Concierge" Action Area */}
-                <div className="lg:col-span-4 flex flex-col items-start lg:items-end text-left lg:text-right mt-16 lg:mt-0">
-                  <div className="max-w-md flex flex-col lg:items-end">
-                    
-                    {/* Sophisticated Description with vertical line detail */}
-                    <div className="relative mb-12 lg:pr-0">
-                      <p className="text-stone-800 text-xl md:text-2xl font-light leading-relaxed tracking-wide">
-                        {slide.description}
-                      </p>
-                      <div className="mt-6 h-[2px] w-20 bg-emerald-800 ml-auto hidden lg:block"></div>
-                    </div>
-
-                    {/* Action Group */}
-                    <div className="flex flex-col md:flex-row lg:flex-col gap-6 w-full lg:w-max">
-                      <button 
-                        onClick={() => navigate("/contact")}
-                        className="group relative px-12 py-6 bg-stone-900 overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105"
-                      >
-                        <span className="relative z-10 text-[12px] font-bold tracking-[0.6em] uppercase text-white">
-                          Initiate Build
-                        </span>
-                        {/* Liquid effect hover */}
-                        <div className="absolute inset-0 bg-emerald-900 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
-                      </button>
-
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-
-
-      <style jsx global>{`
-        .hero-swiper .swiper-slide {
-          opacity: 0;
-          transition: opacity 600ms ease;
-        }
-        .hero-swiper .swiper-slide-active {
-          opacity: 1;
-        }
-        .swiper-pagination-bullets {
-          bottom: 10% !important;
-        }
-        .swiper-pagination-bullet {
-          background: #d6d3d1 !important;
-          opacity: 1 !important;
-          margin: 0 10px !important;
-        }
-        .swiper-pagination-bullet-active {
-          background: #065f46 !important;
-          transform: scale(1.5);
-        }
-      `}</style>
-    </section>
-
-
-      {/* Our Story Section */}
-      <section data-reveal className="reveal-section relative px-10 md:px-2 py-12 md:py-20 overflow-hidden bg-white ">
-        
-        {/* Creative Background Elements */}
-        <div className="absolute inset-0 z-0">
-          {/* Primary Emerald Wash - Softer for light mode */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
-          
-          
-          {/* Subtle Grid Pattern Overlay - Darkened for visibility on light bg */}
-          <div className="absolute inset-0 opacity-[0.09] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" 
-              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23059669\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E")' }} 
-          />
-        </div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  
-            <div className="text-left space-y-6">
-              <div className="inline-flex items-center group cursor-default">
-                <div className="relative flex items-center">
-                  <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-emerald-500/50 transition-colors duration-500">
-                    <div className="w-6 h-6 rounded-full border border-slate-100 flex items-center justify-center bg-slate-50 group-hover:bg-emerald-50 transition-all">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    </div>
-                  </div>
-                  
-                  <div className="w-6 h-px bg-slate-200 group-hover:w-10 group-hover:bg-emerald-300 transition-all duration-500" />
-                </div>
-
-                <div className="pl-4 flex flex-col justify-center">
-
-                  <h4 className="text-[14px] font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                    Our Story
-                    <svg 
-                      className="w-3 h-3 text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </h4>
-                </div>
-              </div>
-
-              <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1]">
-                The Vision Behind <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-emerald-600 to-slate-900">
-                  LushWare ORG.
-                </span>
-              </h2>
-              <div className="pt-10 flex items-center gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-px h-10 bg-gradient-to-b from-emerald-500 to-transparent" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-[12px] font-bold text-slate-900 uppercase tracking-[0.2em]">The Journey Continues</p>
-                  <p className="text-md text-slate-900 font-light">Evolving the standard of digital simplicity since 2020.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              {/* Soft shadow instead of dark glow */}
-              <div className="absolute -inset-4 bg-emerald-600/5 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative bg-white backdrop-blur-md border border-emerald-100 p-8 md:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-                <span className="absolute -top-8 -left-2 text-9xl text-emerald-600/10 font-serif select-none">“</span>
-                
-                <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-light">
-                  At <span className="font-semibold text-slate-950">LushWare ORG</span>, we design software that goes beyond solving problems—
-                  it <span className="text-emerald-600 font-medium">transforms</span> how people experience technology. 
-                  Our focus is on crafting stable, scalable solutions that empower the 
-                  <span className="relative inline-block px-1 ml-1">
-                    <span className="relative z-10 text-slate-900 font-medium">modern global community</span>
-                    <span className="absolute bottom-1 left-0 w-full h-3 bg-emerald-200/50 -rotate-1" />
-                  </span>.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* Solutions Section */}
       <section className="relative px-10 py-24 bg-white overflow-hidden font-sans">
@@ -531,12 +295,104 @@ export default function Homepage() {
         </div>
       </section>
 
+      {/* Our Story Section */}
+      <section data-reveal className="relative px-10 md:px-2 py-12 md:py-20 overflow-hidden bg-[#094a3b]">
+        
+        {/* Creative Background Elements */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* 1. Primary Emerald Wash - The "Royal" Glow (Softened for Dark Mode) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
+
+          {/* 2. Carbon Fibre Texture Overlay - Slightly more visible on dark backgrounds */}
+          <div className="absolute inset-0 opacity-[0.9] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+
+          {/* 4. Top Border Fade - Now using a sharper, more luxurious gradient */}
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-80" />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              
+            <div className="text-left space-y-6">
+              <div className="inline-flex items-center group cursor-default">
+                <div className="relative flex items-center">
+                  {/* Adjusted Ring Colors for Dark Mode */}
+                  <div className="w-10 h-10 rounded-full border border-emerald-400 flex items-center justify-center group-hover:border-emerald-400/50 transition-colors duration-500">
+                    <div className="w-6 h-6 rounded-full border border-emerald-300 flex items-center justify-center bg-emerald-950 group-hover:bg-emerald-900 transition-all">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    </div>
+                  </div>
+                  
+                  <div className="w-6 h-px bg-emerald-400 group-hover:w-10 group-hover:bg-emerald-500 transition-all duration-500" />
+                </div>
+
+                <div className="pl-4 flex flex-col justify-center">
+                  <h4 className="text-[14px] font-bold text-emerald-50 uppercase tracking-wider flex items-center gap-2">
+                    Our Story
+                    <svg 
+                      className="w-3 h-3 text-emerald-200 group-hover:text-emerald-300 group-hover:translate-x-1 transition-all" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </h4>
+                </div>
+              </div>
+
+              {/* Headline with a White-to-Emerald gradient */}
+              <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+                The Vision Behind <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-100 via-emerald-200 to-emerald-100">
+                  LushWare ORG.
+                </span>
+              </h2>
+
+              <div className="pt-10 flex items-center gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-px h-10 bg-gradient-to-b from-emerald-400 to-transparent" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-[12px] font-bold text-emerald-100 uppercase tracking-[0.2em]">The Journey Continues</p>
+                  <p className="text-md text-emerald-100  font-normal">Evolving the standard of digital simplicity since 2020.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative group">
+              {/* Deep Emerald Glow */}
+              <div className="absolute -inset-4 bg-emerald-500/10 rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
+              
+              {/* Card: Darkened background with Emerald border */}
+              <div className="relative bg-[#064e3b]/40 backdrop-blur-xl border border-emerald-200 p-8 md:p-12 rounded-3xl shadow-2xl">
+                <span className="absolute -top-8 -left-2 text-9xl text-emerald-200 font-serif select-none">“</span>
+                
+                <p className="text-xl md:text-2xl text-white leading-relaxed font-light">
+                  At <span className="font-semibold text-white">LushWare ORG</span>, we design software that goes beyond solving problems—
+                  it <span className="text-emerald-400 font-medium italic">transforms</span> how people experience technology. 
+                  Our focus is on crafting stable, scalable solutions that empower the 
+                  <span className="relative inline-block px-1 ml-1">
+                    <span className="relative z-10 text-white font-medium">modern global community</span>
+                    {/* Highlight bar: Dark Emerald green glow */}
+                    <span className="absolute bottom-1 left-0 w-full h-3 bg-emerald-500/20 -rotate-1" />
+                  </span>.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
 
       <GlobalPresence />
 
 
       {/* Services */}
-      <section data-reveal className="reveal-section px-6 py-20  relative">
+      <section data-reveal className=" bg-[#ffffff] px-6 py-20  relative">
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row gap-24">
@@ -641,111 +497,10 @@ export default function Homepage() {
       </section>
 
       {/* Join */}
-      <section data-reveal className="reveal-section px-4 py-16  overflow-hidden relative bg-white">
-        <div className="absolute inset-0 z-0">
-          {/* Primary Emerald Wash - Softer for light mode */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/50 rounded-full blur-[120px] pointer-events-none" />
-          
-          
-          {/* Subtle Grid Pattern Overlay - Darkened for visibility on light bg */}
-          <div className="absolute inset-0 opacity-[0.09] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" 
-              style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23059669\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E")' }} 
-          />
-        </div>
-
-
-        <div className="max-w-7xl mx-auto relative z-10 px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            
-            {/* Left Column: Mission & CTA */}
-            <div className="lg:w-5/12 text-center lg:text-left">
-
-              
-              <h2 className="text-5xl font-bold md:text-7xl  text-gray-900 leading-[0.85] tracking-tighter mb-8">
-                Project <br />
-                <span className="bg-emerald-600 bg-clip-text text-transparent"> Inventory.</span>
-              </h2>
-              
-              <p className="text-xl text-gray-600 max-w-md leading-relaxed mb-12 mx-auto lg:mx-0 font-medium">
-                Join our growing team and work on real-world projects. Develop your skills, collaborate with talented professionals, and make a real impact.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
-                <button 
-                  onClick={() => navigate("/project-base")}
-                  className="group relative px-10 py-4 overflow-hidden bg-stone-900 text-white rounded-full font-bold transition-all duration-500 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)]"
-                >
-                  <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
-                  <span className="relative z-10 text-[13px] font-bold tracking-[0.2em] uppercase">Join Now</span>
-                </button>
-                
-
-              </div>
-            </div>
-
-            {/* Right Column: The "Stats Galaxy" */}
-            <div className="lg:w-7/12 relative w-full h-[450px] sm:h-[500px] md:h-[600px] mt-10 lg:mt-0">
-              
-              {/* Experience Card (The 8+ Years) */}
-              <div className="absolute border-2 border-emerald-600 top-0 left-0 md:left-20 z-30 w-36 sm:w-44 md:w-56 p-4 sm:p-6 md:p-8 bg-white/80 backdrop-blur-xl rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] shadow-xl shadow-gray-200/40 transform -rotate-2 md:-rotate-6 hover:rotate-0 hover:-translate-y-2 transition-all duration-500">
-                <p className="text-[10px] sm:text-[11px] md:text-[14px] font-black text-emerald-600 uppercase mb-1 sm:mb-2 tracking-[0.15em] sm:tracking-[0.2em]">Our Team</p>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tighter">8</span>
-                  <span className="text-lg sm:text-xl md:text-2xl font-bold text-emerald-500">+</span>
-                </div>
-                <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-700 font-medium leading-tight mt-1 sm:mt-2">Years of combined expertise</p>
-              </div>
-
-              {/* Reliability Card (The 98%) */}
-              <div className="absolute top-6 sm:top-8 md:top-10 right-0 z-10 w-40 sm:w-48 md:w-64 p-5 sm:p-6 md:p-10 bg-emerald-500 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] shadow-2xl shadow-emerald-200/50 transform rotate-2 md:rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500">
-                <div className="text-white">
-                  <p className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-2 sm:mb-3 md:mb-4">Reliability</p>
-                  <div className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-none">98%</div>
-                  <div className="mt-3 sm:mt-4 md:mt-6 h-1 w-full bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full bg-white w-[98%]"></div>
-                  </div>
-                  <p className="text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase mt-2 sm:mt-3 md:mt-4 opacity-80 italic underline underline-offset-2 sm:underline-offset-4">Standard uptime</p>
-                </div>
-              </div>
-
-              {/* Active Sprints Card (The 14) */}
-              <div className="absolute top-[48%] sm:top-[47%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-64 sm:w-72 md:w-80 p-6 sm:p-8 md:p-10 bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] sm:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] md:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4)] transform transition-transform hover:scale-105 duration-500 group">
-                <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                      <polyline points="13 2 13 9 20 9" />
-                      </svg>
-                  </div>
-                  <div className="text-right">
-                      <span className="block text-[10px] sm:text-[11px] md:text-[13px] font-black text-emerald-300 uppercase tracking-widest">Active Now</span>
-                      <span className="block text-[9px] sm:text-[10px] md:text-[11px] text-gray-200 font-mono italic">In Progress</span>
-                  </div>
-                </div>
-                <div className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter mb-2">14</div>
-                <p className="text-[11px] sm:text-xs md:text-sm text-gray-200 font-medium">Active projects you can join today</p>
-              </div>
-
-              {/* Deployed Apps Card (The 52) */}
-              <div className="absolute bottom-1 sm:bottom-2 md:bottom-4 right-1 sm:right-2 md:right-12 z-20 w-44 sm:w-52 md:w-64 p-5 sm:p-6 md:p-8 bg-white border-2 border-emerald-500 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-gray-200 rotate-4 sm:rotate-6 md:rotate-12 hover:rotate-0 transition-all duration-500">
-                <p className="text-[11px] sm:text-[12px] md:text-[14px] font-bold text-gray-500 uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-1 sm:mb-2 md:mb-3">Live Projects</p>
-                <div className="flex items-baseline gap-1 sm:gap-2">
-                  <span className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tighter">52</span>
-                  <span className="text-[11px] sm:text-xs md:text-sm font-bold text-gray-700 uppercase">Active</span>
-                </div>
-                <p className="text-[10px] sm:text-[11px] md:text-[12px] font-bold text-emerald-600 mt-2 sm:mt-3 md:mt-4 bg-emerald-50 px-2 py-1 rounded-md inline-block">
-                  Ready to Join
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <JoinSection />
 
       {/* Why Choose Us */}
-      <section data-reveal className="reveal-section px-6 pb-20 pt-10 relative overflow-hidden ">
+      <section data-reveal className="bg-[#ffffff] px-6 pb-20 pt-10 relative overflow-hidden ">
         
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -811,7 +566,7 @@ export default function Homepage() {
       </section>
 
       {/* Software Products */}
-      <section data-reveal className="reveal-section px-6 py-8  relative ">
+      <section data-reveal className="  bg-[#ffffff] px-6 py-8  relative ">
         
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -882,7 +637,7 @@ export default function Homepage() {
       </section>
 
       {/* Visit Lush Web Designers */}
-      <section data-reveal className="reveal-section relative w-full bg-white/60 py-24 sm:py-32 overflow-hidden">
+      <section data-reveal className=" relative w-full bg-[#ffffff] py-24 sm:py-32 overflow-hidden">
         {/* The Image as a subtle 'Background Mask' */}
         <div 
           className="absolute inset-0 z-0 opacity-[0.19] grayscale hover:opacity-30 hover:grayscale-0 transition-all duration-1000"
