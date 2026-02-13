@@ -441,7 +441,6 @@ const CRM: React.FC = () => {
             </section>
 
 
-            <div className="my-24 border-t border-slate-200"></div>
             
           </div>  
           
@@ -449,14 +448,23 @@ const CRM: React.FC = () => {
 
           <WhyChooseLushWare/>
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h3 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-                  CRM FAQ
+              <div className="text-center mb-14">
+                <div className="flex items-center justify-center mb-4">
+                  <span className="px-3 py-1 text-[11px] font-bold tracking-[0.35em] text-emerald-700 bg-emerald-50 rounded-full uppercase">
+                    CRM FAQ
+                  </span>
+                </div>
+
+                <h3 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight mb-4 hero-line">
+                  Frequently Asked Questions
                 </h3>
-                <p className="text-xl text-slate-600 font-medium">
-                  Clear answers to common questions about CRM platforms.
+
+                <p className="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
+                  Clear answers to the most common questions about CRM platforms and how they
+                  help your business grow.
                 </p>
               </div>
+
 
               <div>
                 {faqItems.map((item, index) => (

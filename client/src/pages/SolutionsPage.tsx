@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import InquiryForm from "../components/InquiryForm";
+import QuestionItem from "../components/QuestionItem";
 
 type Solution = {
   title: string;
@@ -35,6 +36,33 @@ const solutions: Solution[] = [
     subtitle: "Lead-to-trip lifecycle",
     description: "Automate inquiries, itineraries, payments, and post-trip follow-ups with a CRM tuned for travel teams.",
     image: "/solution/travel.png",
+  },
+];
+
+const faqItems = [
+  {
+    question: "What are LushWare's Travel Management Solutions?",
+    answer: "Our travel management solutions are specialized software platforms designed to help travel agencies, tour operators, and travel businesses streamline their operations, from booking management to itinerary planning and customer relationship management.",
+  },
+  {
+    question: "How can these solutions improve our travel business operations?",
+    answer: "Our solutions automate repetitive tasks, centralize customer data, improve booking accuracy, streamline payments, and provide real-time reporting—enabling your team to focus on delivering exceptional travel experiences.",
+  },
+  {
+    question: "Are these solutions suitable for all sizes of travel businesses?",
+    answer: "Yes. Our solutions are scalable and can be customized for solo travel consultants, small travel agencies, large tour operators, and enterprise travel management companies.",
+  },
+  {
+    question: "Can these solutions integrate with existing travel industry tools?",
+    answer: "Yes. Our solutions integrate seamlessly with GDS systems, payment processors, email platforms, and other third-party travel tools to create a unified ecosystem.",
+  },
+  {
+    question: "Is customer data secure in your travel management solutions?",
+    answer: "Absolutely. We use industry-standard security measures including encryption, access controls, compliance with data protection regulations, and regular security audits to protect sensitive customer and business data.",
+  },
+  {
+    question: "How long does implementation typically take?",
+    answer: "Implementation timelines vary based on your specific needs and complexity, but typically range from a few weeks to a few months. Our team provides guided onboarding and training to ensure smooth adoption.",
   },
 ];
 
@@ -199,32 +227,55 @@ export default function SolutionsPage() {
         </div>
       </div>
 
-      {/* MODAL - Ultra Minimal "Full Page" Overlay */}
-{selectedSolution && createPortal(
-  <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
-    {/* Backdrop */}
-    <div 
-      className="fixed inset-0 bg-slate-900/40 backdrop-blur-md transition-all duration-500" 
-      onClick={() => setSelectedSolution(null)}
-    />
+      {/* FAQ Section */}
+      <div className="mt-32 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h3 className="text-sm font-semibold tracking-[0.25em] text-emerald-600 uppercase mb-3">
+            Travel Solutions FAQ
+          </h3>
+          <p className="text-3xl md:text-4xl font-semibold text-slate-900 mb-2">
+            Frequently Asked Questions
+          </p>
+          <p className="text-slate-800 max-w-2xl text-lg mx-auto">
+            Clear answers to common questions about our travel management solutions.
+          </p>
+        </div>
 
-    {/* Modal Container - Full width */}
-    <div className="relative w-full max-w-2xl max-h-[94vh] overflow-y-scroll bg-white shadow-2xl rounded-3xl overflow-hidden animate-in fade-in zoom-in-95 duration-300">
-      {/* Form Content */}
-      <div className="p-8 lg:p-14">
-        <InquiryForm 
-          inquiryType="solution"
-          topic={selectedSolution.title}
-          industry={selectedSolution.title}
-          onSuccess={() => setSelectedSolution(null)}
-          onClose={() => setSelectedSolution(null)}
-          showCloseButton={true}
-        />
+
+        <div>
+          {faqItems.map((item, index) => (
+            <QuestionItem
+              key={`${item.question}-${index}`}
+              question={item.question}
+              answer={item.answer}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  </div>,
-  document.body
-)}
+
+      {/* MODAL - Ultra Minimal "Full Page" Overlay */}
+      {selectedSolution && createPortal(
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
+          <div 
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-md transition-all duration-500" 
+            onClick={() => setSelectedSolution(null)}
+          />
+
+          <div className="relative w-full max-w-2xl max-h-[94vh] overflow-y-scroll bg-white shadow-2xl rounded-3xl overflow-hidden animate-in fade-in zoom-in-95 duration-300">
+            <div className="p-8 lg:p-14">
+              <InquiryForm 
+                inquiryType="solution"
+                topic={selectedSolution.title}
+                industry={selectedSolution.title}
+                onSuccess={() => setSelectedSolution(null)}
+                onClose={() => setSelectedSolution(null)}
+                showCloseButton={true}
+              />
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 }

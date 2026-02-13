@@ -70,21 +70,31 @@ const MobileApps: React.FC = () => {
         </div>
 
         {/* Ultra-Premium 3D Mobile Presentation */}
-        <section className="bg-white py-40 px-6 overflow-hidden">
+        <section className="bg-white py-20 px-6 overflow-hidden">
           <div className="max-w-8xl mx-auto">
             
-            {/* Section Header - High Fashion Software Style */}
-            <div className="relative max-w-7xl mx-auto mb-32">
+        {/* Section Header - London Editorial Style */}
+        <div className="relative max-w-7xl mx-auto mb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-slate-100 pb-12">
+            
+            {/* Left Side: Bold Branding */}
+            <div className="flex-1">
 
-              <h3 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tighter leading-[0.8] mb-8">
+              <h3 className="text-5xl md:text-7xl font-semibold text-slate-900 tracking-tighter leading-[0.8]">
                 Mobile <br/>
-                <span className="text-emerald-700  font-normal">Sovereignty.</span>
+                <span className="text-emerald-600 font-serif  font-normal">Sovereignty.</span>
               </h3>
-              <div className="h-1.5 w-24 bg-emerald-600 mb-8"></div>
-              <p className="text-2xl text-slate-500 max-w-xl  leading-snug">
-                Architecting seamless digital experiences across the world's most powerful platforms.
+            </div>
+
+            {/* Right Side: Simple Client-Friendly Text */}
+            <div className="flex-1 md:max-w-md lg:max-w-lg">
+              <p className="text-xl md:text-2xl text-slate-800 leading-relaxed ">
+                We build <span className="text-slate-900 font-medium text-emerald-900">high-performance apps</span> that work perfectly across all devices and platforms.
               </p>
             </div>
+
+          </div>
+        </div>
 
             {/* The Isometric Device Stack */}
             <div className="relative flex flex-col lg:pl-32 lg:flex-row items-center gap-24">
@@ -190,108 +200,78 @@ const MobileApps: React.FC = () => {
         </section>
 
 
-        {/* Engineering Excellence Section */}
-        <section className="py-40 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-4">
-              <p className="text-5xl font-extralight text-slate-800 tracking-tight">
-                Engineering Excellence for Every Screen
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 w-full  gap-6  divide-x divide-slate-100">
-              
-              {/* 01 - iOS NATIVE */}
-              <div className="group relative flex flex-col items-center  justify-center py-12   bg-white hover:bg-slate-50/30 transition-all duration-1000 cursor-pointer overflow-hidden">
-                
-
-
-                {/* The "Lens" Container */}
-                <div className="relative w-64 h-64  flex items-center justify-center mb-8">
-                  {/* Rotating Geometric Background Border */}
-                  <div className="absolute inset-0 border border-slate-200 rounded-full group-hover:border-emerald-900/40 group-hover:scale-110 transition-all duration-1000"></div>
-                  
-                  {/* Massive Icon */}
-                  <div className="relative transition-all duration-1000 ease-out group-hover:scale-110 group-hover:-translate-y-4">
-                    <svg
-                      width="120"
-                      height="120"
-                      viewBox="0 0 384 512"
-                      fill="currentColor"
-                      className="text-slate-900 group-hover:text-emerald-950 transition-colors duration-700 relative z-10"
-                    >
-                      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-                    </svg>
-                    <div className="absolute inset-0 bg-emerald-900/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                </div>
-
-                {/* Typography Block */}
-                <div className="text-center relative z-10">
-                  <h3 className="text-6xl font-extralight tracking-tighter text-slate-950 mb-4">
-                    iOS <span className="italic font-serif text-slate-500 group-hover:text-emerald-700 transition-colors duration-1000">Native</span>
-                  </h3>
-                  <div className="flex flex-col items-center gap-2">
-
-                    {/* Progress Bar Detail */}
-                    <div className="w-24 h-[1px] bg-slate-100 mt-4 relative overflow-hidden">
-                       <div className="absolute inset-0 bg-emerald-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
-                    </div>
-                  </div>
+      {/* Engineering Excellence - Compact High-Density Section */}
+      <section className="py-12 border-y border-stone-100 bg-[#fdfdfb]">
+        <div className="max-w-7xl mx-auto px-6">
+          
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            
+            {/* 01 - iOS NATIVE SECTION */}
+            <div className="group flex-1 w-full flex items-center justify-between p-8 bg-white border border-stone-100 rounded-sm hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-700 cursor-pointer overflow-hidden">
+              <div className="relative z-10 flex flex-col gap-2">
+                <h3 className="text-4xl font-extralight tracking-tight text-slate-900">
+                  iOS <span className="font-serif italic text-stone-700 group-hover:text-emerald-700 transition-colors">Native</span>
+                </h3>
+                <p className="text-md text-slate-500 max-w-[200px] leading-relaxed">
+                  Optimized Swift engineering for Apple's premium ecosystem.
+                </p>
+                <div className="w-16 h-[1px] bg-stone-100 mt-4 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-emerald-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
                 </div>
               </div>
 
-              {/* 02 - ANDROID OS */}
-              <div className="group relative flex flex-col items-center justify-center py-12 bg-white hover:bg-slate-50/30 transition-all duration-1000 cursor-pointer overflow-hidden">
-                
-
-
-                {/* The "Lens" Container */}
-                <div className="relative w-64 h-64 flex items-center justify-center mb-8">
-                  <div className="absolute inset-0 border border-slate-100 rounded-full group-hover:border-emerald-900/20 group-hover:scale-110 transition-all duration-1000"></div>
-                  
-                  <div className="relative transition-all duration-1000 ease-out group-hover:scale-110 group-hover:-translate-y-4">
-                    <svg
-                      width="130"
-                      height="130"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="text-slate-900 group-hover:text-emerald-950 transition-colors duration-700 relative z-10"
-                    >
-                      <path d="M17.523 15.3414C17.0209 15.3414 16.6139 14.9344 16.6139 14.4323C16.6139 13.9302 17.0209 13.5232 17.523 13.5232C18.0251 13.5232 18.4321 13.9302 18.4321 14.4323C18.4321 14.9344 18.0251 15.3414 17.523 15.3414ZM6.477 15.3414C5.9749 15.3414 5.5679 14.9344 5.5679 14.4323C5.5679 13.9302 5.9749 13.5232 6.477 13.5232C6.9791 13.5232 7.3861 13.9302 7.3861 14.4323C7.3861 14.9344 6.9791 15.3414 6.477 15.3414ZM17.915 10.3785L19.7835 7.1422C19.9231 6.9004 19.8403 6.5921 19.5985 6.4525C19.3567 6.3129 19.0484 6.3957 18.9088 6.6375L17.0094 9.9275C15.5494 9.2638 13.8863 8.892 12 8.892C10.1137 8.892 8.4506 9.2638 6.9906 9.9275L5.0912 6.6375C4.9516 6.3957 4.6433 6.3129 4.4015 6.4525C4.1597 6.5921 4.0769 6.9004 4.2165 7.1422L6.085 10.3785C3.5186 11.7702 1.8322 14.3995 1.7003 17.4545H22.2997C22.1678 14.3995 20.4814 11.7702 17.915 10.3785Z"/>
-                    </svg>
-                    <div className="absolute inset-0 bg-emerald-900/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                </div>
-
-                {/* Typography Block */}
-                <div className="text-center relative z-10">
-                  <h3 className="text-6xl font-extralight tracking-tighter text-slate-950 mb-4">
-                    Android <span className="italic font-serif text-slate-500 group-hover:text-emerald-700 transition-colors duration-1000">OS</span>
-                  </h3>
-                  <div className="flex flex-col items-center gap-2">
-
-                    <div className="w-24 h-[1px] bg-slate-100 mt-4 relative overflow-hidden">
-                       <div className="absolute inset-0 bg-emerald-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative opacity-90 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110 ">
+                <svg width="100" height="100" viewBox="0 0 384 512" fill="currentColor" className="text-slate-900 group-hover:text-emerald-900 transition-colors">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                </svg>
               </div>
             </div>
+
+            {/* 02 - ANDROID OS SECTION */}
+            <div className="group flex-1 w-full flex items-center justify-between p-8 bg-white border border-stone-100 rounded-sm hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-700 cursor-pointer overflow-hidden">
+              <div className="relative z-10 flex flex-col gap-2">
+                <h3 className="text-4xl font-extralight tracking-tight text-slate-900">
+                  Android <span className="font-serif italic text-stone-700 group-hover:text-emerald-700 transition-colors">OS</span>
+                </h3>
+                <p className="text-md text-slate-500 max-w-[200px] leading-relaxed">
+                  High-performance Kotlin builds for the global mobile market.
+                </p>
+                <div className="w-16 h-[1px] bg-stone-100 mt-4 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-emerald-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+                </div>
+              </div>
+
+              <div className="relative opacity-90 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110 ">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor" className="text-slate-900 group-hover:text-emerald-900 transition-colors">
+                    <path d="M17.523 15.3414C17.0209 15.3414 16.6139 14.9344 16.6139 14.4323C16.6139 13.9302 17.0209 13.5232 17.523 13.5232C18.0251 13.5232 18.4321 13.9302 18.4321 14.4323C18.4321 14.9344 18.0251 15.3414 17.523 15.3414ZM6.477 15.3414C5.9749 15.3414 5.5679 14.9344 5.5679 14.4323C5.5679 13.9302 5.9749 13.5232 6.477 13.5232C6.9791 13.5232 7.3861 13.9302 7.3861 14.4323C7.3861 14.9344 6.9791 15.3414 6.477 15.3414ZM17.915 10.3785L19.7835 7.1422C19.9231 6.9004 19.8403 6.5921 19.5985 6.4525C19.3567 6.3129 19.0484 6.3957 18.9088 6.6375L17.0094 9.9275C15.5494 9.2638 13.8863 8.892 12 8.892C10.1137 8.892 8.4506 9.2638 6.9906 9.9275L5.0912 6.6375C4.9516 6.3957 4.6433 6.3129 4.4015 6.4525C4.1597 6.5921 4.0769 6.9004 4.2165 7.1422L6.085 10.3785C3.5186 11.7702 1.8322 14.3995 1.7003 17.4545H22.2997C22.1678 14.3995 20.4814 11.7702 17.915 10.3785Z"/>
+                </svg>
+              </div>
+            </div>
+
           </div>
-        </section>
+        </div>
+      </section>
 
         <WhyChooseLushWare/>
 
-        <div className="max-w-7xl mx-auto mt-24">
-          <div className="text-center mb-12">
-            <h3 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-              Mobile Apps FAQ
-            </h3>
-            <p className="text-xl text-slate-600 font-medium">
-              Answers to common questions about Mobile App development.
+        <div className="max-w-7xl mx-auto mt-16">
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center mb-4">
+              <span className="px-3 py-1 text-[11px] font-bold tracking-[0.35em] text-emerald-700 bg-emerald-50 rounded-full uppercase">
+                Mobile Solutions
+              </span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight mb-4 hero-line">
+              Mobile Application Development
+            </h2>
+
+            <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+              Build powerful, user-friendly mobile applications for Android and iOS that
+              engage users and drive business growth.
             </p>
           </div>
+
 
           <div>
             {faqItems.map((item, index) => (

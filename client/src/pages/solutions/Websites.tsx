@@ -75,20 +75,22 @@ const Websites: React.FC = () => {
         </div>
 
         {/* Benefits Section - Emerald Premium Style */}
-        <section className="bg-white py-24 px-6 font-sans">
+        <section className="bg-white py-20 px-6 font-sans">
           <div className="max-w-6xl mx-auto">
             
             {/* Header Section */}
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
               <div className="max-w-2xl">
-                <h2 className="text-emerald-800/60 uppercase tracking-[0.25em] text-xs font-bold mb-4">
-                  Enterprise Solutions
-                </h2>
+                <div className="flex items-center  gap-2 mb-4 ">
+                  <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                    Enterprise Solutions
+                  </div>
+                </div>
                 <h3 className="text-4xl md:text-6xl font-medium text-emerald-950 tracking-tight">
                   Modernizing <span className="text-emerald-600">Digital Assets.</span>
                 </h3>
               </div>
-              <p className="text-slate-700 text-lg max-w-sm pb-2 border-l-2 border-emerald-300 pl-6">
+              <p className="text-slate-800 text-lg max-w-sm pb-2 border-l-2 border-emerald-300 pl-6">
                 Expertly crafted software solutions for London’s most ambitious enterprises.
               </p>
             </div>
@@ -151,7 +153,7 @@ const Websites: React.FC = () => {
           </div>
         </section>
 
-      <section className="bg-white py-24 px-6 min-h-[160vh] relative">
+      <section className="bg-white py-20 px-6 min-h-[160vh] relative">
         {/* Sticky Container - Keeps the laptop in view while scrolling */}
         <div className="sticky top-20 max-w-7xl mx-auto overflow-visible">
           
@@ -314,12 +316,12 @@ const Websites: React.FC = () => {
 
 
         {/* Value Section */}
-        <section className="bg-white py-24 px-6">
+        <section className="bg-white py-20 px-6">
           <div className="max-w-5xl mx-auto text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
-              How We Add Value to Your Website
+            <h3 className="text-4xl  md:text-6xl font-semibold text-slate-900 mb-6">
+              How We Add Value to Your <span className="text-emerald-600">Website</span>
             </h3>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-xl  mx-auto text-slate-800 leading-relaxed">
               LushWare doesn’t just build websites—we create digital experiences aligned with your business goals. Our approach ensures that your site not only looks great but also drives measurable outcomes such as lead generation, brand recognition, and user engagement.
             </p>
           </div>
@@ -351,8 +353,6 @@ const Websites: React.FC = () => {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="my-24 border-t border-slate-200"></div>
 
         
         {/* Why Choose LushWare */}
@@ -360,14 +360,23 @@ const Websites: React.FC = () => {
 
         {/* FAQ Section */}
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-              Website FAQ
-            </h3>
-            <p className="text-xl text-slate-600 font-medium">
-              Clear answers to common questions about business websites.
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center mb-4">
+              <span className="px-3 py-1 text-[11px] font-bold tracking-[0.35em] text-emerald-700 bg-emerald-50 rounded-full uppercase">
+                Web Solutions
+              </span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight mb-4 hero-line">
+              Business & Corporate Websites
+            </h2>
+
+            <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+              Modern, mobile-friendly websites designed to strengthen your brand,
+              improve visibility, and convert visitors into customers.
             </p>
           </div>
+
 
           <div>
             {faqItems.map((item, index) => (
@@ -380,7 +389,6 @@ const Websites: React.FC = () => {
           </div>
         </div>
 
-        <div className="my-24 border-t border-slate-200"></div>
 
 
       </div>

@@ -212,14 +212,24 @@ const AIAgents: React.FC = () => {
 
         {/* FAQ Section */}
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-              AI FAQ
-            </h3>
-            <p className="text-xl text-slate-600 font-medium">
-              Clear answers to common questions about AI Agents and Chatbots.
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center mb-4">
+              <span className="px-3 py-1 text-[11px] font-bold tracking-[0.35em] text-emerald-700 bg-emerald-50 rounded-full uppercase">
+                AI Solutions
+              </span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight mb-4 hero-line">
+              AI Agents & AI Chatbots
+            </h2>
+
+            <p className="text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
+              Automate customer interactions, enhance support, and streamline operations
+              using intelligent AI-powered agents and chatbots.
             </p>
           </div>
+
+
 
           <div>
             {faqItems.map((item, index) => (

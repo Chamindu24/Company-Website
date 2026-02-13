@@ -5,7 +5,7 @@ const WhyChooseLushWare: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full bg-[#FCFCFC] py-24 lg:py-40 overflow-hidden">
+    <section className="w-full bg-[#ffffff] py-24 lg:py-32 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
         
         {/* Main Grid: 12-Column System like high-end SaaS */}
@@ -15,19 +15,18 @@ const WhyChooseLushWare: React.FC = () => {
           <div className="lg:col-span-6 lg:pr-12 z-10">
             <div className="space-y-8">
               {/* Premium Label - Using your Emerald & Gold */}
-              <div className="flex items-center gap-3">
-                <span className="h-[2px] w-8 bg-[#B89450]"></span>
-                <p className="text-[11px] font-black uppercase tracking-[0.3em] text-emerald-900/60">
-                  Engineering Excellence
-                </p>
-              </div>
+                <div className="flex items-center gap-2 mb-4 md:pl-2">
+                  <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                    Why LushWare?
+                  </div>
+                </div>
 
-              <h2 className="text-5xl lg:text-7xl font-black text-emerald-950 leading-[0.9] tracking-tighter">
+              <h2 className="text-5xl lg:text-7xl font-extrabold text-emerald-950 leading-[0.9] tracking-tighter">
                 A Technology Partner <br /> 
-                <span className="text-emerald-800">Focused on Results.</span>
+                <span className="text-emerald-600">Focused on Results.</span>
               </h2>
 
-              <p className="max-w-xl text-lg lg:text-xl text-emerald-900/80 font-bold leading-relaxed border-l-2 border-[#B89450]/20 pl-6">
+              <p className="max-w-xl text-lg lg:text-xl text-stone-700  leading-relaxed border-l-2 border-[#B89450] pl-4">
                 At LushWare, we don’t just build software — we solve business problems. 
                 Our solutions are tailored to your goals, processes, and customers, 
                 delivering measurable value through scalable, secure, and future-ready technology.
@@ -36,7 +35,7 @@ const WhyChooseLushWare: React.FC = () => {
               <div className="pt-4">
                 <button
                   onClick={() => navigate("/contact")}
-                  className="px-10 py-5 bg-emerald-950 text-white text-[11px] font-black uppercase tracking-[0.25em] transition-all hover:bg-[#B89450] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(2,44,34,0.15)]"
+                  className="px-10 py-5 bg-emerald-950 text-white text-[12px] font-black uppercase rounded-full tracking-[0.15em] transition-all hover:bg-emerald-600 duration-700 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(2,44,34,0.15)]"
                 >
                   Book a Consultation
                 </button>
