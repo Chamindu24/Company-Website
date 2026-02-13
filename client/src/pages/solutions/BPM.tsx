@@ -37,18 +37,21 @@ const BPM: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="max-w-6xl mt-12 mx-auto text-center mb-16">
-          <h2 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-            Business Process Management
-          </h2>
 
-          <h1 className="text-5xl lg:text-7xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] mb-6">
+          <div className="flex items-center justify-center gap-2 mb-2 ">
+            <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+              Business Process Management
+            </div>
+          </div>
+
+          <h1 className="text-5xl lg:text-7xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] mb-6 hero-line">
             Streamline Operations & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-500 to-emerald-800 hero-line">
               Achieve Operational Excellence
             </span>
           </h1>
 
-          <p className="text-xl text-slate-600 font-medium max-w-7xl mx-auto">
+          <p className="text-xl text-slate-600 font-medium max-w-7xl mx-auto hero-line">
             Business Process Management (BPM) software helps organizations design, automate,
             monitor, and optimize workflows to improve efficiency, reduce costs, and ensure
             processes align with strategic objectives.
@@ -119,7 +122,6 @@ const BPM: React.FC = () => {
                 title={item.title}
                 desc={item.desc}
                 link={item.link}
-                offset={item.offset}
               />
             ))}
           </div>

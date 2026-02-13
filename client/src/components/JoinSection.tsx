@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring, animate } from "framer-motion";
 
-function RollingCounter({ value, duration = 2 }) {
-  const ref = useRef(null);
+function RollingCounter({ value, duration = 2 }: { value: number; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
     damping: 30,
@@ -25,7 +25,7 @@ function RollingCounter({ value, duration = 2 }) {
     // Update the text content of the span directly for performance
     springValue.on("change", (latest) => {
       if (ref.current) {
-        ref.current.textContent = Math.floor(latest);
+        ref.current.textContent = Math.floor(latest).toString();
       }
     });
   }, [springValue]);
@@ -65,7 +65,7 @@ export default function JoinSection() {
             <div className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
               <button
                 onClick={() => navigate("/project-base")}
-                className="group relative px-10 py-4 overflow-hidden bg-stone-900 text-white rounded-full font-bold transition-all duration-500 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)]"
+                className="group cursor-pointer relative px-10 py-4 overflow-hidden bg-stone-900 text-white rounded-full font-bold transition-all duration-500 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)]"
               >
                 <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
                 <span className="relative z-10 text-[13px] font-bold tracking-[0.2em] uppercase">Join Now</span>

@@ -34,21 +34,23 @@ const CRM: React.FC = () => {
 
   return (
     <section className="w-full  py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mt-4 mx-auto">
         
         <div className="max-w-6xl mt-12 mx-auto text-center mb-16">
-          <h2 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-            Customer Relationship Management
-          </h2>
+          <div className="flex items-center justify-center gap-2 mb-2 ">
+            <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+              Customer Relationship Management
+            </div>
+          </div>
 
-          <h1 className="text-5xl lg:text-7xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-5xl lg:text-7xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] mb-6 hero-line">
             Build Stronger Relationships <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 via-emerald-500 to-emerald-800 hero-line">
               With Intelligent CRM Solutions
             </span>
           </h1>
 
-          <p className="text-xl text-slate-600 font-medium max-w-7xl mx-auto">
+          <p className="text-xl text-slate-600 font-medium max-w-6xl mx-auto hero-line">
             Customer Relationship Management (CRM) is a centralized system that enables
             businesses to manage customer data, track interactions, and optimize sales,
             marketing, and service processes across the entire customer lifecycle.
@@ -127,12 +129,11 @@ const CRM: React.FC = () => {
                   title={item.title}
                   desc={item.desc}
                   link={item.link}
-                  offset={item.offset}
                 />
             ))}
           </div>
 
-                  <section className="bg-white py-32 px-6 min-h-[150vh] relative">
+        <section className="bg-white py-32 px-6 min-h-[150vh] relative">
           {/* Sticky Container - Keeps the laptop in view while scrolling */}
           <div className="sticky top-20 max-w-7xl mx-auto overflow-visible">
             

@@ -1,42 +1,40 @@
 "use client";
-import React from 'react';
 import { WorldMap } from "@/components/ui/world-map";
 import { motion } from "framer-motion";
 
 export default function GlobalPresence() {
   return (
     <section className="relative py-24 bg-white overflow-hidden selection:bg-emerald-100">
-      <div className="max-w-7xl mx-auto px-2">
+      <div className="max-w-7xl mx-auto px-8 md:px-0 lg:px-0">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* LEFT SIDE: EDITORIAL TEXT */}
           <div className="space-y-12 z-5  order-2 lg:order-1">
             <div className="space-y-6">
 
-              {/* Context Line */}
-              <div className="flex items-center gap-4">
-                <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-emerald-900/50">
-                  UK & Sri Lanka Operations
-                </span>
-                <div className="h-px w-16 bg-emerald-800/20" />
-              </div>
+
+                <div className="flex items-center gap-2 mb-4 ">
+                  <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                    UK & Sri Lanka Operations
+                  </div>
+                </div>
 
               {/* Headline */}
-              <h2 className="text-6xl md:text-7xl font-serif text-slate-950 leading-[1.05] tracking-tight">
+              <h2 className="text-5xl md:text-7xl font-medium text-slate-950 leading-[0.9] tracking-tight">
                 Working with the UK. <br />
-                <span className="text-emerald-900">
+                <span className="text-emerald-700">
                   Trusted in Sri Lanka.
                 </span>
               </h2>
 
               {/* Core Message */}
-              <p className="text-slate-800 leading-relaxed text-lg max-w-lg">
+              <p className="text-slate-800 font-medium leading-relaxed text-lg max-w-lg">
                 We deliver high-quality software solutions for businesses in the
                 <strong> United Kingdom</strong>, with a special focus on meeting UK
                 commercial, security, and compliance standards.
               </p>
 
-              <p className="text-slate-800 leading-relaxed text-lg max-w-lg">
+              <p className="text-slate-800 font-medium leading-relaxed text-lg max-w-lg">
                 Alongside our UK work, we also partner closely with 
                 <strong> Sri Lankan organizations</strong>, supporting local enterprises
                 with the same level of engineering excellence and reliability.
@@ -46,24 +44,24 @@ export default function GlobalPresence() {
             {/* Regional Focus */}
             <div className="flex flex-col gap-10">
               <div className="flex items-start gap-6">
-                <span className="font-serif italic text-2xl text-emerald-900/40">01</span>
+                <span className="font-serif italic text-2xl text-emerald-900">01</span>
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">
                     United Kingdom
                   </h4>
-                  <p className="text-xs text-slate-400 font-mono mt-1">
+                  <p className="text-xs text-slate-800 font-mono mt-1">
                     Primary Market · Enterprise & SME Clients
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-6">
-                <span className="font-serif italic text-2xl text-emerald-900/40">02</span>
+                <span className="font-serif italic text-2xl text-emerald-900">02</span>
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">
                     Sri Lanka
                   </h4>
-                  <p className="text-xs text-slate-400 font-mono mt-1">
+                  <p className="text-xs text-slate-800 font-mono mt-1">
                     Regional Clients · Product Development & Support
                   </p>
                 </div>

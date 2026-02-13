@@ -118,25 +118,27 @@ export default function Homepage() {
               <div className="space-y-10">
 
                 {/* Badge */}
-                <div className="inline-flex items-center gap-3 px-5 py-1.5 bg-emerald-50/50 rounded-none border-l-2 border-emerald-800">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.4em] text-emerald-900/70">
+                <div className="flex items-center gap-2 mb-4 md:pl-2">
+                  <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
                     Customer Relationship Management
-                  </span>
+                  </div>
                 </div>
 
+                
+
                 {/* Headline */}
-                <h2 className="text-6xl md:text-7xl font-serif text-[#0f172a] leading-[1.1] tracking-tight">
+                <h2 className="text-5xl md:text-7xl font-semibold text-stone-950 leading-[1.1] tracking-tight hero-line">
                   Transforming <br />
-                  <span className=" text-emerald-800">
+                  <span className=" text-emerald-700">
                     Client Relationships
                   </span>
                 </h2>
 
                 {/* Description */}
-                <div className="space-y-6 text-slate-800 text-xl  leading-relaxed max-w-2xl">
+                <div className="space-y-6 text-slate-900 text-xl font-medium leading-relaxed max-w-xl lg:max-w-2xl hero-line">
                   <p>
                     Our Customer Relationship Management platform centralizes 
-                    <span className="text-emerald-900 font-normal"> client data</span>, 
+                    <span className="text-emerald-800 font-semibold"> client data</span>, 
                     interactions, and business intelligence into a single, secure ecosystem.
                   </p>
 
@@ -147,9 +149,9 @@ export default function Homepage() {
                   </p>
 
                   {/* Quote */}
-                  <div className="relative py-2">
+                  <div className="relative py-2 hero-line ">
                     <div className="absolute left-0 top-0 h-full w-[1px] bg-emerald-400"></div>
-                    <p className="pl-8 italic text-slate-800 text-lg">
+                    <p className="pl-8 serif text-slate-800 text-lg">
                       “One unified source of truth for every client, every interaction,
                       and every opportunity.”
                     </p>
@@ -157,20 +159,17 @@ export default function Homepage() {
                 </div>
 
                 {/* Actions */}
-                <div className="pt-6 flex items-center gap-8">
+                <div className="pt-6 flex items-center justify-center lg:justify-start gap-8">
                   {/* Primary Button → CRM Route */}
                   <Link
                     to="/solutions/crm"
-                    className="px-10 py-5 bg-emerald-950 text-white rounded-none font-medium text-xs tracking-[0.2em] uppercase hover:bg-emerald-800 transition-all duration-700 shadow-[20px_20px_60px_rgba(6,78,59,0.1)]"
+                    className="px-10 py-5 bg-emerald-950 text-white rounded-full font-semibold text-xs tracking-[0.2em] uppercase hover:bg-emerald-600 transition-all duration-700 shadow-[20px_20px_60px_rgba(6,78,59,0.1)]"
                     style={{ color: "#ffffff" }}
                   >
                     Explore CRM Solution
                   </Link>
 
-                  {/* Secondary */}
-                  <button className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-800 border-b border-slate-200 pb-1 hover:border-emerald-800 hover:text-emerald-900 transition-all duration-300">
-                    How It Works
-                  </button>
+
                 </div>
 
               </div>
@@ -296,7 +295,7 @@ export default function Homepage() {
       </section>
 
       {/* Our Story Section */}
-      <section data-reveal className="relative px-10 md:px-2 py-12 md:py-20 overflow-hidden bg-[#094a3b]">
+      <section data-reveal className="relative px-10 md:px-0 py-12 md:py-20 overflow-hidden bg-[#094a3b]">
         
         {/* Creative Background Elements */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -310,19 +309,17 @@ export default function Homepage() {
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent opacity-80" />
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               
             <div className="text-left space-y-6">
               <div className="inline-flex items-center group cursor-default">
                 <div className="relative flex items-center">
-                  {/* Adjusted Ring Colors for Dark Mode */}
-                  <div className="w-10 h-10 rounded-full border border-emerald-400 flex items-center justify-center group-hover:border-emerald-400/50 transition-colors duration-500">
-                    <div className="w-6 h-6 rounded-full border border-emerald-300 flex items-center justify-center bg-emerald-950 group-hover:bg-emerald-900 transition-all">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    </div>
-                  </div>
-                  
+                {/* Adjusted Ring Colors for Dark Mode */}
+\                <div className="w-6 h-6 rounded-full border border-emerald-300 flex items-center justify-center bg-emerald-950 group-hover:bg-emerald-900 transition-all">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                </div>
+\                  
                   <div className="w-6 h-px bg-emerald-400 group-hover:w-10 group-hover:bg-emerald-500 transition-all duration-500" />
                 </div>
 
@@ -342,7 +339,7 @@ export default function Homepage() {
               </div>
 
               {/* Headline with a White-to-Emerald gradient */}
-              <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+              <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-[1.1]">
                 The Vision Behind <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-100 via-emerald-200 to-emerald-100">
                   LushWare ORG.
@@ -399,30 +396,31 @@ export default function Homepage() {
             
             <div className="lg:w-1/3 lg:sticky lg:top-48 h-fit">
               <div className="flex flex-col pl-4 md:pl-0  ">
-                <div className="flex items-center gap-2 mb-8">
-                  <div className="w-1 h-4 bg-emerald-500 rounded-full"></div>
-                  <span className="text-[12px] font-bold tracking-[0.3em] text-slate-600 uppercase">Our Services</span>
+                <div className="flex items-center gap-2 mb-4 md:pl-2">
+                  <div className="px-2 py-0.5 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                    Our Services
+                  </div>
                 </div>
 
-                <h2 className="text-4xl md:text-6xl  font-bold text-slate-900 tracking-tighter leading-[1.1] mb-8">
+                <h2 className="text-5xl md:text-7xl  font-semibold text-slate-900 tracking-tighter leading-[0.95] mb-8">
                   Our 
                   Specialized Software <br /> 
                   <span className="relative">
-                    <span className="relative z-10 text-emerald-600">Solutions.</span>
+                    <span className="relative z-10 text-emerald-700">Solutions.</span>
                     <svg className="absolute -bottom-1 left-0 w-full h-0.5 text-emerald-300" viewBox="0 0 100 2" preserveAspectRatio="none">
                       <line x1="0" y1="1" x2="100" y2="1" stroke="currentColor" strokeWidth="2" />
                     </svg>
                   </span>
                 </h2>
-              <div className="mt-8">
+              <div className="mt-4">
                 <button
                   onClick={() => navigate("/solutions")}
-                  className="group relative overflow-hidden px-10 py-4 rounded-full bg-stone-900 transition-all duration-500 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)]"
+                  className="group relative cursor-pointer overflow-hidden px-10 py-4 rounded-full bg-stone-900 transition-all duration-500 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)]"
                 >
-                  <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
+                  <span className="absolute inset-0 w-0 h-full bg-emerald-700 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full"></span>
                   
                   <span className="relative z-10 flex items-center justify-center gap-3">
-                    <span className="text-sm font-semibold tracking-wider text-white transition-colors duration-500">
+                    <span className="text-sm font-medium tracking-wide text-white transition-colors duration-500">
                       VIEW ALL SOLUTIONS
                     </span>
 
@@ -520,10 +518,10 @@ export default function Homepage() {
               </div>
 
               <div className="max-w-sm">
-                <p className="text-slate-500 font-medium text-lg leading-relaxed border-l-2 border-emerald-500/30 pl-6 py-2">
+                <p className="text-slate-700 font-medium text-lg leading-relaxed border-l-2 border-emerald-500/30 pl-6 py-2">
                   We prioritize stability and security at every layer, building 
                   software architectures that remain 
-                  <span className="text-slate-900"> resilient as your business grows.</span>
+                  <span className="text-emerald-900 font-bold"> resilient as your business grows.</span>
                 </p>
               </div>
             </div>
@@ -577,18 +575,17 @@ export default function Homepage() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">       
                 {/* 1. Label Column */}
                 <div className="md:col-span-1">
-                  <p className="font-mono text-[13px] uppercase tracking-[0.3em] text-slate-400 mb-4">
-                    // Works
-                  </p>
-                  <div className="inline-flex items-center px-2 py-1 bg-slate-100 rounded text-[14px] font-bold text-slate-600 uppercase tracking-tighter">
-                    Our Software Products
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                      Our Software Products
+                    </div>
                   </div>
                 </div>
                 {/* 2. Massive Headline Column */}
                 <div className="md:col-span-3">
                   <h3 className="text-4xl md:text-6xl font-bold uppercase tracking-[-0.06em] text-slate-900 leading-[0.8] ">
                     Systems We’re <br />
-                    <span className="text-emerald-500">Building</span> Up.
+                    <span className="text-emerald-700">Building</span> Up.
                   </h3>
                 </div>
               </div>
