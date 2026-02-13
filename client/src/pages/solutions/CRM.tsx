@@ -91,13 +91,18 @@ const CRM: React.FC = () => {
           <div className="max-w-8xl mx-auto px-6 lg:px-0">
 
             {/* Section Intro */}
-            <div className="max-w-3xl mx-auto text-center mb-20">
-              <h2 className="text-sm font-bold tracking-[0.3em] text-emerald-600 uppercase mb-4">
-                Business Impact
-              </h2>
-              <p className="text-xl text-slate-600 font-medium">
-                Our CRM platform is designed to improve operational efficiency, strengthen
-                customer relationships, and drive sustainable business growth.
+            <div className="max-w-5xl mx-auto text-center py-16 px-6">
+
+              <div className="flex items-center justify-center gap-2 mb-4 ">
+                <div className="px-2 py-1 bg-emerald-600 text-[12px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                  Business Impact
+                </div>
+              </div>
+
+              {/* Modern Serif for a 'Royal' London vibe */}
+              <p className="text-2xl md:text-3xl text-slate-900  leading-snug tracking-tight">
+                Our CRM platform is designed to <span className="text-emerald-800 font-medium">improve operational efficiency</span>, 
+                strengthen customer relationships, and drive <span className="underline decoration-emerald-200 decoration-2 underline-offset-8">sustainable business growth.</span>
               </p>
             </div>
 
@@ -338,144 +343,142 @@ const CRM: React.FC = () => {
               }
             `}} />
           </section>
+          
+          </div>  
+          {/* How We Add Value - LushWare Premium Edition */}
+          <section className="bg-white py-16 px-2">
+            <div className="max-w-8xl mx-auto">
+              
+              {/* Header Section */}
+              <div className="max-w-4xl mx-auto text-center mb-20">
 
-
-
-            {/* How We Add Value - LushWare Premium Edition */}
-            <section className="bg-white py-16 px-2">
-              <div className="max-w-8xl mx-auto">
-                
-                {/* Header Section */}
-                <div className="max-w-4xl mx-auto text-center mb-20">
-                  <h3 className="text-xs font-bold tracking-[0.4em] text-emerald-600 uppercase mb-6">
-                    The Value Proposition
-                  </h3>
-                  <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-8 ">
-                    Strategic Excellence in CRM Engineering
-                  </h2>
-                  <p className="text-lg text-slate-500 leading-relaxed ">
-                    At <span className="font-semibold text-slate-800">LushWare</span>, we go beyond software delivery. 
-                    We align CRM technology with your business strategy, ensuring measurable outcomes 
-                    and long-term scalability.
-                  </p>
+                <div className="flex items-center justify-center gap-2 mb-6 ">
+                  <div className="px-2 py-1 bg-emerald-600 text-[10px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">
+                    How We Add Value to Your CRM
+                  </div>
                 </div>
+                <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-8 ">
+                  Strategic Excellence in <span className="text-emerald-600">CRM</span> Engineering
+                </h2>
+                <p className="text-2xl text-slate-800 leading-relaxed ">
+                  At <span className="font-semibold text-slate-800">LushWare</span>, we go beyond software delivery. 
+                  We align CRM technology with your business strategy, ensuring measurable outcomes 
+                  and long-term scalability.
+                </p>
+              </div>
 
-                {/* The Value Grid - 1px border separator look */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  overflow-hidden">
-                  {[
-                    {
-                      title: "Custom CRM Architecture",
-                      desc: "Tailored CRM platforms built to fit your unique business processes and workflows.",
-                      svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
-                    },
-                    {
-                      title: "Seamless Integrations",
-                      desc: "Connect your CRM with existing tools like email, ERP, and marketing automation.",
-                      svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                    },
-                    {
-                      title: "Secure Infrastructure",
-                      desc: "Cloud-ready and enterprise-grade solutions designed for growth and compliance.",
-                      svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    },
-                    {
-                      title: "Support & Optimization",
-                      desc: "Dedicated guidance and improvements to ensure your CRM remains aligned.",
-                      svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9.09 9 1.24 5.11 1.24-5.11 1.24 5.11 1.24-5.11"/></svg>
-                    },
-                    {
-                      title: "Data-Driven Insights",
-                      desc: "Advanced analytics and reporting tools to identify trends and forecast growth.",
-                      svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-                    },
-                    {
-                      title: "User Adoption",
-                      desc: "Guided onboarding and intuitive interfaces to ensure your team embraces the platform.",
-                      svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    }
-                  ].map((item, index) => (
-                    <div 
-                      key={index} 
-                      className="group relative bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-300 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] cursor-pointer overflow-hidden"
-                    >
-                    {/* Decorative Background - The "Royal Aurora" */}
-                    <div className="absolute -top-20 -right-20 pointer-events-none">
-                      
-                      {/* Layer 1: The Ambient Glow (Large & Soft) */}
-                      <div className="absolute inset-0 w-64 h-64 bg-emerald-200/20 rounded-full blur-[80px] group-hover:bg-emerald-400/30 transition-all duration-1000 ease-in-out" />
-                      
-                      {/* Layer 2: The Core Ribbon (Animated Shape) */}
-                      <div className="relative w-40 h-40 bg-gradient-to-br from-emerald-100/40 to-transparent rounded-full border border-emerald-500/5 group-hover:scale-[2.5] group-hover:rotate-12 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                      
+              {/* The Value Grid - 1px border separator look */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  overflow-hidden">
+                {[
+                  {
+                    title: "Custom CRM Architecture",
+                    desc: "Tailored CRM platforms built to fit your unique business processes and workflows.",
+                    svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+                  },
+                  {
+                    title: "Seamless Integrations",
+                    desc: "Connect your CRM with existing tools like email, ERP, and marketing automation.",
+                    svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  },
+                  {
+                    title: "Secure Infrastructure",
+                    desc: "Cloud-ready and enterprise-grade solutions designed for growth and compliance.",
+                    svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  },
+                  {
+                    title: "Support & Optimization",
+                    desc: "Dedicated guidance and improvements to ensure your CRM remains aligned.",
+                    svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9.09 9 1.24 5.11 1.24-5.11 1.24 5.11 1.24-5.11"/></svg>
+                  },
+                  {
+                    title: "Data-Driven Insights",
+                    desc: "Advanced analytics and reporting tools to identify trends and forecast growth.",
+                    svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                  },
+                  {
+                    title: "User Adoption",
+                    desc: "Guided onboarding and intuitive interfaces to ensure your team embraces the platform.",
+                    svg: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  }
+                ].map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="group relative bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-300 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] cursor-pointer overflow-hidden"
+                  >
+                  {/* Decorative Background - The "Royal Aurora" */}
+                  <div className="absolute -top-20 -right-20 pointer-events-none">
+                    
+                    {/* Layer 1: The Ambient Glow (Large & Soft) */}
+                    <div className="absolute inset-0 w-64 h-64 bg-emerald-200/20 rounded-full blur-[80px] group-hover:bg-emerald-400/30 transition-all duration-1000 ease-in-out" />
+                    
+                    {/* Layer 2: The Core Ribbon (Animated Shape) */}
+                    <div className="relative w-40 h-40 bg-gradient-to-br from-emerald-100/40 to-transparent rounded-full border border-emerald-500/5 group-hover:scale-[2.5] group-hover:rotate-12 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                    
 
-                    </div>
+                  </div>
 
-                      {/* Icon - Using a "Squircle" (Super-ellipse) Shape */}
-                      <div className="relative z-10 mb-8">
-                        <div className="w-18 h-18 bg-slate-50 flex items-center justify-center rounded-[1.8rem] group-hover:rounded-full group-hover:bg-emerald-600 group-hover:text-white transition-all duration-700 ease-in-out shadow-sm group-hover:shadow-emerald-200">
-                          <div className="transition-transform duration-500 group-hover:scale-110">
-                            {item.svg}
-                          </div>
+                    {/* Icon - Using a "Squircle" (Super-ellipse) Shape */}
+                    <div className="relative z-10 mb-8">
+                      <div className="w-18 h-18 bg-slate-50 flex items-center justify-center rounded-[1.8rem] group-hover:rounded-full group-hover:bg-emerald-600 group-hover:text-white transition-all duration-700 ease-in-out shadow-sm group-hover:shadow-emerald-200">
+                        <div className="transition-transform duration-500 group-hover:scale-110">
+                          {item.svg}
                         </div>
                       </div>
-
-                      {/* Content */}
-                      <div className="relative z-10">
-                        <h4 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight leading-none">
-                          {item.title}
-                        </h4>
-                        
-                        {/* Soft Curved Underline */}
-                        <div className="w-10 h-[3px] bg-emerald-800/50 rounded-full mb-6 group-hover:w-16 group-hover:bg-emerald-600 transition-all duration-500" />
-                        
-                        <p className="text-md font-semibold leading-relaxed text-slate-900 group-hover:text-slate-600 transition-colors duration-500">
-                          {item.desc}
-                        </p>
-                      </div>
-
-
                     </div>
-                  ))}
-                </div>
+
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h4 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight leading-none">
+                        {item.title}
+                      </h4>
+                      
+                      {/* Soft Curved Underline */}
+                      <div className="w-10 h-[3px] bg-emerald-800/50 rounded-full mb-6 group-hover:w-16 group-hover:bg-emerald-600 transition-all duration-500" />
+                      
+                      <p className="text-md font-semibold leading-relaxed text-slate-900 group-hover:text-slate-600 transition-colors duration-500">
+                        {item.desc}
+                      </p>
+                    </div>
+
+
+                  </div>
+                ))}
               </div>
-            </section>
-
-
-            
-          </div>  
+            </div>
+          </section>
           
 
 
           <WhyChooseLushWare/>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-14">
-                <div className="flex items-center justify-center mb-4">
-                  <span className="px-3 py-1 text-[11px] font-bold tracking-[0.35em] text-emerald-700 bg-emerald-50 rounded-full uppercase">
-                    CRM FAQ
-                  </span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight mb-4 hero-line">
-                  Frequently Asked Questions
-                </h3>
-
-                <p className="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-                  Clear answers to the most common questions about CRM platforms and how they
-                  help your business grow.
-                </p>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-14">
+              <div className="flex items-center justify-center mb-4">
+                <span className="px-3 py-1 text-[11px] font-bold tracking-[0.35em] text-emerald-700 bg-emerald-50 rounded-full uppercase">
+                  CRM FAQ
+                </span>
               </div>
 
+              <h3 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight mb-4 hero-line">
+                Frequently Asked Questions
+              </h3>
 
-              <div>
-                {faqItems.map((item, index) => (
-                  <QuestionItem
-                    key={`${item.question}-${index}`}
-                    question={item.question}
-                    answer={item.answer}
-                  />
-                ))}
-              </div>
+              <p className="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
+                Clear answers to the most common questions about CRM platforms and how they
+                help your business grow.
+              </p>
             </div>
+
+
+            <div>
+              {faqItems.map((item, index) => (
+                <QuestionItem
+                  key={`${item.question}-${index}`}
+                  question={item.question}
+                  answer={item.answer}
+                />
+              ))}
+            </div>
+          </div>
           </div>
 
     </section>

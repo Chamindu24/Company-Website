@@ -87,38 +87,53 @@ export default function Navbar() {
                   location.pathname.startsWith("/solutions") ? "w-full" : "w-0 group-hover:w-full"
                 }`}></span>
               </div>
-                <div className="pointer-events-none absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 translate-y-4">
-                  <div className="w-[420px] overflow-hidden rounded-sm border border-stone-200 bg-white shadow-[0_60px_100px_-20px_rgba(0,0,0,0.15)]">
-                    
-                    <div className="relative p-12">
-                      <nav className="relative z-10 space-y-8">
-                        {solutionLinks.map((item) => (
-                          <Link
-                            key={item.to}
-                            to={item.to}
-                            className="group/item flex items-start pl-10"
-                          >
-                            {/* The Dot on the Line */}
-                            <div className="absolute left-[3.5px] mt-2 h-1.5 w-1.5 rounded-full border border-white bg-stone-200 transition-all duration-500 group-hover/item:scale-150 group-hover/item:bg-stone-900" />
+              <div className="pointer-events-none absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 translate-y-8">
+                <div className="w-[840px] overflow-hidden rounded-b-2xl bg-white border border-stone-100 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)]">
+                  
 
-                            <div className="flex flex-col">
-                              <span className={`text-[13px] tracking-widest uppercase transition-all duration-500 ${
-                                location.pathname === item.to 
-                                  ? "text-stone-950 font-bold" 
-                                  : "text-stone-800 font-medium group-hover/item:text-emerald-800 group-hover/item:translate-x-1"
-                              }`}>
-                                {item.name}
-                              </span>
-                              
-                            </div>
-                          </Link>
-                        ))}
-                      </nav>
+                  <div className="p-16">
 
-                    </div>
+
+                    {/* Grid Layout for 10-12 Categories */}
+                    <nav className="grid grid-cols-2 gap-x-16 gap-y-10">
+                      {solutionLinks.map((item, index) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="group/item relative flex flex-col space-y-2 border-l border-transparent pl-6 transition-all duration-500 hover:border-stone-900"
+                        >
+                          {/* Index Numbering - creates a 'Catalogue' feel */}
+                          <span className="text-[10px] font-medium text-stone-600 uppercase tracking-widest group-hover/item:text-stone-900 transition-colors duration-500">
+                            {String(index + 1).padStart(2, '0')}
+                          </span>
+
+                          <div className="flex items-center justify-between">
+                            <span className={` text-[17px] tracking-wide font-medium transition-all duration-700 ${
+                              location.pathname === item.to 
+                                ? "text-stone-950 underline underline-offset-8 decoration-emerald-700" 
+                                : "text-stone-900 group-hover/item:text-stone-950 group-hover/item:translate-x-1"
+                            }`}>
+                              {item.name}
+                            </span>
+                            
+                            {/* Minimalist leaf-style or chevron icon */}
+                            <svg 
+                              className="w-4 h-4 text-stone-800 opacity-0 -translate-x-4 transition-all duration-500 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                              fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            >
+                              <path  strokeWidth="1" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </div>
+                          
+
+                        </Link>
+                      ))}
+                    </nav>
+
 
                   </div>
                 </div>
+              </div>
             </div>
 
             {links.map((link) => (
