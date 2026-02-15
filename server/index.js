@@ -27,12 +27,7 @@ const corsOptions = {
     // Allow requests with no origin (like mobile apps or Postman)
     if (!origin) return callback(null, true);
     
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:5000',
-      'https://lushware.vercel.app',
-      'https://lushware-api.vercel.app'
-    ];
+    const allowedOrigins = 'https://lushware.net'
     
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
