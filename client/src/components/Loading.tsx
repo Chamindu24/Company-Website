@@ -1,54 +1,39 @@
 export default function Loading() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#FDFDFD] z-50 overflow-hidden">
-      <div className="relative flex flex-col items-center">
+      
+      {/* Container for the Reveal */}
+      <div className="relative overflow-hidden px-4 py-2">
         
-        {/* 2. The Text Container */}
-        <div className="relative flex items-center justify-center">
-          
-          {/* BASE LAYER (The faint/inactive state) */}
-          <div className="flex flex-row items-baseline opacity-10 select-none">
-            <h1 className="text-[12vw] font-bold tracking-tighter text-stone-900">
-              LUSH
-            </h1>
-            <h1 className="text-[12vw] font-bold tracking-tighter  text-transparent"
-                style={{ WebkitTextStroke: '2px #1c1917' }}>
-              WARE
-            </h1>
-          </div>
+        {/* The Main Brand Name */}
+        <h1 className="text-[18vw] md:text-[12vw] font-serif uppercase font-light text-stone-900 leading-none tracking-tight animate-slide-up">
+          Lush<span className="text-emerald-600">ware</span> 
+        </h1>
 
-          {/* REVEAL LAYER (The animated active state) */}
-          <div className="absolute inset-0 flex flex-row items-baseline overflow-hidden animate-[reveal-clip_3s_infinite_ease-in-out]">
-            <h1 className="text-[12vw] font-bold tracking-tighter text-emerald-900">
-              LUSH
-            </h1>
-            <h1 className="text-[12vw] font-bold tracking-tighter text-transparent"
-                style={{ WebkitTextStroke: '2px #064e3b' }}>
-              WARE
-            </h1>
-          </div>
-
-          {/* 3. The Scanning Light Beam */}
-          {/* We use a wider glow to make it look more organic as it passes the letters */}
-          <div className="absolute top-0 w-1 h-full bg-linear-to-b from-transparent via-emerald-400 to-transparent blur-[2px] animate-[scan-move_3s_infinite_ease-in-out]"></div>
-        </div>
-
+        {/* The Luxury Reveal Bar - This creates the "Premium" motion */}
+        <div className="absolute inset-0 bg-[#FDFDFD] animate-reveal-wipe" />
+        
       </div>
 
       <style>{`
-        @keyframes reveal-clip {
-          0% { clip-path: inset(0 100% 0 0); }
-          50% { clip-path: inset(0 0% 0 0); }
-          100% { clip-path: inset(0 0 0 100%); }
+        @keyframes reveal-wipe {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(101%); }
         }
-        @keyframes scan-move {
-          0% { left: 0%; opacity: 0; }
-          50% { left: 50%; opacity: 1; }
-          100% { left: 100%; opacity: 0; }
+
+        @keyframes slide-up {
+          0% { transform: translateY(10%) scale(0.98); opacity: 0; }
+          100% { transform: translateY(0) scale(1); opacity: 1; }
         }
-        @keyframes line-flow {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+
+        .animate-reveal-wipe {
+          /* A slow, sophisticated wipe from left to right */
+          animation: reveal-wipe 1.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        .animate-slide-up {
+          /* Subtle emergence of the text */
+          animation: slide-up 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
       `}</style>
     </div>
