@@ -22,22 +22,35 @@ if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) 
 }
 
 // CORS Configuration for production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5000',
+  'https://lushware.vercel.app',
+  'https://lushware-api.vercel.app',
+  'https://lushware.net',
+  'https://www.lushware.net',
+  'https://api.lushware.net'
+];
+
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true;
+
+  if (allowedOrigins.includes(origin)) {
+    return true;
+  }
+
+  try {
+    const { hostname, protocol } = new URL(origin);
+    return protocol === 'https:' && hostname.endsWith('.lushware.net');
+  } catch (error) {
+    return false;
+  }
+};
+
 const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or Postman)
-    if (!origin) return callback(null, true);
-    
-
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:5000',
-      'https://lushware.vercel.app',
-      'https://lushware-api.vercel.app',
-      'https://lushware.net',
-    ];
-
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (isAllowedOrigin(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -45,7 +58,8 @@ const corsOptions = {
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 204
 };
 
 // Middleware
