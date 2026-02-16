@@ -31,7 +31,8 @@ const corsOptions = {
       'http://localhost:5173',
       'http://localhost:5000',
       'https://lushware.vercel.app',
-      'https://lushware-api.vercel.app'
+      'https://lushware-api.vercel.app',
+      'https://lushware.net',
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1) {
