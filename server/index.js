@@ -64,7 +64,6 @@ const corsOptions = {
 
 // Middleware
 app.use(cors(corsOptions));  // Allow requests from frontend with proper config
-app.options('*', cors(corsOptions));
 
 app.use(express.json());     // Parse JSON bodies
 
