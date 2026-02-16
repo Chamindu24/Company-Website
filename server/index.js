@@ -27,6 +27,7 @@ const corsOptions = {
     // Allow requests with no origin (like mobile apps or Postman)
     if (!origin) return callback(null, true);
     
+
     const allowedOrigins = [
       'http://localhost:5173',
       'http://localhost:5000',
@@ -34,6 +35,7 @@ const corsOptions = {
       'https://lushware-api.vercel.app',
       'https://lushware.net',
     ];
+
     
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
@@ -48,6 +50,8 @@ const corsOptions = {
 
 // Middleware
 app.use(cors(corsOptions));  // Allow requests from frontend with proper config
+app.options('*', cors(corsOptions));
+
 app.use(express.json());     // Parse JSON bodies
 
 // --------------------------
