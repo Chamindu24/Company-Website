@@ -219,13 +219,13 @@ export default function ConsultationPageV15() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="relative rounded-[2rem] bg-white p-1 shadow-[0_2px_10px_rgba(0,0,0,0.02)] ring-1 ring-emerald-500">
+            <div className="relative rounded-[2rem] bg-white p-0.5 shadow-[0_2px_10px_rgba(0,0,0,0.02)] ring-1 ring-emerald-500">
               
-              <form className="p-10 lg:p-16" onSubmit={handleSubmit}>
+              <form className="px-6 py-8 lg:p-16" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
                   
                   {/* Field 01: First Name */}
-                  <div className="relative space-y-3 group">
+                  <div className="relative space-y-1 group">
                     <label className="flex items-center gap-2 text-[16px] font-semibold uppercase tracking-widest text-gray-700 group-focus-within:text-emerald-600 transition-colors">
                       <span className="font-serif italic lowercase text-lg opacity-90">i.</span> First Name
                     </label>
@@ -241,7 +241,7 @@ export default function ConsultationPageV15() {
                   </div>
 
                   {/* Field 02: Last Name */}
-                  <div className="relative space-y-3 group">
+                  <div className="relative space-y-1 group">
                     <label className="flex items-center gap-2 text-[16px] font-semibold uppercase tracking-widest text-gray-700 group-focus-within:text-emerald-600 transition-colors">
                       <span className="font-serif italic lowercase text-lg opacity-90">ii.</span> Last Name
                     </label>
@@ -257,7 +257,7 @@ export default function ConsultationPageV15() {
                   </div>
 
                   {/* Field 03: Corporate Email */}
-                  <div className="sm:col-span-2 relative space-y-3 group">
+                  <div className="sm:col-span-2 relative space-y-1 group">
                     <label className="flex items-center gap-2 text-[16px] font-semibold uppercase tracking-widest text-gray-700 group-focus-within:text-emerald-600 transition-colors">
                       <span className="font-serif italic lowercase text-lg opacity-90">iii.</span>  Business Email
                     </label>
@@ -273,7 +273,7 @@ export default function ConsultationPageV15() {
                   </div>
 
                   {/* Field 04: Geography */}
-                  <div className="relative space-y-3 group">
+                  <div className="relative space-y-1 group">
                     <label className="flex items-center gap-2  font-semibold uppercase tracking-widest text-gray-700 group-focus-within:text-emerald-600 transition-colors">
                       <span className="font-serif italic lowercase text-lg opacity-90">iv.</span> Geography
                     </label>
@@ -311,7 +311,7 @@ export default function ConsultationPageV15() {
                   </div>
 
                   {/* Field 05: WhatsApp */}
-                  <div className="relative space-y-3 group">
+                  <div className="relative space-y-1 group">
                     <label className="flex items-center gap-2 text-[16px] font-semibold uppercase tracking-widest text-gray-700 group-focus-within:text-emerald-600 transition-colors">
                       <span className="font-serif italic lowercase text-lg opacity-90">v.</span> WhatsApp Number
                     </label>
@@ -327,7 +327,7 @@ export default function ConsultationPageV15() {
                   </div>
 
                   {/* Field 06: Requirement */}
-                  <div className="sm:col-span-2 relative space-y-3 group">
+                  <div className="sm:col-span-2 relative space-y-1   group">
                     <label className="flex items-center gap-2 text-[16px] font-semibold uppercase tracking-widest text-gray-700 group-focus-within:text-emerald-600 transition-colors">
                       <span className="font-serif italic lowercase text-lg opacity-90">vi.</span> Requirement
                     </label>
