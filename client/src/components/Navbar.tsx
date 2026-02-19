@@ -200,7 +200,7 @@ export default function Navbar() {
               {/* Header */}
               <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-stone-100">
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12  border  flex items-center justify-center">
+                  <div className="h-12 w-12    flex items-center justify-center">
                     <img
                       src="/logo.jpeg"
                       alt="LushWare ORG"

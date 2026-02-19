@@ -6,7 +6,7 @@ export default function Loading() {
       <div className="relative overflow-hidden px-4 py-2">
         
         {/* The Main Brand Name */}
-        <h1 className="text-[18vw] md:text-[12vw] font-serif uppercase font-light text-stone-900 leading-none tracking-tight animate-slide-up">
+        <h1 className="text-[15vw] md:text-[9.5vw] font-serif uppercase font-light text-stone-900 leading-none tracking-tight animate-slide-up">
           Lush<span className="text-emerald-600">ware</span> 
         </h1>
 

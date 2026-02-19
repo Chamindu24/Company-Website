@@ -169,21 +169,21 @@ const CRM: React.FC = () => {
             ))}
           </div>
 
-          <section className="bg-white py-32 px-6 min-h-[150vh] relative">
+          <section className="bg-white py-32 px-6 relative lg:min-h-[150vh]">
             {/* Sticky Container */}
-            <div className="sticky top-20 max-w-7xl mx-auto overflow-visible">
+            <div className="relative lg:sticky lg:top-20 max-w-7xl mx-auto overflow-visible">
               
               {/* Header Text */}
-              <div className="text-center mb-20 relative z-30">
-                <div className="inline-block px-4 py-1 rounded-full border border-emerald-300 bg-white/50 backdrop-blur-md mb-6 ">
+              <div className="text-center mb-10 md:mb-20 relative z-30">
+                <div className="inline-block px-4 py-1 rounded-full border border-emerald-300 bg-white/50 backdrop-blur-md mb-6">
                   <span className="text-emerald-800 font-bold tracking-[0.4em] text-[10px] uppercase">
                     Precision Engineering
                   </span>
                 </div>
-                <h3 className="text-5xl md:text-7xl  text-slate-900 mb-4 tracking-tight">
-                  Experience the <span className=" font-light text-emerald-700">Interface.</span>
+                <h3 className="text-4xl md:text-5xl lg:text-7xl text-slate-900 mb-4 tracking-tight">
+                  Experience the <span className="font-light text-emerald-700">Interface.</span>
                 </h3>
-                <p className="text-slate-600 text-xl font-medium">Scroll to engage the system</p>
+                <p className="text-slate-600 text-base md:text-xl font-medium">Scroll to engage the system</p>
               </div>
 
               {/* The Laptop Rig */}
@@ -191,7 +191,7 @@ const CRM: React.FC = () => {
                 
                 {/* LID / SCREEN */}
                 <div 
-                  className="relative z-20 w-full max-w-[900px] aspect-[16/10] bg-[#020617] rounded-2xl p-2 shadow-2xl border border-slate-800 origin-bottom transition-all duration-100 ease-out"
+                  className="relative z-20 w-full max-w-[900px] aspect-[16/10] bg-[#020617] rounded-xl md:rounded-2xl p-1 md:p-2 shadow-2xl border border-slate-800 origin-bottom transition-all duration-100 ease-out"
                   style={{
                     transformStyle: 'preserve-3d',
                     animation: 'open-lid linear both',
@@ -200,17 +200,18 @@ const CRM: React.FC = () => {
                   }}
                 >
                   {/* INNER SCREEN CONTENT (The "Real" Site Mockup) */}
-                  <div className="w-full h-full bg-[#f1f5f9] rounded-xl overflow-hidden relative border border-slate-900 flex flex-col font-sans">
+                  <div className="w-full h-full bg-[#f1f5f9] rounded-lg md:rounded-xl overflow-hidden relative border border-slate-900 flex flex-col font-sans">
                     
                     {/* 1. COMPACT TOP NAV */}
-                    <div className="h-10 border-b border-slate-200 bg-emerald-950 px-4 flex items-center justify-between shrink-0">
-                      <div className="flex items-center gap-6">
-                        <div className="flex items-center gap-2">
-                          <div className="w-4 h-4 bg-emerald-500 rounded-sm flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 bg-emerald-950 rounded-full"></div>
+                    <div className="h-8 md:h-10 border-b border-slate-200 bg-emerald-950 px-2 md:px-4 flex items-center justify-between shrink-0">
+                      <div className="flex items-center gap-3 md:gap-6">
+                        <div className="flex items-center gap-1 md:gap-2">
+                          <div className="w-3 h-3 md:w-4 md:h-4 bg-emerald-500 rounded-sm flex items-center justify-center">
+                            <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-emerald-950 rounded-full"></div>
                           </div>
-                          <span className="font-bold text-white tracking-tighter text-[10px]">LUSHWARE <span className="text-emerald-400">PREMIUM</span></span>
+                          <span className="font-bold text-white tracking-tighter text-[8px] md:text-[10px]">LUSHWARE <span className="text-emerald-400">PREMIUM</span></span>
                         </div>
+                        {/* Hide nav links on mobile */}
                         <div className="hidden sm:flex gap-3 text-[8px] font-bold uppercase tracking-[0.2em] text-emerald-200/60">
                           <span className="text-white bg-white/10 px-2 py-1 rounded">Terminal</span>
                           <span className="px-2 py-1">Markets</span>
@@ -219,19 +220,19 @@ const CRM: React.FC = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
-                        <div className="h-4 w-24 bg-emerald-900/50 rounded-full border border-emerald-800 flex items-center px-2">
-                            <div className="h-1 w-1 bg-emerald-400 rounded-full animate-pulse mr-2"></div>
-                            <span className="text-[7px] text-emerald-400 uppercase font-bold tracking-widest">System Live</span>
+                        <div className="h-3 w-16 md:h-4 md:w-24 bg-emerald-900/50 rounded-full border border-emerald-800 flex items-center px-1.5 md:px-2">
+                            <div className="h-1 w-1 bg-emerald-400 rounded-full animate-pulse mr-1 md:mr-2"></div>
+                            <span className="text-[6px] md:text-[7px] text-emerald-400 uppercase font-bold tracking-widest">Live</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="flex flex-1 overflow-hidden">
-                      {/* 2. DENSE LEFT SIDEBAR */}
-                      <div className="w-10 border-r border-slate-200 bg-white flex flex-col items-center py-4 gap-4 shrink-0">
+                      {/* 2. DENSE LEFT SIDEBAR — hidden on mobile */}
+                      <div className="hidden sm:flex w-8 md:w-10 border-r border-slate-200 bg-white flex-col items-center py-3 md:py-4 gap-3 md:gap-4 shrink-0">
                         {[...Array(8)].map((_, i) => (
-                          <div key={i} className={`w-6 h-6 rounded flex items-center justify-center ${i === 0 ? 'bg-emerald-900 text-white' : 'text-slate-300 hover:bg-slate-50'}`}>
-                            <div className="w-3 h-3 border border-current rounded-sm"></div>
+                          <div key={i} className={`w-5 h-5 md:w-6 md:h-6 rounded flex items-center justify-center ${i === 0 ? 'bg-emerald-900 text-white' : 'text-slate-300 hover:bg-slate-50'}`}>
+                            <div className="w-2.5 h-2.5 md:w-3 md:h-3 border border-current rounded-sm"></div>
                           </div>
                         ))}
                       </div>
@@ -239,19 +240,19 @@ const CRM: React.FC = () => {
                       {/* 3. MULTI-COLUMN DATA GRID */}
                       <div className="flex-1 flex flex-col overflow-hidden">
                         
-                        {/* Top Ribbon Stats */}
-                        <div className="grid grid-cols-4 border-b border-slate-200 bg-white shrink-0">
+                        {/* Top Ribbon Stats — 2 cols on mobile, 4 on larger */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 border-b border-slate-200 bg-white shrink-0">
                           {[
                             { label: "Portfolio Value", val: "£8,421,090", change: "+0.42%" },
                             { label: "Daily Volume", val: "£1.2M", change: "-0.12%" },
                             { label: "Active Nodes", val: "1,024", change: "Stable" },
                             { label: "Risk Index", val: "0.02", change: "Minimal" }
                           ].map((s, i) => (
-                            <div key={i} className="p-3 border-r border-slate-100 last:border-r-0">
-                              <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest mb-1">{s.label}</p>
-                              <div className="flex items-baseline gap-2">
-                                <span className="text-sm font-bold text-slate-900 leading-none">{s.val}</span>
-                                <span className={`text-[7px] font-bold ${s.change.startsWith('+') ? 'text-emerald-600' : 'text-slate-400'}`}>{s.change}</span>
+                            <div key={i} className={`p-1.5 md:p-3 border-r border-slate-100 last:border-r-0 ${i >= 2 ? 'hidden md:block' : ''}`}>
+                              <p className="text-[6px] md:text-[7px] font-black text-slate-400 uppercase tracking-widest mb-0.5 md:mb-1">{s.label}</p>
+                              <div className="flex items-baseline gap-1 md:gap-2">
+                                <span className="text-[10px] md:text-sm font-bold text-slate-900 leading-none">{s.val}</span>
+                                <span className={`text-[6px] md:text-[7px] font-bold ${s.change.startsWith('+') ? 'text-emerald-600' : 'text-slate-400'}`}>{s.change}</span>
                               </div>
                             </div>
                           ))}
@@ -259,10 +260,10 @@ const CRM: React.FC = () => {
 
                         <div className="flex-1 flex overflow-hidden">
                           {/* Main Feed (High Density Table) */}
-                          <div className="flex-[2] bg-white border-r border-slate-200 overflow-y-auto p-4">
-                            <div className="flex items-center justify-between mb-4">
-                              <h5 className="text-[10px] font-bold uppercase tracking-widest text-slate-900">Transaction Ledger</h5>
-                              <div className="flex gap-2">
+                          <div className="flex-[2] bg-white border-r border-slate-200 overflow-y-auto p-2 md:p-4">
+                            <div className="flex items-center justify-between mb-2 md:mb-4">
+                              <h5 className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-slate-900">Transaction Ledger</h5>
+                              <div className="hidden sm:flex gap-2">
                                 <div className="h-5 w-16 bg-slate-50 border border-slate-200 rounded"></div>
                                 <div className="h-5 w-16 bg-emerald-900 rounded"></div>
                               </div>
@@ -270,8 +271,8 @@ const CRM: React.FC = () => {
                             <table className="w-full text-left border-collapse">
                               <thead>
                                 <tr className="border-b border-slate-100">
-                                  {["Entity", "Status", "Allocation", "Rating"].map(h => (
-                                    <th key={h} className="pb-2 text-[8px] font-bold text-slate-400 uppercase tracking-tighter">{h}</th>
+                                  {["Entity", "Status", "Allocation", "Rating"].map((h, hi) => (
+                                    <th key={h} className={`pb-1 md:pb-2 text-[7px] md:text-[8px] font-bold text-slate-400 uppercase tracking-tighter ${hi >= 3 ? 'hidden sm:table-cell' : ''}`}>{h}</th>
                                   ))}
                                 </tr>
                               </thead>
@@ -286,37 +287,38 @@ const CRM: React.FC = () => {
                                   { n: "City Brokers", s: "Verified", a: "£670k", r: "AA" },
                                 ].map((row, i) => (
                                   <tr key={i} className="group hover:bg-slate-50 transition-colors">
-                                    <td className="py-2 text-[9px] font-bold text-slate-700">{row.n}</td>
-                                    <td className="py-2"><span className="text-[7px] px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold uppercase">{row.s}</span></td>
-                                    <td className="py-2 text-[9px] font-mono text-slate-500">{row.a}</td>
-                                    <td className="py-2 text-[9px] font-bold text-slate-900">{row.r}</td>
+                                    <td className="py-1 md:py-2 text-[8px] md:text-[9px] font-bold text-slate-700 truncate max-w-[60px] md:max-w-none">{row.n}</td>
+                                    <td className="py-1 md:py-2"><span className="text-[6px] md:text-[7px] px-1 md:px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold uppercase">{row.s}</span></td>
+                                    <td className="py-1 md:py-2 text-[8px] md:text-[9px] font-mono text-slate-500">{row.a}</td>
+                                    {/* Rating hidden on mobile */}
+                                    <td className="py-1 md:py-2 text-[8px] md:text-[9px] font-bold text-slate-900 hidden sm:table-cell">{row.r}</td>
                                   </tr>
                                 ))}
                               </tbody>
                             </table>
                           </div>
 
-                          {/* Sidebar Analytics (The "Busy" look) */}
-                          <div className="flex-1 bg-slate-50/50 p-4 space-y-4">
-                            <div className="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
-                              <p className="text-[8px] font-bold text-slate-400 uppercase mb-3">Revenue Flux</p>
-                              <div className="flex items-end gap-1 h-12">
+                          {/* Sidebar Analytics — hidden on mobile */}
+                          <div className="hidden sm:flex flex-1 bg-slate-50/50 p-2 md:p-4 flex-col space-y-2 md:space-y-4">
+                            <div className="bg-white p-2 md:p-3 rounded-lg border border-slate-100 shadow-sm">
+                              <p className="text-[7px] md:text-[8px] font-bold text-slate-400 uppercase mb-2 md:mb-3">Revenue Flux</p>
+                              <div className="flex items-end gap-0.5 md:gap-1 h-8 md:h-12">
                                 {[40,60,30,80,90,50,70,100,60,40,80].map((h,i) => (
                                   <div key={i} className="flex-1 bg-emerald-900/10 rounded-t-[1px]" style={{height: `${h}%`}}></div>
                                 ))}
                               </div>
                             </div>
 
-                            <div className="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
-                              <p className="text-[8px] font-bold text-slate-400 uppercase mb-3">Asset Distribution</p>
-                              <div className="space-y-2">
+                            <div className="bg-white p-2 md:p-3 rounded-lg border border-slate-100 shadow-sm">
+                              <p className="text-[7px] md:text-[8px] font-bold text-slate-400 uppercase mb-2 md:mb-3">Asset Distribution</p>
+                              <div className="space-y-1.5 md:space-y-2">
                                 {[
                                   { l: "Real Estate", p: "45%" },
                                   { l: "Equities", p: "30%" },
                                   { l: "Bonds", p: "25%" }
                                 ].map((item, i) => (
                                   <div key={i}>
-                                    <div className="flex justify-between text-[7px] font-bold mb-1">
+                                    <div className="flex justify-between text-[6px] md:text-[7px] font-bold mb-0.5 md:mb-1">
                                       <span>{item.l}</span>
                                       <span>{item.p}</span>
                                     </div>
@@ -328,9 +330,9 @@ const CRM: React.FC = () => {
                               </div>
                             </div>
 
-                            <div className="bg-emerald-900 rounded-lg p-3 text-white">
-                              <p className="text-[7px] font-bold uppercase tracking-[0.2em] opacity-60 mb-2">Security Hash</p>
-                              <p className="text-[8px] font-mono break-all opacity-90 leading-tight">
+                            <div className="bg-emerald-900 rounded-lg p-2 md:p-3 text-white">
+                              <p className="text-[6px] md:text-[7px] font-bold uppercase tracking-[0.2em] opacity-60 mb-1 md:mb-2">Security Hash</p>
+                              <p className="text-[7px] md:text-[8px] font-mono break-all opacity-90 leading-tight">
                                 0x4F2A...9B21...88C1...E4A2
                               </p>
                             </div>
@@ -344,13 +346,13 @@ const CRM: React.FC = () => {
                   </div>
 
                   {/* Camera Notch Detail */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#020617] rounded-b-xl flex items-center justify-center border-x border-b border-slate-800">
-                      <div className="w-1.5 h-1.5 bg-slate-700 rounded-full"></div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 md:w-32 h-4 md:h-6 bg-[#020617] rounded-b-xl flex items-center justify-center border-x border-b border-slate-800">
+                      <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-slate-700 rounded-full"></div>
                   </div>
                 </div>
 
                 {/* BASE / KEYBOARD */}
-                <div className="relative z-10 w-full max-w-[940px] h-[24px] bg-gradient-to-b from-slate-800 to-black rounded-b-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] mt-[-2px]">
+                <div className="relative z-10 w-full max-w-[940px] h-[16px] md:h-[24px] bg-gradient-to-b from-slate-800 to-black rounded-b-xl md:rounded-b-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] mt-[-2px]">
                   {/* Reflection on the desk surface */}
                   <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[90%] h-20 bg-emerald-900/10 blur-3xl rounded-full -z-10"></div>
                 </div>
@@ -359,7 +361,7 @@ const CRM: React.FC = () => {
             </div>
 
             {/* Spacer */}
-            <div className="h-[50vh]"></div>
+            <div className="h-16 lg:h-[50vh]"></div>
 
             <style dangerouslySetInnerHTML={{ __html: `
               @keyframes open-lid {

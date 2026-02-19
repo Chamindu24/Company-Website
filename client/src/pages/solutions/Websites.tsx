@@ -178,21 +178,21 @@ const Websites: React.FC = () => {
           </div>
         </section>
 
-      <section className="bg-white py-20 px-6 min-h-[160vh] relative">
+        <section className="bg-white py-20 px-6 relative lg:min-h-[160vh]">
         {/* Sticky Container - Keeps the laptop in view while scrolling */}
-        <div className="sticky top-20 max-w-7xl mx-auto overflow-visible">
+        <div className="relative lg:sticky lg:top-20 max-w-7xl mx-auto overflow-visible">
           
-          {/* Header Text - Sophisticated London Agency Style */}
-          <div className="text-center mb-16 relative z-30">
-            <div className="inline-block px-4 py-1 rounded-full border border-emerald-300 bg-white/50 backdrop-blur-md mb-6 ">
+          {/* Header Text */}
+          <div className="text-center mb-10 md:mb-16 relative z-30">
+            <div className="inline-block px-4 py-1 rounded-full border border-emerald-300 bg-white/50 backdrop-blur-md mb-6">
               <span className="text-emerald-800 font-bold tracking-[0.4em] text-[10px] uppercase">
                 Corporate Excellence
               </span>
             </div>
-            <h3 className="text-5xl md:text-7xl  text-slate-900 mb-4 tracking-tight">
-              The Digital <span className=" text-emerald-700 ">Cornerstone.</span>
+            <h3 className="text-4xl md:text-5xl lg:text-7xl text-slate-900 mb-4 tracking-tight">
+              The Digital <span className="text-emerald-700">Cornerstone.</span>
             </h3>
-            <p className="text-slate-600 text-lg font-medium tracking-wide">Scroll to deconstruct the corporate advantage</p>
+            <p className="text-slate-600 text-base md:text-lg font-medium tracking-wide">Scroll to deconstruct the corporate advantage</p>
           </div>
 
           {/* The Laptop Rig */}
@@ -200,7 +200,7 @@ const Websites: React.FC = () => {
             
             {/* LID / SCREEN */}
             <div 
-              className="relative z-20 w-full max-w-[900px] aspect-[16/10] bg-[#020617] rounded-2xl p-2 shadow-2xl border border-slate-800 origin-bottom transition-all duration-100 ease-out"
+              className="relative z-20 w-full max-w-[900px] aspect-[16/10] bg-[#020617] rounded-xl md:rounded-2xl p-1 md:p-2 shadow-2xl border border-slate-800 origin-bottom transition-all duration-100 ease-out"
               style={{
                 transformStyle: 'preserve-3d',
                 animation: 'open-lid linear both',
@@ -208,15 +208,16 @@ const Websites: React.FC = () => {
                 animationRange: 'entry 10% cover 45%'
               }}
             >
-              {/* INNER SCREEN CONTENT (High Density Business Architecture) */}
-              <div className="w-full h-full bg-[#fcfcfb] rounded-xl overflow-hidden relative border border-slate-900 flex flex-col font-sans">
+              {/* INNER SCREEN CONTENT */}
+              <div className="w-full h-full bg-[#fcfcfb] rounded-lg md:rounded-xl overflow-hidden relative border border-slate-900 flex flex-col font-sans">
                 
                 {/* 1. TOP BRAND BAR */}
-                <div className="h-10 border-b border-stone-200 bg-white px-5 flex items-center justify-between shrink-0">
-                  <div className="flex items-center gap-4">
-                    <span className="font-serif italic text-xs text-stone-900">Lushware <span className="font-sans font-bold not-italic text-emerald-900 text-[9px] tracking-tighter">CORP</span></span>
-                    <div className="h-3 w-[1px] bg-stone-200"></div>
-                    <span className="text-[8px] font-bold text-stone-400 uppercase tracking-widest">Global Solutions / Web Architecture</span>
+                <div className="h-8 md:h-10 border-b border-stone-200 bg-white px-3 md:px-5 flex items-center justify-between shrink-0">
+                  <div className="flex items-center gap-2 md:gap-4">
+                    <span className="font-serif italic text-[10px] md:text-xs text-stone-900">Lushware <span className="font-sans font-bold not-italic text-emerald-900 text-[8px] md:text-[9px] tracking-tighter">CORP</span></span>
+                    <div className="h-3 w-[1px] bg-stone-200 hidden sm:block"></div>
+                    {/* Subtitle hidden on mobile */}
+                    <span className="hidden sm:block text-[8px] font-bold text-stone-400 uppercase tracking-widest">Global Solutions / Web Architecture</span>
                   </div>
                   <div className="flex gap-1.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-stone-200"></div>
@@ -227,41 +228,42 @@ const Websites: React.FC = () => {
                 <div className="flex-1 flex overflow-hidden">
                   
                   {/* 2. MAIN CONTENT GRID */}
-                  <div className="flex-1 p-5 grid grid-cols-12 gap-4 overflow-y-auto">
+                  <div className="flex-1 p-2 md:p-5 grid grid-cols-12 gap-2 md:gap-4 overflow-y-auto">
                     
-                    {/* Left Column: Strategic Value */}
-                    <div className="col-span-7 flex flex-col gap-4">
-                      <div className="bg-emerald-950 p-5 rounded-xl text-white relative overflow-hidden">
-                        <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-emerald-400 mb-2">Value Proposition</p>
-                        <h4 className="text-xl font-serif italic mb-3 leading-tight">Digital Presence as a Revenue Multiplier.</h4>
-                        <p className="text-[10px] text-emerald-100/60 leading-relaxed mb-4">Establishing authority in the London B2B market through high-fidelity engineering.</p>
+                    {/* Left Column: Strategic Value — full width on mobile, 7 cols on md */}
+                    <div className="col-span-12 md:col-span-7 flex flex-col gap-2 md:gap-4">
+                      <div className="bg-emerald-950 p-3 md:p-5 rounded-lg md:rounded-xl text-white relative overflow-hidden">
+                        <p className="text-[7px] md:text-[9px] font-bold uppercase tracking-[0.3em] text-emerald-400 mb-1 md:mb-2">Value Proposition</p>
+                        <h4 className="text-sm md:text-xl font-serif italic mb-1.5 md:mb-3 leading-tight">Digital Presence as a Revenue Multiplier.</h4>
+                        {/* Description hidden on mobile */}
+                        <p className="hidden sm:block text-[10px] text-emerald-100/60 leading-relaxed mb-4">Establishing authority in the London B2B market through high-fidelity engineering.</p>
                         
-                        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                        <div className="grid grid-cols-2 gap-2 md:gap-4 pt-2 md:pt-4 border-t border-white/10">
                           <div>
-                            <p className="text-lg font-bold">94%</p>
-                            <p className="text-[8px] text-emerald-400 uppercase font-bold tracking-tighter">First Impression Rating</p>
+                            <p className="text-base md:text-lg font-bold">94%</p>
+                            <p className="text-[7px] md:text-[8px] text-emerald-400 uppercase font-bold tracking-tighter">First Impression Rating</p>
                           </div>
                           <div>
-                            <p className="text-lg font-bold">2.4x</p>
-                            <p className="text-[8px] text-emerald-400 uppercase font-bold tracking-tighter">Inquiry Conversion</p>
+                            <p className="text-base md:text-lg font-bold">2.4x</p>
+                            <p className="text-[7px] md:text-[8px] text-emerald-400 uppercase font-bold tracking-tighter">Inquiry Conversion</p>
                           </div>
                         </div>
                       </div>
 
-                      {/* Benefit Ledger */}
-                      <div className="bg-white border border-stone-100 rounded-xl p-4 shadow-sm">
-                        <h5 className="text-[10px] font-bold uppercase tracking-widest mb-4 text-stone-900">Strategic Business Benefits</h5>
-                        <div className="space-y-4">
+                      {/* Benefit Ledger — hidden on mobile to save space */}
+                      <div className="hidden sm:block bg-white border border-stone-100 rounded-xl p-3 md:p-4 shadow-sm">
+                        <h5 className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-3 md:mb-4 text-stone-900">Strategic Business Benefits</h5>
+                        <div className="space-y-2 md:space-y-4">
                           {[
                             { t: "Institutional Trust", d: "Premium digital aesthetics that validate high-ticket corporate offerings." },
                             { t: "Investor Transparency", d: "Scalable portals for real-time stakeholder and analyst communication." },
                             { t: "Lead Capture Funnels", d: "UX architecture designed to convert high-intent B2B traffic." }
                           ].map((b, i) => (
-                            <div key={i} className="flex gap-3 items-start border-b border-stone-50 pb-3 last:border-0">
-                              <span className="text-emerald-800 font-serif italic font-bold">0{i+1}</span>
+                            <div key={i} className="flex gap-2 md:gap-3 items-start border-b border-stone-50 pb-2 md:pb-3 last:border-0">
+                              <span className="text-emerald-800 font-serif italic font-bold text-[10px] md:text-base">0{i+1}</span>
                               <div>
-                                <p className="text-[10px] font-bold text-stone-900 leading-none mb-1">{b.t}</p>
-                                <p className="text-[9px] text-stone-500 leading-tight">{b.d}</p>
+                                <p className="text-[9px] md:text-[10px] font-bold text-stone-900 leading-none mb-1">{b.t}</p>
+                                <p className="text-[8px] md:text-[9px] text-stone-500 leading-tight hidden md:block">{b.d}</p>
                               </div>
                             </div>
                           ))}
@@ -269,8 +271,8 @@ const Websites: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Right Column: Performance Analytics */}
-                    <div className="col-span-5 flex flex-col gap-4">
+                    {/* Right Column: Performance Analytics — hidden on mobile */}
+                    <div className="hidden md:flex col-span-5 flex-col gap-4">
                       <div className="bg-white border border-stone-100 rounded-xl p-4 shadow-sm flex-1 flex flex-col items-center justify-center">
                         <p className="text-[8px] font-bold uppercase tracking-widest text-stone-400 mb-4">Retention Analytics</p>
                         
@@ -314,13 +316,13 @@ const Websites: React.FC = () => {
               </div>
 
               {/* Camera Notch Detail */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#020617] rounded-b-xl flex items-center justify-center border-x border-b border-slate-800">
-                  <div className="w-1.5 h-1.5 bg-slate-700 rounded-full"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 md:w-32 h-4 md:h-6 bg-[#020617] rounded-b-xl flex items-center justify-center border-x border-b border-slate-800">
+                  <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-slate-700 rounded-full"></div>
               </div>
             </div>
 
-            {/* BASE / KEYBOARD (Stays flat) */}
-            <div className="relative z-10 w-full max-w-[920px] h-[20px] bg-gradient-to-b from-slate-800 to-black rounded-b-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] mt-[-2px]">
+            {/* BASE / KEYBOARD */}
+            <div className="relative z-10 w-full max-w-[920px] h-[14px] md:h-[20px] bg-gradient-to-b from-slate-800 to-black rounded-b-xl md:rounded-b-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] mt-[-2px]">
               {/* Ambient Reflection on desk */}
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[90%] h-20 bg-emerald-900/10 blur-3xl rounded-full -z-10"></div>
             </div>
@@ -329,7 +331,7 @@ const Websites: React.FC = () => {
         </div>
 
         {/* Spacer to allow for scrolling room */}
-        <div className="h-[60vh]"></div>
+        <div className="h-16 lg:h-[60vh]"></div>
 
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes open-lid {

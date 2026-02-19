@@ -106,22 +106,16 @@ export default function HeroSection() {
             <div className="relative h-full w-full px-6 lg:px-20 flex flex-col justify-center z-10 overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-center">
                 {/* Left Content */}
-                <div className="lg:col-span-7 md:mt-0 lg:mt-0 mt-64 flex flex-col">
+                <div className="lg:col-span-7 md:mt-0 lg:mt-0 mt-80 flex flex-col">
                   <h1 className="flex flex-col gap-0 select-none mb-6">
-                    <span
-                      className="text-5xl md:text-7xl lg:text-[7rem] font-black text-transparent uppercase leading-[0.8] tracking-tighter hero-line"
-                      style={{ WebkitTextStroke: "2px #1c1917" }}
-                    >
+                    <span className="text-5xl md:text-7xl lg:text-[7rem] font-black text-transparent uppercase leading-[0.8] tracking-tighter hero-line hero-stroke">
                       {slide.titleTop}
                     </span>
                     <span className="text-5xl md:text-7xl lg:text-[7rem] font-black tracking-tighter text-stone-900 uppercase leading-[0.8] mb-1 hero-line">
                       {slide.titleHighlight}
                     </span>
 
-                    <span
-                      className="text-5xl md:text-7xl lg:text-[7rem] font-black text-emerald-600 uppercase leading-[0.8] tracking-tighter hero-line"
-                      style={{ WebkitTextStroke: "2px #1c1917" }}
-                    >
+                    <span className="text-5xl md:text-7xl lg:text-[7rem] font-black text-emerald-600 uppercase leading-[0.8] tracking-tighter hero-line hero-stroke">
                       {slide.titleOutline}
                     </span>
                   </h1>
@@ -230,6 +224,14 @@ export default function HeroSection() {
         .custom-pagination .swiper-pagination-bullet-active {
           background: #065f46 !important;
           transform: scale(1.3);
+        }
+        .hero-stroke {
+          -webkit-text-stroke: 2px #1c1917;
+        }
+        @media (max-width: 640px) {
+          .hero-stroke {
+            -webkit-text-stroke: 1px #1c1917;
+          }
         }
         .hero-image-container {
           animation: fadeInScale 1s ease-out;

@@ -25,9 +25,32 @@ export function WorldMap({
     backgroundColor: "white",
   });
 
+  const getSvgViewBox = (svg: string) => {
+    const viewBoxMatch = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+    if (viewBoxMatch) {
+      return {
+        width: Number(viewBoxMatch[1]),
+        height: Number(viewBoxMatch[2]),
+      };
+    }
+
+    const widthMatch = svg.match(/width="([\d.]+)"/);
+    const heightMatch = svg.match(/height="([\d.]+)"/);
+    if (widthMatch && heightMatch) {
+      return {
+        width: Number(widthMatch[1]),
+        height: Number(heightMatch[2]),
+      };
+    }
+
+    return { width: 800, height: 400 };
+  };
+
+  const { width: mapWidth, height: mapHeight } = getSvgViewBox(svgMap);
+
   const projectPoint = (lat: number, lng: number) => {
-    const x = (lng + 180) * (800 / 360);
-    const y = (90 - lat) * (400 / 180);
+    const x = (lng + 180) * (mapWidth / 360);
+    const y = (90 - lat) * (mapHeight / 180);
     return { x, y };
   };
 
@@ -52,7 +75,7 @@ export function WorldMap({
       />
       <svg
         ref={svgRef}
-        viewBox="0 0 800 400"
+        viewBox={`0 0 ${mapWidth} ${mapHeight}`}
         className="w-full h-full absolute inset-0 pointer-events-none select-none"
       >
         {dots.map((dot, i) => {

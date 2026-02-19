@@ -120,7 +120,7 @@ export default function GlobalPresence() {
                 dots={[
                   {
                     start: { lat: 51.5074, lng: -0.1278 },
-                    end: { lat: 6.9271, lng: 79.8612 },
+                    end: { lat: -5.9271, lng: 79.8612 },
                   },
                 ]}
               />

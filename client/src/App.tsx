@@ -26,7 +26,7 @@ function App() {
   const isAdminPage = location.pathname.startsWith('/admin') || location.pathname.startsWith('/dashboard');
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
+    const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
   }, []);
 
