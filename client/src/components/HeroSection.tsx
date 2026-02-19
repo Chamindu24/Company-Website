@@ -127,7 +127,7 @@ export default function HeroSection() {
                   <div className="flex flex-col md:flex-row lg:flex-col gap-6 w-full lg:w-max">
                     <button
                       onClick={() => navigate("/contact")}
-                      className="group relative cursor-pointer rounded-full px-8 py-4 bg-stone-900 overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105"
+                      className="group relative cursor-pointer rounded-full px-8 py-4 bg-stone-900 overflow-hidden lg:shadow-2xl shadow-none transition-all duration-500 hover:scale-105"
                     >
                       <span className="relative z-10 text-[14px] font-bold tracking-[0.2em] uppercase text-white">
                         Start Your Project
