@@ -61,7 +61,7 @@ const Websites: React.FC = () => {
             <img
               src="/hero/bc.jpg"
               alt="Corporate Website Interface"
-              className="w-full h-[500px] object-cover"
+              className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent"></div>
               {/* Floating Action Button on Image */}
@@ -343,8 +343,8 @@ const Websites: React.FC = () => {
 
 
         {/* Value Section */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-5xl mx-auto text-center mb-16">
+        <section className="bg-white py-20 ">
+          <div className="max-w-5xl mx-auto text-center px-2 mb-16">
             <h3 className="text-4xl  md:text-6xl font-semibold text-slate-900 mb-6">
               How We Add Value to Your <span className="text-emerald-600">Website</span>
             </h3>

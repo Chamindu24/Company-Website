@@ -55,7 +55,7 @@ const MobileApps: React.FC = () => {
             <img
               src="/hero/app2.jpg"
               alt="Mobile App Interface"
-              className="w-full h-[500px] object-cover"
+              className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent"></div>
 

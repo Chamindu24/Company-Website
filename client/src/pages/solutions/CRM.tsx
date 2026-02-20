@@ -71,7 +71,7 @@ const CRM: React.FC = () => {
             <img 
               src="/hero/crm.jpg" 
               alt="Enterprise Interface" 
-              className="w-full h-[500px] object-cover"
+              className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
             />
             {/* Dark Gradient Overlay for the Image */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent"></div>
@@ -113,10 +113,10 @@ const CRM: React.FC = () => {
         </div>
 
           {/* CRM Value & Benefits Section */}
-          <div className="max-w-8xl mx-auto px-6 lg:px-0">
+          <div className="max-w-8xl mx-auto  lg:px-0">
 
             {/* Section Intro */}
-            <div className="max-w-5xl mx-auto text-center py-16 px-6">
+            <div className="max-w-5xl mx-auto text-center py-16">
 
               <div className="flex items-center justify-center gap-2 mb-4 ">
                 <div className="px-2 py-1 bg-emerald-600 text-[12px] font-bold text-white uppercase tracking-[0.2em] rounded-sm">

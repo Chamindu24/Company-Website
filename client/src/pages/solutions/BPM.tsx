@@ -67,7 +67,7 @@ const BPM: React.FC = () => {
             <img
               src="/hero/bm.jpg"
               alt="BPM Interface"
-              className="w-full h-[500px] object-cover"
+              className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent"></div>
             <div className="
@@ -105,7 +105,7 @@ const BPM: React.FC = () => {
         </div>
 
         {/* BPM Value & Benefits Section */}
-        <div className="max-w-8xl mx-auto px-6 lg:px-0">
+        <div className="max-w-8xl mx-auto  lg:px-0">
         <div className="max-w-3xl mx-auto text-center mb-16 relative px-4">
           {/* Decorative accent line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 -top-4 w-16 h-1 bg-emerald-600 rounded-full"></div>
