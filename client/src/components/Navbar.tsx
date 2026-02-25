@@ -44,14 +44,14 @@ export default function Navbar() {
           className="flex items-center group"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <div className="relative h-12 w-15  rounded-xl  mr-3 ">
+          <div className="relative h-12 w-18  rounded-xl mr-0 md:mr-2 ">
             <img
               src="/logo.jpeg"
               alt="LushWare ORG"
-              className="h-full w-full object-cover  "
+              className="h-full w-full object-contain  "
             />
           </div>
-          <div className="flex flex-col ">
+          <div className="flex flex- space-y-1 flex-col ">
             <span className="text-2xl font-black tracking-wider text-stone-700 leading-none">
               LUSH<span style={{ WebkitTextStroke: '0.5px #1c1917', color: 'transparent' }}>WARE</span>
             </span>
