@@ -10,7 +10,8 @@ const configureSmtp = () => {
   const smtpPort = parseInt(process.env.SMTP_PORT || '587');
   const smtpUser = process.env.SMTP_USER;
   const smtpPassword = process.env.SMTP_PASSWORD || process.env.SMTP_PASS;
-  const sender = process.env.MAIL_USER;
+  // Always default sender to authenticated SMTP account for better deliverability.
+  const sender = process.env.MAIL_USER || smtpUser;
   const smtpSecure = process.env.SMTP_SECURE === 'true'; // true for 465, false for 587
 
   if (!smtpHost) {
@@ -23,21 +24,28 @@ const configureSmtp = () => {
     throw new Error('Missing SMTP_PASSWORD or SMTP_PASS');
   }
   if (!sender) {
-    throw new Error('Missing MAIL_USER');
+    throw new Error('Missing sender email (MAIL_USER or SMTP_USER)');
   }
+
+  const isStartTlsPort = smtpPort === 587;
 
   const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
     secure: smtpSecure, // true for 465 (implicit TLS), false for 587 (STARTTLS)
+    requireTLS: isStartTlsPort,
     auth: {
       user: smtpUser,
       pass: smtpPassword,
+    },
+    tls: {
+      minVersion: 'TLSv1.2',
     },
     // Add timeouts to prevent serverless function hanging
     connectionTimeout: 10000, // 10 seconds
     greetingTimeout: 10000,   // 10 seconds
     socketTimeout: 15000,     // 15 seconds
+    dnsTimeout: 10000,        // 10 seconds
   });
 
   return { transporter, sender };

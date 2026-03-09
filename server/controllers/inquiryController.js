@@ -45,14 +45,37 @@ const submitInquiry = async (req, res) => {
     // Save to database
     const savedInquiry = await inquiry.save();
 
-    // Send response immediately - don't wait for emails (fire and forget)
-    // This prevents serverless timeout issues
+    // In serverless environments (e.g. Vercel), background work after response is not reliable.
+    // Send emails before responding, while keeping email failures non-fatal to inquiry creation.
+    console.log('\n===============================================');
+    console.log(`📬 [INQUIRY: ${savedInquiry._id}] Processing emails...`);
+    console.log(`   Inquiry Type: ${savedInquiry.inquiryType}`);
+    console.log(`   From: ${savedInquiry.firstName} ${savedInquiry.lastName}`);
+    console.log(`   Email: ${savedInquiry.email}`);
+    console.log('===============================================');
+
+    const [adminEmailResult, userEmailResult] = await Promise.all([
+      sendInquiryEmail(savedInquiry),
+      sendUserConfirmationEmail(savedInquiry)
+    ]);
+
+    console.log('\n===============================================');
+    console.log(`📊 [INQUIRY: ${savedInquiry._id}] Email Summary:`);
+    console.log(`   Admin Email: ${adminEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
+    if (adminEmailResult.sent) console.log(`     Message ID: ${adminEmailResult.messageId}`);
+    if (adminEmailResult.error) console.log(`     Error: ${adminEmailResult.error.message}`);
+
+    console.log(`   User Email: ${userEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
+    if (userEmailResult.sent) console.log(`     Message ID: ${userEmailResult.messageId}`);
+    if (userEmailResult.error) console.log(`     Error: ${userEmailResult.error.message}`);
+    console.log('===============================================\n');
+
     res.status(201).json({
       message: "Inquiry submitted successfully",
       id: savedInquiry._id,
       emailStatus: {
-        adminNotification: "processing",
-        userConfirmation: "processing"
+        adminNotification: adminEmailResult.sent ? "sent" : "failed",
+        userConfirmation: userEmailResult.sent ? "sent" : "failed"
       },
       inquiry: {
         id: savedInquiry._id,
@@ -60,35 +83,6 @@ const submitInquiry = async (req, res) => {
         inquiryType: savedInquiry.inquiryType,
         status: savedInquiry.status,
         submittedAt: savedInquiry.submittedAt
-      }
-    });
-
-    // Send emails asynchronously after response (non-blocking)
-    // Wrapped in setImmediate to ensure response is sent first
-    setImmediate(async () => {
-      try {
-        console.log('\n===============================================');
-        console.log(`📬 [INQUIRY: ${savedInquiry._id}] Processing emails...`);
-        console.log(`   Inquiry Type: ${savedInquiry.inquiryType}`);
-        console.log(`   From: ${savedInquiry.firstName} ${savedInquiry.lastName}`);
-        console.log(`   Email: ${savedInquiry.email}`);
-        console.log('===============================================');
-        
-        const adminEmailResult = await sendInquiryEmail(savedInquiry);
-        const userEmailResult = await sendUserConfirmationEmail(savedInquiry);
-        
-        console.log('\n===============================================');
-        console.log(`📊 [INQUIRY: ${savedInquiry._id}] Email Summary:`);
-        console.log(`   Admin Email: ${adminEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
-        if (adminEmailResult.sent) console.log(`     Message ID: ${adminEmailResult.messageId}`);
-        if (adminEmailResult.error) console.log(`     Error: ${adminEmailResult.error.message}`);
-        
-        console.log(`   User Email: ${userEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
-        if (userEmailResult.sent) console.log(`     Message ID: ${userEmailResult.messageId}`);
-        if (userEmailResult.error) console.log(`     Error: ${userEmailResult.error.message}`);
-        console.log('===============================================\n');
-      } catch (emailError) {
-        console.error(`\n❌ [INQUIRY] Unexpected background email error:`, emailError);
       }
     });
   } catch (error) {
