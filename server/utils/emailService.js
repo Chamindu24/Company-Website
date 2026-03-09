@@ -177,6 +177,12 @@ const getEmailSubject = (inquiry) => {
   return `${typeLabels[inquiry.inquiryType] || 'New Request'} - ${inquiry.firstName} ${inquiry.lastName}`;
 };
 
+const formatEmailErrorDetails = (error) => ({
+  message: error && error.message ? error.message : 'Unknown email error',
+  code: error && error.code ? error.code : null,
+  response: error && error.response ? error.response : null,
+});
+
 /**
  * Send Request notification email to LushWare
  */
@@ -254,14 +260,22 @@ const sendInquiryEmail = async (inquiry) => {
 
     const response = await transporter.sendMail(mailOptions);
     console.log('✓ Admin notification email sent successfully:', response.messageId);
-    return true;
+    return {
+      sent: true,
+      messageId: response.messageId,
+      error: null,
+    };
   } catch (error) {
     console.error('✗ Error sending admin notification email:');
     console.error('  Error message:', error.message);
     if (error.code) console.error('  Error code:', error.code);
     if (error.response) console.error('  Response:', error.response);
     // Don't throw - log the error but don't fail the inquiry submission
-    return false;
+    return {
+      sent: false,
+      messageId: null,
+      error: formatEmailErrorDetails(error),
+    };
   }
 };
 
@@ -342,13 +356,21 @@ const sendUserConfirmationEmail = async (inquiry) => {
 
     const response = await transporter.sendMail(mailOptions);
     console.log('✓ User confirmation email sent successfully:', response.messageId);
-    return true;
+    return {
+      sent: true,
+      messageId: response.messageId,
+      error: null,
+    };
   } catch (error) {
     console.error('✗ Error sending user confirmation email:');
     console.error('  Error message:', error.message);
     if (error.code) console.error('  Error code:', error.code);
     if (error.response) console.error('  Response:', error.response);
-    return false;
+    return {
+      sent: false,
+      messageId: null,
+      error: formatEmailErrorDetails(error),
+    };
   }
 };
 

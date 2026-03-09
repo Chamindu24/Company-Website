@@ -11,6 +11,29 @@
 export type InquiryType = 'solution' | 'project' | 'consultation';
 const BACKEND_URL = import.meta.env.VITE_API_URL;
 
+type EmailDeliveryStatus = 'sent' | 'failed';
+
+interface SubmitInquiryApiResponse {
+  message: string;
+  id?: string;
+  emailStatus?: {
+    adminNotification?: EmailDeliveryStatus;
+    userConfirmation?: EmailDeliveryStatus;
+  };
+  emailFailureReasons?: {
+    adminNotification?: {
+      message?: string | null;
+      code?: string | null;
+      response?: string | null;
+    } | null;
+    userConfirmation?: {
+      message?: string | null;
+      code?: string | null;
+      response?: string | null;
+    } | null;
+  };
+}
+
 export interface InquiryFormData {
   // Common fields
   firstName: string;
@@ -81,14 +104,35 @@ export const submitInquiry = async (data: InquiryFormData): Promise<{ success: b
       },
       body: JSON.stringify(payload),
     });
-    console.log('response form form', response);
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(errorData.message || "Failed to submit inquiry");
     }
 
-    const result = await response.json();
+    const result: SubmitInquiryApiResponse = await response.json();
+
+    const adminEmailStatus = result.emailStatus?.adminNotification;
+    const userEmailStatus = result.emailStatus?.userConfirmation;
+    const adminFailureReason = result.emailFailureReasons?.adminNotification;
+    const userFailureReason = result.emailFailureReasons?.userConfirmation;
+
+    console.log('[Inquiry] Submission accepted:', {
+      inquiryId: result.id,
+      adminNotification: adminEmailStatus ?? 'unknown',
+      userConfirmation: userEmailStatus ?? 'unknown',
+    });
+
+    if (adminEmailStatus === 'failed' || userEmailStatus === 'failed') {
+      console.warn('[Inquiry] One or more emails failed to send.', {
+        adminNotification: adminEmailStatus,
+        userConfirmation: userEmailStatus,
+        adminFailureReason: adminFailureReason ?? null,
+        userFailureReason: userFailureReason ?? null,
+        hint:
+          'Check SMTP config and provider response. Common causes: invalid SMTP credentials, blocked port, TLS mismatch, or sender policy restrictions.',
+      });
+    }
     
     return {
       success: true,

@@ -46,15 +46,19 @@ const submitInquiry = async (req, res) => {
     const savedInquiry = await inquiry.save();
 
     // Send email notifications (don't block submission if emails fail)
-    const adminEmailSent = await sendInquiryEmail(savedInquiry);
-    const userEmailSent = await sendUserConfirmationEmail(savedInquiry);
+    const adminEmailResult = await sendInquiryEmail(savedInquiry);
+    const userEmailResult = await sendUserConfirmationEmail(savedInquiry);
 
     res.status(201).json({
       message: "Inquiry submitted successfully",
       id: savedInquiry._id,
       emailStatus: {
-        adminNotification: adminEmailSent ? "sent" : "failed",
-        userConfirmation: userEmailSent ? "sent" : "failed"
+        adminNotification: adminEmailResult.sent ? "sent" : "failed",
+        userConfirmation: userEmailResult.sent ? "sent" : "failed"
+      },
+      emailFailureReasons: {
+        adminNotification: adminEmailResult.error,
+        userConfirmation: userEmailResult.error
       },
       inquiry: {
         id: savedInquiry._id,
