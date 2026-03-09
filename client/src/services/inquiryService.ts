@@ -11,7 +11,7 @@
 export type InquiryType = 'solution' | 'project' | 'consultation';
 const BACKEND_URL = import.meta.env.VITE_API_URL;
 
-type EmailDeliveryStatus = 'sent' | 'failed';
+type EmailDeliveryStatus = 'sent' | 'failed' | 'processing';
 
 interface SubmitInquiryApiResponse {
   message: string;
@@ -19,18 +19,6 @@ interface SubmitInquiryApiResponse {
   emailStatus?: {
     adminNotification?: EmailDeliveryStatus;
     userConfirmation?: EmailDeliveryStatus;
-  };
-  emailFailureReasons?: {
-    adminNotification?: {
-      message?: string | null;
-      code?: string | null;
-      response?: string | null;
-    } | null;
-    userConfirmation?: {
-      message?: string | null;
-      code?: string | null;
-      response?: string | null;
-    } | null;
   };
 }
 
@@ -114,24 +102,18 @@ export const submitInquiry = async (data: InquiryFormData): Promise<{ success: b
 
     const adminEmailStatus = result.emailStatus?.adminNotification;
     const userEmailStatus = result.emailStatus?.userConfirmation;
-    const adminFailureReason = result.emailFailureReasons?.adminNotification;
-    const userFailureReason = result.emailFailureReasons?.userConfirmation;
 
-    console.log('[Inquiry] Submission accepted:', {
+    console.log('[Inquiry] Submission successful:', {
       inquiryId: result.id,
-      adminNotification: adminEmailStatus ?? 'unknown',
-      userConfirmation: userEmailStatus ?? 'unknown',
+      emailStatus: {
+        adminNotification: adminEmailStatus ?? 'unknown',
+        userConfirmation: userEmailStatus ?? 'unknown',
+      },
+      note: adminEmailStatus === 'processing' ? 'Emails are being sent in the background' : undefined,
     });
 
     if (adminEmailStatus === 'failed' || userEmailStatus === 'failed') {
-      console.warn('[Inquiry] One or more emails failed to send.', {
-        adminNotification: adminEmailStatus,
-        userConfirmation: userEmailStatus,
-        adminFailureReason: adminFailureReason ?? null,
-        userFailureReason: userFailureReason ?? null,
-        hint:
-          'Check SMTP config and provider response. Common causes: invalid SMTP credentials, blocked port, TLS mismatch, or sender policy restrictions.',
-      });
+      console.warn('[Inquiry] Email delivery failed. Check server logs for SMTP error details (auth, host, port, TLS, or provider response).');
     }
     
     return {

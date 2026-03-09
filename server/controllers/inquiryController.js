@@ -45,20 +45,14 @@ const submitInquiry = async (req, res) => {
     // Save to database
     const savedInquiry = await inquiry.save();
 
-    // Send email notifications (don't block submission if emails fail)
-    const adminEmailResult = await sendInquiryEmail(savedInquiry);
-    const userEmailResult = await sendUserConfirmationEmail(savedInquiry);
-
+    // Send response immediately - don't wait for emails (fire and forget)
+    // This prevents serverless timeout issues
     res.status(201).json({
       message: "Inquiry submitted successfully",
       id: savedInquiry._id,
       emailStatus: {
-        adminNotification: adminEmailResult.sent ? "sent" : "failed",
-        userConfirmation: userEmailResult.sent ? "sent" : "failed"
-      },
-      emailFailureReasons: {
-        adminNotification: adminEmailResult.error,
-        userConfirmation: userEmailResult.error
+        adminNotification: "processing",
+        userConfirmation: "processing"
       },
       inquiry: {
         id: savedInquiry._id,
@@ -66,6 +60,24 @@ const submitInquiry = async (req, res) => {
         inquiryType: savedInquiry.inquiryType,
         status: savedInquiry.status,
         submittedAt: savedInquiry.submittedAt
+      }
+    });
+
+    // Send emails asynchronously after response (non-blocking)
+    // Wrapped in setImmediate to ensure response is sent first
+    setImmediate(async () => {
+      try {
+        const adminEmailResult = await sendInquiryEmail(savedInquiry);
+        const userEmailResult = await sendUserConfirmationEmail(savedInquiry);
+        
+        console.log('Email delivery results:', {
+          admin: adminEmailResult.sent ? 'sent' : 'failed',
+          user: userEmailResult.sent ? 'sent' : 'failed',
+          adminError: adminEmailResult.error,
+          userError: userEmailResult.error
+        });
+      } catch (emailError) {
+        console.error('Background email error:', emailError);
       }
     });
   } catch (error) {

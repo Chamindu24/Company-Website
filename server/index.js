@@ -49,21 +49,30 @@ const isAllowedOrigin = (origin) => {
 
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log(`[CORS] Request from origin: ${origin || 'no-origin'}`);
+    
     // Allow requests with no origin (like mobile apps or Postman)
     if (isAllowedOrigin(origin)) {
+      console.log(`[CORS] ✓ Origin allowed: ${origin || 'no-origin'}`);
       callback(null, true);
     } else {
+      console.warn(`[CORS] ✗ Origin blocked: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 204
+  exposedHeaders: ['Content-Length', 'Content-Type'],
+  optionsSuccessStatus: 204,
+  preflightContinue: false
 };
 
 // Middleware
 app.use(cors(corsOptions));  // Allow requests from frontend with proper config
+
+// Explicit OPTIONS handler for all routes (fix preflight issues)
+app.options('*', cors(corsOptions));
 
 app.use(express.json());     // Parse JSON bodies
 
@@ -111,6 +120,27 @@ app.use("/api/inquiries", inquiryRoutes);
 
 // Mount admin routes
 app.use("/api/admin", adminRoutes);
+
+// --------------------------
+// Error handling middleware - ensure CORS headers on errors
+// --------------------------
+app.use((err, req, res, next) => {
+  console.error('Express error:', err);
+  
+  // Set CORS headers even on error
+  const origin = req.headers.origin;
+  if (isAllowedOrigin(origin)) {
+    res.header('Access-Control-Allow-Origin', origin || '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  }
+  
+  res.status(err.status || 500).json({
+    message: err.message || 'Internal server error',
+    error: process.env.NODE_ENV === 'production' ? {} : err
+  });
+});
 
 // --------------------------
 // Start server (skip in production for serverless platforms)

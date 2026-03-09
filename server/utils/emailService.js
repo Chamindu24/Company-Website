@@ -34,6 +34,10 @@ const configureSmtp = () => {
       user: smtpUser,
       pass: smtpPassword,
     },
+    // Add timeouts to prevent serverless function hanging
+    connectionTimeout: 10000, // 10 seconds
+    greetingTimeout: 10000,   // 10 seconds
+    socketTimeout: 15000,     // 15 seconds
   });
 
   return { transporter, sender };
