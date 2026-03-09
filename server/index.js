@@ -69,10 +69,7 @@ const corsOptions = {
 };
 
 // Middleware
-app.use(cors(corsOptions));  // Allow requests from frontend with proper config
-
-// Explicit OPTIONS handler for all routes (fix preflight issues)
-app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));  // Handles all CORS including OPTIONS preflight
 
 app.use(express.json());     // Parse JSON bodies
 
