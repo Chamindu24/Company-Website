@@ -67,17 +67,28 @@ const submitInquiry = async (req, res) => {
     // Wrapped in setImmediate to ensure response is sent first
     setImmediate(async () => {
       try {
+        console.log('\n===============================================');
+        console.log(`📬 [INQUIRY: ${savedInquiry._id}] Processing emails...`);
+        console.log(`   Inquiry Type: ${savedInquiry.inquiryType}`);
+        console.log(`   From: ${savedInquiry.firstName} ${savedInquiry.lastName}`);
+        console.log(`   Email: ${savedInquiry.email}`);
+        console.log('===============================================');
+        
         const adminEmailResult = await sendInquiryEmail(savedInquiry);
         const userEmailResult = await sendUserConfirmationEmail(savedInquiry);
         
-        console.log('Email delivery results:', {
-          admin: adminEmailResult.sent ? 'sent' : 'failed',
-          user: userEmailResult.sent ? 'sent' : 'failed',
-          adminError: adminEmailResult.error,
-          userError: userEmailResult.error
-        });
+        console.log('\n===============================================');
+        console.log(`📊 [INQUIRY: ${savedInquiry._id}] Email Summary:`);
+        console.log(`   Admin Email: ${adminEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
+        if (adminEmailResult.sent) console.log(`     Message ID: ${adminEmailResult.messageId}`);
+        if (adminEmailResult.error) console.log(`     Error: ${adminEmailResult.error.message}`);
+        
+        console.log(`   User Email: ${userEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
+        if (userEmailResult.sent) console.log(`     Message ID: ${userEmailResult.messageId}`);
+        if (userEmailResult.error) console.log(`     Error: ${userEmailResult.error.message}`);
+        console.log('===============================================\n');
       } catch (emailError) {
-        console.error('Background email error:', emailError);
+        console.error(`\n❌ [INQUIRY] Unexpected background email error:`, emailError);
       }
     });
   } catch (error) {

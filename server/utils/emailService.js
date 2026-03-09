@@ -192,8 +192,10 @@ const formatEmailErrorDetails = (error) => ({
  */
 const sendInquiryEmail = async (inquiry) => {
   try {
+    console.log('\n📧 [ADMIN EMAIL] Starting to send admin notification...');
     const { transporter, sender } = configureSmtp();
-    console.log('SMTP: preparing admin email from', sender);
+    console.log(`   From: ${sender}`);
+    console.log(`   To: info@lushware.net`);
 
     const mailOptions = {
       from: `"LushWare Support" <${sender}>`,
@@ -263,17 +265,28 @@ const sendInquiryEmail = async (inquiry) => {
     };
 
     const response = await transporter.sendMail(mailOptions);
-    console.log('✓ Admin notification email sent successfully:', response.messageId);
+    console.log('✅ [ADMIN EMAIL] SUCCESS! Email sent');
+    console.log(`   Message ID: ${response.messageId}`);
+    console.log(`   Time: ${new Date().toISOString()}`);
     return {
       sent: true,
       messageId: response.messageId,
       error: null,
     };
   } catch (error) {
-    console.error('✗ Error sending admin notification email:');
-    console.error('  Error message:', error.message);
-    if (error.code) console.error('  Error code:', error.code);
-    if (error.response) console.error('  Response:', error.response);
+    console.error('\n❌ [ADMIN EMAIL] FAILED!');
+    console.error(`   Error: ${error.message}`);
+    console.error(`   Code: ${error.code || 'N/A'}`);
+    if (error.response) {
+      console.error(`   Response: ${JSON.stringify(error.response)}`);
+    }
+    console.error(`   Recipient: info@lushware.net`);
+    console.error(`   Time: ${new Date().toISOString()}`);
+    console.error('   Possible causes:');
+    console.error('     - SMTP credentials invalid');
+    console.error('     - SMTP server not responding');
+    console.error('     - Network/firewall blocking connection');
+    console.error('     - SMTP provider rate limiting');
     // Don't throw - log the error but don't fail the inquiry submission
     return {
       sent: false,
@@ -285,8 +298,10 @@ const sendInquiryEmail = async (inquiry) => {
 
 const sendUserConfirmationEmail = async (inquiry) => {
   try {
+    console.log('\n📧 [USER EMAIL] Starting to send user confirmation...');
     const { transporter, sender } = configureSmtp();
-    console.log('SMTP: preparing user confirmation email from', sender);
+    console.log(`   From: ${sender}`);
+    console.log(`   To: ${inquiry.email}`);
 
     const mailOptions = {
       from: `"LushWare Team" <${sender}>`,
@@ -359,17 +374,28 @@ const sendUserConfirmationEmail = async (inquiry) => {
     };
 
     const response = await transporter.sendMail(mailOptions);
-    console.log('✓ User confirmation email sent successfully:', response.messageId);
+    console.log('✅ [USER EMAIL] SUCCESS! Email sent');
+    console.log(`   Message ID: ${response.messageId}`);
+    console.log(`   Time: ${new Date().toISOString()}`);
     return {
       sent: true,
       messageId: response.messageId,
       error: null,
     };
   } catch (error) {
-    console.error('✗ Error sending user confirmation email:');
-    console.error('  Error message:', error.message);
-    if (error.code) console.error('  Error code:', error.code);
-    if (error.response) console.error('  Response:', error.response);
+    console.error('\n❌ [USER EMAIL] FAILED!');
+    console.error(`   Error: ${error.message}`);
+    console.error(`   Code: ${error.code || 'N/A'}`);
+    if (error.response) {
+      console.error(`   Response: ${JSON.stringify(error.response)}`);
+    }
+    console.error(`   Recipient: ${inquiry.email}`);
+    console.error(`   Time: ${new Date().toISOString()}`);
+    console.error('   Possible causes:');
+    console.error('     - SMTP credentials invalid');
+    console.error('     - SMTP server not responding');
+    console.error('     - Network/firewall blocking connection');
+    console.error('     - Email address blacklisted by SMTP provider');
     return {
       sent: false,
       messageId: null,
