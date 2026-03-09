@@ -187,7 +187,7 @@ const sendInquiryEmail = async (inquiry) => {
 
     const mailOptions = {
       from: `"LushWare Support" <${sender}>`,
-      to: sender,
+      to: 'info@lushware.net',
       subject: getEmailSubject(inquiry),
       html: `
 <!DOCTYPE html>
