@@ -269,7 +269,7 @@ export default function SolutionsPage() {
                   {/* MAIN IMAGE CONTAINER */}
                   <div className="relative z-20 pt-4 px-2 lg:px-8 md:px-10 sm:px-8">
                     <img
-                      src="/Industry/travelhero-Photoroom.png"
+                      src="/Industry/travelhero-Photoroom.jpg"
                       alt="Travel management system"
                       className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.12)] brightness-[1.02] contrast-[1.02]"
                     />
