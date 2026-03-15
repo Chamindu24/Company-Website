@@ -168,10 +168,6 @@ export default function SolutionsPage() {
           from { opacity: 0; transform: scale(0.96) translateY(12px); }
           to   { opacity: 1; transform: scale(1) translateY(0); }
         }
-                      .sol-serif {
-              font-family:
-                "Playfair Display", serif; /* Or your specific serif font */
-            }
             @keyframes float {
               0% {
                 transform: translateY(0px);
@@ -210,7 +206,7 @@ export default function SolutionsPage() {
                   <div className="h-[1px] w-12 bg-emerald-200" />
                 </div>
 
-                <h1 className="sol-fadeUp sol-serif text-5xl sm:text-6xl md:text-8xl xl:text-8xl font-normal text-slate-950 leading-[0.9] tracking-tight mb-8">
+                <h1 className="sol-fadeUp sol-serif text-5xl sm:text-6xl md:text-8xl xl:text-7xl font-normal text-slate-950 leading-[0.9]  mb-8">
                   Advanced <br />
                   <span className="text-emerald-600">Technology</span>
                   <br />

@@ -93,38 +93,49 @@ const AIAgents: React.FC = () => {
             </p>
           </div>
 
-          {/* ── HERO IMAGE ───────────────────────────── */}
-          <div className="relative mb-20 md:mb-28">
-            <div className="absolute inset-0 bg-emerald-50 rounded-[2.5rem] blur-3xl transform scale-95 -z-10 opacity-80" />
+{/* ── HERO IMAGE ───────────────────────────── */}
+<div className="relative mb-10">
+  <div className="relative overflow-hidden h-[250px] sm:h-[420px] md:h-[500px] lg:h-[550px] xl:h-[600px] w-full">
+    
+    <img
+      src="/hero4/ainew2.jpg"
+      alt="Enterprise Interface"
+      className="w-full h-full object-cover object-top"
+    />
 
-            <div className="relative overflow-hidden border rounded-4xl border-slate-200 shadow-[0_32px_80px_rgba(0,0,0,0.10)]">
-              <img
-                src="/hero/chat.jpg"
-                alt="AI Agents Dashboard"
-                className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/10 to-transparent" />
-              <div className="absolute top-0 left-0 w-full h-1 bg-emerald-600" />
+    <div className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 w-full px-4 sm:px-6 flex justify-center">
+      <button
+        onClick={() => navigate("/contact")}
+        className="group relative rounded-sm border-2 border-emerald-600 cursor-pointer inline-flex items-center gap-2 sm:gap-3 md:gap-4 
+        px-6 sm:px-8 md:px-10 lg:px-12 
+        py-3 sm:py-4 md:py-5 
+        bg-emerald-600 text-white font-bold 
+        text-xs sm:text-sm 
+        uppercase tracking-[0.15em] sm:tracking-[0.2em] 
+        overflow-hidden transition-all duration-300 
+        hover:shadow-[0_10px_40px_rgba(16,185,129,0.5)] hover:scale-105 active:scale-[0.98]"
+      >
+        <span className="relative z-20 transition-colors duration-300 group-hover:text-emerald-600 whitespace-nowrap">
+          Discover the Platform
+        </span>
+        
+        <svg
+          className="relative z-20 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-all duration-300 group-hover:translate-x-2 group-hover:text-emerald-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="3"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
 
-              <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full px-6 flex justify-center">
-                <button
-                  onClick={() => navigate("/contact")}
-                  className="group cursor-pointer relative rounded-sm inline-flex items-center gap-3 px-10 py-4 bg-white text-slate-900 font-semibold text-xs uppercase tracking-[0.18em] overflow-hidden transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] active:scale-[0.98]"
-                >
-                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                    Learn How AI Can Help
-                  </span>
-                  <svg
-                    className="relative z-10 w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                  <div className="absolute inset-0 bg-slate-900 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)]" />
-                </button>
-              </div>
-            </div>
-          </div>
+        {/* Animated Background Slide on Hover */}
+        <div className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+      </button>
+    </div>
+  </div>
+</div>
+
 
           {/* ── BUSINESS IMPACT + VALUE CARDS ────────── */}
           <div className="max-w-7xl py-4 pb-20 md:pb-28 mx-auto">

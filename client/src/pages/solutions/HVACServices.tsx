@@ -206,9 +206,6 @@ export default function HVACServices() {
           border-color: #6ee7b7;
           color: #065f46;
         }
-        .hvac-serif { 
-          font-family: 'Playfair Display', serif; 
-        }
         @keyframes float {
           0% { transform: translateY(0px); }
           50% { transform: translateY(-15px); }
@@ -237,7 +234,7 @@ export default function HVACServices() {
                     <div className="h-[1px] w-12 bg-emerald-200" />
                   </div>
 
-                  <h1 className="hvac-hero-line hvac-serif text-5xl sm:text-6xl md:text-8xl xl:text-8xl font-normal text-slate-950 leading-[0.8] tracking-tight mb-8">
+                  <h1 className="hvac-hero-line hvac-serif text-5xl sm:text-6xl md:text-8xl xl:text-7xl font-normal text-slate-950 leading-[0.8]  mb-8">
                     HVAC <br />
                     <span className="text-emerald-600">Solutions</span>
                     <br />
@@ -305,7 +302,7 @@ export default function HVACServices() {
                 <div className=" lg:col-span-6 xl:col-span-7 relative">
                   <div className="relative group animate-float">
                     {/* THE "PLATFORM" */}
-                    <div className="absolute -inset-4 bg-white/40 backdrop-blur-md rounded-sm border border-white/80 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] -rotate-1 transition-transform duration-700 group-hover:rotate-0" />
+                    <div className="absolute -inset-4 bg-white/40 backdrop-blur-md rounded-sm border border-white/80 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.06)] -rotate-2 transition-transform duration-700 group-hover:rotate-0" />
 
                     {/* MAIN IMAGE CONTAINER */}
                     <div className="relative z-20 pt-4 px-0 lg:px-14 md:px-16 sm:px-4 animate-float">

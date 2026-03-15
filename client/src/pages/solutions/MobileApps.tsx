@@ -89,32 +89,36 @@ const MobileApps: React.FC = () => {
           </div>
 
           {/* ── HERO IMAGE ───────────────────────────── */}
-          <div className="relative max-w-7xl mx-auto mb-20 md:mb-28">
-            <div className="absolute inset-0 bg-emerald-50 rounded-[2.5rem] blur-3xl transform scale-95 -z-10 opacity-80" />
-
-            <div className="relative overflow-hidden rounded-4xl border border-slate-200 shadow-[0_32px_80px_rgba(0,0,0,0.10)]">
+          <div className="relative mb-10">
+            <div className="relative overflow-hidden h-[250px] sm:h-[420px] md:h-[500px] lg:h-[550px] xl:h-[600px] w-full">
               <img
-                src="/hero/app2.jpg"
-                alt="Mobile App Interface"
-                className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover"
+                src="/hero4/appnew2.jpg"
+                alt="Enterprise Interface"
+                className="w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/10 to-transparent" />
-              <div className="absolute top-0 left-0 w-full h-1 bg-emerald-600" />
 
-              <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full px-6 flex justify-center">
+              <div className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 w-full px-4 sm:px-6 flex justify-center">
                 <button
                   onClick={() => navigate("/contact")}
-                  className="group cursor-pointer rounded-sm relative inline-flex items-center gap-3 px-10 py-4 bg-white text-slate-900 font-semibold text-xs uppercase tracking-[0.18em] overflow-hidden transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] active:scale-[0.98]"
+                  className="group relative rounded-sm border-2 border-emerald-600 cursor-pointer inline-flex items-center gap-2 sm:gap-3 md:gap-4 
+        px-6 sm:px-8 md:px-10 lg:px-12 
+        py-3 sm:py-4 md:py-5 
+        bg-emerald-600 text-white font-bold 
+        text-xs sm:text-sm 
+        uppercase tracking-[0.15em] sm:tracking-[0.2em] 
+        overflow-hidden transition-all duration-300 
+        hover:shadow-[0_10px_40px_rgba(16,185,129,0.5)] hover:scale-105 active:scale-[0.98]"
                 >
-                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                  <span className="relative z-20 transition-colors duration-300 group-hover:text-emerald-600 whitespace-nowrap">
                     Discover the Platform
                   </span>
+
                   <svg
-                    className="relative z-10 w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+                    className="relative z-20 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-all duration-300 group-hover:translate-x-2 group-hover:text-emerald-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    strokeWidth="2.5"
+                    strokeWidth="3"
                   >
                     <path
                       strokeLinecap="round"
@@ -122,7 +126,9 @@ const MobileApps: React.FC = () => {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                  <div className="absolute inset-0 bg-slate-900 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)]" />
+
+                  {/* Animated Background Slide on Hover */}
+                  <div className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
                 </button>
               </div>
             </div>
@@ -163,24 +169,49 @@ const MobileApps: React.FC = () => {
               <div className="relative flex flex-col lg:pl-32 lg:flex-row items-center md:gap-38 lg:gap-24 gap-32">
                 {/* ── PHONE MOCKUPS ─────────────────────────────────────────────────────── */}
 
-                {/* 1. iPhone 16 Pro — Titanium finish */}
+{/* 1. iPhone 16 Pro — Titanium finish */}
                 <div className="relative z-30 transform lg:-rotate-4 transition-transform duration-1000 group">
                   {/* Outer titanium frame */}
                   <div
                     className="relative w-[320px] h-[660px] rounded-[3.2rem] p-[3px]"
                     style={{
                       background:
-                        "linear-gradient(145deg, #c8c8c8 0%, #a8a8a8 25%, #d4d4d4 50%, #9a9a9a 75%, #c0c0c0 100%)",
+                        "linear-gradient(145deg, #e0e0e0 0%, #b0b0b0 15%, #d8d8d8 30%, #a0a0a0 50%, #cccccc 70%, #b8b8b8 85%, #d0d0d0 100%)",
                       boxShadow:
-                        "-24px 48px 96px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.2)",
+                        "-24px 48px 96px rgba(0,0,0,0.35), -8px 16px 40px rgba(0,0,0,0.2), inset 0 2px 0 rgba(255,255,255,0.85), inset 0 -2px 0 rgba(0,0,0,0.3), inset 2px 0 0 rgba(255,255,255,0.4), inset -2px 0 0 rgba(0,0,0,0.15)",
                     }}
                   >
+                    {/* Titanium top edge highlight */}
+                    <div
+                      className="absolute z-10"
+                      style={{
+                        top: "3px",
+                        left: "3px",
+                        right: "3px",
+                        height: "1px",
+                        borderRadius: "50px",
+                        background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)",
+                      }}
+                    />
+                    {/* Titanium bottom shadow line */}
+                    <div
+                      className="absolute z-10"
+                      style={{
+                        bottom: "3px",
+                        left: "3px",
+                        right: "3px",
+                        height: "1px",
+                        borderRadius: "50px",
+                        background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.25), transparent)",
+                      }}
+                    />
+
                     {/* Inner matte black layer */}
                     <div
                       className="h-full w-full rounded-[3rem] overflow-hidden"
                       style={{
-                        background: "#0a0a0a",
-                        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.06)",
+                        background: "#080808",
+                        boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,0.06), inset 0 0 20px rgba(0,0,0,0.6)",
                       }}
                     >
                       {/* Screen */}
@@ -196,6 +227,7 @@ const MobileApps: React.FC = () => {
                             height: "32px",
                             background: "#000",
                             borderRadius: "20px",
+                            boxShadow: "0 0 0 1px rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.5)",
                           }}
                         >
                           <div className="w-2.5 h-2.5 rounded-full bg-[#1a1a1a] border border-[#333] flex items-center justify-center">
@@ -318,51 +350,52 @@ const MobileApps: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Screen glare */}
+                        {/* Screen glare — dual angle for realism */}
                         <div
                           className="absolute inset-0 pointer-events-none"
                           style={{
                             background:
-                              "linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 40%)",
+                              "linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 38%), linear-gradient(315deg, rgba(0,0,0,0.04) 0%, transparent 40%)",
                             borderRadius: "2.85rem",
                           }}
                         />
                       </div>
                     </div>
 
-                    {/* Side buttons — volume */}
+                    {/* Side buttons — volume up */}
                     <div
-                      className="absolute top-28 -left-[4px] w-[4px] h-10 rounded-l-md"
+                      className="absolute top-28 -left-[5px] w-[5px] h-10 rounded-l-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #c0c0c0, #999, #c0c0c0)",
-                        boxShadow: "-2px 0 4px rgba(0,0,0,0.2)",
+                          "linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 40%, #c4c4c4 60%, #d0d0d0 100%)",
+                        boxShadow: "-3px 0 6px rgba(0,0,0,0.25), inset 1px 0 0 rgba(255,255,255,0.5)",
                       }}
                     />
+                    {/* Volume down */}
                     <div
-                      className="absolute top-44 -left-[4px] w-[4px] h-10 rounded-l-md"
+                      className="absolute top-44 -left-[5px] w-[5px] h-10 rounded-l-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #c0c0c0, #999, #c0c0c0)",
-                        boxShadow: "-2px 0 4px rgba(0,0,0,0.2)",
+                          "linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 40%, #c4c4c4 60%, #d0d0d0 100%)",
+                        boxShadow: "-3px 0 6px rgba(0,0,0,0.25), inset 1px 0 0 rgba(255,255,255,0.5)",
                       }}
                     />
                     {/* Action button */}
                     <div
-                      className="absolute top-20 -left-[4px] w-[4px] h-7 rounded-l-md"
+                      className="absolute top-20 -left-[5px] w-[5px] h-7 rounded-l-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #c0c0c0, #999, #c0c0c0)",
-                        boxShadow: "-2px 0 4px rgba(0,0,0,0.2)",
+                          "linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 40%, #c4c4c4 60%, #d0d0d0 100%)",
+                        boxShadow: "-3px 0 6px rgba(0,0,0,0.25), inset 1px 0 0 rgba(255,255,255,0.5)",
                       }}
                     />
                     {/* Power button */}
                     <div
-                      className="absolute top-32 -right-[4px] w-[4px] h-14 rounded-r-md"
+                      className="absolute top-32 -right-[5px] w-[5px] h-14 rounded-r-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #c0c0c0, #999, #c0c0c0)",
-                        boxShadow: "2px 0 4px rgba(0,0,0,0.2)",
+                          "linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 40%, #c4c4c4 60%, #d0d0d0 100%)",
+                        boxShadow: "3px 0 6px rgba(0,0,0,0.25), inset -1px 0 0 rgba(255,255,255,0.5)",
                       }}
                     />
                   </div>
@@ -375,17 +408,30 @@ const MobileApps: React.FC = () => {
                     className="relative w-[320px] h-[660px] rounded-[2.6rem] p-[2.5px]"
                     style={{
                       background:
-                        "linear-gradient(145deg, #3a3a3a 0%, #1a1a1a 40%, #2e2e2e 60%, #111 100%)",
+                        "linear-gradient(145deg, #2a2a2a 0%, #111111 40%, #202020 60%, #0a0a0a 100%)",
                       boxShadow:
-                        "24px 48px 96px rgba(6,78,59,0.18), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.5)",
+                        "24px 48px 96px rgba(6,78,59,0.22), 8px 16px 40px rgba(0,0,0,0.45), inset 0 2px 0 rgba(255,255,255,0.14), inset 0 -2px 0 rgba(0,0,0,0.6), inset 2px 0 0 rgba(255,255,255,0.06), inset -2px 0 0 rgba(0,0,0,0.4)",
                     }}
                   >
+                    {/* Glass top edge highlight streak */}
+                    <div
+                      className="absolute z-10"
+                      style={{
+                        top: "2.5px",
+                        left: "2.5px",
+                        right: "2.5px",
+                        height: "1px",
+                        borderRadius: "40px",
+                        background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)",
+                      }}
+                    />
+
                     {/* Inner black layer */}
                     <div
                       className="h-full w-full rounded-[2.45rem] overflow-hidden"
                       style={{
-                        background: "#050505",
-                        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04)",
+                        background: "#020202",
+                        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 24px rgba(0,0,0,0.7)",
                       }}
                     >
                       {/* Screen */}
@@ -394,9 +440,14 @@ const MobileApps: React.FC = () => {
                         style={{ borderRadius: "2.3rem" }}
                       >
                         {/* Punch-hole camera */}
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 w-4 h-4 bg-black rounded-full border border-[#1a1a1a] flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-[#0d0d0d] border border-[#222]">
-                            <div className="w-1 h-1 rounded-full bg-[#151515] m-auto mt-[2px]" />
+                        <div
+                          className="absolute top-4 left-1/2 -translate-x-1/2 z-50 w-4 h-4 bg-black rounded-full border border-[#111] flex items-center justify-center"
+                          style={{
+                            boxShadow: "0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 2px rgba(0,0,0,0.8)",
+                          }}
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[#050505] border border-[#1a1a1a]">
+                            <div className="w-1 h-1 rounded-full bg-[#0d0d0d] m-auto mt-[2px]" />
                           </div>
                         </div>
 
@@ -539,7 +590,7 @@ const MobileApps: React.FC = () => {
                           className="absolute inset-0 pointer-events-none"
                           style={{
                             background:
-                              "linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 45%)",
+                              "linear-gradient(135deg, rgba(255,255,255,0.09) 0%, transparent 42%)",
                             borderRadius: "2.3rem",
                           }}
                         />
@@ -548,28 +599,29 @@ const MobileApps: React.FC = () => {
 
                     {/* Power button */}
                     <div
-                      className="absolute top-32 -right-[3.5px] w-[3.5px] h-14 rounded-r-md"
+                      className="absolute top-32 -right-[4.5px] w-[4.5px] h-14 rounded-r-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #3a3a3a, #1a1a1a, #3a3a3a)",
-                        boxShadow: "2px 0 4px rgba(0,0,0,0.4)",
+                          "linear-gradient(180deg, #2e2e2e 0%, #141414 40%, #2e2e2e 100%)",
+                        boxShadow: "3px 0 6px rgba(0,0,0,0.5), inset -1px 0 0 rgba(255,255,255,0.08)",
                       }}
                     />
-                    {/* Volume buttons */}
+                    {/* Volume up */}
                     <div
-                      className="absolute top-24 -left-[3.5px] w-[3.5px] h-10 rounded-l-md"
+                      className="absolute top-24 -left-[4.5px] w-[4.5px] h-10 rounded-l-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #3a3a3a, #1a1a1a, #3a3a3a)",
-                        boxShadow: "-2px 0 4px rgba(0,0,0,0.4)",
+                          "linear-gradient(180deg, #2e2e2e 0%, #141414 40%, #2e2e2e 100%)",
+                        boxShadow: "-3px 0 6px rgba(0,0,0,0.5), inset 1px 0 0 rgba(255,255,255,0.08)",
                       }}
                     />
+                    {/* Volume down */}
                     <div
-                      className="absolute top-40 -left-[3.5px] w-[3.5px] h-10 rounded-l-md"
+                      className="absolute top-40 -left-[4.5px] w-[4.5px] h-10 rounded-l-md"
                       style={{
                         background:
-                          "linear-gradient(180deg, #3a3a3a, #1a1a1a, #3a3a3a)",
-                        boxShadow: "-2px 0 4px rgba(0,0,0,0.4)",
+                          "linear-gradient(180deg, #2e2e2e 0%, #141414 40%, #2e2e2e 100%)",
+                        boxShadow: "-3px 0 6px rgba(0,0,0,0.5), inset 1px 0 0 rgba(255,255,255,0.08)",
                       }}
                     />
                   </div>
