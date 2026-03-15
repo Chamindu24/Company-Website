@@ -92,7 +92,7 @@ const MobileApps: React.FC = () => {
           <div className="relative max-w-7xl mx-auto mb-20 md:mb-28">
             <div className="absolute inset-0 bg-emerald-50 rounded-[2.5rem] blur-3xl transform scale-95 -z-10 opacity-80" />
 
-            <div className="relative overflow-hidden border border-slate-200 shadow-[0_32px_80px_rgba(0,0,0,0.10)]">
+            <div className="relative overflow-hidden rounded-4xl border border-slate-200 shadow-[0_32px_80px_rgba(0,0,0,0.10)]">
               <img
                 src="/hero/app2.jpg"
                 alt="Mobile App Interface"
@@ -104,7 +104,7 @@ const MobileApps: React.FC = () => {
               <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full px-6 flex justify-center">
                 <button
                   onClick={() => navigate("/contact")}
-                  className="group cursor-pointer relative inline-flex items-center gap-3 px-10 py-4 bg-white text-slate-900 font-semibold text-xs uppercase tracking-[0.18em] overflow-hidden transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] active:scale-[0.98]"
+                  className="group cursor-pointer rounded-sm relative inline-flex items-center gap-3 px-10 py-4 bg-white text-slate-900 font-semibold text-xs uppercase tracking-[0.18em] overflow-hidden transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] active:scale-[0.98]"
                 >
                   <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                     Discover the Platform

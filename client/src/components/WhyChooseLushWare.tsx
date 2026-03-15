@@ -65,7 +65,7 @@ const WhyChooseLushWare: React.FC = () => {
               <div className="h-px w-8 bg-emerald-600" />
             </div>
 
-            <h2 className="wlw-hero-line wlw-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-slate-900 leading-[1.05]">
+            <h2 className="wlw-hero-line wlw-serif text-5xl sm:text-5xl md:text-6xl font-normal tracking-tight text-slate-900 leading-[1.05]">
               A Technology Partner{" "}
               <span className="relative inline-block  text-emerald-600">
                 Focused on Results

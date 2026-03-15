@@ -444,9 +444,11 @@ export default function ProjectBasePage() {
                 className="fixed inset-0 bg-slate-950/50 backdrop-blur-sm"
                 onClick={() => setSelectedProgram(null)}
               />
-              <div className="pb-modal-animate relative w-full max-w-2xl max-h-[94vh] overflow-y-auto bg-white shadow-[0_40px_100px_rgba(0,0,0,0.2)]">
+              <div
+                data-lenis-prevent
+                className="pb-modal-animate relative w-full max-w-2xl max-h-[94vh] overflow-y-auto bg-white shadow-[0_40px_100px_rgba(0,0,0,0.2)]"
+              >
                 {/* Top accent bar */}
-                <div className="h-1 w-full bg-emerald-600" />
                 <div className="p-7 sm:p-10 lg:p-14">
                   <InquiryForm
                     inquiryType="project"

@@ -23,6 +23,9 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Loading from './components/Loading'
 import { useLenis } from './hooks/useLenis'
+import ElectricalServices from './pages/solutions/ElectricalServices'
+import PlumbingServices from './pages/solutions/PlumbingServices'
+import HVACServices from './pages/solutions/HVACServices'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -93,6 +96,9 @@ function App() {
           <Route path="/templates/consultancy" element={<ConsultancyPage />} />
           <Route path="/templates/healthcare" element={<HealthcarePage />} />
           <Route path="/templates/real-estate" element={<RealEstatePage />} />
+          <Route path="/industries/hvac" element={<HVACServices />} />
+          <Route path="/industries/plumbing" element={<PlumbingServices />} />
+          <Route path="/industries/electrical" element={<ElectricalServices />} />  
           <Route path="/admin" element={<AdminLogin />} />
           <Route 
             path="/admin/dashboard" 
