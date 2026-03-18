@@ -93,9 +93,9 @@ export default function Navbar() {
   };
 
   const renderDropdownPanel = (items: { name: string; to: string }[]) => (
-    <div className="overflow-hidden bg-white border border-stone-100 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)]">
-      <div className="w-[98%] max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-14 xl:px-20 py-10 xl:py-14">
-        <nav className="grid grid-cols-1 gap-y-5 xl:gap-y-6">
+    <div className="overflow-hidden rounded-sm bg-white border border-stone-100 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.2)]">
+      <div className="w-[360px] px-5 py-5">
+        <nav className="grid grid-cols-1 gap-y-3">
           {items.map((item) => (
             <Link
               key={item.to}
@@ -206,12 +206,11 @@ export default function Navbar() {
             </div>
 
             <div
-              className={`fixed left-0 right-0 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
                 desktopDropdownOpen === "services"
                   ? "pointer-events-auto opacity-100 translate-y-0"
                   : "pointer-events-none opacity-0 translate-y-2"
               }`}
-              style={{ top: scrolled ? "60px" : "68px" }}
               onMouseEnter={() => openDesktopDropdown("services")}
               onMouseLeave={closeDesktopDropdown}
             >
@@ -257,12 +256,11 @@ export default function Navbar() {
             </div>
 
             <div
-              className={`fixed left-0 right-0 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
                 desktopDropdownOpen === "solutions"
                   ? "pointer-events-auto opacity-100 translate-y-0"
                   : "pointer-events-none opacity-0 translate-y-2"
               }`}
-              style={{ top: scrolled ? "60px" : "68px" }}
               onMouseEnter={() => openDesktopDropdown("solutions")}
               onMouseLeave={closeDesktopDropdown}
             >
@@ -274,7 +272,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.to}
-              className={`text-sm font-bold tracking-widest uppercase hover:text-emerald-700 transition-colors relative group ${
+              className={`text-sm font-bold tracking-widest uppercase whitespace-nowrap hover:text-emerald-700 transition-colors relative group ${
                 location.pathname === link.to
                   ? "text-emerald-700"
                   : "text-stone-800"
