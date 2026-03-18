@@ -94,8 +94,8 @@ export default function Navbar() {
 
   const renderDropdownPanel = (items: { name: string; to: string }[]) => (
     <div className="overflow-hidden bg-white border border-stone-100 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)]">
-      <div className="max-w-8xl mx-auto px-5 sm:px-8 lg:px-14 xl:px-22 py-10 xl:py-14">
-        <nav className="grid grid-cols-3 gap-x-12 xl:gap-x-12 gap-y-8 xl:gap-y-8">
+      <div className="w-[98%] max-w-[1800px] mx-auto px-5 sm:px-8 lg:px-14 xl:px-20 py-10 xl:py-14">
+        <nav className="grid grid-cols-1 gap-y-5 xl:gap-y-6">
           {items.map((item) => (
             <Link
               key={item.to}
@@ -135,7 +135,7 @@ export default function Navbar() {
           : "bg-white py-4 lg:py-5"
       }`}
     >
-      <div className="max-w-8xl px-5 sm:px-8 lg:px-14 xl:px-22 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4">
+      <div className="w-[98%] max-w-[1800px] px-5 sm:px-8 lg:px-14 xl:px-20 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4">
         <div className="flex justify-start">
           <Link
             to="/"
