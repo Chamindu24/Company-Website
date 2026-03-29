@@ -5,9 +5,12 @@ server/node_modules
 # Environment files
 client/.env
 server/.env
+maldives/.env
 
 # Logs
 *.log
 
 # Build outputs
 client/dist
+server/dist
+maldives/dist   
