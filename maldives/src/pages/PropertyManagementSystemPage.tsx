@@ -186,140 +186,207 @@ function PropertyManagementSystemPage() {
         </div>
       </section>
 
-      <section className="bg-surface px-6 py-24 md:px-8">
+      <section className="bg-surface px-6 py-24 md:px-8 overflow-hidden">
         <div className="mx-auto max-w-7xl">
-          <div className="overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_40px_80px_rgba(0,104,116,0.08)]">
-            <div className="flex items-center justify-between bg-surface-container-high px-8 py-4">
-              <div className="flex items-center gap-4">
-                <div className="flex gap-2">
-                  <div className="h-3 w-3 rounded-full bg-error/40" />
-                  <div className="h-3 w-3 rounded-full bg-secondary-container/40" />
-                  <div className="h-3 w-3 rounded-full bg-tertiary-container/40" />
-                </div>
-                <div className="mx-2 h-6 w-px bg-outline-variant/30" />
-                <div className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
-                  Property Dashboard v4.2
-                </div>
-              </div>
-              <div className="flex items-center gap-6">
-                <span className="material-symbols-outlined text-xl text-on-surface-variant">
-                  search
-                </span>
-                <span className="material-symbols-outlined text-xl text-on-surface-variant">
-                  notifications
-                </span>
-                <div className="h-8 w-8 overflow-hidden rounded-full bg-primary-container">
-                  <img
-                    alt="User profile"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe4b6PVIeNtoB7pmZyAPP4AWXrHUs8LFg-qMCBWLinuLxjtFj_p136uiM-1eLqcv3HyUg9-fyZOU16AOtBFq_d5_GYcAuU5zGujYXFIydeyK3NrnqNj2un6qssDBuTmeojAV26CvTSoSyfqdsQDQ-N1J5UwgRDup7Fv34ow3J1u28Ww58hNe1C_2sCAPqADaTZsSXsvTGM2Ts_V_gGN-WPNE2NpEZcg2563vF0_TyR79Z2Zv5WLUn2ylp8cA0sgkYEqAaF8OrYMRc"
-                  />
-                </div>
-              </div>
-            </div>
+          {/* 3D Perspective Wrapper - Gives the tablet "physical" presence */}
+          <div className="relative mx-auto w-full max-w-[1000px] [perspective:2000px]">
+            {/* Physical iPad Hardware Chassis */}
+            <div className="relative rounded-[3.5rem] border-[1px] border-slate-500/30 bg-[#121212] p-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4),0_20px_40px_-15px_rgba(0,0,0,0.3)] [transform:rotateX(10deg)_rotateY(-5deg)_rotateZ(1deg)] transition-transform duration-700 hover:rotate-0">
+              {/* Physical Hardware Buttons */}
+              <div className="absolute -right-[2px] top-32 h-16 w-[3px] rounded-l-sm bg-slate-700" />
+              <div className="absolute -right-[2px] top-52 h-16 w-[3px] rounded-l-sm bg-slate-700" />
+              <div className="absolute right-20 -top-[2px] h-[3px] w-12 rounded-b-sm bg-slate-700" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12">
-              <aside className="hidden bg-surface-container-low p-6 lg:col-span-2 lg:block">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3 font-bold text-primary">
-                    <span className="material-symbols-outlined">dashboard</span>
-                    <span className="text-sm">Overview</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-on-surface-variant transition-colors hover:text-primary">
-                    <span className="material-symbols-outlined">apartment</span>
-                    <span className="text-sm">Properties</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-on-surface-variant transition-colors hover:text-primary">
-                    <span className="material-symbols-outlined">payments</span>
-                    <span className="text-sm">Finances</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-on-surface-variant transition-colors hover:text-primary">
-                    <span className="material-symbols-outlined">group</span>
-                    <span className="text-sm">Tenants</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-on-surface-variant transition-colors hover:text-primary">
-                    <span className="material-symbols-outlined">
-                      calendar_month
-                    </span>
-                    <span className="text-sm">Schedule</span>
-                  </div>
-                </div>
-              </aside>
+              {/* The Screen Bezel (The black border around the glass) */}
+              <div className="relative overflow-hidden rounded-[2.8rem] bg-[#050505] p-4 ring-1 ring-inset ring-white/10 shadow-inner">
+                {/* Glass Reflection Overlay */}
+                <div className="pointer-events-none absolute inset-0 z-50 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-60" />
 
-              <div className="p-8 lg:col-span-10">
-                <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-                  <div className="flex flex-col gap-2 rounded-lg bg-surface-container p-6">
-                    <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
-                      Total Revenue
-                    </span>
-                    <span className="font-headline text-3xl font-extrabold text-on-surface">
-                      $142,500
-                    </span>
-                    <span className="flex items-center gap-1 text-xs font-bold text-tertiary">
-                      <span className="material-symbols-outlined text-sm">
-                        trending_up
-                      </span>
-                      +12.4% vs last month
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-2 rounded-lg bg-surface-container p-6">
-                    <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
-                      Active Bookings
-                    </span>
-                    <span className="font-headline text-3xl font-extrabold text-on-surface">
-                      184
-                    </span>
-                    <span className="text-xs font-bold text-secondary">
-                      89 Units occupied
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-2 rounded-lg bg-surface-container p-6">
-                    <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
-                      Maintenance
-                    </span>
-                    <span className="font-headline text-3xl font-extrabold text-on-surface">
-                      12
-                    </span>
-                    <span className="text-xs font-bold text-error">
-                      3 Urgent tickets
-                    </span>
-                  </div>
+                {/* Front Camera Lens with blue optic coating */}
+                <div className="absolute left-1/2 top-5 z-50 h-3 w-3 -translate-x-1/2 rounded-full bg-[#1a1a1a] ring-1 ring-white/5">
+                  <div className="mx-auto mt-1 h-1 w-1 rounded-full bg-blue-900/40 shadow-[0_0_2px_rgba(0,0,255,0.5)]" />
                 </div>
 
-                <div className="rounded-lg border border-surface-container bg-white p-6 shadow-sm">
-                  <div className="mb-8 flex items-center justify-between">
-                    <h4 className="font-headline text-lg font-bold">
-                      Occupancy Status
-                    </h4>
-                    <select className="rounded-full border-none bg-surface-container px-4 py-1.5 text-xs font-bold focus:ring-primary/20">
-                      <option>Last 30 Days</option>
-                      <option>Last 6 Months</option>
-                    </select>
-                  </div>
-
-                  <div className="flex h-64 items-end justify-between gap-4">
-                    {occupancyBars.map((value, index) => (
-                      <div
-                        key={occupancyDays[index]}
-                        className="group relative h-full flex-1"
-                      >
-                        <div
-                          className="relative rounded-t-full bg-surface-container-high"
-                          style={{ height: `${60 + index * 5}%` }}
-                        >
-                          <div
-                            className="absolute bottom-0 w-full rounded-t-full bg-primary transition-all duration-500 group-hover:bg-primary-container"
-                            style={{ height: `${value}%` }}
-                          />
-                        </div>
-                        <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-on-surface-variant">
-                          {occupancyDays[index]}
+                {/* Software Interface (The actual Screen Content) */}
+                <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+                  {/* Top Bar - Maldives Resort PMS Status */}
+                  <div className="flex items-center justify-between border-b border-outline-variant/10 bg-surface-container-lowest px-10 py-5">
+                    <div className="flex items-center gap-4">
+                      <div className="text-xs font-black uppercase tracking-[0.2em] text-primary">
+                        LUSHWARE{" "}
+                        <span className="font-light text-on-surface-variant">
+                          OS v5.0
                         </span>
                       </div>
-                    ))}
+                      <div className="mx-2 h-4 w-px bg-outline-variant/50" />
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+                        Maldives Luxury PMS
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-6">
+                      <span className="material-symbols-outlined text-lg text-on-surface-variant">
+                        wifi
+                      </span>
+                      <span className="material-symbols-outlined text-lg text-emerald-500">
+                        battery_full_alt
+                      </span>
+                      <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-white ring-1 ring-primary/20 shadow-sm">
+                        <img
+                          alt="General Manager"
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
+                        />
+                      </div>
+                    </div>
                   </div>
+
+                  <div className="grid grid-cols-12">
+                    {/* Sidebar: Premium Maldives Operations */}
+                    <aside className="col-span-3 bg-slate-50 p-8 min-h-[550px] border-r border-slate-100">
+                      <div className="space-y-8">
+                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">
+                          Resort Hub
+                        </p>
+                        {[
+                          {
+                            icon: "bungalow",
+                            label: "Villa Mgmt",
+                            active: true,
+                          },
+                          { icon: "kayaking", label: "Excursions" },
+                          { icon: "flight_land", label: "Transfers" },
+                          { icon: "account_balance", label: "Revenue/Yield" },
+                          { icon: "cleaning_services", label: "Butler Svc" },
+                        ].map((item, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-center gap-4 cursor-pointer transition-all hover:translate-x-1 ${item.active ? "text-primary" : "text-slate-500"}`}
+                          >
+                            <span className="material-symbols-outlined text-xl">
+                              {item.icon}
+                            </span>
+                            <span className="text-[11px] font-bold uppercase tracking-wider">
+                              {item.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </aside>
+
+                    {/* Main Dashboard Content */}
+                    <main className="col-span-9 p-10 bg-white">
+                      <div className="mb-10 flex items-end justify-between">
+                        <div>
+                          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+                            Island Overview
+                          </h2>
+                          <p className="text-xs text-slate-500">
+                            Baa Atoll Portfolio • Live Briefing
+                          </p>
+                        </div>
+                        <div className="flex gap-2 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">
+                          <span className="material-symbols-outlined text-sm">
+                            sync
+                          </span>{" "}
+                          Live Sync
+                        </div>
+                      </div>
+
+                      {/* Luxury KPIs */}
+                      <div className="mb-10 grid grid-cols-3 gap-6">
+                        <div className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-md">
+                          <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
+                            Daily RevPAR
+                          </span>
+                          <span className="text-3xl font-black text-slate-900">
+                            $2,450
+                            <span className="text-sm font-medium text-slate-400">
+                              .00
+                            </span>
+                          </span>
+                          <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-600">
+                            <span className="material-symbols-outlined text-sm">
+                              trending_up
+                            </span>
+                            +18.4% Yield
+                          </span>
+                        </div>
+
+                        <div className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-md">
+                          <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
+                            Villa Occupancy
+                          </span>
+                          <span className="text-3xl font-black text-slate-900">
+                            94%
+                          </span>
+                          <span className="text-[11px] font-bold text-primary">
+                            42/45 Overwater Villas
+                          </span>
+                        </div>
+
+                        <div className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-md">
+                          <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
+                            Seaplane Hub
+                          </span>
+                          <span className="text-3xl font-black text-slate-900">
+                            08
+                          </span>
+                          <span className="text-[11px] font-bold text-error">
+                            2 TMA Flights in 15m
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Chart Area */}
+                      <div className="rounded-3xl border border-slate-100 bg-slate-50/50 p-8">
+                        <div className="mb-10 flex items-center justify-between">
+                          <div>
+                            <h4 className="text-sm font-black uppercase tracking-widest text-slate-900">
+                              Arrival Density
+                            </h4>
+                            <p className="text-[10px] text-slate-500">
+                              Velana Int. Airport Sync (VIA)
+                            </p>
+                          </div>
+                          <select className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-[10px] font-black uppercase tracking-widest outline-none">
+                            <option>Current Week</option>
+                            <option>Peak Forecast</option>
+                          </select>
+                        </div>
+
+                        <div className="flex h-44 items-end justify-between gap-4 px-4">
+                          {occupancyBars.map((value, index) => (
+                            <div
+                              key={index}
+                              className="group relative h-full flex-1"
+                            >
+                              <div className="relative h-full w-full rounded-full bg-slate-200/50 transition-all duration-300 group-hover:bg-slate-200">
+                                <div
+                                  className="absolute bottom-0 w-full rounded-full bg-gradient-to-t from-primary to-primary-container shadow-lg transition-all duration-700"
+                                  style={{ height: `${value}%` }}
+                                >
+                                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 rounded bg-slate-900 px-2 py-1 text-[8px] text-white transition-all group-hover:scale-100">
+                                    {value}%
+                                  </div>
+                                </div>
+                              </div>
+                              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-tighter text-slate-400">
+                                {occupancyDays[index]}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </main>
+                  </div>
+
+                  {/* iPad Home Bar Indicator */}
+                  <div className="mx-auto mb-2 h-1.5 w-32 rounded-full bg-slate-200" />
                 </div>
               </div>
             </div>
+
+            {/* Surface Reflection (Floor Shadow) to ground the device */}
+            <div className="absolute -bottom-16 left-1/2 h-10 w-[85%] -translate-x-1/2 rounded-[100%] bg-slate-900/15 blur-[40px] -z-10" />
           </div>
         </div>
       </section>
@@ -347,7 +414,16 @@ function PropertyManagementSystemPage() {
       </section>
 
       <section className="px-6 py-24 md:px-8">
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center lg:p-20">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center lg:p-20">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
           <div className="absolute right-0 top-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
           <div className="relative z-10">
             <h2 className="mb-6 font-headline text-4xl font-extrabold text-on-primary lg:text-5xl">

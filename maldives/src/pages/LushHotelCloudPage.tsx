@@ -543,11 +543,16 @@ function LushHotelCloudPage() {
         </section>
 
         <section className="px-6 py-24 md:px-8">
-          <div className="relative mx-auto max-w-5xl space-y-8 overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center shadow-2xl lg:p-20">
-            <div className="pointer-events-none absolute inset-0 opacity-10">
-              <div className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border-8 border-white h-64 w-64 left-0 top-0" />
-              <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full border-4 border-white" />
-            </div>
+          <div className="relative mx-auto max-w-7xl space-y-8 overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center shadow-2xl lg:p-20">
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
             <h2 className="font-headline text-4xl font-extrabold leading-tight text-on-primary lg:text-5xl">
               Ready to transform your <br />
               resort&apos;s digital backbone?

@@ -1,12 +1,12 @@
 const featureCards = [
   {
-    icon: 'history_edu',
-    iconColor: 'text-tertiary',
-    title: 'Smart Follow-ups',
+    icon: "history_edu",
+    iconColor: "text-tertiary",
+    title: "Smart Follow-ups",
     description:
       'Automated post-trip surveys and "Welcome Home" sequences to build lifelong loyalty.',
   },
-]
+];
 
 function TravelCrmPage() {
   return (
@@ -15,7 +15,10 @@ function TravelCrmPage() {
         <div className="z-10 grid items-center gap-16 lg:grid-cols-2">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary-fixed-dim/20 px-4 py-2 font-label text-xs font-bold tracking-widest text-primary">
-              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+              <span
+                className="material-symbols-outlined text-sm"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
                 star
               </span>
               NEXT-GEN TRAVEL CRM
@@ -24,13 +27,14 @@ function TravelCrmPage() {
               Automate Your <br />
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Travel Agency
-              </span>{' '}
+              </span>{" "}
               <br />
               Lifecycle
             </h1>
             <p className="max-w-lg text-lg leading-relaxed text-on-surface-variant">
-              The all-in-one digital sanctuary for modern travel curators. From lead generation to tropical touchdown,
-              manage every detail with ethereal ease.
+              The all-in-one digital sanctuary for modern travel curators. From
+              lead generation to tropical touchdown, manage every detail with
+              ethereal ease.
             </p>
             <div className="flex flex-wrap gap-4">
               <button className="rounded-full bg-primary px-8 py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-transform hover:scale-105">
@@ -52,13 +56,18 @@ function TravelCrmPage() {
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2cimSHhy24Em-REcFIBYQP_4prlHCgvVCWKKk35eH7gtqaTKE9Dk-zCLh10KpyES7CQxumejVL2cWV5_hvXBQ7blITZxzGRlNuU2MiwvioAbFHOANR02w-TRVFVsAx4CI_BfMJMv03-PMXiB9WWjfGd5XYGEo7OwiNwCCYx64lMHNAzbOi4KR7AFeXL9j7bzmH7ympniAD6wDm8mRO7Sb61zQXpnRoNqco9WjTuPl0gAq0nzapb5fmx8cizF6--QYoMIU-R9-Le0"
               />
 
-              <div className="glass-card absolute -left-12 top-1/4 animate-bounce rounded-lg p-6 shadow-xl" style={{ animationDuration: '4s' }}>
+              <div
+                className="glass-card absolute -left-12 top-1/4 animate-bounce rounded-lg p-6 shadow-xl"
+                style={{ animationDuration: "4s" }}
+              >
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-tertiary-container text-on-tertiary">
                     <span className="material-symbols-outlined">payments</span>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-on-surface-variant">Payment Received</p>
+                    <p className="text-xs font-bold text-on-surface-variant">
+                      Payment Received
+                    </p>
                     <p className="text-sm font-black">$4,250.00</p>
                   </div>
                 </div>
@@ -67,7 +76,9 @@ function TravelCrmPage() {
               <div className="glass-card absolute -bottom-8 -right-8 rounded-lg p-6 shadow-xl">
                 <div className="mb-3 flex items-center gap-4">
                   <div className="h-2 w-2 rounded-full bg-primary-container" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Itinerary Built</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                    Itinerary Built
+                  </span>
                 </div>
                 <div className="space-y-2">
                   <div className="h-2 w-32 rounded-full bg-surface-container" />
@@ -81,27 +92,39 @@ function TravelCrmPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-24 md:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight">Precision Tools for Global Explorers</h2>
+          <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight">
+            Precision Tools for Global Explorers
+          </h2>
           <p className="text-on-surface-variant">
-            Our CRM bridges the gap between chaotic spreadsheets and seamless guest experiences.
+            Our CRM bridges the gap between chaotic spreadsheets and seamless
+            guest experiences.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
           <div className="glass-card group relative overflow-hidden rounded-xl p-10 md:col-span-8">
             <div className="relative z-10">
-              <span className="material-symbols-outlined mb-6 text-4xl text-primary">query_stats</span>
-              <h3 className="mb-4 text-2xl font-bold tracking-tight">Lead-to-Trip Pipeline</h3>
+              <span className="material-symbols-outlined mb-6 text-4xl text-primary">
+                query_stats
+              </span>
+              <h3 className="mb-4 text-2xl font-bold tracking-tight">
+                Lead-to-Trip Pipeline
+              </h3>
               <p className="mb-8 max-w-md text-on-surface-variant">
-                Visualize every stage of the traveler&apos;s journey. Drag-and-drop inquiries through custom stages from
+                Visualize every stage of the traveler&apos;s journey.
+                Drag-and-drop inquiries through custom stages from
                 &apos;Dreaming&apos; to &apos;Departure&apos;.
               </p>
               <div className="mt-8 flex gap-4">
                 <div className="flex-1 rounded-lg bg-surface-container-low p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Inquiry</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
+                    Inquiry
+                  </span>
                   <div className="mt-4 space-y-3">
                     <div className="rounded-md border-l-4 border-primary bg-white p-3 shadow-sm">
-                      <div className="text-[11px] font-bold">Maldives Escape</div>
+                      <div className="text-[11px] font-bold">
+                        Maldives Escape
+                      </div>
                     </div>
                     <div className="rounded-md bg-white p-3 shadow-sm">
                       <div className="text-[11px] font-bold">Swiss Alps</div>
@@ -109,13 +132,17 @@ function TravelCrmPage() {
                   </div>
                 </div>
                 <div className="flex-1 rounded-lg bg-surface-container-low p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">Proposal</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">
+                    Proposal
+                  </span>
                   <div className="mt-4 space-y-3">
                     <div className="rounded-md border border-dashed border-outline-variant bg-white/50 p-3" />
                   </div>
                 </div>
                 <div className="flex-1 rounded-lg bg-surface-container-low p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-tertiary">Won</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-tertiary">
+                    Won
+                  </span>
                 </div>
               </div>
             </div>
@@ -123,51 +150,78 @@ function TravelCrmPage() {
           </div>
 
           <div className="relative overflow-hidden rounded-xl bg-secondary p-10 text-on-secondary md:col-span-4">
-            <span className="material-symbols-outlined mb-6 text-4xl">credit_score</span>
-            <h3 className="mb-4 text-2xl font-bold tracking-tight">Payment Tracking</h3>
+            <span className="material-symbols-outlined mb-6 text-4xl">
+              credit_score
+            </span>
+            <h3 className="mb-4 text-2xl font-bold tracking-tight">
+              Payment Tracking
+            </h3>
             <p className="text-sm leading-relaxed text-secondary-fixed/80">
-              Automated invoicing and payment reconciliation. Never miss a final balance or vendor deposit again.
+              Automated invoicing and payment reconciliation. Never miss a final
+              balance or vendor deposit again.
             </p>
             <div className="mt-12 space-y-4">
               <div className="h-[2px] w-full bg-secondary-container/30">
                 <div className="h-full w-[70%] bg-secondary-fixed" />
               </div>
-              <p className="text-[10px] font-bold uppercase tracking-widest">70% Collected</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest">
+                70% Collected
+              </p>
             </div>
           </div>
 
           {featureCards.map((card) => (
-            <div key={card.title} className="rounded-xl bg-surface-container-lowest p-10 shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4">
-              <span className={`material-symbols-outlined mb-6 text-4xl ${card.iconColor}`}>{card.icon}</span>
+            <div
+              key={card.title}
+              className="rounded-xl bg-surface-container-lowest p-10 shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4"
+            >
+              <span
+                className={`material-symbols-outlined mb-6 text-4xl ${card.iconColor}`}
+              >
+                {card.icon}
+              </span>
               <h3 className="mb-4 text-xl font-bold">{card.title}</h3>
-              <p className="text-sm leading-relaxed text-on-surface-variant">{card.description}</p>
+              <p className="text-sm leading-relaxed text-on-surface-variant">
+                {card.description}
+              </p>
             </div>
           ))}
 
           <div className="flex flex-col items-center gap-10 overflow-hidden rounded-xl bg-white p-10 md:col-span-8 md:flex-row">
             <div className="flex-1">
-              <span className="material-symbols-outlined mb-6 text-4xl text-secondary">map</span>
-              <h3 className="mb-4 text-2xl font-bold tracking-tight">Itinerary Creation</h3>
+              <span className="material-symbols-outlined mb-6 text-4xl text-secondary">
+                map
+              </span>
+              <h3 className="mb-4 text-2xl font-bold tracking-tight">
+                Itinerary Creation
+              </h3>
               <p className="leading-relaxed text-on-surface-variant">
-                Drag-and-drop blocks to build stunning mobile-first itineraries that travelers will love to share.
+                Drag-and-drop blocks to build stunning mobile-first itineraries
+                that travelers will love to share.
               </p>
             </div>
             <div className="relative w-full flex-1">
               <div className="rounded-lg bg-surface-container-low p-6 shadow-inner">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex h-8 w-8 items-center justify-center rounded bg-primary-container/20 text-primary">
-                    <span className="material-symbols-outlined text-sm">flight_takeoff</span>
+                    <span className="material-symbols-outlined text-sm">
+                      flight_takeoff
+                    </span>
                   </div>
                   <span className="text-xs font-bold">SQ-425 Arrives Male</span>
                 </div>
                 <div className="mb-4 flex items-center gap-3">
                   <div className="flex h-8 w-8 items-center justify-center rounded bg-secondary-container/20 text-secondary">
-                    <span className="material-symbols-outlined text-sm">sailing</span>
+                    <span className="material-symbols-outlined text-sm">
+                      sailing
+                    </span>
                   </div>
                   <span className="text-xs font-bold">Speedboat Transfer</span>
                 </div>
                 <div className="flex h-24 items-center justify-center rounded-md border-2 border-dashed border-outline-variant bg-surface-container-high">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-outline">+ Add Activity</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-outline">
+                    + Add Activity
+                  </span>
                 </div>
               </div>
             </div>
@@ -175,95 +229,210 @@ function TravelCrmPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-slate-50 py-24">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight">The Command Center</h2>
-            <p className="text-on-surface-variant">Clean. Fast. Intuitively Maldivian.</p>
-          </div>
+      <section className="bg-surface px-6 py-24 md:px-8 overflow-hidden">
+        <div className="mx-auto max-w-7xl">
+          {/* 3D Perspective Wrapper */}
+          <div className="relative mx-auto w-full max-w-[1024px] [perspective:2000px]">
+            {/* Physical iPad Hardware Chassis */}
+            <div className="relative rounded-[3.5rem] border-[1px] border-slate-500/30 bg-[#121212] p-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4)] [transform:rotateX(8deg)_rotateY(-4deg)_rotateZ(1deg)] transition-transform duration-700 hover:rotate-0">
+              {/* Physical Hardware Buttons */}
+              <div className="absolute -right-[2px] top-32 h-16 w-[3px] rounded-l-sm bg-slate-700" />
+              <div className="absolute -right-[2px] top-52 h-16 w-[3px] rounded-l-sm bg-slate-700" />
 
-          <div className="glass-card mx-auto max-w-5xl rounded-xl border border-white/50 p-2 shadow-[0_40px_100px_-20px_rgba(0,104,116,0.15)]">
-            <div className="flex min-h-[500px] overflow-hidden rounded-lg bg-surface">
-              <div className="flex w-16 flex-col items-center gap-6 bg-surface-container-low py-6">
-                <div className="mb-4 h-8 w-8 rounded-full bg-primary" />
-                <span className="material-symbols-outlined text-primary-fixed-dim" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  dashboard
-                </span>
-                <span className="material-symbols-outlined text-outline">group</span>
-                <span className="material-symbols-outlined text-outline">calendar_month</span>
-                <span className="material-symbols-outlined text-outline">settings</span>
-              </div>
+              {/* The Screen Bezel */}
+              <div className="relative overflow-hidden rounded-[2.8rem] bg-[#050505] p-4 ring-1 ring-inset ring-white/10 shadow-inner">
+                {/* Glass Reflection Overlay */}
+                <div className="pointer-events-none absolute inset-0 z-50 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-40" />
 
-              <div className="flex-1 p-8">
-                <div className="mb-10 flex items-end justify-between">
-                  <div>
-                    <h4 className="text-2xl font-black text-on-surface">Agency Overview</h4>
-                    <p className="text-sm text-on-surface-variant">Active Trips: 142</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex h-10 items-center gap-2 rounded-md border border-outline-variant/20 bg-white px-4 text-xs font-bold text-outline">
-                      <span className="material-symbols-outlined text-sm">filter_list</span>
-                      Filter
-                    </div>
-                    <div className="flex h-10 items-center rounded-md bg-primary px-6 text-xs font-bold text-on-primary shadow-lg shadow-primary/20">
-                      + New Trip
-                    </div>
-                  </div>
+                {/* Front Camera Lens */}
+                <div className="absolute left-1/2 top-5 z-50 h-3 w-3 -translate-x-1/2 rounded-full bg-[#1a1a1a] ring-1 ring-white/5">
+                  <div className="mx-auto mt-1 h-1 w-1 rounded-full bg-blue-900/40" />
                 </div>
 
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="rounded-xl bg-white p-6 shadow-sm">
-                    <p className="mb-2 text-[10px] font-bold uppercase text-outline-variant">Revenue Month</p>
-                    <p className="text-2xl font-black text-secondary">$148,200</p>
-                    <div className="mt-4 flex h-12 items-end gap-1">
-                      <div className="h-[40%] flex-1 rounded-t-sm bg-secondary-container/20" />
-                      <div className="h-[60%] flex-1 rounded-t-sm bg-secondary-container/20" />
-                      <div className="h-[50%] flex-1 rounded-t-sm bg-secondary-container/20" />
-                      <div className="h-[90%] flex-1 rounded-t-sm bg-secondary" />
+                {/* INTERNAL SCREEN: PMS INTERFACE */}
+                <div className="relative overflow-hidden rounded-[2.2rem] bg-surface-container-lowest min-h-[600px]">
+                  <div className="flex h-full min-h-[600px]">
+                    {/* Ultra-Modern Vertical Nav */}
+                    <div className="flex w-20 flex-col items-center gap-8 bg-white border-r border-slate-100 py-10">
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
+                        <span className="material-symbols-outlined text-xl">
+                          pepper
+                        </span>
+                      </div>
+                      <span
+                        className="material-symbols-outlined text-primary cursor-pointer"
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        dashboard
+                      </span>
+                      <span className="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">
+                        bed
+                      </span>
+                      <span className="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">
+                        sailing
+                      </span>
+                      <span className="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">
+                        analytics
+                      </span>
+                      <div className="mt-auto">
+                        <span className="material-symbols-outlined text-slate-400 cursor-pointer">
+                          settings
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Main Content Area */}
+                    <div className="flex-1 p-10 bg-[#fbfcfd]">
+                      <div className="mb-10 flex items-end justify-between">
+                        <div>
+                          <h4 className="text-2xl font-black tracking-tight text-slate-900">
+                            Island Briefing
+                          </h4>
+                          <p className="text-sm font-medium text-slate-500">
+                            Baa Atoll • Resort Operations
+                          </p>
+                        </div>
+                        <div className="flex gap-4">
+                          <div className="flex h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 text-xs font-bold text-slate-600 shadow-sm">
+                            <span className="material-symbols-outlined text-lg">
+                              calendar_today
+                            </span>
+                            Today
+                          </div>
+                          <div className="flex h-11 items-center rounded-xl bg-primary px-6 text-xs font-bold text-white shadow-xl shadow-primary/20">
+                            + New Booking
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-12 gap-8">
+                        {/* Revenue Card (Maldives RevPAR) */}
+                        <div className="col-span-4 rounded-3xl bg-white p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border border-slate-100">
+                          <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                            Daily RevPAR
+                          </p>
+                          <p className="text-3xl font-black text-slate-900">
+                            $2,840
+                            <span className="text-sm font-bold text-slate-400">
+                              .00
+                            </span>
+                          </p>
+                          <div className="mt-6 flex h-20 items-end gap-1.5">
+                            {[40, 65, 45, 90, 55, 80, 95].map((h, i) => (
+                              <div
+                                key={i}
+                                className={`flex-1 rounded-t-md transition-all ${i === 6 ? "bg-primary shadow-[0_-4px_10px_rgba(var(--primary-rgb),0.3)]" : "bg-slate-100"}`}
+                                style={{ height: `${h}%` }}
+                              />
+                            ))}
+                          </div>
+                          <p className="mt-4 text-[10px] font-bold text-emerald-600 flex items-center gap-1">
+                            <span className="material-symbols-outlined text-xs">
+                              trending_up
+                            </span>{" "}
+                            +12% Peak Performance
+                          </p>
+                        </div>
+
+                        {/* Operational Logistics Card */}
+                        <div className="col-span-8 rounded-3xl bg-white p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border border-slate-100">
+                          <p className="mb-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                            Critical Transfers & Maintenance
+                          </p>
+                          <div className="space-y-6">
+                            {/* Entry 1 */}
+                            <div className="flex items-center justify-between border-b border-slate-50 pb-5">
+                              <div className="flex items-center gap-4">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
+                                  <span className="material-symbols-outlined text-xl">
+                                    flight_land
+                                  </span>
+                                </div>
+                                <div>
+                                  <span className="block text-xs font-black text-slate-900">
+                                    Seaplane Arrival • TMA Flight 402
+                                  </span>
+                                  <span className="text-[10px] font-medium text-slate-500">
+                                    14 Guests from Velana Int. Airport
+                                  </span>
+                                </div>
+                              </div>
+                              <span className="text-[10px] font-black bg-amber-100 text-amber-700 px-3 py-1 rounded-full uppercase tracking-tighter">
+                                In 12 Mins
+                              </span>
+                            </div>
+
+                            {/* Entry 2 */}
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-4">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/5 text-primary">
+                                  <span className="material-symbols-outlined text-xl">
+                                    villa
+                                  </span>
+                                </div>
+                                <div>
+                                  <span className="block text-xs font-black text-slate-900">
+                                    Villa 402 • Deep Clean
+                                  </span>
+                                  <span className="text-[10px] font-medium text-slate-500">
+                                    Butler: Ahmed Hussain • Ready for 15:00
+                                    Check-in
+                                  </span>
+                                </div>
+                              </div>
+                              <span className="text-[10px] font-black text-slate-400 uppercase tracking-tighter tracking-widest">
+                                In Progress
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Summary Footer Statistics */}
+                        <div className="col-span-12 grid grid-cols-3 gap-6 pt-2">
+                          <div className="flex items-center gap-4 px-2">
+                            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                              Island Capacity: 98%
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-4 px-2 border-x border-slate-100">
+                            <span className="h-2 w-2 rounded-full bg-primary" />
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                              Butler Active: 24/24
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-4 px-2">
+                            <span className="h-2 w-2 rounded-full bg-amber-500" />
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                              Yacht Transfers: 04
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="col-span-2 rounded-xl bg-white p-6 shadow-sm">
-                    <p className="mb-6 text-[10px] font-bold uppercase text-outline-variant">Upcoming Departures</p>
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between border-b border-surface-container pb-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-tertiary-container/10 text-tertiary">
-                            <span className="material-symbols-outlined text-sm">flight</span>
-                          </div>
-                          <span className="text-xs font-bold">The Henderson Group • Bora Bora</span>
-                        </div>
-                        <span className="text-[10px] font-bold text-tertiary">TOMORROW</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary-container/10 text-secondary">
-                            <span className="material-symbols-outlined text-sm">hotel</span>
-                          </div>
-                          <span className="text-xs font-bold">L. Martinez • Kyoto Retreat</span>
-                        </div>
-                        <span className="text-[10px] font-bold text-outline">SEP 24</span>
-                      </div>
-                    </div>
-                  </div>
+                  {/* iOS Home Indicator Bar */}
+                  <div className="absolute bottom-2 left-1/2 h-1.5 w-32 -translate-x-1/2 rounded-full bg-slate-200" />
                 </div>
               </div>
             </div>
+
+            {/* Surface Reflection (Floor Shadow) */}
+            <div className="absolute -bottom-16 left-1/2 h-10 w-[85%] -translate-x-1/2 rounded-[100%] bg-slate-900/15 blur-[45px] -z-10" />
           </div>
         </div>
-
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-bl from-primary/10 to-transparent blur-3xl" />
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-24 text-center md:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-24 text-center md:px-8">
         <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-secondary to-primary p-16 shadow-2xl">
           <div
             className="absolute inset-0 opacity-10"
             style={{
               backgroundImage:
                 "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
           <div className="relative z-10 space-y-8">
@@ -283,7 +452,7 @@ function TravelCrmPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
 
-export default TravelCrmPage
+export default TravelCrmPage;

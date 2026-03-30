@@ -16,8 +16,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/marine-transport" element={<ViduvaruTransportPage />} />
-        <Route path="/resort-operations" element={<LushHotelCloudPage />} />
+        <Route path="/viduvaru" element={<ViduvaruTransportPage />} />
+        <Route path="/hotelcloud" element={<LushHotelCloudPage />} />
         <Route path="/our-work" element={<OurWorkPage />} />
         <Route path="/real-estate-control" element={<PropertyManagementSystemPage />} />
         <Route path="/contact" element={<ContactPage />} />

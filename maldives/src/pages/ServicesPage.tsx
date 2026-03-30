@@ -139,8 +139,8 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="max-w-screen-2xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+      <section className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-8 bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-sm border border-outline-variant/10 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative group">
             <div className="flex-1 z-10">
               <div className="w-16 h-16 bg-primary-container/5 rounded-2xl flex items-center justify-center mb-8">
@@ -268,8 +268,6 @@ function ServicesPage() {
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <svg
                 className="w-full h-full"
-                preserveaspectratio="none"
-                viewbox="0 0 100 100"
               >
                 <path
                   d="M0 100 Q 50 0 100 100"
@@ -329,6 +327,15 @@ function ServicesPage() {
 
       <section className="px-6 py-24 md:px-8">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-secondary p-12 text-center shadow-2xl shadow-primary/30 md:p-20">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
           <div className="relative z-10 mx-auto max-w-2xl">
             <h2 className="mb-6 font-headline text-3xl font-bold text-on-primary md:text-5xl">
               Ready to start your digital journey?
@@ -346,29 +353,31 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="mt-24 relative max-w-7xl  h-[500px] w-full rounded-xl overflow-hidden">
-        <img
-          alt=""
-          className="w-full h-full object-cover"
-          data-alt="Luxurious infinity pool overlooking the turquoise ocean at a high-end Maldives resort during a serene sunset with warm glow"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT3R1Ov40-ImoSyDxyoSpTsRdRzOjTeyyIrIERC9urRWV91AMSHO-wepRaNc-_3d5mSIW_zTZaAajSNElZZH8aTwHF2lqR4bAfKjNa3hLe_0J4hlkas8aNrUFZVsbuerkMEPHaDlpIyK8ypahBNARCXrYeSaeWcAIPSxbOWmmZkhQ1s24ouVhonwWUNNwmQpYGeMvcMTURhHGNz2gyF1tQQ3jN8SOB23k8bhJ7MMoAmWyJjWsuRn-bJsZv9HckOxy15I1CYYN3ackA"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-12">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-headline mb-4 tracking-tight">
-              Excellence in every pixel.
-            </h2>
-            <p className="text-slate-200 mb-8">
-              Our solutions currently power operations for over 45 luxury island
-              destinations across the Indian Ocean.
-            </p>
-            <div className="flex gap-4">
-              <button className="px-8 py-3 bg-secondary-container text-on-secondary-container rounded-full font-bold hover:scale-105 transition-transform">
-                View Case Studies
-              </button>
-              <button className="px-8 py-3 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-bold">
-                Client Testimonials
-              </button>
+      <section className="mt-24 px-6 md:px-8">
+        <div className="relative mx-auto h-[500px] w-full max-w-7xl overflow-hidden rounded-xl">
+          <img
+            alt=""
+            className="h-full w-full object-cover"
+            data-alt="Luxurious infinity pool overlooking the turquoise ocean at a high-end Maldives resort during a serene sunset with warm glow"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT3R1Ov40-ImoSyDxyoSpTsRdRzOjTeyyIrIERC9urRWV91AMSHO-wepRaNc-_3d5mSIW_zTZaAajSNElZZH8aTwHF2lqR4bAfKjNa3hLe_0J4hlkas8aNrUFZVsbuerkMEPHaDlpIyK8ypahBNARCXrYeSaeWcAIPSxbOWmmZkhQ1s24ouVhonwWUNNwmQpYGeMvcMTURhHGNz2gyF1tQQ3jN8SOB23k8bhJ7MMoAmWyJjWsuRn-bJsZv9HckOxy15I1CYYN3ackA"
+          />
+          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary/80 via-primary/20 to-transparent p-12">
+            <div className="max-w-2xl">
+              <h2 className="mb-4 font-headline text-3xl font-bold tracking-tight text-white md:text-4xl">
+                Excellence in every pixel.
+              </h2>
+              <p className="mb-8 text-slate-200">
+                Our solutions currently power operations for over 45 luxury island
+                destinations across the Indian Ocean.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="rounded-full bg-secondary-container px-8 py-3 font-bold text-on-secondary-container transition-transform hover:scale-105">
+                  View Case Studies
+                </button>
+                <button className="rounded-full border border-white/20 bg-white/10 px-8 py-3 font-bold text-white backdrop-blur-md">
+                  Client Testimonials
+                </button>
+              </div>
             </div>
           </div>
         </div>

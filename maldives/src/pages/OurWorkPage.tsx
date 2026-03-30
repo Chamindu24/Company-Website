@@ -25,8 +25,6 @@ const stats = [
   },
 ];
 
-
-
 function OurWorkPage() {
   return (
     <main className="bg-background pb-24 pt-32 text-on-background selection:bg-primary-container selection:text-on-primary-container">
@@ -70,8 +68,6 @@ function OurWorkPage() {
           ))}
         </div>
       </section>
-
-
 
       <section className="max-w-screen-2xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -320,6 +316,15 @@ function OurWorkPage() {
 
       <section className="mx-auto mt-32 max-w-7xl px-6 md:px-8">
         <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-16 text-center md:p-24">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
           <div className="relative z-10 mx-auto max-w-2xl">
             <h2 className="mb-8 font-headline text-4xl font-bold leading-tight text-on-primary md:text-5xl">
               Ready to transform your resort experience?

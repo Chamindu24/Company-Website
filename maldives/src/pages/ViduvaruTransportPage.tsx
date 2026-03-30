@@ -262,7 +262,16 @@ function ViduvaruTransportPage() {
         </section>
 
         <section className="px-6 py-20 md:px-8">
-          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-12 text-center text-on-primary shadow-2xl">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-12 text-center text-on-primary shadow-2xl">
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
             <div className="absolute right-0 top-0 -mr-32 -mt-32 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="relative z-10">
               <h2 className="mb-6 text-4xl font-bold font-headline">

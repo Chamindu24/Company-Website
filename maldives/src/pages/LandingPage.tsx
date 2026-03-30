@@ -34,13 +34,76 @@ const ecosystemCards = [
 ];
 
 const industries = [
-  { icon: "villa", label: "Resorts" },
-  { icon: "hotel", label: "Hotels" },
-  { icon: "holiday_village", label: "Guesthouses" },
-  { icon: "directions_boat", label: "Liveaboards" },
-  { icon: "sailing", label: "Yacht Marina" },
-  { icon: "kayaking", label: "Bareboat" },
-  { icon: "home_work", label: "Homestay" },
+  {
+    label: "Resorts",
+    icon: "hotel",
+    hoverDescription:
+      "Streamline villas, experiences, and guest journeys with one luxury-ready operations core.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCvmEcra37Tlk_kQTdctZ4DD9TZy4YNi_D64JQikv4lwyzXFQJEooM-Gi-V0XAFDA6bJ7iof3pH8wuBvsWXq7b6ypoPfwukDNYVUs6l5905NpnzFilj_tSrCVBm57V39GYhdymrz_LEAKopOVSp32cY7IpSEgx__Ta2tdZJnJwNXvCOF4yX9eYnBLjfgKnsU5JcHfXWqrULS1iUA8iWa6du-Bh07RDTPO1KH3UOHHhogiU1bSvS2xF8OZKVbcgOly_bjVCz2emMPAmr",
+    alt: "Luxury Maldives resort with overwater villas and ocean sunset views",
+    className: "md:col-span-6 md:row-span-2",
+  },
+  {
+    label: "Hotels",
+    icon: "apartment",
+    hoverDescription:
+      "Unify front office, housekeeping, and revenue decisions across every room and rate.",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80",
+    alt: "Modern tropical hotel facade with warm evening lights",
+    className: "md:col-span-3 md:row-span-1",
+  },
+  {
+    label: "Guesthouses",
+    icon: "holiday_village",
+    hoverDescription:
+      "Run lean operations with smart bookings, digital check-in, and automated guest messaging.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDLj_OFbebQ4esMM7NMJLh8mMmYFGJSqsPMkXcCsEllNzY58xwZh_nj0Ert7Hg4tdFOE1ELJN6F60s1dz_QATdXHM3yf2a2S5xwI9_rLs45V0wYvHO4w2V7_bptUFFNO_gyHNgM74GV5F6gXPDXHFyTrcaY8kujcTdHwpTYNbP_XYpBJskVdRkqUOBqL07tq6UqbYjCPzylF6us5s37W7QM9WYJrgPRnZK1gEntndAzth7toH84US_zZZHmOlp5MmhNfBQJar4b07jI",
+    alt: "Colorful island guesthouse with tropical garden path",
+    className: "md:col-span-3 md:row-span-1",
+  },
+  {
+    label: "Liveaboards",
+    icon: "directions_boat",
+    hoverDescription:
+      "Coordinate cabins, dives, manifests, and onboard billing from one marine command view.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB6l6Fu-RiA5fN4IPFL7i0-YV7MjCLTEDysJg9U00MTgNT9lizzJb7rbGPqsDdWFUaQVSOFvSEjh0Kg_NlQ3Fen8xPL8pwMJsCUnWz-l73GJ-yWiwcK05lCejRQgIBiOpo5XfDHhA8dZuc3BOZ0flGtFzaOQRwTuCKUyDILGlc8RGAuEvLer5RoR8bNHtayXupDCHZgl46sKxu1Kp6Hu_jThw4X_E3HVAsw41SLyYJH4PcHHlJKTK4PddR-6JsNKO2ARll75QiSiJZt",
+    alt: "Luxury liveaboard yacht cruising through deep blue Maldivian waters",
+    className: "md:col-span-4 md:row-span-1",
+  },
+  {
+    label: "Yacht Marina",
+    icon: "sailing",
+    hoverDescription:
+      "Manage berths, fueling, maintenance slots, and owner services with precision scheduling.",
+    image:
+      "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1600&q=80",
+    alt: "Premium marina with yachts docked along a calm waterfront",
+    className: "md:col-span-4 md:row-span-1",
+  },
+  {
+    label: "Bareboat",
+    icon: "kayaking",
+    hoverDescription:
+      "Automate charter handovers, compliance checks, and fleet utilization in real time.",
+    image:
+      "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1600&q=80",
+    alt: "Bareboat charter vessel anchored in crystal clear lagoon",
+    className: "md:col-span-4 md:row-span-1",
+  },
+  {
+    label: "Homestay",
+    icon: "home_work",
+    hoverDescription:
+      "Deliver personal island hospitality with simple tools for hosts, bookings, and payments.",
+    image:
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80",
+    alt: "Cozy island homestay interior with warm local design touches",
+    className: "md:col-span-12 md:row-span-1",
+  },
 ];
 
 const whyChooseItems = [
@@ -117,40 +180,58 @@ function LandingPage() {
 
         <section className="bg-surface-container-low px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-20 text-center md:text-left">
+            <div className="mb-20 text-center ">
               <h2 className="mb-4 text-4xl font-bold tracking-tighter">
                 Our Ecosystem
               </h2>
-              <p className="max-w-2xl text-lg text-on-surface-variant">
+              <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
                 Integrated tools designed to streamline every touchpoint of the
                 guest journey and back-office operations.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 [perspective:1000px]">
               {ecosystemCards.map((card) => (
                 <div
                   key={card.title}
-                  className="glass-card group rounded-xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                  className="group relative h-[350px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)]"
                 >
-                  <div
-                    className={`mb-6 flex h-14 w-14 items-center justify-center rounded-full ${card.bgColor} ${card.textColor} transition-transform group-hover:scale-110`}
-                  >
-                    <span className="material-symbols-outlined text-3xl">
-                      {card.icon}
-                    </span>
+                  {/* Front Face */}
+                  <div className="glass-card absolute inset-0 flex flex-col justify-center rounded-xl p-8 [backface-visibility:hidden]">
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full text-primary-container">
+                      <span className="material-symbols-outlined text-3xl">
+                        {card.icon}
+                      </span>
+                    </div>
+                    <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
+                    <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">
+                      {card.description}
+                    </p>
+                    <div
+                      className={`flex items-center text-xs font-bold uppercase tracking-widest ${card.textColor}`}
+                    >
+                      Learn More
+                      <span className="material-symbols-outlined ml-2 text-sm">
+                        arrow_forward
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
-                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">
-                    {card.description}
-                  </p>
+
+                  {/* Back Face (Hover State) */}
                   <div
-                    className={`flex items-center text-xs font-bold uppercase tracking-widest ${card.textColor} transition-all group-hover:gap-2`}
+                    className="absolute inset-0 flex flex-col items-center justify-center rounded-xl p-8 text-center text-white [backface-visibility:hidden] [transform:rotateY(180deg)]"
+                    style={{ backgroundColor: "#1A7A88" }}
                   >
-                    Learn More{" "}
-                    <span className="material-symbols-outlined text-sm">
-                      arrow_forward
-                    </span>
+                    <h3 className="mb-4 text-2xl font-bold">
+                      Explore {card.title}
+                    </h3>
+                    <p className="mb-6 text-sm opacity-90">
+                      Discover how our software solutions can transform your
+                      business workflow.
+                    </p>
+                    <button className="rounded-full mt-6 border-2 border-white px-6 py-2 text-sm font-bold transition-colors hover:bg-white hover:text-[#1A7A88]">
+                      View Details
+                    </button>
                   </div>
                 </div>
               ))}
@@ -160,8 +241,8 @@ function LandingPage() {
 
         <section className="overflow-hidden px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
-              <div className="max-w-xl">
+            <div className="mb-16 text-center">
+              <div className="mx-auto max-w-2xl">
                 <h2 className="mb-4 text-4xl font-bold leading-tight tracking-tighter">
                   Industries We Serve
                 </h2>
@@ -175,15 +256,87 @@ function LandingPage() {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-4">
               {industries.map((industry) => (
                 <div
-                  key={industry.label}
-                  className="cursor-default rounded-lg border border-transparent  p-6 text-center transition-colors hover:border-primary/10 hover:scale-105 duration-700"
+                  key={`icon-${industry.label}`}
+                  className="cursor-default rounded-lg border border-transparent p-6 text-center transition-all duration-500 ease-out transform-gpu hover:scale-[1.08] hover:border-primary/10"
                 >
-                  <span className="material-symbols-outlined mb-4 block text-8xl text-primary">
+                  <span className="material-symbols-outlined mb-4 block text-8xl text-[#1F8FA0]">
                     {industry.icon}
                   </span>
-                  <span className="text-xl font-bold uppercase tracking-widest text-on-surface">
+                  <span className="text-lg font-bold uppercase tracking-widest text-on-surface">
                     {industry.label}
                   </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface-container-low px-6 py-24 md:px-8 md:py-32">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-20 text-center">
+              <h2 className="mb-6 font-headline text-4xl font-bold tracking-tighter text-primary md:text-5xl">
+                Designed for Every Horizon
+              </h2>
+              <p className="mx-auto max-w-2xl text-on-surface-variant">
+                From boutique guesthouses to sprawling private island resorts,
+                our platform scales with your ambition.
+              </p>
+            </div>
+
+            <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 px-4 py-8 bg-stone-50">
+              {industries.map((industry, index) => (
+                <div
+                  key={industry.label}
+                  className="group relative break-inside-avoid overflow-hidden rounded-md bg-stone-100 transition-all duration-500 hover:shadow-2xl"
+                >
+                  <div
+                    className={`relative w-full overflow-hidden ${
+                      index % 3 === 0
+                        ? "aspect-[3/4]"
+                        : index % 2 === 0
+                          ? "aspect-square"
+                          : "aspect-[4/5]"
+                    }`}
+                  >
+                    {/* Base Image: Grayscale to Color Transition */}
+                    <img
+                      className="h-full w-full object-cover grayscale-[50%] brightness-90 transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-100"
+                      src={industry.image}
+                      alt={industry.alt}
+                    />
+
+                    {/* 1. Minimalist Header */}
+                    <div className="absolute top-0 left-0 p-6 flex items-center gap-3 transition-opacity duration-500 group-hover:opacity-0">
+                      <span className="material-symbols-outlined text-[#26AEBF] text-2xl font-light leading-none">
+                        {industry.icon || "star"}
+                      </span>
+
+                      <h3 className="text-white font-semibold text-sm uppercase tracking-wide drop-shadow-md">
+                        {industry.label}
+                      </h3>
+                    </div>
+
+                    {/* 2. The "Royal Reveal" Overlay (Centered Hover State) */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-all duration-700 ease-out group-hover:opacity-100 bg-stone-900/40 backdrop-blur-[3px]">
+                      <div className="text-center p-6 transform translate-y-8 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                        {/* Elegant Icon or Symbol */}
+                        <span className="material-symbols-outlined text-white text-7xl mb-3 block font-extralight">
+                          {industry.icon || "star"}
+                        </span>
+
+                        <h3 className=" text-3xl text-white mb-2 tracking-tight ">
+                          {industry.label}
+                        </h3>
+
+                        <p className="text-stone-200 text-md  leading-relaxed max-w-[180px] mx-auto opacity-0 transition-opacity duration-700 delay-100 group-hover:opacity-100">
+                          {industry.hoverDescription}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 3. Royal Framing: Thin Interior Border */}
+                    <div className="absolute inset-4 border border-white/0 transition-all duration-700 group-hover:border-white/20 pointer-events-none" />
+                  </div>
                 </div>
               ))}
             </div>
