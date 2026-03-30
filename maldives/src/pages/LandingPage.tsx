@@ -1,80 +1,80 @@
 const ecosystemCards = [
   {
-    icon: 'hub',
-    title: 'Viduvaru',
+    icon: "hub",
+    title: "Viduvaru",
     description:
-      'The central intelligence hub connecting your entire digital infrastructure seamlessly.',
-    textColor: 'text-primary',
-    bgColor: 'bg-primary/10',
+      "The central intelligence hub connecting your entire digital infrastructure seamlessly.",
+    textColor: "text-primary",
+    bgColor: "bg-primary/10",
   },
   {
-    icon: 'cloud_queue',
-    title: 'Lush Hotel Cloud',
+    icon: "cloud_queue",
+    title: "Lush Hotel Cloud",
     description:
-      'Premium guest experience platform optimized for luxury island resort environments.',
-    textColor: 'text-secondary',
-    bgColor: 'bg-secondary/10',
+      "Premium guest experience platform optimized for luxury island resort environments.",
+    textColor: "text-secondary",
+    bgColor: "bg-secondary/10",
   },
   {
-    icon: 'apartment',
-    title: 'Property Management',
+    icon: "apartment",
+    title: "Property Management",
     description:
-      'Next-generation PMS specifically engineered for multi-island property scaling.',
-    textColor: 'text-tertiary',
-    bgColor: 'bg-tertiary/10',
+      "Next-generation PMS specifically engineered for multi-island property scaling.",
+    textColor: "text-tertiary",
+    bgColor: "bg-tertiary/10",
   },
   {
-    icon: 'diversity_3',
-    title: 'Agency CRM',
+    icon: "diversity_3",
+    title: "Agency CRM",
     description:
-      'Deep relationship management for travel agencies and destination managers.',
-    textColor: 'text-primary-container',
-    bgColor: 'bg-primary-container/10',
+      "Deep relationship management for travel agencies and destination managers.",
+    textColor: "text-primary-container",
+    bgColor: "bg-primary-container/10",
   },
-]
+];
 
 const industries = [
-  { icon: 'developer_board', label: 'Resorts' },
-  { icon: 'hotel', label: 'Hotels' },
-  { icon: 'holiday_village', label: 'Guesthouses' },
-  { icon: 'directions_boat', label: 'Liveaboards' },
-  { icon: 'sailing', label: 'Yacht Marina' },
-  { icon: 'kayaking', label: 'Bareboat' },
-  { icon: 'home_work', label: 'Homestay' },
-]
+  { icon: "villa", label: "Resorts" },
+  { icon: "hotel", label: "Hotels" },
+  { icon: "holiday_village", label: "Guesthouses" },
+  { icon: "directions_boat", label: "Liveaboards" },
+  { icon: "sailing", label: "Yacht Marina" },
+  { icon: "kayaking", label: "Bareboat" },
+  { icon: "home_work", label: "Homestay" },
+];
 
 const whyChooseItems = [
   {
-    icon: 'flight_land',
-    title: 'Built for Islands',
+    icon: "flight_land",
+    title: "Built for Islands",
     description:
-      'Infrastructure designed to work across distributed islands with optimized sync and low-latency connectivity.',
-    color: 'bg-primary',
+      "Infrastructure designed to work across distributed islands with optimized sync and low-latency connectivity.",
+    color: "bg-primary",
   },
   {
-    icon: 'cloud_sync',
-    title: 'Cloud-based',
+    icon: "cloud_sync",
+    title: "Cloud-based",
     description:
-      'Access your entire operation from anywhere in the world. Real-time updates and effortless synchronization.',
-    color: 'bg-secondary',
+      "Access your entire operation from anywhere in the world. Real-time updates and effortless synchronization.",
+    color: "bg-secondary",
   },
   {
-    icon: 'auto_awesome',
-    title: 'AI-Powered',
+    icon: "auto_awesome",
+    title: "AI-Powered",
     description:
-      'Predictive analytics and intelligent automation that handles repetitive tasks so your team can focus on the guest.',
-    color: 'bg-tertiary',
+      "Predictive analytics and intelligent automation that handles repetitive tasks so your team can focus on the guest.",
+    color: "bg-tertiary",
   },
   {
-    icon: 'trending_up',
-    title: 'Scalable',
+    icon: "trending_up",
+    title: "Scalable",
     description:
-      'From a single guest house to a portfolio of luxury resorts, our system grows with your ambition.',
-    color: 'bg-primary-container',
+      "From a single guest house to a portfolio of luxury resorts, our system grows with your ambition.",
+    color: "bg-primary-container",
   },
-]
+];
 
-function MaldivesLandingPage() {
+function LandingPage() {
   return (
     <div className="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
       <main className="pt-20">
@@ -95,11 +95,13 @@ function MaldivesLandingPage() {
                 Experience the Future
               </span>
               <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tighter md:text-7xl">
-                Smart Digital <span className="text-primary">Solutions</span> for Maldives Hospitality
+                Smart Digital <span className="text-primary">Solutions</span>{" "}
+                for Maldives Hospitality
               </h1>
               <p className="mb-10 max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl">
-                Elevating island hospitality through intelligent automation and AI-driven management. Seamless,
-                scalable, and built for the unique demands of the archipelago.
+                Elevating island hospitality through intelligent automation and
+                AI-driven management. Seamless, scalable, and built for the
+                unique demands of the archipelago.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button className="rounded-full bg-gradient-to-r from-primary to-primary-container px-8 py-4 text-lg font-bold text-on-primary shadow-xl transition-all hover:-translate-y-1 hover:shadow-primary/20">
@@ -116,10 +118,12 @@ function MaldivesLandingPage() {
         <section className="bg-surface-container-low px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-20 text-center md:text-left">
-              <h2 className="mb-4 text-4xl font-bold tracking-tighter">Our Ecosystem</h2>
+              <h2 className="mb-4 text-4xl font-bold tracking-tighter">
+                Our Ecosystem
+              </h2>
               <p className="max-w-2xl text-lg text-on-surface-variant">
-                Integrated tools designed to streamline every touchpoint of the guest journey and back-office
-                operations.
+                Integrated tools designed to streamline every touchpoint of the
+                guest journey and back-office operations.
               </p>
             </div>
 
@@ -132,14 +136,21 @@ function MaldivesLandingPage() {
                   <div
                     className={`mb-6 flex h-14 w-14 items-center justify-center rounded-full ${card.bgColor} ${card.textColor} transition-transform group-hover:scale-110`}
                   >
-                    <span className="material-symbols-outlined text-3xl">{card.icon}</span>
+                    <span className="material-symbols-outlined text-3xl">
+                      {card.icon}
+                    </span>
                   </div>
                   <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
-                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">{card.description}</p>
+                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">
+                    {card.description}
+                  </p>
                   <div
                     className={`flex items-center text-xs font-bold uppercase tracking-widest ${card.textColor} transition-all group-hover:gap-2`}
                   >
-                    Learn More <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                    Learn More{" "}
+                    <span className="material-symbols-outlined text-sm">
+                      arrow_forward
+                    </span>
                   </div>
                 </div>
               ))}
@@ -151,21 +162,28 @@ function MaldivesLandingPage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
               <div className="max-w-xl">
-                <h2 className="mb-4 text-4xl font-bold leading-tight tracking-tighter">Industries We Serve</h2>
+                <h2 className="mb-4 text-4xl font-bold leading-tight tracking-tighter">
+                  Industries We Serve
+                </h2>
                 <p className="text-lg text-on-surface-variant">
-                  From luxury private islands to intimate homestays, our technology adapts to your scale.
+                  From luxury private islands to intimate homestays, our
+                  technology adapts to your scale.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-4">
               {industries.map((industry) => (
                 <div
                   key={industry.label}
-                  className="cursor-default rounded-lg border border-transparent bg-surface-container-low p-6 text-center transition-colors hover:border-primary/10 hover:bg-white"
+                  className="cursor-default rounded-lg border border-transparent  p-6 text-center transition-colors hover:border-primary/10 hover:scale-105 duration-700"
                 >
-                  <span className="material-symbols-outlined mb-4 block text-3xl text-primary">{industry.icon}</span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-on-surface">{industry.label}</span>
+                  <span className="material-symbols-outlined mb-4 block text-8xl text-primary">
+                    {industry.icon}
+                  </span>
+                  <span className="text-xl font-bold uppercase tracking-widest text-on-surface">
+                    {industry.label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -174,35 +192,52 @@ function MaldivesLandingPage() {
 
         <section className="bg-surface-container px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 lg:grid-cols-2">
-            <div className="relative">
-              <div className="aspect-square overflow-hidden rounded-xl shadow-2xl">
+            <div className=" relative">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <img
-                  className="h-full w-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0HbO4hIlmaq03ebd37Db10pVjx6YOe5AwjpRTDLmuamcCas-6e4_tFL4xjHnQQV0KU3NIyliC1yf9ZOpUjM8SexggASPN1TieNX1Mrm3v7JgeYNSfesClv1MxnMUt4i0AMgoSttSqCHaljWli1tSvvkuanaVhvsx2ax4o0Dp6hAGBA0V8VTWXhtkwdbNhqUxZTuaD0gbPlaXrRvv5S2geGOH8vKzl-hiLeJEAyaver7u9AT_wivac8HiEb4bxMaKN0bTA15RizQ"
-                  alt="Interior of a modern luxury resort villa"
+                  className="w-full aspect-[4/5] object-cover"
+                  data-alt="luxury hotel concierge using a tablet to check in guests at a modern reception desk with tropical wood accents"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBODVIi-Y2L1JY0LEagQDoGQXFzo8K5MCABJ2_sbvyv09qQJR9-mZBqUNlgf_uepIsfFVb4Rijj8MGDI3wC0is3VKQSSZQYg1HCKVUqIHbeyLdbE8PgaoPn_X7HyRF2qOy129Glk_y0CqEyLvHCrWlBpXS73i51PgDwTYyb_cZWXVSPHEVC28wGXQwwCUnT3paz24FklASEzOaN2ym1UxNYDqS_Y67sl-nc4U_7Pv6E6kvwNxZicVKXGRyycTcOjUJlGuHj2LitOF6I"
                 />
               </div>
-              <div className="glass-card absolute -bottom-10 -right-10 hidden max-w-xs rounded-lg p-10 shadow-2xl md:block">
-                <h4 className="mb-2 font-bold text-primary">Built for the Islands</h4>
-                <p className="text-sm text-on-surface-variant">
-                  Designed specifically for the geographical challenges of the Maldives.
+              <div className="absolute -bottom-10 -right-10 glass-card p-10 rounded-xl border border-white/50 shadow-xl max-w-sm hidden md:block">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-12 w-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
+                    <span className="material-symbols-outlined text-on-tertiary-fixed">
+                      bolt
+                    </span>
+                  </div>
+                  <h4 className="font-headline font-bold text-primary">
+                    Instant Sync
+                  </h4>
+                </div>
+                <p className="text-on-surface-variant text-sm">
+                  Our 100% cloud-based architecture ensures zero lag between
+                  your head office in Malé and remote island sites.
                 </p>
               </div>
             </div>
 
             <div>
               <h2 className="mb-12 text-4xl font-bold tracking-tighter">
-                Why Industry Leaders <span className="text-primary">Choose Viduvaru</span>
+                Why Industry Leaders{" "}
+                <span className="text-primary">Choose Viduvaru</span>
               </h2>
               <div className="space-y-8">
                 {whyChooseItems.map((item) => (
                   <div key={item.title} className="flex gap-6">
-                    <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full ${item.color} text-on-primary`}>
-                      <span className="material-symbols-outlined">{item.icon}</span>
+                    <div
+                      className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full ${item.color} text-on-primary`}
+                    >
+                      <span className="material-symbols-outlined">
+                        {item.icon}
+                      </span>
                     </div>
                     <div>
                       <h4 className="mb-2 text-lg font-bold">{item.title}</h4>
-                      <p className="leading-relaxed text-on-surface-variant">{item.description}</p>
+                      <p className="leading-relaxed text-on-surface-variant">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -225,7 +260,8 @@ function MaldivesLandingPage() {
                 Ready to transform your hospitality experience?
               </h2>
               <p className="mb-12 text-lg text-primary-fixed opacity-90">
-                Join the growing network of Maldivian properties leading the digital revolution with Viduvaru.
+                Join the growing network of Maldivian properties leading the
+                digital revolution with Viduvaru.
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <button className="rounded-full bg-white px-10 py-5 text-lg font-bold text-primary shadow-2xl transition-all hover:bg-primary-fixed">
@@ -240,7 +276,7 @@ function MaldivesLandingPage() {
         </section>
       </main>
     </div>
-  )
+  );
 }
 
-export default MaldivesLandingPage
+export default LandingPage;

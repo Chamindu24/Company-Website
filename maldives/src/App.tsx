@@ -2,11 +2,11 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import ContactPage from './pages/ContactPage'
-import MaldivesLandingPage from './pages/MaldivesLandingPage'
-import MarineTransportPage from './pages/MarineTransportPage'
+import LandingPage from './pages/LandingPage'
+import ViduvaruTransportPage from './pages/ViduvaruTransportPage'
 import OurWorkPage from './pages/OurWorkPage'
-import RealEstateControlPage from './pages/RealEstateControlPage'
-import ResortOperationsPage from './pages/ResortOperationsPage'
+import PropertyManagementSystemPage from './pages/PropertyManagementSystemPage'
+import LushHotelCloudPage from './pages/LushHotelCloudPage'
 import ServicesPage from './pages/ServicesPage'
 import TravelCrmPage from './pages/TravelCrmPage'
 
@@ -15,11 +15,11 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<MaldivesLandingPage />} />
-        <Route path="/marine-transport" element={<MarineTransportPage />} />
-        <Route path="/resort-operations" element={<ResortOperationsPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/marine-transport" element={<ViduvaruTransportPage />} />
+        <Route path="/resort-operations" element={<LushHotelCloudPage />} />
         <Route path="/our-work" element={<OurWorkPage />} />
-        <Route path="/real-estate-control" element={<RealEstateControlPage />} />
+        <Route path="/real-estate-control" element={<PropertyManagementSystemPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/travel-crm" element={<TravelCrmPage />} />
         <Route path="/services" element={<ServicesPage />} />
