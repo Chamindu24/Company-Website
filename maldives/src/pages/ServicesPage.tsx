@@ -1,3 +1,39 @@
+import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
+import FAQSection from "../components/FAQSection";
+
+const servicesFAQs = [
+  {
+    id: "services-faq-1",
+    question: "What types of services does LushWare offer?",
+    answer:
+      "We specialize in digital transformation services tailored for Maldivian hospitality and enterprise businesses. Our offerings include CRM software, AI agents & chatbots, BPM automation, custom websites, and native mobile app development for iOS and Android.",
+  },
+  {
+    id: "services-faq-2",
+    question: "How long does a typical project take to complete?",
+    answer:
+      "Project timelines vary based on scope and complexity. A custom website typically takes 6-12 weeks, mobile apps 4-6 months, and enterprise CRM systems 8-16 weeks. We provide detailed timelines and milestone schedules during the initial consultation phase.",
+  },
+  {
+    id: "services-faq-3",
+    question: "Do you provide ongoing support and maintenance?",
+    answer:
+      "Absolutely! We offer comprehensive post-launch support including regular updates, security patches, feature enhancements, and 24/7 technical assistance. Our support packages are customized to your needs and can be scaled as your business grows.",
+  },
+  {
+    id: "services-faq-4",
+    question: "Can you integrate with our existing systems?",
+    answer:
+      "Yes, integration is one of our core strengths. We connect new solutions with your existing systems, databases, and third-party tools seamlessly. Our APIs and custom integration work ensure smooth data flow across your entire technology stack.",
+  },
+  {
+    id: "services-faq-5",
+    question: "What happens if we need to scale our application?",
+    answer:
+      "Our solutions are built with scalability in mind from day one. Whether you need to handle more users, process more data, or expand to new features, our cloud-based architecture and modular design allow for seamless scaling without performance degradation.",
+  },
+];
+
 const serviceCards = [
   {
     title: "AI Agents & Chatbots",
@@ -39,35 +75,24 @@ const serviceCards = [
 
 function ServicesPage() {
   return (
-    <main className="bg-background pb-24 pt-24 text-on-surface antialiased">
-      <section className="hero-gradient relative overflow-hidden px-6 py-20 md:py-32 md:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-start text-left">
-          <span className="mb-6 inline-block rounded-full bg-primary-fixed-dim/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
-            Elevating Hospitality &amp; Enterprise
-          </span>
-          <h1 className="mb-8 max-w-4xl font-headline text-5xl font-extrabold leading-[1.1] tracking-tighter text-on-surface md:text-7xl">
-            Expert Digital Services for{" "}
-            <span className="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">
-              Island Businesses
-            </span>
-          </h1>
-          <p className="mb-12 max-w-2xl text-lg leading-relaxed text-on-surface-variant md:text-xl">
-            Transforming the Maldivian business landscape with tailored software
-            solutions, automated intelligence, and premium digital experiences.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-semibold text-on-primary transition-all hover:opacity-90">
-              Get Started{" "}
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
-            <button className="rounded-full bg-surface-container-highest/50 px-8 py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest">
-              View Portfolio
-            </button>
-          </div>
+    <main className="bg-[#ffffff] pb-24 pt-24 text-on-surface antialiased">
+      <PinnedScrollHeadlineSection
+        badge="Elevating Hospitality & Enterprise"
+        titlePrefix="Expert Digital Services for"
+        highlightText="Island Businesses"
+        titleSuffix=""
+        description="Transforming the Maldivian business landscape with tailored software solutions, automated intelligence, and premium digital experiences."
+      >
+        <div className="flex flex-wrap gap-4">
+          <button className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-semibold text-on-primary transition-all hover:opacity-90">
+            Get Started{" "}
+            <span className="material-symbols-outlined">arrow_forward</span>
+          </button>
+          <button className="rounded-full bg-surface-container-highest/50 px-8 py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest">
+            View Portfolio
+          </button>
         </div>
-        <div className="absolute -right-20 top-20 h-96 w-96 rounded-full bg-primary-container/10 blur-[100px]" />
-        <div className="absolute bottom-0 right-40 h-80 w-80 rounded-full bg-tertiary-container/10 blur-[80px]" />
-      </section>
+      </PinnedScrollHeadlineSection>
 
       <section className="bg-surface px-6 py-24 md:px-8">
         <div className="mx-auto max-w-7xl">
@@ -324,6 +349,12 @@ function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        items={servicesFAQs}
+        title="Services FAQs"
+        subtitle="Common questions about our digital services and solutions"
+      />
 
       <section className="px-6 py-24 md:px-8">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-secondary p-12 text-center shadow-2xl shadow-primary/30 md:p-20">

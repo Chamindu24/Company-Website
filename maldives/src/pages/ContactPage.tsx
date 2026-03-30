@@ -1,3 +1,5 @@
+import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
+
 const accentItems = [
   { title: "RESORT", subtitle: "Digital Concierge", color: "bg-primary" },
   {
@@ -11,35 +13,14 @@ const accentItems = [
 
 function ContactPage() {
   return (
-    <main className="bg-background pt-24 font-body text-on-surface">
-      <section className="relative flex h-[614px] items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            className="h-full w-full object-cover"
-            alt="Maldivian atoll"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBZPwpB0AiEk22CS-6uZh-GGTOSeD_-xw7z9a7WMD8eN9DXJVJ8UY8jTq5ff2G97gIEO1p5YgSOjZmOVMg0cd-B6J_0BAewB0CYpYGihkMy13Ql-zcE9Dm9Y6OqUz8cYFcXMdUCONPs8D3x6CiRAWIuJ8vqPgHsSW372iGMt6axNTojcTbXOegcMlKd7yIs6JJhIQcWRlCk-qZtof5PCpEXK0RJOaD0MlknGxBJUo9OBvrCYrAJgaJkFEtkiEVwANUWU17XvLYGo0"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        </div>
-
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-8">
-          <div className="max-w-2xl">
-            <span className="mb-6 inline-block rounded-full bg-primary-fixed-dim/20 px-4 py-1.5 font-label text-xs font-bold uppercase tracking-widest text-primary">
-              Partner with us
-            </span>
-            <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tighter text-on-surface md:text-7xl">
-              Let&apos;s Scale Your{" "}
-              <span className="bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent">
-                Island Business
-              </span>
-            </h1>
-            <p className="max-w-lg text-lg leading-relaxed text-on-surface-variant md:text-xl">
-              Transform your Maldivian hospitality experience with digital
-              solutions designed for the horizon.
-            </p>
-          </div>
-        </div>
-      </section>
+    <main className="bg-[#ffffff] pt-24 font-body text-on-surface">
+      <PinnedScrollHeadlineSection
+        badge="Partner with us"
+        titlePrefix="Let's Scale Your"
+        highlightText="Island Business"
+        titleSuffix=""
+        description="Transform your Maldivian hospitality experience with digital solutions designed for the horizon."
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
@@ -196,16 +177,16 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-surface-container-low py-24">
+      <section className="bg-[#26AEBF] py-16">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {accentItems.map((item) => (
               <div key={item.title} className="space-y-4">
-                <div className={`h-[2px] w-12 ${item.color}`} />
-                <h4 className="select-none font-headline text-4xl font-black text-on-surface/10">
+                <div className={`h-[2px] w-12 bg-white`} />
+                <h4 className="select-none font-headline text-4xl  text-white">
                   {item.title}
                 </h4>
-                <p className="text-sm font-medium text-on-surface-variant">
+                <p className="text-sm font-medium text-white/80">
                   {item.subtitle}
                 </p>
               </div>

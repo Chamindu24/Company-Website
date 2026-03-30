@@ -1,3 +1,38 @@
+import FAQSection from "../components/FAQSection";
+
+const transportFAQs = [
+  {
+    id: "transport-faq-1",
+    question: "How does Viduvaru's real-time capacity management work?",
+    answer:
+      "Our system uses GPS and IoT sensors to provide live occupancy data for every vessel in your fleet. You can view capacity, fuel efficiency, and passenger counts across all routes simultaneously. The dashboard updates every 30 seconds for real-time visibility.",
+  },
+  {
+    id: "transport-faq-2",
+    question: "Can the booking system work offline?",
+    answer:
+      "Yes! Our system is designed for remote island operations. The QR boarding validation and ticket verification work completely offline. Data automatically syncs once connectivity is restored, ensuring seamless operations even in areas with intermittent connectivity.",
+  },
+  {
+    id: "transport-faq-3",
+    question: "What payment methods does the online booking system support?",
+    answer:
+      "Our payment gateway supports all major credit cards, digital wallets, and local Maldivian payment methods. We handle multi-currency transactions with real-time conversion and integrated compliance for international travelers.",
+  },
+  {
+    id: "transport-faq-4",
+    question: "How does the automated revenue split system work?",
+    answer:
+      "The system automatically calculates and distributes commissions to agents, partners, and operators based on configurable rules. Payments are processed through our secure escrow system with detailed audit trails and instant visibility into payouts.",
+  },
+  {
+    id: "transport-faq-5",
+    question: "Is Viduvaru compliant with Maldivian maritime regulations?",
+    answer:
+      "Absolutely. Our system maintains full compliance with Maldivian Maritime Authority requirements including passenger manifests, vessel documentation, safety records, and coast guard communications. All documents are automatically generated and stored for instant retrieval.",
+  },
+];
+
 function ViduvaruTransportPage() {
   return (
     <div className="selection:bg-primary-container selection:text-on-primary-container">
@@ -260,6 +295,12 @@ function ViduvaruTransportPage() {
             </div>
           </div>
         </section>
+
+        <FAQSection
+          items={transportFAQs}
+          title="Viduvaru Transport FAQs"
+          subtitle="Everything you need to know about our fleet management and booking system"
+        />
 
         <section className="px-6 py-20 md:px-8">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-12 text-center text-on-primary shadow-2xl">

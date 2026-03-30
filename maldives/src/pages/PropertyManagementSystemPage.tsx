@@ -1,3 +1,38 @@
+import FAQSection from "../components/FAQSection";
+
+const faqItems = [
+  {
+    id: "faq-1",
+    question: "What features does the Property Management System include?",
+    answer:
+      "Our comprehensive platform includes listings management, revenue analytics, maintenance ticketing, communication tools, compliance automation, and 24/7 concierge support. All designed specifically for Maldivian luxury property management.",
+  },
+  {
+    id: "faq-2",
+    question: "How do I integrate my existing property portfolio?",
+    answer:
+      "Integration is seamless! Our team assists with data migration from your current system. Typically, portfolio setup takes 3-5 business days with dedicated onboarding support. We support all major OTA platforms and custom integrations.",
+  },
+  {
+    id: "faq-3",
+    question: "What is the pricing structure for the platform?",
+    answer:
+      "Pricing is flexible and scales with your portfolio size. We offer tiered plans starting from single property management up to large enterprise portfolios with 100+ units. Contact our sales team for a custom quote tailored to your needs.",
+  },
+  {
+    id: "faq-4",
+    question: "Can I automate guest communication and check-ins?",
+    answer:
+      "Yes! Our unified communication hub supports automatic guest confirmations, check-in instructions, and multi-language support with auto-translation. You can customize templates and automate common inquiries while maintaining personal touch.",
+  },
+  {
+    id: "faq-5",
+    question: "How do you handle data security and compliance?",
+    answer:
+      "We maintain enterprise-grade security with 256-bit encryption, regular security audits, and compliance with Maldivian data protection regulations. Your data is backed up hourly with redundant servers and disaster recovery protocols.",
+  },
+];
+
 const featureCards = [
   {
     icon: "engineering",
@@ -34,7 +69,7 @@ const occupancyDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 function PropertyManagementSystemPage() {
   return (
-    <main className="overflow-hidden bg-surface pb-24 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <main className="overflow-hidden bg-[#ffffff] pb-24 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
       <section className="relative overflow-hidden px-6 py-20 md:px-8 lg:py-32">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div className="z-10">
@@ -102,7 +137,7 @@ function PropertyManagementSystemPage() {
         </div>
       </section>
 
-      <section className="bg-surface-container-low px-6 py-24 md:px-8">
+      <section className="bg-[#ffffff] px-6 py-24 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-20 text-center">
             <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-on-surface lg:text-5xl">
@@ -412,6 +447,12 @@ function PropertyManagementSystemPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        items={faqItems}
+        title="Property Management FAQs"
+        subtitle="Everything you need to know about managing your Maldivian properties"
+      />
 
       <section className="px-6 py-24 md:px-8">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center lg:p-20">

@@ -1,4 +1,39 @@
+import FAQSection from "../components/FAQSection";
+
 const reservationTags = ["Real-time Sync", "Direct Booking", "Channel Manager"];
+
+const hotelCloudFAQs = [
+  {
+    id: "hotel-faq-1",
+    question: "How does Lush Hotel Cloud integrate with our existing PMS?",
+    answer:
+      "Lush Hotel Cloud seamlessly integrates with 50+ major PMS systems through APIs and direct connectors. Our integration team handles the setup process, typically completing within 48-72 hours with zero downtime to your operations.",
+  },
+  {
+    id: "hotel-faq-2",
+    question: "Can we manage multiple properties from a single dashboard?",
+    answer:
+      "Absolutely! Our unified dashboard allows you to oversee all properties simultaneously or drill down into individual properties. Switch between islands in a single click, view consolidated KPIs, and manage everything from inventory to staffing across your entire resort group.",
+  },
+  {
+    id: "hotel-faq-3",
+    question: "What kind of support is provided during onboarding?",
+    answer:
+      "We provide comprehensive white-glove onboarding including staff training, customization to your specific workflows, and dedicated support during the ramp-up period. Our team works in your timezone with 24/7 availability for critical issues.",
+  },
+  {
+    id: "hotel-faq-4",
+    question: "How does the mobile key feature improve guest experience?",
+    answer:
+      "Guests receive digital keys on their smartphones, eliminating front-desk friction and enabling contactless check-in. They can access their villa 15 minutes before arrival, and the system automatically adjusts access times based on room status and housekeeping completion.",
+  },
+  {
+    id: "hotel-faq-5",
+    question: "What are the uptime SLAs and disaster recovery measures?",
+    answer:
+      "We guarantee 99.99% uptime with redundant servers across multiple geographic regions. All data is backed up every 15 minutes with automatic failover protocols. In the unlikely event of service disruption, our team is immediately notified and prioritizes recovery.",
+  },
+];
 
 const checklistItems = [
   {
@@ -243,85 +278,202 @@ function LushHotelCloudPage() {
             </div>
 
             <div className="w-full lg:w-3/5">
-              <div className="glass-panel rounded-xl border border-white/40 p-2 shadow-2xl">
-                <div className="space-y-8 rounded-lg bg-surface-container-lowest p-8">
-                  <div className="flex items-center justify-between border-b border-surface-variant pb-6">
-                    <div>
-                      <h3 className="text-xl font-bold">Portfolio Overview</h3>
-                      <p className="text-xs text-on-surface-variant">
-                        October 2024 Performance
-                      </p>
-                    </div>
-                    <div className="flex gap-2">
-                      <div className="h-8 w-32 rounded-full bg-surface-container-low" />
-                      <div className="h-8 w-8 rounded-full bg-primary/10" />
-                    </div>
+              <div className="relative mx-auto max-w-5xl [perspective:2200px]">
+                <div className="absolute -bottom-10 left-1/2 h-16 w-[88%] -translate-x-1/2 rounded-[100%] bg-black/30 blur-2xl" />
+
+                <div className="relative rounded-[3.2rem] border-[10px] border-[#121212] bg-gradient-to-b from-[#222] to-[#0f0f0f] p-[10px] shadow-[0_70px_120px_-35px_rgba(0,0,0,0.6),0_35px_60px_-30px_rgba(0,0,0,0.55)] ring-1 ring-white/10 [transform:rotateX(10deg)_rotateY(-8deg)_rotateZ(1deg)] transition-transform duration-700 hover:[transform:rotateX(6deg)_rotateY(-4deg)_rotateZ(0deg)]">
+                  <div className="absolute -right-[3px] top-24 h-20 w-[4px] rounded-l bg-[#2b2b2b]" />
+                  <div className="absolute -right-[3px] top-52 h-14 w-[4px] rounded-l bg-[#2b2b2b]" />
+                  <div className="absolute left-10 top-[5px] h-[2px] w-20 rounded-b bg-[#363636]" />
+
+                  <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden rounded-[2.5rem]">
+                    <div className="absolute -left-[12%] -top-[10%] h-[150%] w-[35%] rotate-[20deg] bg-gradient-to-r from-white/10 via-white/5 to-transparent" />
                   </div>
 
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div className="space-y-2 rounded-xl bg-primary/5 p-6">
-                      <span className="font-label text-xs font-bold uppercase tracking-widest text-primary">
-                        Total Occupancy
-                      </span>
-                      <div className="font-headline text-3xl font-extrabold">
-                        94.2%
-                      </div>
-                      <div className="text-xs font-medium text-tertiary">
-                        +4.1% vs LY
-                      </div>
-                    </div>
-                    <div className="space-y-2 rounded-xl bg-secondary/5 p-6">
-                      <span className="font-label text-xs font-bold uppercase tracking-widest text-secondary">
-                        Portfolio ADR
-                      </span>
-                      <div className="font-headline text-3xl font-extrabold">
-                        $2,140
-                      </div>
-                      <div className="text-xs font-medium text-tertiary">
-                        +12% vs LY
-                      </div>
-                    </div>
-                  </div>
+                  <div className="absolute left-1/2 top-4 z-40 h-2 w-16 -translate-x-1/2 rounded-full bg-[#0a0a0a]" />
+                  <div className="absolute left-[52%] top-[1.05rem] z-40 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#1e3a8a] shadow-[0_0_8px_rgba(59,130,246,0.45)]" />
 
-                  <div className="space-y-4">
-                    <div className="flex justify-between text-sm font-bold">
-                      <span>Top Properties</span>
-                      <span className="cursor-pointer text-primary hover:underline">
-                        View All
-                      </span>
-                    </div>
+                  <div className="relative overflow-hidden rounded-[2.5rem] bg-[#0b1118] p-3 ring-1 ring-white/10 shadow-inner">
+                    <div className="overflow-hidden rounded-[2rem] bg-[#f8fafc]">
+                      <div className="border-b border-slate-200/80 bg-white/90 px-6 py-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="h-6 w-20 rounded-md bg-slate-100" />
+                            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500">
+                              Ops Cloud
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 text-[10px] font-semibold text-slate-500">
+                            <span className="material-symbols-outlined text-sm">
+                              wifi
+                            </span>
+                            11:38 AM
+                            <span className="material-symbols-outlined text-sm">
+                              battery_full_alt
+                            </span>
+                          </div>
+                        </div>
+                      </div>
 
-                    <div className="space-y-3">
-                      {topProperties.map((property) => (
-                        <div
-                          key={property.name}
-                          className="flex items-center gap-4 rounded-lg bg-surface-container-low p-3"
-                        >
-                          <div className="h-10 w-10 overflow-hidden rounded-full bg-slate-300">
-                            <img
-                              alt="Property"
-                              className="h-full w-full object-cover"
-                              src={property.image}
-                            />
+                      <div className="grid grid-cols-12">
+                        <aside className="col-span-3 min-h-[460px] space-y-6 border-r border-slate-200 bg-slate-50 p-5">
+                          <p className="text-[9px] font-black uppercase tracking-[0.18em] text-slate-400">
+                            Resort Stack
+                          </p>
+                          <div className="space-y-4">
+                            {[
+                              "Dashboard",
+                              "Reservations",
+                              "Housekeeping",
+                              "Revenue",
+                              "Concierge",
+                            ].map((item, index) => (
+                              <div
+                                key={item}
+                                className={`text-[10px] font-bold uppercase tracking-wider ${index === 0 ? "text-primary" : "text-slate-500"}`}
+                              >
+                                {item}
+                              </div>
+                            ))}
                           </div>
-                          <div className="flex-1">
-                            <div className="text-sm font-bold">
-                              {property.name}
+                          <div className="rounded-xl bg-white p-3 shadow-sm">
+                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">
+                              Alerts
+                            </p>
+                            <p className="mt-2 text-[10px] font-semibold text-slate-700">
+                              2 Transfers delayed
+                            </p>
+                          </div>
+                        </aside>
+
+                        <div className="col-span-9 space-y-5 bg-white p-5">
+                          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                            <div>
+                              <h3 className="text-lg font-bold tracking-tight text-slate-900">
+                                Portfolio Overview
+                              </h3>
+                              <p className="text-[11px] font-medium text-slate-500">
+                                October 2024 Performance
+                              </p>
                             </div>
-                            <div className="text-[10px] uppercase tracking-tighter text-on-surface-variant">
-                              {property.type}
+                            <div className="flex items-center gap-2 rounded-lg bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+                              <span className="material-symbols-outlined text-sm">
+                                sync
+                              </span>
+                              Live
                             </div>
                           </div>
-                          <div className="text-right">
-                            <div className="text-sm font-bold">
-                              {property.revenue}
+
+                          <div className="grid grid-cols-3 gap-3">
+                            <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
+                              <p className="text-[9px] font-black uppercase tracking-[0.16em] text-slate-400">
+                                Occupancy
+                              </p>
+                              <p className="mt-1 text-2xl font-black text-slate-900">94.2%</p>
+                              <p className="text-[10px] font-bold text-emerald-600">+4.1% vs LY</p>
                             </div>
-                            <div className="text-[10px] font-bold text-tertiary">
-                              {property.soar}
+                            <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
+                              <p className="text-[9px] font-black uppercase tracking-[0.16em] text-slate-400">
+                                ADR
+                              </p>
+                              <p className="mt-1 text-2xl font-black text-slate-900">$2,140</p>
+                              <p className="text-[10px] font-bold text-emerald-600">+12% vs LY</p>
+                            </div>
+                            <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
+                              <p className="text-[9px] font-black uppercase tracking-[0.16em] text-slate-400">
+                                Check-ins
+                              </p>
+                              <p className="mt-1 text-2xl font-black text-slate-900">184</p>
+                              <p className="text-[10px] font-bold text-primary">Today</p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
+                              <div className="mb-3 flex items-center justify-between">
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                                  Arrival Density
+                                </p>
+                                <p className="text-[10px] font-semibold text-slate-400">Weekly</p>
+                              </div>
+                              <div className="flex h-20 items-end justify-between gap-1">
+                                {[58, 72, 66, 81, 77, 90, 86].map((barValue, index) => (
+                                  <div key={index} className="h-full flex-1 rounded-full bg-slate-200/70">
+                                    <div
+                                      className="w-full rounded-full bg-gradient-to-t from-primary to-primary-container"
+                                      style={{ height: `${barValue}%` }}
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
+                              <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                                Live Tasks
+                              </p>
+                              <div className="space-y-2">
+                                {[
+                                  "4 Villas pending prep",
+                                  "2 VIP arrivals at 15:20",
+                                  "Spa staffing auto-adjusted",
+                                ].map((task) => (
+                                  <div key={task} className="flex items-start gap-2 text-[10px] text-slate-600">
+                                    <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-primary" />
+                                    <span>{task}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between">
+                              <p className="text-[11px] font-bold uppercase tracking-widest text-slate-600">
+                                Top Properties
+                              </p>
+                              <span className="cursor-pointer text-[10px] font-bold text-primary hover:opacity-70">
+                                View All
+                              </span>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-2">
+                              {topProperties.map((property) => (
+                                <div
+                                  key={property.name}
+                                  className="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-2.5 shadow-sm transition-all hover:scale-[1.01]"
+                                >
+                                  <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-slate-200 ring-1 ring-black/5">
+                                    <img
+                                      alt="Property"
+                                      className="h-full w-full object-cover"
+                                      src={property.image}
+                                    />
+                                  </div>
+                                  <div className="flex-1">
+                                    <div className="text-[11px] font-bold text-slate-900">
+                                      {property.name}
+                                    </div>
+                                    <div className="text-[9px] font-bold uppercase tracking-widest text-slate-400">
+                                      {property.type}
+                                    </div>
+                                  </div>
+                                  <div className="text-right">
+                                    <div className="text-[11px] font-bold text-slate-900">
+                                      {property.revenue}
+                                    </div>
+                                    <div className="text-[9px] font-black text-emerald-600">
+                                      {property.soar}
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
                             </div>
                           </div>
                         </div>
-                      ))}
+                      </div>
+
+                      <div className="mx-auto my-2 h-1.5 w-32 rounded-full bg-slate-300/60" />
                     </div>
                   </div>
                 </div>
@@ -329,6 +481,100 @@ function LushHotelCloudPage() {
             </div>
           </div>
         </section>
+
+        <section className="relative py-32 bg-primary overflow-hidden">
+          {/* Decorative Royal Crest Element (Subtle BG) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.03] rounded-full pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+            {/* Geometric Gallery Cluster (Preserving all 4 images) */}
+            <div className="lg:col-span-7 order-2 lg:order-1 relative h-[700px]">
+              {/* Image 01: The Anchor */}
+              <div className="absolute top-0 left-0 w-3/5 aspect-[3/4] z-20 rounded-2xl overflow-hidden border-4 border-primary shadow-2xl">
+                <img
+                  alt="Poolside service"
+                  className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd_T41ySmPMfXFE3_3_sOvKP5tYk2lSO5jMNODjVQoHVm3xwygOa1R5FE48RiDPUy-xsm-znULPXvxzAT973DDdTGmIvJ--Uu2FGbUYSmksbFfN9PHsxuBMypNnKDHWpSjJkMhDr46acAzLw7T92W5HIPlSrhAnapQ8mWbtTo5l1a73LqQ84LfeJQDjSmGt46vehuoFYP3lWF2a7ejR5XPDypIJWdCILn0vPJKOKVpz8D8mLSK9kq6Y5MG1607gpoEeuGyQqJQrhLd"
+                />
+              </div>
+
+              {/* Image 02: The Horizon */}
+              <div className="absolute top-12 right-0 w-1/2 aspect-square z-10 rounded-2xl overflow-hidden border border-white/10">
+                <img
+                  alt="Resort Pool"
+                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuzS9SqQ94hf-jUlJQ8LxWrEb33_Snh_2kNUjL8zqEBz1i-I9OPv3qkzweQdYsS4HGRrQjNVU3D22_ony_5TzFiBMY9w1VV47ow1lFwkwUO-maUFLyGjPXLfc71yDnOrQvtWzvBUruyXuacqleOV5XUhCM88NX0GH5vA0hJ8AgMhw6ZpJlXYEoclKNlREMZ_GcUCZIzERKnco0EF4sQPq58KZVVb0qYcq_zIbxRcriouhZ3DlkIg3FxTJssC98zgNbHAtMOtxfmqkU"
+                />
+              </div>
+
+              {/* Image 03: The Detail */}
+              <div className="absolute bottom-12 right-12 w-2/5 aspect-[3/4] z-30 rounded-2xl overflow-hidden border-4 border-primary shadow-2xl">
+                <img
+                  alt="Spa treatment"
+                  className="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsP7ymOSVisSnAvo2Cl5Us9iVBpoR-mz6TzCWsSZTLdObdnBcmzb7W6vJVLRXla6oYAvlX2sCJV6XtInWC5D_Jfi1r8ODz3GuqJvfWtATrSde7HCSwJQ7Tv-aSCXiFPuKPtsAMwGCyXvGXrHqkzjcAgRNU1aMHFLYVgsYj5vSL6xWJn4FkicaElNez6hU-vXK9lPFpR5sGq4kT5k8C5nBxsdJl5YCorsOVz0Nld719ms_Ehsgc-rs_csb60SnSiW1wLdunxkXDDlCm"
+                />
+              </div>
+
+              {/* Image 04: The Accent */}
+              <div className="absolute bottom-0 left-12 w-1/3 aspect-square z-40 rounded-2xl overflow-hidden border-4 border-primary shadow-2xl">
+                <img
+                  alt="Villa Bedroom"
+                  className="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcXAL4WZPgdkODo_4OvoJOQIfbw_R5x0M7iUTNU-whx_tpgYDVWHquVj0cwe68ZXY8QTRHfQ7T18MpQJpgRHu-3ODs51UjkgtUo8Gm5cLfjzMy6WGScWuKXAIrEfhaP4VE5bSn8BmazmoW87MUGiPMw8pEJxMRgAl__gUuv_xOVgm97TBCHKn1iRc7e4ZaVcqlucfNKCclLQza8kS93y_RvE6hq8RkjxHw_4lYLNvQ0lp4wUpEHk95W_JOZJAJJ9UwzgxFl_Gj7OBv"
+                />
+              </div>
+            </div>
+
+            {/* Structured Editorial Content (Preserving all text) */}
+            <div className="lg:col-span-5 order-1 lg:order-2 text-white pl-0 lg:pl-8">
+              <h2 className="text-5xl md:text-6xl font-bold mb-12 leading-[0.85] tracking-tighter">
+                Elevate Every <br />
+                <span className="text-secondary-fixed font-light ">
+                  Guest Moment
+                </span>
+              </h2>
+
+              <div className="space-y-16">
+                {[
+                  {
+                    num: "01",
+                    title: "Automated Personalization",
+                    desc: "Guest preferences are tracked globally, allowing your staff to anticipate needs before they are voiced.",
+                  },
+                  {
+                    num: "02",
+                    title: "Seamless Mobile Key",
+                    desc: "Direct-to-room check-in experiences that eliminate front-desk friction for your VIP guests.",
+                  },
+                  {
+                    num: "03",
+                    title: "Concierge Intelligence",
+                    desc: "Smart itinerary management for excursions, dining, and spa treatments across multiple properties.",
+                  },
+                ].map((item, idx) => (
+                  <div key={idx} className="group flex items-start gap-10">
+                    <div className="relative pt-1">
+                      <span className="text-white font-bold text-lg opacity-80 group-hover:opacity-100 transition-opacity">
+                        {item.num}
+                      </span>
+                      <div className="w-[1px] h-12 bg-white/10 absolute -bottom-14 left-1/2 -translate-x-1/2 group-last:hidden" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-3 tracking-widest uppercase text-white/90 group-hover:text-secondary-fixed transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-white/80 leading-relaxed max-w-sm text-sm group-hover:text-secondary-fixed-dim/90 transition-colors">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-24 px-8 max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
@@ -447,100 +693,12 @@ function LushHotelCloudPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-primary overflow-hidden">
-          <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4 pt-12">
-                  <div className="aspect-[3/4] rounded-lg overflow-hidden">
-                    <img
-                      alt="Poolside service"
-                      className="w-full h-full object-cover"
-                      data-alt="Close-up of a poolside refreshment tray with exotic tropical fruit and a crystal glass of sparkling water at a luxury resort"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd_T41ySmPMfXFE3_3_sOvKP5tYk2lSO5jMNODjVQoHVm3xwygOa1R5FE48RiDPUy-xsm-znULPXvxzAT973DDdTGmIvJ--Uu2FGbUYSmksbFfN9PHsxuBMypNnKDHWpSjJkMhDr46acAzLw7T92W5HIPlSrhAnapQ8mWbtTo5l1a73LqQ84LfeJQDjSmGt46vehuoFYP3lWF2a7ejR5XPDypIJWdCILn0vPJKOKVpz8D8mLSK9kq6Y5MG1607gpoEeuGyQqJQrhLd"
-                    />
-                  </div>
-                  <div className="aspect-square rounded-lg overflow-hidden">
-                    <img
-                      alt="Villa Bedroom"
-                      className="w-full h-full object-cover"
-                      data-alt="Luxury overwater villa bedroom with floor-to-ceiling windows looking out over a calm turquoise ocean at sunset"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcXAL4WZPgdkODo_4OvoJOQIfbw_R5x0M7iUTNU-whx_tpgYDVWHquVj0cwe68ZXY8QTRHfQ7T18MpQJpgRHu-3ODs51UjkgtUo8Gm5cLfjzMy6WGScWuKXAIrEfhaP4VE5bSn8BmazmoW87MUGiPMw8pEJxMRgAl__gUuv_xOVgm97TBCHKn1iRc7e4ZaVcqlucfNKCclLQza8kS93y_RvE6hq8RkjxHw_4lYLNvQ0lp4wUpEHk95W_JOZJAJJ9UwzgxFl_Gj7OBv"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-square rounded-lg overflow-hidden">
-                    <img
-                      alt="Resort Pool"
-                      className="w-full h-full object-cover"
-                      data-alt="Infinity pool merging with the sea horizon under a clear blue sky at a high-end tropical destination"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuzS9SqQ94hf-jUlJQ8LxWrEb33_Snh_2kNUjL8zqEBz1i-I9OPv3qkzweQdYsS4HGRrQjNVU3D22_ony_5TzFiBMY9w1VV47ow1lFwkwUO-maUFLyGjPXLfc71yDnOrQvtWzvBUruyXuacqleOV5XUhCM88NX0GH5vA0hJ8AgMhw6ZpJlXYEoclKNlREMZ_GcUCZIzERKnco0EF4sQPq58KZVVb0qYcq_zIbxRcriouhZ3DlkIg3FxTJssC98zgNbHAtMOtxfmqkU"
-                    />
-                  </div>
-                  <div className="aspect-[3/4] rounded-lg overflow-hidden">
-                    <img
-                      alt="Spa treatment"
-                      className="w-full h-full object-cover"
-                      data-alt="Serene spa treatment room with natural wood textures, stone bowls, and soft warm lighting for a luxury wellness experience"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsP7ymOSVisSnAvo2Cl5Us9iVBpoR-mz6TzCWsSZTLdObdnBcmzb7W6vJVLRXla6oYAvlX2sCJV6XtInWC5D_Jfi1r8ODz3GuqJvfWtATrSde7HCSwJQ7Tv-aSCXiFPuKPtsAMwGCyXvGXrHqkzjcAgRNU1aMHFLYVgsYj5vSL6xWJn4FkicaElNez6hU-vXK9lPFpR5sGq4kT5k8C5nBxsdJl5YCorsOVz0Nld719ms_Ehsgc-rs_csb60SnSiW1wLdunxkXDDlCm"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 text-white">
-              <h2 className="text-4xl md:text-6xl font-headline font-bold mb-8 leading-tight">
-                Elevate Every{" "}
-                <span className="text-secondary-fixed">Guest Moment</span>
-              </h2>
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                    <span className="text-secondary-fixed font-bold">01</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">
-                      Automated Personalization
-                    </h4>
-                    <p className="text-secondary-fixed-dim/80">
-                      Guest preferences are tracked globally, allowing your
-                      staff to anticipate needs before they are voiced.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                    <span className="text-secondary-fixed font-bold">02</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">
-                      Seamless Mobile Key
-                    </h4>
-                    <p className="text-secondary-fixed-dim/80">
-                      Direct-to-room check-in experiences that eliminate
-                      front-desk friction for your VIP guests.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                    <span className="text-secondary-fixed font-bold">03</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">
-                      Concierge Intelligence
-                    </h4>
-                    <p className="text-secondary-fixed-dim/80">
-                      Smart itinerary management for excursions, dining, and spa
-                      treatments across multiple properties.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
+        <FAQSection
+          items={hotelCloudFAQs}
+          title="Lush Hotel Cloud FAQs"
+          subtitle="Common questions about our cloud-based resort management solution"
+        />
 
         <section className="px-6 py-24 md:px-8">
           <div className="relative mx-auto max-w-7xl space-y-8 overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center shadow-2xl lg:p-20">

@@ -1,3 +1,5 @@
+import FAQSection from "../components/FAQSection";
+
 const featureCards = [
   {
     icon: "history_edu",
@@ -5,6 +7,39 @@ const featureCards = [
     title: "Smart Follow-ups",
     description:
       'Automated post-trip surveys and "Welcome Home" sequences to build lifelong loyalty.',
+  },
+];
+
+const travelCrmFAQs = [
+  {
+    id: "crm-faq-1",
+    question: "How does the Travel CRM handle itinerary building and customization?",
+    answer:
+      "Our intelligent itinerary builder leverages AI to suggest personalized experiences based on guest preferences, past travel history, and seasonal availability. You can customize every detail—from seaplane transfers to spa reservations—with a single click.",
+  },
+  {
+    id: "crm-faq-2",
+    question: "What integration options are available for booking systems?",
+    answer:
+      "We support integrations with all major booking platforms including Booking.com, Airbnb, Expedia, and custom APIs. Availability, pricing, and guest data sync automatically across all channels in real-time to prevent overbooking.",
+  },
+  {
+    id: "crm-faq-3",
+    question: "Can the CRM help with automated follow-ups and guest retention?",
+    answer:
+      "Yes! Our automated post-trip surveys, personalized thank-you sequences, and 'Welcome Home' campaigns build lasting relationships. The system tracks guest preferences and suggests re-engagement offers for repeat bookings and referrals.",
+  },
+  {
+    id: "crm-faq-4",
+    question: "How does payment processing work within the platform?",
+    answer:
+      "We handle all payment processing securely with support for multiple currencies and payment methods. Deposits, final payments, and split payments between multiple guests are configured easily. Automated invoicing and payment reminders keep bookings on track.",
+  },
+  {
+    id: "crm-faq-5",
+    question: "What reporting and analytics are available for travel agencies?",
+    answer:
+      "Access comprehensive dashboards showing booking trends, revenue per guest, agent performance, seasonal patterns, and ROI metrics. Export custom reports for client meetings or use real-time dashboards to monitor agency performance at a glance.",
   },
 ];
 
@@ -423,6 +458,12 @@ function TravelCrmPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        items={travelCrmFAQs}
+        title="Travel CRM FAQs"
+        subtitle="Common questions about managing your travel agency with Lushware's CRM"
+      />
 
       <section className="mx-auto max-w-7xl px-6 py-24 text-center md:px-8">
         <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-secondary to-primary p-16 shadow-2xl">

@@ -1,3 +1,5 @@
+import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
+
 const stats = [
   {
     value: "+120",
@@ -27,49 +29,16 @@ const stats = [
 
 function OurWorkPage() {
   return (
-    <main className="bg-background pb-24 pt-32 text-on-background selection:bg-primary-container selection:text-on-primary-container">
-      <section className="mx-auto mb-24 max-w-7xl px-6 md:px-8">
-        <div className="max-w-3xl">
-          <span className="mb-6 inline-block rounded-full bg-secondary-container px-4 py-1.5 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
-            Case Studies
-          </span>
-          <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[1.1] tracking-tighter text-on-surface md:text-7xl">
-            Empowering the{" "}
-            <span className="bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent">
-              Maldives Hospitality
-            </span>{" "}
-            Ecosystem
-          </h1>
-          <p className="max-w-2xl text-xl leading-relaxed text-on-surface-variant">
-            We partner with the world&apos;s most prestigious island resorts and
-            marine conservationists to redefine digital operations in paradise.
-          </p>
-        </div>
-      </section>
+    <main className="bg-[#ffffff] pb-24 pt-32 text-on-background selection:bg-primary-container selection:text-on-primary-container">
+      <PinnedScrollHeadlineSection
+        badge="Case Studies"
+        titlePrefix="Empowering the"
+        highlightText="Maldives Hospitality"
+        titleSuffix="Ecosystem"
+        description="We partner with the world's most prestigious island resorts and marine conservationists to redefine digital operations in paradise."
+      />
 
-      <section className="mx-auto mb-32 max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className={`flex flex-col items-center justify-center rounded-xl p-10 text-center ${stat.cardClass}`}
-            >
-              <span
-                className={`mb-2 font-headline text-5xl font-extrabold md:text-6xl ${stat.valueColor}`}
-              >
-                {stat.value}
-              </span>
-              <span
-                className={`font-label text-sm font-medium uppercase tracking-widest ${stat.labelClass}`}
-              >
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-screen-2xl mx-auto px-8 py-12">
+      <section className="max-w-7xl mx-auto px-6 md:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-8 group relative aspect-[16/9] overflow-hidden rounded-xl bg-surface-container-low shadow-sm hover:shadow-xl transition-all duration-500">
             <img
@@ -96,7 +65,7 @@ function OurWorkPage() {
               </p>
             </div>
           </div>
-          <div className="md:col-span-4 bg-primary-container rounded-xl p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden">
+          <div className="md:col-span-4 bg-primary rounded-xl p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden">
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <span className="text-secondary-fixed-dim font-bold tracking-widest text-xs uppercase font-label">
@@ -140,7 +109,29 @@ function OurWorkPage() {
           </div>
         </div>
       </section>
-      <section className="max-w-screen-2xl mx-auto px-8 py-12">
+
+      <section className="mx-auto mb-32 max-w-7xl px-6 md:px-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className={`flex flex-col items-center justify-center rounded-xl p-10 text-center ${stat.cardClass}`}
+            >
+              <span
+                className={`mb-2 font-headline text-5xl font-extrabold md:text-6xl ${stat.valueColor}`}
+              >
+                {stat.value}
+              </span>
+              <span
+                className={`font-label text-sm font-medium uppercase tracking-widest ${stat.labelClass}`}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-6 md:px-8 py-12">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-4xl font-headline font-extrabold text-primary tracking-tight">
             Recent Deployments
