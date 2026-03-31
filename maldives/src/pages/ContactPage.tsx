@@ -20,7 +20,16 @@ function ContactPage() {
         highlightText="Island Business"
         titleSuffix=""
         description="Transform your Maldivian hospitality experience with digital solutions designed for the horizon."
-      />
+      >
+        <div className="flex gap-4">
+          <button className="rounded-lg bg-primary px-10 py-3 font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95">
+            Schedule a Demo
+          </button>
+          <button className="rounded-lg border-2 border-primary px-10 py-3 font-bold text-primary transition-all hover:bg-primary/10 active:scale-95">
+            View Solutions
+          </button>
+        </div>
+      </PinnedScrollHeadlineSection>
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">

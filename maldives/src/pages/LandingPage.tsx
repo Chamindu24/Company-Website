@@ -1,6 +1,6 @@
 const ecosystemCards = [
   {
-    icon: "hub",
+    icon: "directions_boat",
     title: "Viduvaru",
     description:
       "The central intelligence hub connecting your entire digital infrastructure seamlessly.",
@@ -8,7 +8,7 @@ const ecosystemCards = [
     bgColor: "bg-primary/10",
   },
   {
-    icon: "cloud_queue",
+    icon: "holiday_village",
     title: "Lush Hotel Cloud",
     description:
       "Premium guest experience platform optimized for luxury island resort environments.",
@@ -171,8 +171,8 @@ const whyChooseItems = [
 function LandingPage() {
   return (
     <div className="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
-      <main className="pt-20">
-        <section className="relative flex min-h-[921px] items-center overflow-hidden">
+      <main className="">
+        <section className="relative flex min-h-[820px] items-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               className="h-full w-full object-cover"
@@ -183,7 +183,7 @@ function LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 md:px-8">
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 md:px-8">
             <div className="max-w-3xl">
               <span className="mb-6 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
                 Experience the Future
@@ -225,12 +225,12 @@ function LandingPage() {
               {ecosystemCards.map((card) => (
                 <div
                   key={card.title}
-                  className="group relative h-[350px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)]"
+                  className="group relative h-[310px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)]"
                 >
                   {/* Front Face */}
                   <div className="glass-card absolute inset-0 flex flex-col justify-center rounded-xl p-8 [backface-visibility:hidden]">
-                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full text-primary-container">
-                      <span className="material-symbols-outlined text-3xl">
+                    <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full text-primary-container">
+                      <span className="material-symbols-outlined text-5xl">
                         {card.icon}
                       </span>
                     </div>
