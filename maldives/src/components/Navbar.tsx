@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const solutionItems = [
-  { label: "Property Management System", to: "/real-estate-control", icon: "domain" },
-  { label: "Lush Hotel Cloud", to: "/hotelcloud", icon: "bed" },
-  { label: "Viduvaru", to: "/viduvaru", icon: "school" },
-  { label: "Travel CRM", to: "/travel-crm", icon: "explore" },
+  { label: "Property Mgmt", to: "/real-estate-control", icon: "apartment" },
+  { label: "Hotel Cloud", to: "/hotelcloud", icon: "hotel" },
+  { label: "Boat Booking", to: "/viduvaru", icon: "directions_boat" },
+  { label: "Travel CRM", to: "/travel-crm", icon: "luggage" },
 ];
 
 const navItems = [
@@ -30,51 +30,55 @@ const Navbar = () => {
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isMobileOpen]);
 
   return (
     <header className="fixed top-0 z-[100] w-full transition-all duration-700 ease-in-out">
-
-      {/* ── Outer wrapper ─────────────────────────────────────────────────────
-          FIX: single max-w + padding that transitions cleanly on scroll.
-          Before: two conflicting classes (max-w-7xl + max-w-8xl / px-24)
-          caused the nav to jump width when isScrolled changed.
-      ──────────────────────────────────────────────────────────────────────── */}
       <div
         className={`mx-auto transition-all duration-500 ${
           isScrolled
-            ? "max-w-7xl md:px-0 px-4 mt-4"   // compact pill when scrolled
-            : "max-w-screen-2xl px-6 sm:px-10 lg:px-20 mt-6"  // full-bleed on top
+            ? "max-w-7xl md:px-0 px-4 mt-4" // compact pill when scrolled
+            : "max-w-screen-2xl px-6 sm:px-10 lg:px-20 mt-6" // full-bleed on top
         }`}
       >
         <nav
-          className={`relative flex items-center justify-between rounded-2xl border border-white/40 px-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ${
+          className={`relative flex items-center justify-between rounded-3xl border border-white/40 px-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ${
             isScrolled
               ? "bg-white/85 backdrop-blur-2xl py-2.5"
               : "bg-white/30 backdrop-blur-md py-3"
           }`}
         >
-
           {/* ── Logo ──────────────────────────────────────────────────────── */}
           <Link to="/" className="group flex items-center gap-2 shrink-0">
             <div className="relative flex h-8 w-18 items-center justify-center rounded-md overflow-hidden">
-              <img src="/logo.jpeg" alt="Lushware Logo" className="h-full w-full object-cover" />
+              <img
+                src="/logo.jpeg"
+                alt="Lushware Logo"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold leading-none tracking-tighter text-slate-900">LUSHWARE</span>
-              <span className="text-[9px] font-black tracking-[0.3em] text-cyan-600 uppercase">Premium Systems</span>
+              <span className="text-xl font-bold leading-none tracking-tighter text-slate-900">
+                LUSHWARE
+              </span>
+              <span className="text-[9px] font-black tracking-[0.3em] text-cyan-600 uppercase">
+                Premium Systems
+              </span>
             </div>
           </Link>
 
           {/* ── Desktop Navigation ────────────────────────────────────────── */}
           <div className="hidden lg:flex items-center gap-10">
-
             {/* Solutions Dropdown */}
             <div className="group relative">
               <button
                 className={`flex items-center gap-1.5 text-sm uppercase font-bold tracking-tight transition-colors ${
-                  isSolutionsActive ? "text-cyan-700" : "text-slate-800 hover:text-slate-900"
+                  isSolutionsActive
+                    ? "text-cyan-700"
+                    : "text-slate-800 hover:text-slate-900"
                 }`}
               >
                 Our Solutions
@@ -83,22 +87,44 @@ const Navbar = () => {
                 </span>
               </button>
 
-              <div className="invisible absolute left-1/2 -translate-x-1/2 top-full z-50 mt-4 w-72 rounded-2xl border border-slate-200/70 bg-white/95 p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:mt-2">
-                <div className="grid gap-1">
+              <div className="invisible absolute left-1/2 -translate-x-1/2 top-full z-50 mt-8 w-80 rounded-[20px] border border-slate-100 bg-white p-2 opacity-0 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl transition-all duration-500 ease-out group-hover:visible group-hover:opacity-100 group-hover:mt-4">
+                <div className="relative flex flex-col gap-0.5">
+                  {/* Subtle Top Notch/Pointer */}
+                  <div className="absolute -top-[13px] left-1/2 -translate-x-1/2 border-8 border-transparent border-b-white/95" />
+
                   {solutionItems.map((item) => (
                     <NavLink
                       key={item.to}
                       to={item.to}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition-all duration-200 ${
-                          isActive
-                            ? "bg-cyan-50 font-bold text-cyan-700"
-                            : "text-slate-700 hover:bg-slate-50 hover:text-cyan-700"
+                        `group/nav flex items-center justify-between rounded-[14px] px-5 py-4 transition-all duration-300 ${
+                          isActive ? "bg-slate-50/80" : "hover:bg-slate-50/50"
                         }`
                       }
                     >
-                      <span className="material-symbols-outlined text-lg opacity-70">{item.icon}</span>
-                      {item.label}
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`flex h-11 w-11 items-center justify-center rounded-full border border-slate-100 bg-white text-slate-400 transition-all duration-500 group-hover/nav:scale-110 group-hover/nav:border-cyan-200 group-hover/nav:text-cyan-600 group-hover/nav:shadow-sm`}
+                        >
+                          <span className="material-symbols-outlined text-[22px] ">
+                            {item.icon}
+                          </span>
+                        </div>
+
+                        <div className="flex flex-col">
+                          <span className="text-[15px] font-medium tracking-tight text-slate-800 transition-colors duration-300 group-hover/nav:text-cyan-700">
+                            {item.label}
+                          </span>
+                          <span className="text-[12px] text-slate-400 font-light">
+                            Explore {item.label.toLowerCase()}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Elegant Chevron that appears on hover */}
+                      <span className="material-symbols-outlined text-slate-300 opacity-0 -translate-x-2 transition-all duration-300 group-hover/nav:opacity-100 group-hover/nav:translate-x-0 text-sm">
+                        arrow_forward_ios
+                      </span>
                     </NavLink>
                   ))}
                 </div>
@@ -111,7 +137,9 @@ const Navbar = () => {
                 to={item.to}
                 className={({ isActive }) =>
                   `group relative uppercase text-sm font-bold tracking-tight transition-colors ${
-                    isActive ? "text-cyan-700" : "text-slate-800 hover:text-slate-900"
+                    isActive
+                      ? "text-cyan-700"
+                      : "text-slate-800 hover:text-slate-900"
                   }`
                 }
               >
@@ -165,11 +193,6 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* ── Mobile Menu ─────────────────────────────────────────────────────
-          FIX: replaced height-based animation (jumpy on some devices) with
-          a clean translateY + opacity approach. Full-screen overlay with
-          clear visual hierarchy and proper safe-area insets.
-      ──────────────────────────────────────────────────────────────────────── */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
@@ -184,7 +207,6 @@ const Navbar = () => {
 
             {/* Content */}
             <div className="flex flex-col flex-1 px-8 py-8 gap-0">
-
               {/* Primary nav */}
               <p className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600">
                 Navigation
@@ -223,7 +245,9 @@ const Navbar = () => {
                     className="group flex items-center gap-4 rounded-xl px-4 py-3.5 transition-colors hover:bg-cyan-50 active:scale-[0.98]"
                   >
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors group-hover:bg-cyan-100 group-hover:text-cyan-700">
-                      <span className="material-symbols-outlined text-lg">{item.icon}</span>
+                      <span className="material-symbols-outlined text-lg">
+                        {item.icon}
+                      </span>
                     </span>
                     <span className="text-base font-semibold text-slate-700 group-hover:text-cyan-700 transition-colors">
                       {item.label}

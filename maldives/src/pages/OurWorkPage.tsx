@@ -27,6 +27,91 @@ const stats = [
   },
 ];
 
+const projects = [
+  {
+    name: "Travel Booking Website",
+    client: "Trip Sky Way",
+    summary:
+      "Trip Sky Way is a modern travel booking platform designed to help travelers discover destinations and plan seamless journeys.",
+    description:
+      "We built a responsive travel platform with intuitive navigation, fast performance, and seamless booking experiences tailored for modern travelers worldwide.",
+    image: "/work/TripSkyWay.jpg",
+    link: "https://tripskyway.com/",
+  },
+  {
+    name: "Tour & Travel Website",
+    client: "Holiday Vibes Tour",
+    summary:
+      "Holiday Vibes Tour is a travel website built to promote curated tours and immersive travel experiences.",
+    description:
+      "We created a vibrant platform enabling users to explore curated tour packages, detailed itineraries, and easily connect with travel experts seamlessly.",
+    image: "/work/HolidayVibesTour.jpg",
+    link: "https://holidayvibestour.com/",
+  },
+  {
+    name: "B2B Portal for Travel Agents",
+    client: "Yomaldives",
+    summary:
+      "Yomaldives, a B2B portal designed to help travel agents boost their revenue.",
+    description:
+      "We delivered a tailored B2B platform empowering travel agents to streamline operations, increase revenue, and efficiently manage bookings with ease daily.",
+    image: "/work/yomaldives.png",
+    link: "https://yomaldives.live/",
+  },
+
+  {
+    name: "Speedboat Ticket Booking System",
+    client: "Dream Speed",
+    summary:
+      "We're thrilled to showcase our latest project, the Dream Speed Speedboat Booking System. We developed this platform to help travelers effortlessly search routes, check availability, and book their island journeys in the Maldives.",
+    description:
+      "This project reflects our commitment to building bespoke platforms that simplify bookings, optimize operations, and deliver seamless experiences for travelers globally.",
+    image: "/work/dreamspeed.png",
+    link: "https://www.dreamspeedmaldives.com/",
+  },
+  {
+    name: "All-in-one Travel Agency Web Application",
+    client: "Islekey Holidays",
+    summary:
+      "We're excited to showcase a project close to our hearts: IsleKey Holdings, an all-in-one web application for a travel agency.",
+    description:
+      "We developed a comprehensive platform that streamlines bookings, enhances user experiences, and empowers travel agencies to manage operations efficiently and grow.",
+    image: "/work/islekeyholidays.png",
+    link: "https://islekeyholidays.com/",
+  },
+  {
+    name: "Travel Agency Website",
+    client: "Traveliccted",
+    summary:
+      "Traveliccted is a travel-focused website built to showcase curated travel experiences and destination packages.",
+    description:
+      "This project highlights our ability to create engaging platforms with strong storytelling, seamless navigation, and conversion-focused designs for travel businesses worldwide.",
+    image: "/work/Traveliccted.jpg",
+    link: "https://traveliccted.com/",
+  },
+  {
+    name: "Travel E-Commerce Platform",
+    client: "Crown Voyages",
+    summary:
+      "Crown Voyages is a travel-focused e-commerce platform designed to showcase and sell curated travel products and services.",
+    description:
+      "We built a scalable e-commerce platform featuring secure payments, dynamic product management, and a premium user experience tailored for travel businesses globally.",
+    image: "/work/CrownVoyages.jpg",
+    link: "https://crownvoyages.com/",
+  },
+
+  {
+    name: "Travel Agency Websites",
+    client: "Holiday Life",
+    summary:
+      "We're proud to showcase Holiday Life, a custom web application we developed for a travel agency.",
+    description:
+      "We created a seamless platform helping users discover ideal holidays while enabling businesses to deliver exceptional services and manage operations effectively every day.",
+    image: "/work/holidaylife.jpg",
+    link: "https://holidaylife.travel/",
+  },
+];
+
 function OurWorkPage() {
   return (
     <main className="bg-[#ffffff] pb-24 pt-32 text-on-background selection:bg-primary-container selection:text-on-primary-container">
@@ -44,7 +129,7 @@ function OurWorkPage() {
             <img
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               data-alt="Luxurious overwater bungalows in a Maldivian turquoise lagoon with crystal clear water and bright sunny skies"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlvWo8ooLFe2fomXEj9FP0m6CGlaD-6-qszm-iC3nrDp5GbOONYbnocLlaR_tmlMTKyV47QlC_XM_2PN0FBzO5jVe1bByacN8abnBS2PNg7l4BZobvOe-Yh3L1K1rEooIiPZekVDKLa3m5P0gWU6QLrq5u_39pDOCQcHrbjNXym0XlJXjWVYStK9p2Au4OVqtn1rr7XAgs-c_ygQX3yJLorf8MfgXNOq7yL0L8EFSEWMKVQiWeL9DiiXVkJz2t8yjTxeX9MyIYyUCI"
+              src="https://cdn.home-designing.com/wp-content/uploads/2011/12/maldives-resort-villa-1024x724.jpg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
             <div className="absolute bottom-10 left-10 text-white">
@@ -52,23 +137,23 @@ function OurWorkPage() {
                 <span className="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold tracking-tight uppercase font-label">
                   Resort
                 </span>
-                <span className="text-white/80 text-sm font-medium">
+                <span className="text-white text-sm font-medium">
                   Flagship Implementation
                 </span>
               </div>
               <h3 className="text-4xl font-headline font-bold mb-2">
                 Velana Sapphire Estate
               </h3>
-              <p className="text-white/70 max-w-md">
+              <p className="text-white/90 max-w-md">
                 Full-stack operational automation across 120 villas and private
                 yacht concierge.
               </p>
             </div>
           </div>
-          <div className="md:col-span-4 bg-primary rounded-xl p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden">
+          <div className="md:col-span-4 bg-gradient-to-br from-primary to-primary-container rounded-xl p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden">
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
             <div className="relative z-10">
-              <span className="text-secondary-fixed-dim font-bold tracking-widest text-xs uppercase font-label">
+              <span className="text-white/95 font-bold tracking-widest text-xs uppercase font-label">
                 The Impact
               </span>
               <h3 className="text-3xl font-headline font-bold text-white mt-4 mb-6 leading-tight">
@@ -110,7 +195,7 @@ function OurWorkPage() {
         </div>
       </section>
 
-      <section className="mx-auto mb-32 max-w-7xl px-6 md:px-8">
+      <section className="mx-auto my-32 max-w-7xl px-6 md:px-8">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {stats.map((stat) => (
             <div
@@ -131,7 +216,8 @@ function OurWorkPage() {
           ))}
         </div>
       </section>
-      <section className="max-w-7xl mx-auto px-6 md:px-8 py-12">
+
+      <section className="max-w-7xl mx-auto px-6 md:px-0 py-12">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-4xl font-headline font-extrabold text-primary tracking-tight">
             Recent Deployments
@@ -148,160 +234,69 @@ function OurWorkPage() {
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="flex flex-col group">
-            <div className="relative mb-6 overflow-hidden rounded-xl aspect-square bg-surface-container shadow-sm group-hover:shadow-lg transition-all">
-              <img
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="Interior of a luxury modern resort lobby with high ceilings, minimalist furniture, and large windows overlooking the ocean"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9_thzVpjEfsOHKyakOJL166Z1QE2m3o_0urNbwjNtdqmFCQv5h13YzJsdeoYrkn6KGcyVnnaP2NtXqlVaIqKo_uEL0TFW2yt9CfHNxDIJ4iDHNQ6y_2_Q9au9n7gs5ZqW8dIzmRUI76lXKKYpjEgovr6dLI7EiauYiLwbGBYPRcFt-DaQA-uhuvSJYjfk6yNlch4b8cN71HQiDIwG1IUiw3lpTt0NgDRFaiHHUaSgKaY3v9ZgUvbosRHCEpEC7K6XkVQaw3hUnMXj"
-              />
-              <div className="absolute inset-x-4 bottom-4 glass-card p-4 rounded-lg flex items-center justify-between border border-white/30">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-400"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {projects.map((project) => (
+            <div key={project.client} className="flex flex-col  group">
+              <div className="relative mb-6 overflow-hidden rounded-xl  bg-surface-container shadow-sm group-hover:shadow-lg transition-all">
+                <img
+                  className="w-full h-full aspect-video min-h-[350px]  transition-transform duration-500"
+                  src={project.image}
+                  alt={project.name}
+                />
+                <div className="absolute inset-x-4 bottom-4 glass-card p-4 rounded-lg flex items-center justify-between border border-white/30">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
+                    <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
+                  </div>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[12px] font-bold uppercase tracking-widest text-black font-label hover:text-primary-container transition-colors"
+                  >
+                    Live Project
+                  </a>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary font-label">
-                  Live Project
+              </div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-secondary text-xs font-bold uppercase tracking-widest font-label">
+                  Travel
+                </span>
+                <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
+                <span className="text-on-surface-variant text-xs">
+                  {project.client}
                 </span>
               </div>
-            </div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-secondary text-xs font-bold uppercase tracking-widest font-label">
-                Resort
-              </span>
-              <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-              <span className="text-on-surface-variant text-xs">
-                Atoll North
-              </span>
-            </div>
-            <h4 className="text-2xl font-headline font-bold mb-3 text-primary">
-              Azure Sands Retreat
-            </h4>
-            <p className="text-on-surface-variant leading-relaxed text-sm mb-6">
-              Automated guest check-in via biometric tokens and integrated AI
-              concierge for water sports scheduling.
-            </p>
-            <div className="mt-auto border-t border-surface-container-highest pt-6">
-              <div className="flex items-center gap-3">
-                <img
-                  className="w-12 h-12 rounded bg-surface-container-high object-cover"
-                  data-alt="Close-up screen shot of a sleek hospitality management dashboard with colorful line charts and booking statistics"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcEuRX-WJMa6TUl_s5qQ7VioOZV_oh9aT-Xla_0gXnmKGk4sbyqgWWZJ6n_2fZN_cHQ6LN3QLhinN1F7wEyz0YW6R_X2Md7QnqhoeKrVQOAiU8Vmv2HqsKXGjx0OGFQoiONyhWpFRJIfozG7LQARKpVs4X1nkZMPF-z6lRYcyesCmG6FrwdwRVKaxCrjHIYcbg5HqKqPYeTNZbSmSOIEHHWWGK9rmD1EFR82UVf5bg9RFkGTXm5GGuOmCVAejSsZev8tbtTleqa_aC"
-                />
-                <div>
-                  <span className="block text-xs font-bold text-primary font-label uppercase tracking-tighter">
-                    Integration Layer
-                  </span>
-                  <span className="text-[10px] text-on-surface-variant">
-                    Proprietary Viduvaru Engine
-                  </span>
+              <h4 className="text-2xl font-headline font-bold mb-3 text-primary">
+                {project.name}
+              </h4>
+              <p className="text-on-surface-variant leading-relaxed text-sm mb-6">
+                {project.description}
+              </p>
+              <div className="mt-auto border-t border-surface-container-highest pt-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center">
+                    <span className="material-symbols-outlined text-primary text-2xl">
+                      language
+                    </span>
+                  </div>
+                  <div>
+                    <span className="block text-xs font-bold text-primary font-label uppercase tracking-tighter">
+                      Live Website
+                    </span>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] text-on-surface-variant hover:text-primary transition-colors"
+                    >
+                      {project.link.replace("https://", "").replace(/\/$/, "")}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col group">
-            <div className="relative mb-6 overflow-hidden rounded-xl aspect-square bg-surface-container shadow-sm group-hover:shadow-lg transition-all">
-              <img
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="Luxury yacht cruising through vibrant teal waters, leaving a white wake under a clear blue tropical sky"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwviSXH33Zm0qZq8e1JuoX6MUUsnbt3bK_L1vJD_kqeKl2XUZW7cGjvoLEYfJ1or1Wnefrxtwh7B2aSfa78QXBo-C2_n_J1G3FwWQofpytpwhCg4a3tGeQ_m-Rh6tbmEqvOXEHMhsi-mrzUhefFy6dPuPfof6aWl4I4tPAeozRMzCQAw3EXEWu3ah6mwce8UWSNC2l5DkKQkQ9QjavhKct6ZJs2cam8itlnNky2cOmhQd2h3oUC6KWv3-UUSvFpdO8y7DNr_wioRZn"
-              />
-              <div className="absolute inset-x-4 bottom-4 glass-card p-4 rounded-lg flex items-center justify-between border border-white/30">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-300"></div>
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary font-label">
-                  Fleet View
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-secondary text-xs font-bold uppercase tracking-widest font-label">
-                Marine
-              </span>
-              <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-              <span className="text-on-surface-variant text-xs">
-                Fleet Wide
-              </span>
-            </div>
-            <h4 className="text-2xl font-headline font-bold mb-3 text-primary">
-              Blue Horizon Expeditions
-            </h4>
-            <p className="text-on-surface-variant leading-relaxed text-sm mb-6">
-              Unified maritime dashboard for 15 luxury liveaboards, managing
-              fuel, supply chain, and guest manifests.
-            </p>
-            <div className="mt-auto border-t border-surface-container-highest pt-6">
-              <div className="flex items-center gap-3">
-                <img
-                  className="w-12 h-12 rounded bg-surface-container-high object-cover"
-                  data-alt="Modern tablet displaying maritime navigation charts and logistics data with high-contrast UI design"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcbGuB5V1AxdZ6hXjdNj-c8BkRnODz6GZbnFP3jNZX3edwPxS9olD4Go677AvfjJdblIUWnJDCA3LqZETpfIVfQGqr4qZBYY_uqOnC8QBdvj9C30O2um5zdZg2uhbmAj05pqpHooVjH7rp3k1d68dzYlVeJthaO1kqAczcdzQEuDkksaoCDcM8lSD4q6pP-6i8ILLiI5R0cI_UoRDukoovDaOuruf0iaXAmGHTtfK_PpLLndojEBT0Lr7R7zhGi8OQgo2UE8lzY9yc"
-                />
-                <div>
-                  <span className="block text-xs font-bold text-primary font-label uppercase tracking-tighter">
-                    Real-time Telemetry
-                  </span>
-                  <span className="text-[10px] text-on-surface-variant">
-                    Edge Computing Module
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col group">
-            <div className="relative mb-6 overflow-hidden rounded-xl aspect-square bg-surface-container shadow-sm group-hover:shadow-lg transition-all">
-              <img
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="Aerial view of a circular island boutique hotel with thatched roofs and a large central pool area surrounded by palm trees"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCwl2ghuG0UfmRvRzCrcPWkPel4Rl7LjnlRQV08T7oBzQZAxC8Kwk_HTn1UZhwZx0aXE_-Sk-oNUI327lU1wAfXHf5CKgz34Kv4RpRb0HFktDKPp42WxbKnCe1_IRJ_ThidRwhz4wTKAMLUxSaBkBakODB3epIUi9TjhJOHM_6Wkwtp2EcpQQbSKKgsz8zkFHOvEHKb8YdoGxD6G880JNPE7lsceQugXds6yYCfYa2zETHkA3K1gwW6CRA-z5CqSuTvR4dy6d2mEoH"
-              />
-              <div className="absolute inset-x-4 bottom-4 glass-card p-4 rounded-lg flex items-center justify-between border border-white/30">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary font-label">
-                  Live Project
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-secondary text-xs font-bold uppercase tracking-widest font-label">
-                Hotel
-              </span>
-              <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-              <span className="text-on-surface-variant text-xs">
-                Male' City
-              </span>
-            </div>
-            <h4 className="text-2xl font-headline font-bold mb-3 text-primary">
-              The Urban Reef Boutique
-            </h4>
-            <p className="text-on-surface-variant leading-relaxed text-sm mb-6">
-              Smart-room integration for an urban boutique hotel, featuring
-              touchless environmental controls.
-            </p>
-            <div className="mt-auto border-t border-surface-container-highest pt-6">
-              <div className="flex items-center gap-3">
-                <img
-                  className="w-12 h-12 rounded bg-surface-container-high object-cover"
-                  data-alt="Clean software UI showing room temperature and lighting controls with soft shadows and pastel accents"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb5zD3i0dAATnkj3biSO3OEftcVGgBZBbBAS9QGSlBeYTvZwzY6Dm7HU59j-QX3w8_-oX6UhR9IEG4t77Q5njD0UtCaSnsaIMmAjdktGwfmvZfzWHjcWRjTiEZys5D1QimpAXfiqyV8ijUXZhzVzayXl-kM_dEXy39Qydi6YZXwubj2M1JqtTTDZsry6f3gyLKVTq0Gwe426ve1sZhoKPRV1Lako7Em2tEO3O0cf64WoX3Y9D-Fo0VrUtbmL2WaP361Q5BhkN7AJPI"
-                />
-                <div>
-                  <span className="block text-xs font-bold text-primary font-label uppercase tracking-tighter">
-                    IoT Gateway
-                  </span>
-                  <span className="text-[10px] text-on-surface-variant">
-                    Viduvaru Core v4.2
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
