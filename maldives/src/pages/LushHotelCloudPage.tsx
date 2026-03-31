@@ -138,7 +138,7 @@ function LushHotelCloudPage() {
           <div className="absolute -bottom-48 -left-48 -z-10 h-96 w-96 rounded-full bg-tertiary-container/10 blur-[100px]" />
         </section>
 
-        <section className="bg-surface-container-low px-6 py-24 md:px-8">
+        <section className="bg-[#ffffff] px-6 py-24 md:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 space-y-4">
               <h2 className="font-headline text-4xl font-bold tracking-tight">

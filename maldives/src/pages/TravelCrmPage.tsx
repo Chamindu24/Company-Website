@@ -13,7 +13,8 @@ const featureCards = [
 const travelCrmFAQs = [
   {
     id: "crm-faq-1",
-    question: "How does the Travel CRM handle itinerary building and customization?",
+    question:
+      "How does the Travel CRM handle itinerary building and customization?",
     answer:
       "Our intelligent itinerary builder leverages AI to suggest personalized experiences based on guest preferences, past travel history, and seasonal availability. You can customize every detail—from seaplane transfers to spa reservations—with a single click.",
   },
@@ -45,7 +46,7 @@ const travelCrmFAQs = [
 
 function TravelCrmPage() {
   return (
-    <main className="overflow-x-hidden bg-background pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <main className="overflow-x-hidden bg-[#ffffff] pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
       <section className="relative mx-auto flex min-h-[921px] max-w-7xl items-center px-6 md:px-8">
         <div className="z-10 grid items-center gap-16 lg:grid-cols-2">
           <div className="space-y-8">
@@ -136,9 +137,9 @@ function TravelCrmPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
-          <div className="glass-card group relative overflow-hidden rounded-xl p-10 md:col-span-8">
-            <div className="relative z-10">
+        <div className="grid grid-cols-1   gap-6 md:grid-cols-12">
+          <div className="glass-card group  border  relative overflow-hidden rounded-xl p-10 md:col-span-8">
+            <div className="relative  z-10">
               <span className="material-symbols-outlined mb-6 text-4xl text-primary">
                 query_stats
               </span>
@@ -208,7 +209,7 @@ function TravelCrmPage() {
           {featureCards.map((card) => (
             <div
               key={card.title}
-              className="rounded-xl bg-surface-container-lowest p-10 shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4"
+              className="rounded-xl bg-surface-container-lowest p-10 border shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4"
             >
               <span
                 className={`material-symbols-outlined mb-6 text-4xl ${card.iconColor}`}
@@ -222,7 +223,7 @@ function TravelCrmPage() {
             </div>
           ))}
 
-          <div className="flex flex-col items-center gap-10 overflow-hidden rounded-xl bg-white p-10 md:col-span-8 md:flex-row">
+          <div className="flex flex-col items-center gap-10 overflow-hidden border rounded-xl bg-white p-10 md:col-span-8 md:flex-row">
             <div className="flex-1">
               <span className="material-symbols-outlined mb-6 text-4xl text-secondary">
                 map

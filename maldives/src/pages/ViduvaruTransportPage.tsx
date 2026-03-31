@@ -227,32 +227,16 @@ function ViduvaruTransportPage() {
           </div>
         </section>
 
-        <section className="px-8 py-32 bg-surface">
-          <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+        <section className="px-8 bg-[#ffffff] py-32 bg-surface">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2 order-2 lg:order-1">
-              <div className="relative rounded-xl overflow-hidden shadow-2xl bg-white p-2">
+              <div className="relative rounded-xl overflow-hidden  p-2">
                 <img
                   className="rounded-lg w-full"
                   data-alt="Sophisticated software interface showing complex marine logistics data, bar charts, and a map of tropical islands with shipping routes"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC90m-mOQRaBNSXHFEHgeUkmJohmTfo3FJ4gZJbLO1R9m57lZU2KRH3Kjru4uLiKPwqJuEKyySwd5PfcqijiLMToWwNO50F2WzdhexS9ZOrvevXg5XZ7gIKSG1ZlSNTZuowIE2UJh9bm-OE869CRto5ALVAReXbOeuoHp_PL_wqRm4UVnu99pN2pzqIR8-3sBmvKwP2PBdIUPXofDaz9Xb3Xbzy8nWBth5RuHYlvz9UEWIqb8aaUKlsIz1Lj1x8UKfA4VbtuZS7jHfK"
+                  src="https://www.abswavesight.com/sites/default/files/styles/vertical_image_slider/public/2024-06/oprisk.png?itok=t5bArY_i"
                 />
-                <div className="absolute top-10 -right-10 glass-panel p-6 rounded-lg shadow-2xl border border-white/50 hidden md:block">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-tertiary-fixed text-on-tertiary-fixed rounded-full">
-                      <span className="material-symbols-outlined">
-                        trending_up
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">
-                        Efficiency
-                      </p>
-                      <p className="text-2xl font-headline font-extrabold text-primary">
-                        +24.8%
-                      </p>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">

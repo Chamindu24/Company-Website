@@ -12,7 +12,7 @@ import TravelCrmPage from './pages/TravelCrmPage'
 
 function App() {
   return (
-    <>
+    <div className='bg-[#ffffff]'>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   )
 }
 

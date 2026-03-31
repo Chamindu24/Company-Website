@@ -69,7 +69,7 @@ const occupancyDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 function PropertyManagementSystemPage() {
   return (
-    <main className="overflow-hidden bg-[#ffffff] pb-24 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <main className="overflow-hidden bg-[#ffffff] pb-24 pt-12 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
       <section className="relative overflow-hidden px-6 py-20 md:px-8 lg:py-32">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div className="z-10">
@@ -149,74 +149,109 @@ function PropertyManagementSystemPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            <div className="flex flex-col justify-between rounded-xl bg-surface-container-lowest p-8 shadow-[0_20px_40px_rgba(0,104,116,0.03)] transition-shadow hover:shadow-lg md:col-span-2 lg:col-span-2">
-              <div>
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary-fixed-dim/20 text-primary">
-                  <span className="material-symbols-outlined">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 text-[#1A2E35]">
+            {/* Left Column: The "Hero" Feature */}
+            <div className="group relative lg:col-span-4 flex flex-col overflow-hidden rounded-[2.5rem] bg-white p-10 border border-[#26AEBF]/10 shadow-[0_30px_60px_-15px_rgba(38,174,191,0.08)] transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(38,174,191,0.15)] ">
+              {/* Subtle Background Glow */}
+              <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-[#26AEBF]/5 blur-3xl group-hover:bg-[#26AEBF]/10 transition-colors" />
+
+              <div className="mb-12">
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#26AEBF]/5 text-[#26AEBF] outline outline-1 outline-[#26AEBF]/30 outline-offset-8">
+                  <span className="material-symbols-outlined text-3xl">
                     house_with_shield
                   </span>
                 </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold">
-                  Listings Management
+              </div>
+
+              <div className="mt-auto relative z-10">
+                <span className="mb-2 block text-[10px] font-black uppercase tracking-[0.4em] text-[#26AEBF]/60">
+                  Core Module
+                </span>
+                <h3 className="mb-6 font-headline text-4xl font-bold leading-[1.1] tracking-tight">
+                  Listings
+                  <br />
+                  Management
                 </h3>
-                <p className="leading-relaxed text-on-surface-variant">
+                <p className="text-lg leading-relaxed text-slate-500">
                   Centralize your entire portfolio. Dynamic pricing and rich
-                  media management for every unit across global platforms.
+                  media management.
                 </p>
-              </div>
-              <div className="mt-8 flex items-center gap-4 border-t border-outline-variant/10 pt-8">
-                <span className="text-sm font-bold text-primary">
-                  Explore Listings
-                </span>
-                <span className="material-symbols-outlined text-sm">
-                  arrow_forward
-                </span>
-              </div>
-            </div>
 
-            <div className="group relative overflow-hidden rounded-xl border border-primary-container/10 bg-primary-container/5 p-8 md:col-span-1 lg:col-span-2">
-              <div className="relative z-10">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <span className="material-symbols-outlined">analytics</span>
-                </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold">
-                  Revenue Analytics
-                </h3>
-                <p className="leading-relaxed text-on-surface-variant">
-                  Predictive insights into cash flow, yield optimization, and
-                  seasonal performance trends.
-                </p>
-              </div>
-              <div className="absolute -bottom-10 -right-10 opacity-10 transition-transform group-hover:scale-110">
-                <span className="material-symbols-outlined text-[200px]">
-                  show_chart
-                </span>
-              </div>
-            </div>
-
-            {featureCards.map((card) => (
-              <div
-                key={card.title}
-                className="flex flex-col justify-between rounded-xl bg-surface-container-lowest p-8 shadow-[0_20px_40px_rgba(0,104,116,0.03)] transition-shadow hover:shadow-lg"
-              >
-                <div>
-                  <div
-                    className={`mb-6 flex h-12 w-12 items-center justify-center rounded-full ${card.iconColor === "text-error" ? "bg-error/10" : card.iconColor === "text-tertiary" ? "bg-tertiary/10" : card.iconColor === "text-secondary" ? "bg-secondary/10" : "bg-primary-fixed-dim/20"} ${card.iconColor}`}
-                  >
+                <button className="mt-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#26AEBF] text-white transition-all duration-500 group-hover:w-full group-hover:rounded-2xl shadow-lg shadow-[#26AEBF]/20">
+                  <div className="flex items-center gap-3 overflow-hidden whitespace-nowrap px-4">
                     <span className="material-symbols-outlined">
+                      arrow_forward
+                    </span>
+                    <span className="opacity-0 transition-opacity group-hover:opacity-100 font-bold uppercase tracking-widest text-sm">
+                      Explore Portfolio
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: The "Dynamic Grid" */}
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Revenue Analytics (Wide Feature) */}
+              <div className="group relative md:col-span-2 overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#26AEBF]/10 via-white to-white p-8 border border-[#26AEBF]/10 transition-all hover:border-[#26AEBF]/30">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+                  <div className="max-w-md">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#26AEBF] text-white shadow-lg shadow-[#26AEBF]/20">
+                      <span className="material-symbols-outlined text-2xl">
+                        analytics
+                      </span>
+                    </div>
+                    <h3 className="mb-2 font-headline text-2xl font-bold tracking-tight">
+                      Revenue Analytics
+                    </h3>
+                    <p className="text-slate-500">
+                      Predictive insights into cash flow, yield optimization,
+                      and global performance.
+                    </p>
+                  </div>
+
+                  {/* Modern Data Visualization Mockup */}
+                  <div className="relative h-32 w-full md:w-56 overflow-hidden rounded-2xl bg-white/60 backdrop-blur-md border border-[#26AEBF]/10 shadow-inner flex items-center justify-center group-hover:bg-white transition-colors">
+                    <div className="flex items-end gap-1.5 px-4 h-16">
+                      {[30, 60, 45, 90, 55, 75, 40].map((h, i) => (
+                        <div
+                          key={i}
+                          className="w-2.5 bg-[#26AEBF]/20 rounded-t-sm transition-all duration-1000 group-hover:bg-[#26AEBF]"
+                          style={{
+                            height: `${h}%`,
+                            transitionDelay: `${i * 50}ms`,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Small Interactive Cards */}
+              {featureCards.map((card) => (
+                <div
+                  key={card.title}
+                  className="group relative flex items-start gap-5 rounded-[2rem] bg-white p-6 border border-slate-200 transition-all duration-300 hover:border-[#26AEBF]/20 hover:shadow-xl hover:shadow-[#26AEBF]/5"
+                >
+                  <div
+                    className={`mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-[#26AEBF] transition-all duration-500 group-hover:bg-[#26AEBF] group-hover:text-white `}
+                  >
+                    <span className="material-symbols-outlined text-2xl transition-transform group-hover:scale-110">
                       {card.icon}
                     </span>
                   </div>
-                  <h3 className="mb-4 font-headline text-xl font-bold">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-on-surface-variant">
-                    {card.description}
-                  </p>
+                  <div>
+                    <h3 className="mb-1 font-headline font-bold text-lg tracking-tight">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-400">
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

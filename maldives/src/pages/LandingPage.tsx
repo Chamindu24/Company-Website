@@ -106,6 +106,37 @@ const industries = [
   },
 ];
 
+const processSteps = [
+  {
+    step: "01",
+    title: "Discovery & Consultation",
+    description:
+      "We understand your unique business model, pain points, and goals. Our team conducts a comprehensive audit of your current systems.",
+    icon: "lightbulb",
+  },
+  {
+    step: "02",
+    title: "Custom Configuration",
+    description:
+      "We tailor Viduvaru to match your specific workflows and integrate with your existing tools. Zero forced workarounds.",
+    icon: "settings",
+  },
+  {
+    step: "03",
+    title: "Deployment & Training",
+    description:
+      "Our expert team handles the deployment process while training your staff. We ensure a smooth, zero-downtime transition.",
+    icon: "school",
+  },
+  {
+    step: "04",
+    title: "Optimization & Growth",
+    description:
+      "We continuously monitor performance and provide strategic recommendations to maximize your ROI and operational efficiency.",
+    icon: "trending_up",
+  },
+];
+
 const whyChooseItems = [
   {
     icon: "flight_land",
@@ -343,7 +374,66 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-surface-container px-6 py-24 md:px-8 md:py-32">
+        <section className="px-6 py-24 md:px-8 md:py-32 bg-surface-container-lowest">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-32 text-center">
+              <h2 className="mb-6 text-4xl font-bold tracking-tighter text-primary md:text-5xl">
+                How It Works
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
+                A seamless 4-step journey from discovery to optimization. We
+                guide you through every phase.
+              </p>
+            </div>
+
+            <div className="relative ">
+              {/* The Connection Line - Desktop Only */}
+              <div className="absolute top-[4.5rem] left-[10%] right-[10%] hidden h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent md:block" />
+
+              <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+                {processSteps.map((step, index) => (
+                  <div
+                    key={step.step}
+                    className="group relative flex flex-col items-center text-center"
+                  >
+                    {/* Step Number Badge */}
+                    <div className="relative z-10 mb-6 flex h-16 w-16 p-4 items-center justify-center rounded-full border-4 border-white  text-primary shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-[#26AEBF] group-hover:text-white">
+                      <span className="material-symbols-outlined text-5xl  font-light">
+                        {step.icon}
+                      </span>
+
+                      {/* Subtle Step Label */}
+                      <div className="absolute -top-8 whitespace-nowrap text-[10px] font-bold tracking-[0.2em] text-primary/80 uppercase">
+                        Phase {step.step}
+                      </div>
+                    </div>
+
+                    {/* Content Area */}
+                    <div className="px-2">
+                      <h3 className="mb-3 text-lg font-bold tracking-tight text-on-surface">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-on-surface-variant/80">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* Mobile Connector Arrow */}
+                    {index < processSteps.length - 1 && (
+                      <div className="mt-4 block text-primary/20 md:hidden">
+                        <span className="material-symbols-outlined text-3xl">
+                          south
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 lg:grid-cols-2">
             <div className=" relative">
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
@@ -374,7 +464,7 @@ function LandingPage() {
             <div>
               <h2 className="mb-12 text-4xl font-bold tracking-tighter">
                 Why Industry Leaders{" "}
-                <span className="text-primary">Choose Viduvaru</span>
+                <span className="text-primary">Choose LUSHWARE</span>
               </h2>
               <div className="space-y-8">
                 {whyChooseItems.map((item) => (

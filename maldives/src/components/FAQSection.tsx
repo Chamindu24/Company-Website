@@ -17,7 +17,6 @@ export default function FAQSection({
   title = "Frequently Asked Questions",
   subtitle = "Find answers to common questions about our services",
   items,
-  backgroundColor = "bg-surface",
 }: FAQSectionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
   const [hoverId, setHoverId] = useState<string | null>(null);
@@ -29,8 +28,8 @@ export default function FAQSection({
   const isOpen = (id: string) => openId === id || hoverId === id;
 
   return (
-    <section className={`${backgroundColor} px-6 py-24 md:px-8`}>
-      <div className="mx-auto max-w-7xl">
+    <section className={` bg-[#ffffff] px-6 py-24 md:px-8`}>
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-on-surface lg:text-5xl">
