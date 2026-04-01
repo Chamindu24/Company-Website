@@ -1,3 +1,6 @@
+import HowItWorksSection from "../components/HowItWorksSection";
+import LandingHeroSection from "../components/LandingHeroSection";
+
 const ecosystemCards = [
   {
     icon: "directions_boat",
@@ -106,37 +109,6 @@ const industries = [
   },
 ];
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Discovery & Consultation",
-    description:
-      "We understand your unique business model, pain points, and goals. Our team conducts a comprehensive audit of your current systems.",
-    icon: "lightbulb",
-  },
-  {
-    step: "02",
-    title: "Custom Configuration",
-    description:
-      "We tailor Viduvaru to match your specific workflows and integrate with your existing tools. Zero forced workarounds.",
-    icon: "settings",
-  },
-  {
-    step: "03",
-    title: "Deployment & Training",
-    description:
-      "Our expert team handles the deployment process while training your staff. We ensure a smooth, zero-downtime transition.",
-    icon: "school",
-  },
-  {
-    step: "04",
-    title: "Optimization & Growth",
-    description:
-      "We continuously monitor performance and provide strategic recommendations to maximize your ROI and operational efficiency.",
-    icon: "trending_up",
-  },
-];
-
 const whyChooseItems = [
   {
     icon: "flight_land",
@@ -172,42 +144,7 @@ function LandingPage() {
   return (
     <div className="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
       <main className="">
-        <section className="relative flex min-h-[820px] items-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              className="h-full w-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH6Ukxkl60qGtQk0wMSBbRnwa8S1xrD1Tq6TCSTqfxrv16UVXtwU-mio5vFtfpxbYJFniwdl7AS5grVJYN-0fJP6cM4NHQENY2OACh7YjG6FCD-fINFS22MIbdP9xVzB1CEx2hHfIHnPrumF9s29ofUAWmyypNZQFGnVv7RvZ0_DSGbb7Vkf4vvH8YW0Cd7zNPXZ0qkDNsGxQBk7jomr9fUXCR60f4Y0xGpedzE6tTYXYcNxgfvUmhkDz2OvdJKEGMhyjcm0BShQk"
-              alt="Aerial view of overwater villas in the Maldives"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-background" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
-          </div>
-
-          <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 md:px-8">
-            <div className="max-w-3xl">
-              <span className="mb-6 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
-                Experience the Future
-              </span>
-              <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tighter md:text-7xl">
-                Smart Digital <span className="text-primary">Solutions</span>{" "}
-                for Maldives Hospitality
-              </h1>
-              <p className="mb-10 max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl">
-                Elevating island hospitality through intelligent automation and
-                AI-driven management. Seamless, scalable, and built for the
-                unique demands of the archipelago.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="rounded-full bg-gradient-to-r from-primary to-primary-container px-8 py-4 text-lg font-bold text-on-primary shadow-xl transition-all hover:-translate-y-1 hover:shadow-primary/20">
-                  Get Started
-                </button>
-                <button className="glass-card rounded-full px-8 py-4 text-lg font-bold text-primary transition-all hover:bg-white">
-                  Book Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LandingHeroSection />
 
         <section className="bg-surface-container-low px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
@@ -374,122 +311,58 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="px-6 py-24 md:px-8 md:py-32 bg-surface-container-lowest">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-32 text-center">
-              <h2 className="mb-6 text-4xl font-bold tracking-tighter text-primary md:text-5xl">
-                How It Works
-              </h2>
-              <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
-                A seamless 4-step journey from discovery to optimization. We
-                guide you through every phase.
-              </p>
-            </div>
+        <HowItWorksSection />
 
-            <div className="relative ">
-              {/* The Connection Line - Desktop Only */}
-              <div className="absolute top-[4.5rem] left-[10%] right-[10%] hidden h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent md:block" />
+        <section className="bg-[#FCFBFA] px-6 py-24 md:px-8 md:py-32">
+          <h2 className="mb-8 text-5xl text-center font-bold tracking-tighter">
+            Why Industry Leaders{" "}
+            <span className="text-primary">
+              Choose <br /> LUSHWARE
+            </span>
+          </h2>
+<div className="mx-auto max-w-7xl pt-20 px-6">
+  {/* Grid Container: 1 column on mobile, 2 columns on medium screens and up */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+    {whyChooseItems.slice(0, 4).map((item) => (
+      <div 
+        key={item.title} 
+        className="group flex bg-[#ffffff]  gap-8 items-center p-6 transition-all duration-300 hover:bg-surface-variant/5 rounded-2xl border border-primary/20 hover:border-primary/30"
+      >
+        {/* Icon: Minimal and consistent */}
+        <div
+          className={`flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl ${item.color} text-on-primary shadow-sm group-hover:shadow-md transition-shadow`}
+        >
+          <span className="material-symbols-outlined text-3xl font-light">
+            {item.icon}
+          </span>
+        </div>
 
-              <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-                {processSteps.map((step, index) => (
-                  <div
-                    key={step.step}
-                    className="group relative flex flex-col items-center text-center"
-                  >
-                    {/* Step Number Badge */}
-                    <div className="relative z-10 mb-6 flex h-16 w-16 p-4 items-center justify-center rounded-full border-4 border-white  text-primary shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-[#26AEBF] group-hover:text-white">
-                      <span className="material-symbols-outlined text-5xl  font-light">
-                        {step.icon}
-                      </span>
-
-                      {/* Subtle Step Label */}
-                      <div className="absolute -top-8 whitespace-nowrap text-[10px] font-bold tracking-[0.2em] text-primary/80 uppercase">
-                        Phase {step.step}
-                      </div>
-                    </div>
-
-                    {/* Content Area */}
-                    <div className="px-2">
-                      <h3 className="mb-3 text-lg font-bold tracking-tight text-on-surface">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-on-surface-variant/80">
-                        {step.description}
-                      </p>
-                    </div>
-
-                    {/* Mobile Connector Arrow */}
-                    {index < processSteps.length - 1 && (
-                      <div className="mt-4 block text-primary/20 md:hidden">
-                        <span className="material-symbols-outlined text-3xl">
-                          south
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Content Section */}
+        <div className="flex-1">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-2xl  font-bold text-primary tracking-tight">
+              {item.title}
+            </h4>
+            {/* Subtle indicator for a premium feel */}
+            <span className="material-symbols-outlined text-primary/30 scale-75 group-hover:translate-x-1 group-hover:text-primary transition-all">
+              arrow_forward
+            </span>
           </div>
+          
+          {/* Divider line that grows on hover */}
+          <div className="h-px w-8 bg-primary/30 mb-4 group-hover:w-full transition-all duration-500" />
+          
+          <p className="text-on-surface-variant text-lg leading-relaxed ">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
         </section>
 
-        <section className="bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 lg:grid-cols-2">
-            <div className=" relative">
-              <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                <img
-                  className="w-full aspect-[4/5] object-cover"
-                  data-alt="luxury hotel concierge using a tablet to check in guests at a modern reception desk with tropical wood accents"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBODVIi-Y2L1JY0LEagQDoGQXFzo8K5MCABJ2_sbvyv09qQJR9-mZBqUNlgf_uepIsfFVb4Rijj8MGDI3wC0is3VKQSSZQYg1HCKVUqIHbeyLdbE8PgaoPn_X7HyRF2qOy129Glk_y0CqEyLvHCrWlBpXS73i51PgDwTYyb_cZWXVSPHEVC28wGXQwwCUnT3paz24FklASEzOaN2ym1UxNYDqS_Y67sl-nc4U_7Pv6E6kvwNxZicVKXGRyycTcOjUJlGuHj2LitOF6I"
-                />
-              </div>
-              <div className="absolute -bottom-10 -right-10 glass-card p-10 rounded-xl border border-white/50 shadow-xl max-w-sm hidden md:block">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
-                    <span className="material-symbols-outlined text-on-tertiary-fixed">
-                      bolt
-                    </span>
-                  </div>
-                  <h4 className="font-headline font-bold text-primary">
-                    Instant Sync
-                  </h4>
-                </div>
-                <p className="text-on-surface-variant text-sm">
-                  Our 100% cloud-based architecture ensures zero lag between
-                  your head office in Malé and remote island sites.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="mb-12 text-4xl font-bold tracking-tighter">
-                Why Industry Leaders{" "}
-                <span className="text-primary">Choose LUSHWARE</span>
-              </h2>
-              <div className="space-y-8">
-                {whyChooseItems.map((item) => (
-                  <div key={item.title} className="flex gap-6">
-                    <div
-                      className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full ${item.color} text-on-primary`}
-                    >
-                      <span className="material-symbols-outlined">
-                        {item.icon}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="mb-2 text-lg font-bold">{item.title}</h4>
-                      <p className="leading-relaxed text-on-surface-variant">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="px-6 py-24 md:px-8 md:py-32">
+        <section className="px-6 bg-[#ffffff] py-24 md:px-8 md:py-32">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-secondary p-12 text-center md:p-24">
             <div className="absolute inset-0 opacity-10">
               <img

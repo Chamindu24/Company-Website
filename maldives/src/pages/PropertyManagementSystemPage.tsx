@@ -461,12 +461,18 @@ function PropertyManagementSystemPage() {
         </div>
       </section>
 
-      <section className="bg-surface-container-low py-20">
+      <FAQSection
+        items={faqItems}
+        title="Property Management FAQs"
+        subtitle="Everything you need to know about managing your Maldivian properties"
+      />
+
+      <section className=" py-20">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-16">
-          <p className="text-center font-label text-sm font-bold tracking-[0.3em] text-on-surface-variant uppercase mb-12">
+          <p className="text-center font-label text-sm font-bold tracking-[0.3em] text-on-surface-variant uppercase mb-8">
             Trusted by the Maldives' Finest Portfolios
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all">
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80  transition-all">
             <div className="text-3xl font-black text-primary tracking-tighter">
               LAGOON<span className="text-secondary">ELITE</span>
             </div>
@@ -482,12 +488,6 @@ function PropertyManagementSystemPage() {
           </div>
         </div>
       </section>
-
-      <FAQSection
-        items={faqItems}
-        title="Property Management FAQs"
-        subtitle="Everything you need to know about managing your Maldivian properties"
-      />
 
       <section className="px-6 py-24 md:px-8">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center lg:p-20">

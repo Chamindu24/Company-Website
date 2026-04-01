@@ -151,48 +151,65 @@ function TravelCrmPage() {
                 Drag-and-drop inquiries through custom stages from
                 &apos;Dreaming&apos; to &apos;Departure&apos;.
               </p>
-              <div className="mt-8 flex gap-4">
-                <div className="flex-1 rounded-lg bg-surface-container-low p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
-                    Inquiry
-                  </span>
-                  <div className="mt-4 space-y-3">
-                    <div className="rounded-md border-l-4 border-primary bg-white p-3 shadow-sm">
-                      <div className="text-[11px] font-bold">
-                        Maldives Escape
-                      </div>
-                    </div>
-                    <div className="rounded-md bg-white p-3 shadow-sm">
-                      <div className="text-[11px] font-bold">Swiss Alps</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-1 rounded-lg bg-surface-container-low p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-secondary">
-                    Proposal
-                  </span>
-                  <div className="mt-4 space-y-3">
-                    <div className="rounded-md border border-dashed border-outline-variant bg-white/50 p-3" />
-                  </div>
-                </div>
-                <div className="flex-1 rounded-lg bg-surface-container-low p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-tertiary">
-                    Won
-                  </span>
-                </div>
-              </div>
+<div className="mt-12 grid grid-cols-3 gap-12 p-8">
+  
+  {/* Column 1: 3D Fanned Stack (Inquiry) */}
+  <div className="relative group">
+    <span className="mb-6 block text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+      Inquiry Stack
+    </span>
+    <div className="relative h-48 w-full">
+      {/* Back Card (Visual Only) */}
+      <div className="absolute inset-0 translate-x-4 translate-y-2 rotate-3 rounded-2xl border border-slate-200 bg-slate-100/50 shadow-sm transition-transform group-hover:rotate-6"></div>
+      
+      {/* Middle Card (Visual Only) */}
+      <div className="absolute inset-0 translate-x-2 translate-y-1 rotate-1 rounded-2xl border border-slate-200 bg-slate-50 shadow-md transition-transform group-hover:rotate-3"></div>
+      
+      {/* Main Top Card */}
+      <div className="absolute inset-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-xl transition-transform group-hover:-translate-y-2">
+        <div className="flex flex-col h-full justify-between">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <h4 className="text-[13px] font-bold text-slate-900">Maldives Escape</h4>
+            </div>
+            <p className="mt-2 text-[11px] text-slate-500 leading-relaxed">
+              Luxury water villa booking for Marcelin Group.
+            </p>
+          </div>
+          <div className="flex justify-between items-center border-t border-slate-100 pt-3">
+            <span className="text-[10px] font-mono text-slate-400">#INV-2026</span>
+            <div className="text-[10px] font-bold bg-slate-900 text-white px-2 py-1 rounded">2 New</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Column 2: The Floating Proposal Slot */}
+  <div className="flex flex-col justify-center items-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/50 p-6">
+    <div className="relative">
+      <div className="h-16 w-12 rounded border border-slate-300 bg-white shadow-2xl rotate-12 origin-bottom-right opacity-40"></div>
+      <div className="absolute inset-0 h-16 w-12 rounded border border-slate-300 bg-white shadow-lg -rotate-6"></div>
+    </div>
+    <span className="mt-6 text-[11px] font-medium text-slate-400">Drop Proposal Here</span>
+  </div>
+
+
+
+</div>
             </div>
             <div className="absolute -bottom-20 -right-20 h-80 w-80 bg-primary-fixed/20 blur-[100px] transition-colors group-hover:bg-primary-fixed/30" />
           </div>
 
-          <div className="relative overflow-hidden rounded-xl bg-secondary p-10 text-on-secondary md:col-span-4">
+          <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-10 text-on-secondary md:col-span-4">
             <span className="material-symbols-outlined mb-6 text-4xl">
               credit_score
             </span>
             <h3 className="mb-4 text-2xl font-bold tracking-tight">
               Payment Tracking
             </h3>
-            <p className="text-sm leading-relaxed text-secondary-fixed/80">
+            <p className="text-sm leading-relaxed text-white/90">
               Automated invoicing and payment reconciliation. Never miss a final
               balance or vendor deposit again.
             </p>
@@ -236,31 +253,47 @@ function TravelCrmPage() {
                 that travelers will love to share.
               </p>
             </div>
-            <div className="relative w-full flex-1">
-              <div className="rounded-lg bg-surface-container-low p-6 shadow-inner">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-primary-container/20 text-primary">
-                    <span className="material-symbols-outlined text-sm">
-                      flight_takeoff
-                    </span>
-                  </div>
-                  <span className="text-xs font-bold">SQ-425 Arrives Male</span>
-                </div>
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-secondary-container/20 text-secondary">
-                    <span className="material-symbols-outlined text-sm">
-                      sailing
-                    </span>
-                  </div>
-                  <span className="text-xs font-bold">Speedboat Transfer</span>
-                </div>
-                <div className="flex h-24 items-center justify-center rounded-md border-2 border-dashed border-outline-variant bg-surface-container-high">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-outline">
-                    + Add Activity
-                  </span>
-                </div>
-              </div>
-            </div>
+<div className="relative w-full flex-1">
+  {/* The Main Container: Using glassmorphism and deep soft shadows for 3D depth */}
+  <div className="rounded-2xl bg-white/70 backdrop-blur-md border border-white/40 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05),_inset_0_-4px_8px_rgba(0,0,0,0.05)]">
+    
+    {/* Activity Item 1 */}
+    <div className="group mb-4 flex items-center gap-4 rounded-xl bg-white p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-white shadow-lg shadow-black/20">
+        <span className="material-symbols-outlined text-[20px]">
+          flight_takeoff
+        </span>
+      </div>
+      <div className="flex flex-col">
+        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Arrival</span>
+        <span className="text-sm font-semibold text-slate-800">SQ-425 Arrives Male</span>
+      </div>
+    </div>
+
+    {/* Activity Item 2 */}
+    <div className="group mb-6 flex items-center gap-4 rounded-xl bg-white p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-amber-500/20">
+        <span className="material-symbols-outlined text-[20px]">
+          sailing
+        </span>
+      </div>
+      <div className="flex flex-col">
+        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Transport</span>
+        <span className="text-sm font-semibold text-slate-800">Speedboat Transfer</span>
+      </div>
+    </div>
+
+    {/* Modern Add Button: Neumorphic / Glass Hybrid */}
+    <button className="group flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/50 py-6 transition-all hover:border-slate-400 hover:bg-white">
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md transition-transform group-hover:scale-110">
+        <span className="material-symbols-outlined text-slate-600">add</span>
+      </div>
+      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+        Add Activity
+      </span>
+    </button>
+  </div>
+</div>
           </div>
         </div>
       </section>

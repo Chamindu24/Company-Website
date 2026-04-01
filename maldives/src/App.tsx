@@ -12,7 +12,7 @@ import TravelCrmPage from './pages/TravelCrmPage'
 
 function App() {
   return (
-    <div className='bg-[#ffffff]'>
+    <div className='min-h-screen bg-[#ffffff]'>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />

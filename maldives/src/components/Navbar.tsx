@@ -41,7 +41,7 @@ const Navbar = () => {
         className={`mx-auto transition-all duration-500 ${
           isScrolled
             ? "max-w-7xl md:px-0 px-4 mt-4" // compact pill when scrolled
-            : "max-w-screen-2xl px-6 sm:px-10 lg:px-20 mt-6" // full-bleed on top
+            : "max-w-screen-2xl px-6 sm:px-10 lg:px-28 mt-6" // full-bleed on top
         }`}
       >
         <nav
@@ -64,8 +64,8 @@ const Navbar = () => {
               <span className="text-xl font-bold leading-none tracking-tighter text-slate-900">
                 LUSHWARE
               </span>
-              <span className="text-[9px] font-black tracking-[0.3em] text-cyan-600 uppercase">
-                Premium Systems
+              <span className="text-[9px] font-black tracking-[0.85em] text-cyan-600 uppercase">
+                 Maldives
               </span>
             </div>
           </Link>

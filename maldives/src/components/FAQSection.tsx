@@ -35,9 +35,7 @@ export default function FAQSection({
           <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-on-surface lg:text-5xl">
             {title}
           </h2>
-          <p className="text-lg text-on-surface-variant">
-            {subtitle}
-          </p>
+          <p className="text-lg text-on-surface-variant">{subtitle}</p>
         </div>
 
         {/* FAQ Items */}
@@ -52,7 +50,9 @@ export default function FAQSection({
               {/* Question Header */}
               <button
                 onClick={() => toggleFAQ(item.id)}
-                className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-surface-container-low md:px-8"
+                className={`flex w-full items-center justify-between px-6 py-5 text-left transition-colors  md:px-8 ${
+                  isOpen(item.id) ? "bg-[#26AEBF]/30" : ""
+                }`}
               >
                 <h3 className="pr-8 font-headline text-lg font-bold text-on-surface">
                   {item.question}
@@ -62,9 +62,7 @@ export default function FAQSection({
                     isOpen(item.id) ? "rotate-180" : ""
                   }`}
                 >
-                  <span className="material-symbols-outlined">
-                    expand_more
-                  </span>
+                  <span className="material-symbols-outlined">expand_more</span>
                 </span>
               </button>
 

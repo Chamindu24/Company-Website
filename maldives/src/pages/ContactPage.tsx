@@ -1,15 +1,6 @@
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 
-const accentItems = [
-  { title: "RESORT", subtitle: "Digital Concierge", color: "bg-primary" },
-  {
-    title: "HOSPITALITY",
-    subtitle: "Eco-Systems",
-    color: "bg-primary-container",
-  },
-  { title: "GROWTH", subtitle: "Island Expansion", color: "bg-secondary" },
-  { title: "CONNECT", subtitle: "Global Reach", color: "bg-tertiary" },
-];
+
 
 function ContactPage() {
   return (
@@ -31,7 +22,7 @@ function ContactPage() {
         </div>
       </PinnedScrollHeadlineSection>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 md:px-8">
+      <section className="mx-auto max-w-7xl px-6 py-20 mb-24 md:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div className="rounded-xl bg-surface-container-lowest p-8 shadow-[0_20px_40px_rgba(0,104,116,0.06)] md:p-12 lg:col-span-7">
             <h2 className="mb-8 font-headline text-3xl font-bold text-on-surface">
@@ -186,23 +177,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[#26AEBF] py-16">
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {accentItems.map((item) => (
-              <div key={item.title} className="space-y-4">
-                <div className={`h-[2px] w-12 bg-white`} />
-                <h4 className="select-none font-headline text-4xl  text-white">
-                  {item.title}
-                </h4>
-                <p className="text-sm font-medium text-white/80">
-                  {item.subtitle}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </main>
   );
 }
