@@ -1,12 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
+type DesktopDropdown = "services" | "solutions" | null;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
-  const [desktopSolutionsOpen, setDesktopSolutionsOpen] = useState(false);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] =
+    useState<DesktopDropdown>(null);
   const [scrolled, setScrolled] = useState(false);
-  const closeDropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeDropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const location = useLocation();
 
   useEffect(() => {
@@ -23,15 +29,15 @@ export default function Navbar() {
     };
   }, []);
 
-  // Close menu on route change
   useEffect(() => {
     setTimeout(() => {
       setOpen(false);
+      setMobileServicesOpen(false);
       setMobileSolutionsOpen(false);
+      setDesktopDropdownOpen(null);
     }, 0);
   }, [location.pathname]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -39,46 +45,87 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const solutionLinks = [
+  const serviceLinks = [
     { name: "Customer Relationship Management Software", to: "/solutions/crm" },
     { name: "AI Agents & AI Chatbots", to: "/solutions/ai-agents" },
     { name: "Business Process Management Software", to: "/solutions/bpm" },
     { name: "Business & Corporate Websites", to: "/solutions/websites" },
     { name: "Mobile Apps", to: "/solutions/mobile-apps" },
+  ];
+
+  const solutionLinks = [
     { name: "HVAC Solutions", to: "/industries/hvac" },
     { name: "Plumbing Solutions", to: "/industries/plumbing" },
     { name: "Electrical Solutions", to: "/industries/electrical" },
     { name: "Travel Solutions", to: "/solutions" },
   ];
 
-  const isSolutionsActive =
-    location.pathname.startsWith("/solutions") ||
-    location.pathname.startsWith("/industries");
-
   const links = [
     { name: "Our Work", to: "/work" },
     { name: "Project Base", to: "/project-base" },
   ];
 
-  const openSolutionsDropdown = () => {
+  const isServicesActive = serviceLinks.some(
+    (item) => location.pathname === item.to,
+  );
+  const isSolutionsActive = solutionLinks.some(
+    (item) => location.pathname === item.to,
+  );
+
+  const openDesktopDropdown = (dropdown: Exclude<DesktopDropdown, null>) => {
     if (closeDropdownTimeoutRef.current) {
       clearTimeout(closeDropdownTimeoutRef.current);
       closeDropdownTimeoutRef.current = null;
     }
 
-    setDesktopSolutionsOpen(true);
+    setDesktopDropdownOpen(dropdown);
   };
 
-  const closeSolutionsDropdown = () => {
+  const closeDesktopDropdown = () => {
     if (closeDropdownTimeoutRef.current) {
       clearTimeout(closeDropdownTimeoutRef.current);
     }
 
     closeDropdownTimeoutRef.current = setTimeout(() => {
-      setDesktopSolutionsOpen(false);
+      setDesktopDropdownOpen(null);
       closeDropdownTimeoutRef.current = null;
     }, 140);
   };
+
+  const renderDropdownPanel = (items: { name: string; to: string }[]) => (
+    <div className="overflow-hidden rounded-sm bg-white border border-stone-100 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.2)]">
+      <div className="w-[360px] px-5 py-5">
+        <nav className="grid grid-cols-1 gap-y-3">
+          {items.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="group/item relative flex flex-col border-l border-transparent pl-5 xl:pl-6 transition-all duration-500"
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className={`relative inline-block text-[15px] xl:text-[17px] tracking-wide font-medium transition-all duration-700 ${
+                    location.pathname === item.to
+                      ? "text-stone-950"
+                      : "text-stone-900 group-hover/item:text-stone-950 group-hover/item:translate-x-1"
+                  }`}
+                >
+                  {item.name}
+                  <span
+                    className={`pointer-events-none absolute left-0 -bottom-1 h-0.5 bg-emerald-600 transition-all duration-500 ${
+                      location.pathname === item.to
+                        ? "w-full"
+                        : "w-0 group-hover/item:w-full"
+                    }`}
+                  ></span>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </div>
+  );
 
   return (
     <nav
@@ -88,8 +135,7 @@ export default function Navbar() {
           : "bg-white py-4 lg:py-5"
       }`}
     >
-      <div className="max-w-8xl px-5 sm:px-8 lg:px-14 xl:px-22 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4">
-        {/* Left: Logo */}
+      <div className="w-[98%] max-w-[1800px] px-5 sm:px-8 lg:px-14 xl:px-20 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4">
         <div className="flex justify-start">
           <Link
             to="/"
@@ -123,13 +169,59 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Center: Desktop Navigation — hidden on mobile & tablet, shown lg+ */}
         <div className="hidden lg:flex items-center justify-center space-x-8 xl:space-x-11">
-          {/* Solutions Dropdown */}
           <div
             className="relative"
-            onMouseEnter={openSolutionsDropdown}
-            onMouseLeave={closeSolutionsDropdown}
+            onMouseEnter={() => openDesktopDropdown("services")}
+            onMouseLeave={closeDesktopDropdown}
+          >
+            <div
+              className={`flex items-center gap-2 text-sm font-bold tracking-widest uppercase transition-colors relative cursor-pointer ${
+                isServicesActive
+                  ? "text-emerald-900"
+                  : "text-stone-800 hover:text-emerald-700"
+              }`}
+            >
+              <span>Services</span>
+              <svg
+                className={`w-3 h-3 transition-transform duration-300 ${
+                  desktopDropdownOpen === "services" ? "rotate-180" : ""
+                } ${isServicesActive ? "text-emerald-900" : "text-stone-800"}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <span
+                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${
+                  isServicesActive ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              ></span>
+            </div>
+
+            <div
+              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+                desktopDropdownOpen === "services"
+                  ? "pointer-events-auto opacity-100 translate-y-0"
+                  : "pointer-events-none opacity-0 translate-y-2"
+              }`}
+              onMouseEnter={() => openDesktopDropdown("services")}
+              onMouseLeave={closeDesktopDropdown}
+            >
+              {renderDropdownPanel(serviceLinks)}
+            </div>
+          </div>
+
+          <div
+            className="relative"
+            onMouseEnter={() => openDesktopDropdown("solutions")}
+            onMouseLeave={closeDesktopDropdown}
           >
             <div
               className={`flex items-center gap-2 text-sm font-bold tracking-widest uppercase transition-colors relative cursor-pointer ${
@@ -138,10 +230,10 @@ export default function Navbar() {
                   : "text-stone-800 hover:text-emerald-700"
               }`}
             >
-              <span>Our Solutions</span>
+              <span>Solutions</span>
               <svg
                 className={`w-3 h-3 transition-transform duration-300 ${
-                  desktopSolutionsOpen ? "rotate-180" : ""
+                  desktopDropdownOpen === "solutions" ? "rotate-180" : ""
                 } ${
                   isSolutionsActive ? "text-emerald-900" : "text-stone-800"
                 }`}
@@ -163,50 +255,16 @@ export default function Navbar() {
               ></span>
             </div>
 
-            {/* Dropdown Panel — breaks out of grid, anchors to navbar edges */}
             <div
-              className={`fixed left-0 right-0 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
-                desktopSolutionsOpen
+              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+                desktopDropdownOpen === "solutions"
                   ? "pointer-events-auto opacity-100 translate-y-0"
                   : "pointer-events-none opacity-0 translate-y-2"
               }`}
-              style={{ top: scrolled ? "60px" : "68px" }}
-              onMouseEnter={openSolutionsDropdown}
-              onMouseLeave={closeSolutionsDropdown}
+              onMouseEnter={() => openDesktopDropdown("solutions")}
+              onMouseLeave={closeDesktopDropdown}
             >
-              <div className="overflow-hidden  bg-white border border-stone-100 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)]">
-                <div className="max-w-8xl mx-auto px-5 sm:px-8 lg:px-14 xl:px-22 py-10 xl:py-14">
-                  <nav className="grid grid-cols-3 gap-x-12 xl:gap-x-12 gap-y-8 xl:gap-y-8">
-                    {solutionLinks.map((item) => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        className="group/item relative flex flex-col border-l border-transparent pl-5 xl:pl-6 transition-all duration-500 "
-                      >
-                        <div className="flex items-center gap-2">
-                          <span
-                            className={`relative inline-block text-[15px] xl:text-[17px] tracking-wide font-medium transition-all duration-700 ${
-                              location.pathname === item.to
-                                ? "text-stone-950"
-                                : "text-stone-900 group-hover/item:text-stone-950 group-hover/item:translate-x-1"
-                            }`}
-                          >
-                            {item.name}
-                            <span
-                              className={`pointer-events-none absolute left-0 -bottom-1 h-0.5 bg-emerald-600 transition-all duration-500 ${
-                                location.pathname === item.to
-                                  ? "w-full"
-                                  : "w-0 group-hover/item:w-full"
-                              }`}
-                            ></span>
-                          </span>
-
-                        </div>
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-              </div>
+              {renderDropdownPanel(solutionLinks)}
             </div>
           </div>
 
@@ -214,7 +272,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.to}
-              className={`text-sm font-bold tracking-widest uppercase hover:text-emerald-700 transition-colors relative group ${
+              className={`text-sm font-bold tracking-widest uppercase whitespace-nowrap hover:text-emerald-700 transition-colors relative group ${
                 location.pathname === link.to
                   ? "text-emerald-700"
                   : "text-stone-800"
@@ -232,7 +290,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right: CTA — hidden on mobile & tablet */}
         <div className="hidden lg:flex justify-end">
           <Link
             to="/contact"
@@ -245,7 +302,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Tablet CTA (md only: between sm and lg) */}
         <div className="hidden md:flex lg:hidden items-center gap-3 ml-auto">
           <Link
             to="/contact"
@@ -258,7 +314,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Hamburger — shown on mobile & tablet (hidden lg+) */}
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden p-2 text-stone-900 hover:bg-stone-100 rounded-lg transition-colors ml-1"
@@ -278,7 +333,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* ── Mobile / Tablet Sidebar ── */}
       {open && (
         <div
           className="fixed inset-0 z-50 h-screen lg:hidden"
@@ -287,13 +341,10 @@ export default function Navbar() {
           <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" />
 
           <div
-            className="absolute top-0 right-0 h-full w-[82%] max-w-xs sm:max-w-sm md:max-w-xl  sm:p-4 bg-white shadow-2xl overflow-y-auto"
+            className="absolute top-0 right-0 h-full w-[82%] max-w-xs sm:max-w-sm md:max-w-xl sm:p-4 bg-white shadow-2xl overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col h-full">
-
-
-              {/* Header */}
               <div className="flex items-center justify-between px-6 pt-5 pb-5 border-b border-slate-100">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-3 mb-3">
@@ -308,39 +359,38 @@ export default function Navbar() {
                   className="h-9 w-9 border border-slate-200 text-slate-600 hover:text-emerald-700 hover:border-emerald-300 transition-colors flex items-center justify-center"
                   aria-label="Close menu"
                 >
-                  <span className="block text-lg leading-none">×</span>
+                  <span className="block text-lg leading-none">x</span>
                 </button>
               </div>
 
-              {/* Nav Links */}
               <div className="flex flex-col px-4 py-5 space-y-1">
-                {/* Solutions accordion */}
                 <button
-                  onClick={() => setMobileSolutionsOpen((prev) => !prev)}
-                  className="nb-sans group px-4 py-3.5 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 transition-all duration-300 font-bold text-[10px]  sm:text-lg uppercase tracking-[0.18em] text-left"
+                  onClick={() => setMobileServicesOpen((prev) => !prev)}
+                  className="nb-sans group px-4 py-3.5 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 transition-all duration-300 font-bold text-[10px] sm:text-lg uppercase tracking-[0.18em] text-left"
                   style={{ animation: "slideIn 0.4s ease-out 0s backwards" }}
                 >
                   <span className="flex items-center justify-between">
-                    <span>Our Solutions</span>
+                    <span>Services</span>
                     <span
-                      className={`text-emerald-600 transition-transform duration-300 text-base leading-none ${mobileSolutionsOpen ? "rotate-45" : ""}`}
+                      className={`text-emerald-600 transition-transform duration-300 text-base leading-none ${mobileServicesOpen ? "rotate-45" : ""}`}
                     >
                       +
                     </span>
                   </span>
                 </button>
 
-                {mobileSolutionsOpen && (
+                {mobileServicesOpen && (
                   <div className="flex flex-col gap-0 pl-4 pb-2 border-l border-emerald-100 ml-4">
-                    {solutionLinks.map((item, i) => (
+                    {serviceLinks.map((item, i) => (
                       <Link
                         key={item.to}
                         to={item.to}
                         onClick={() => {
                           setOpen(false);
+                          setMobileServicesOpen(false);
                           setMobileSolutionsOpen(false);
                         }}
-                        className="nb-sans group/sub px-4 py-3 text-[11px]  sm:text-lg font-medium text-slate-500 hover:text-emerald-700 hover:bg-emerald-50/40 transition-all duration-300 flex items-center justify-between"
+                        className="nb-sans group/sub px-4 py-3 text-[11px] sm:text-lg font-medium text-slate-500 hover:text-emerald-700 hover:bg-emerald-50/40 transition-all duration-300 flex items-center justify-between"
                         style={{
                           animation: `slideIn 0.4s ease-out ${0.05 + i * 0.06}s backwards`,
                         }}
@@ -364,7 +414,56 @@ export default function Navbar() {
                   </div>
                 )}
 
-                {/* Divider */}
+                <button
+                  onClick={() => setMobileSolutionsOpen((prev) => !prev)}
+                  className="nb-sans group px-4 py-3.5 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 transition-all duration-300 font-bold text-[10px] sm:text-lg uppercase tracking-[0.18em] text-left"
+                  style={{ animation: "slideIn 0.4s ease-out 0.08s backwards" }}
+                >
+                  <span className="flex items-center justify-between">
+                    <span>Solutions</span>
+                    <span
+                      className={`text-emerald-600 transition-transform duration-300 text-base leading-none ${mobileSolutionsOpen ? "rotate-45" : ""}`}
+                    >
+                      +
+                    </span>
+                  </span>
+                </button>
+
+                {mobileSolutionsOpen && (
+                  <div className="flex flex-col gap-0 pl-4 pb-2 border-l border-emerald-100 ml-4">
+                    {solutionLinks.map((item, i) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => {
+                          setOpen(false);
+                          setMobileServicesOpen(false);
+                          setMobileSolutionsOpen(false);
+                        }}
+                        className="nb-sans group/sub px-4 py-3 text-[11px] sm:text-lg font-medium text-slate-500 hover:text-emerald-700 hover:bg-emerald-50/40 transition-all duration-300 flex items-center justify-between"
+                        style={{
+                          animation: `slideIn 0.4s ease-out ${0.05 + i * 0.06}s backwards`,
+                        }}
+                      >
+                        <span>{item.name}</span>
+                        <svg
+                          className="w-3 h-3 text-emerald-400 opacity-0 group-hover/sub:opacity-100 transition-opacity"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
                 <div className="flex items-center gap-3 px-4 py-2">
                   <div className="h-px flex-1 bg-slate-100" />
                 </div>
@@ -375,9 +474,10 @@ export default function Navbar() {
                     to={link.to}
                     onClick={() => {
                       setOpen(false);
+                      setMobileServicesOpen(false);
                       setMobileSolutionsOpen(false);
                     }}
-                    className={`nb-sans group px-4 py-3.5 font-bold text-[10px]  sm:text-lg uppercase tracking-[0.18em] transition-all duration-300 flex items-center justify-between ${
+                    className={`nb-sans group px-4 py-3.5 font-bold text-[10px] sm:text-lg uppercase tracking-[0.18em] transition-all duration-300 flex items-center justify-between ${
                       location.pathname === link.to
                         ? "text-emerald-700 bg-emerald-50/60"
                         : "text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60"
@@ -404,7 +504,6 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Sidebar CTA */}
               <div className="mt-auto px-6 pb-8 pt-4 border-t border-slate-100">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="h-px w-6 bg-emerald-600" />
