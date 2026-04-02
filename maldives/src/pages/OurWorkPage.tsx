@@ -1,31 +1,4 @@
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
-
-const stats = [
-  {
-    value: "+120",
-    label: "Projects Delivered",
-    valueColor: "text-primary",
-    cardClass:
-      "bg-surface-container-lowest shadow-[0_20px_40px_rgba(0,104,116,0.06)]",
-    labelClass: "text-on-surface-variant",
-  },
-  {
-    value: "+80",
-    label: "Strategic Clients",
-    valueColor: "text-on-primary",
-    cardClass:
-      "bg-gradient-to-br from-primary to-primary-container shadow-xl text-on-primary",
-    labelClass: "text-white/80",
-  },
-  {
-    value: "+99%",
-    label: "Satisfaction Rate",
-    valueColor: "text-tertiary",
-    cardClass:
-      "bg-surface-container-lowest shadow-[0_20px_40px_rgba(0,104,116,0.06)]",
-    labelClass: "text-on-surface-variant",
-  },
-];
+import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection.tsx";
 
 const projects = [
   {
@@ -114,7 +87,7 @@ const projects = [
 
 function OurWorkPage() {
   return (
-    <main className="bg-[#ffffff] pb-24 pt-32 text-on-background selection:bg-primary-container selection:text-on-primary-container">
+    <main className="bg-[#ffffff] pb-24 pt-24 text-on-background selection:bg-primary-container selection:text-on-primary-container">
       <PinnedScrollHeadlineSection
         badge="Case Studies"
         titlePrefix="Empowering the"
@@ -123,71 +96,76 @@ function OurWorkPage() {
         description="We partner with the world's most prestigious island resorts and marine conservationists to redefine digital operations in paradise."
       />
 
-      <section className="max-w-7xl mx-auto px-6 md:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-8 group relative aspect-[16/9] overflow-hidden rounded-xl bg-surface-container-low shadow-sm hover:shadow-xl transition-all duration-500">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 md:px-9 lg:px-0 py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+          {/* Main image card */}
+          <div className="md:col-span-8 group relative aspect-[16/9]  overflow-hidden rounded-xl bg-surface-container-low shadow-sm hover:shadow-xl transition-all duration-500">
             <img
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              data-alt="Luxurious overwater bungalows in a Maldivian turquoise lagoon with crystal clear water and bright sunny skies"
               src="https://cdn.home-designing.com/wp-content/uploads/2011/12/maldives-resort-villa-1024x724.jpg"
+              alt="Luxurious overwater bungalows in a Maldivian turquoise lagoon"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
-            <div className="absolute bottom-10 left-10 text-white">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold tracking-tight uppercase font-label">
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60" />
+            <div className="absolute bottom-4 left-4 text-white p-4 lg:p-0 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 lg:bottom-10 lg:left-10">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3 md:mb-4">
+                <span className="bg-tertiary-fixed text-on-tertiary-fixed px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-bold tracking-tight uppercase font-label">
                   Resort
                 </span>
-                <span className="text-white text-sm font-medium">
+                <span className="text-white text-xs sm:text-sm font-medium">
                   Flagship Implementation
                 </span>
               </div>
-              <h3 className="text-4xl font-headline font-bold mb-2">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headline font-bold mb-1 sm:mb-2 leading-tight">
                 Velana Sapphire Estate
               </h3>
-              <p className="text-white/90 max-w-md">
+              <p className="text-white/90 text-xs sm:text-sm md:text-base max-w-xs sm:max-w-sm md:max-w-md">
                 Full-stack operational automation across 120 villas and private
                 yacht concierge.
               </p>
             </div>
           </div>
-          <div className="md:col-span-4 bg-gradient-to-br from-primary to-primary-container rounded-xl p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden">
-            <div className="absolute -right-20 -top-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+
+          {/* Stats card */}
+          <div className="md:col-span-4 bg-gradient-to-br from-primary to-primary-container rounded-xl p-8 sm:p-8 md:p-8 lg:p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden">
+            <div className="absolute -right-20 -top-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl" />
             <div className="relative z-10">
               <span className="text-white/95 font-bold tracking-widest text-xs uppercase font-label">
                 The Impact
               </span>
-              <h3 className="text-3xl font-headline font-bold text-white mt-4 mb-6 leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-headline font-bold text-white mt-3 sm:mt-4 mb-4 sm:mb-6 leading-tight">
                 Digital transformation beyond expectations.
               </h3>
-              <ul className="space-y-6">
-                <li className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-tertiary-fixed-dim">
+              <ul className="space-y-4 sm:space-y-6">
+                <li className="flex items-start gap-3 sm:gap-4">
+                  <span className="material-symbols-outlined text-tertiary-fixed-dim text-xl sm:text-2xl flex-shrink-0">
                     verified
                   </span>
                   <div>
-                    <p className="text-white font-semibold">99.8% Uptime</p>
-                    <p className="text-on-primary-container text-sm">
+                    <p className="text-white font-semibold text-sm sm:text-base">
+                      99.8% Uptime
+                    </p>
+                    <p className="text-on-primary-container text-xs sm:text-sm">
                       Critical hospitality infrastructure reliability.
                     </p>
                   </div>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-tertiary-fixed-dim">
+                <li className="flex items-start gap-3 sm:gap-4">
+                  <span className="material-symbols-outlined text-tertiary-fixed-dim text-xl sm:text-2xl flex-shrink-0">
                     speed
                   </span>
                   <div>
-                    <p className="text-white font-semibold">
+                    <p className="text-white font-semibold text-sm sm:text-base">
                       35% Efficiency Gain
                     </p>
-                    <p className="text-on-primary-container text-sm">
+                    <p className="text-on-primary-container text-xs sm:text-sm">
                       Reduced manual guest service overhead.
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
-            <div className="mt-8">
-              <button className="w-full py-4 bg-white/10 hover:bg-white/20 text-white rounded-lg font-headline font-bold transition-colors border border-white/10">
+            <div className="mt-6 sm:mt-8">
+              <button className="w-full py-3 sm:py-4 bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base rounded-lg font-headline font-bold transition-colors border border-white/10">
                 Read Case Study
               </button>
             </div>
@@ -195,41 +173,19 @@ function OurWorkPage() {
         </div>
       </section>
 
-      <section className="mx-auto my-32 max-w-7xl px-6 md:px-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className={`flex flex-col items-center justify-center rounded-xl p-10 text-center ${stat.cardClass}`}
-            >
-              <span
-                className={`mb-2 font-headline text-5xl font-extrabold md:text-6xl ${stat.valueColor}`}
-              >
-                {stat.value}
-              </span>
-              <span
-                className={`font-label text-sm font-medium uppercase tracking-widest ${stat.labelClass}`}
-              >
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="max-w-7xl mx-auto px-6 md:px-0 py-12">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-4xl font-headline font-extrabold text-primary tracking-tight">
+        <div className="flex flex-col gap-6 mb-8 sm:flex-row sm:items-center sm:justify-between sm:mb-10 md:mb-12">
+          <h2 className="text-2xl font-headline font-extrabold text-primary tracking-tight sm:text-3xl md:text-4xl">
             Recent Deployments
           </h2>
-          <div className="flex gap-2">
-            <span className="px-5 py-2 bg-surface-container-highest text-primary font-bold rounded-full cursor-pointer hover:bg-secondary-fixed transition-colors">
+          <div className="flex gap-2 flex-wrap">
+            <span className="px-4 py-1.5 text-sm sm:px-5 sm:py-2 sm:text-base bg-surface-container-highest text-primary font-bold rounded-full cursor-pointer hover:bg-secondary-fixed transition-colors">
               All
             </span>
-            <span className="px-5 py-2 bg-surface-container-low text-on-surface-variant font-medium rounded-full cursor-pointer hover:bg-secondary-fixed transition-colors">
+            <span className="px-4 py-1.5 text-sm sm:px-5 sm:py-2 sm:text-base bg-surface-container-low text-on-surface-variant font-medium rounded-full cursor-pointer hover:bg-secondary-fixed transition-colors">
               Resorts
             </span>
-            <span className="px-5 py-2 bg-surface-container-low text-on-surface-variant font-medium rounded-full cursor-pointer hover:bg-secondary-fixed transition-colors">
+            <span className="px-4 py-1.5 text-sm sm:px-5 sm:py-2 sm:text-base bg-surface-container-low text-on-surface-variant font-medium rounded-full cursor-pointer hover:bg-secondary-fixed transition-colors">
               Marine
             </span>
           </div>
@@ -300,8 +256,9 @@ function OurWorkPage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-32 max-w-7xl px-6 md:px-8">
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-16 text-center md:p-24">
+      <section className="mx-auto mt-16 sm:mt-24 md:mt-32 max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-8 text-center sm:p-12 md:p-16 lg:p-24">
+          {/* Background texture */}
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -311,25 +268,29 @@ function OurWorkPage() {
               backgroundPosition: "center",
             }}
           />
+
+          {/* Content */}
           <div className="relative z-10 mx-auto max-w-2xl">
-            <h2 className="mb-8 font-headline text-4xl font-bold leading-tight text-on-primary md:text-5xl">
+            <h2 className="mb-4 sm:mb-6 md:mb-8 font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-on-primary">
               Ready to transform your resort experience?
             </h2>
-            <p className="mb-12 text-lg text-white/80">
+            <p className="mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base md:text-lg text-white/80">
               Join the Maldives&apos; leading hospitality brands in the digital
               future.
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <button className="scale-100 rounded-full bg-surface-container-lowest px-8 py-4 text-lg font-bold text-primary transition-all active:scale-95 hover:shadow-xl">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+              <button className="scale-100 rounded-full bg-surface-container-lowest px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-primary transition-all active:scale-95 hover:shadow-xl">
                 Start a Project
               </button>
-              <button className="rounded-full border border-white/30 bg-transparent px-8 py-4 text-lg font-bold text-white transition-all hover:bg-white/10">
+              <button className="rounded-full border border-white/30 bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10">
                 View all Services
               </button>
             </div>
           </div>
-          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-secondary-container/20 blur-3xl" />
+
+          {/* Decorative blobs */}
+          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl sm:-right-16 sm:-top-16 sm:h-52 sm:w-52 md:-right-20 md:-top-20 md:h-64 md:w-64" />
+          <div className="absolute -bottom-16 -left-16 h-52 w-52 rounded-full bg-secondary-container/20 blur-3xl sm:-bottom-24 sm:-left-24 sm:h-72 sm:w-72 md:-bottom-32 md:-left-32 md:h-96 md:w-96" />
         </div>
       </section>
     </main>

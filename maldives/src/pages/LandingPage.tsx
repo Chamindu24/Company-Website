@@ -4,9 +4,9 @@ import LandingHeroSection from "../components/LandingHeroSection";
 const ecosystemCards = [
   {
     icon: "directions_boat",
-    title: "Viduvaru",
+    title: "Viduvaru Boats",
     description:
-      "The central intelligence hub connecting your entire digital infrastructure seamlessly.",
+      "Reliable inter-island boat service connecting resorts and local destinations.",
     textColor: "text-primary",
     bgColor: "bg-primary/10",
   },
@@ -258,13 +258,16 @@ function LandingPage() {
                   className="group relative break-inside-avoid overflow-hidden rounded-md bg-stone-100 transition-all duration-500 hover:shadow-2xl"
                 >
                   <div
-                    className={`relative w-full overflow-hidden ${
-                      index % 3 === 0
-                        ? "aspect-[3/4]"
-                        : index % 2 === 0
-                          ? "aspect-square"
-                          : "aspect-[4/5]"
-                    }`}
+                    className={`relative w-full overflow-hidden 
+                  aspect-[1] 
+                  sm:aspect-[3/4] 
+                  md:${
+                    index % 3 === 0
+                      ? "aspect-[3/4]"
+                      : index % 2 === 0
+                        ? "aspect-square"
+                        : "aspect-[4/5]"
+                  }`}
                   >
                     {/* Base Image: Grayscale to Color Transition */}
                     <img
@@ -313,57 +316,57 @@ function LandingPage() {
 
         <HowItWorksSection />
 
-        <section className="bg-[#FCFBFA] px-6 py-24 md:px-8 md:py-32">
-          <h2 className="mb-8 text-5xl text-center font-bold tracking-tighter">
+        <section className="bg-[#FCFBFA] px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
+          <h2 className="mb-8 text-3xl text-center font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Why Industry Leaders{" "}
             <span className="text-primary">
-              Choose <br /> LUSHWARE
+              Choose <br className="hidden sm:block" /> LUSHWARE
             </span>
           </h2>
-<div className="mx-auto max-w-7xl pt-20 px-6">
-  {/* Grid Container: 1 column on mobile, 2 columns on medium screens and up */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-    {whyChooseItems.slice(0, 4).map((item) => (
-      <div 
-        key={item.title} 
-        className="group flex bg-[#ffffff]  gap-8 items-center p-6 transition-all duration-300 hover:bg-surface-variant/5 rounded-2xl border border-primary/20 hover:border-primary/30"
-      >
-        {/* Icon: Minimal and consistent */}
-        <div
-          className={`flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl ${item.color} text-on-primary shadow-sm group-hover:shadow-md transition-shadow`}
-        >
-          <span className="material-symbols-outlined text-3xl font-light">
-            {item.icon}
-          </span>
-        </div>
 
-        {/* Content Section */}
-        <div className="flex-1">
-          <div className="flex items-center justify-between mb-3">
-            <h4 className="text-2xl  font-bold text-primary tracking-tight">
-              {item.title}
-            </h4>
-            {/* Subtle indicator for a premium feel */}
-            <span className="material-symbols-outlined text-primary/30 scale-75 group-hover:translate-x-1 group-hover:text-primary transition-all">
-              arrow_forward
-            </span>
+          <div className="mx-auto max-w-7xl pt-10 px-0 sm:pt-14 sm:px-4 md:pt-20 md:px-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-x-12 md:gap-y-8">
+              {whyChooseItems.slice(0, 4).map((item) => (
+                <div
+                  key={item.title}
+                  className="group flex bg-[#ffffff] gap-4 sm:gap-6 md:gap-8 items-start sm:items-center p-4 sm:p-5 md:p-6 transition-all duration-300 hover:bg-surface-variant/5 rounded-2xl border border-primary/20 hover:border-primary/30"
+                >
+                  {/* Icon */}
+                  <div
+                    className={`flex h-12 w-12 flex-shrink-0 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-xl ${item.color} text-on-primary shadow-sm group-hover:shadow-md transition-shadow`}
+                  >
+                    <span className="material-symbols-outlined text-2xl sm:text-3xl font-light">
+                      {item.icon}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-2 sm:mb-3">
+                      <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-primary tracking-tight leading-tight">
+                        {item.title}
+                      </h4>
+                      <span className="material-symbols-outlined text-primary/30 scale-75 group-hover:translate-x-1 group-hover:text-primary transition-all flex-shrink-0 ml-2">
+                        arrow_forward
+                      </span>
+                    </div>
+
+                    {/* Animated divider */}
+                    <div className="h-px w-8 bg-primary/30 mb-2 sm:mb-4 group-hover:w-full transition-all duration-500" />
+
+                    <p className="text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          
-          {/* Divider line that grows on hover */}
-          <div className="h-px w-8 bg-primary/30 mb-4 group-hover:w-full transition-all duration-500" />
-          
-          <p className="text-on-surface-variant text-lg leading-relaxed ">
-            {item.description}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
         </section>
 
-        <section className="px-6 bg-[#ffffff] py-24 md:px-8 md:py-32">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-secondary p-12 text-center md:p-24">
+        <section className="px-4 bg-[#ffffff] py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-secondary p-6 text-center sm:rounded-3xl sm:p-12 md:p-16 lg:p-24">
+            {/* Texture overlay */}
             <div className="absolute inset-0 opacity-10">
               <img
                 className="h-full w-full object-cover"
@@ -371,19 +374,21 @@ function LandingPage() {
                 alt="Abstract water ripple texture"
               />
             </div>
+
+            {/* Content */}
             <div className="relative z-10 mx-auto max-w-2xl">
-              <h2 className="mb-8 text-4xl font-extrabold tracking-tighter text-on-primary md:text-5xl">
+              <h2 className="mb-4 text-2xl font-extrabold tracking-tighter text-on-primary sm:mb-6 sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl">
                 Ready to transform your hospitality experience?
               </h2>
-              <p className="mb-12 text-lg text-primary-fixed opacity-90">
+              <p className="mb-8 text-sm text-primary-fixed opacity-90 sm:text-base md:mb-12 md:text-lg">
                 Join the growing network of Maldivian properties leading the
                 digital revolution with Viduvaru.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
-                <button className="rounded-full bg-white px-10 py-5 text-lg font-bold text-primary shadow-2xl transition-all hover:bg-primary-fixed">
+              <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
+                <button className="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-primary shadow-2xl transition-all hover:bg-primary-fixed sm:w-auto sm:px-10 sm:py-5 sm:text-lg">
                   Get Started Now
                 </button>
-                <button className="rounded-full border-2 border-white/30 bg-transparent px-10 py-5 text-lg font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10">
+                <button className="w-full rounded-full border-2 border-white/30 bg-transparent px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto sm:px-10 sm:py-5 sm:text-lg">
                   Schedule a Demo
                 </button>
               </div>

@@ -16,7 +16,6 @@ function LandingHeroSection() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#030303]">
-      <div className="absolute inset-0 z-[30] pointer-events-none bg-[#26AEBF]/10" />
       {/* TOP GRADIENT */}
       <div className="absolute top-0 left-0 w-full z-50 pointer-events-none">
         <div className="h-64 w-full bg-gradient-to-b from-white to-transparent" />
@@ -30,7 +29,7 @@ function LandingHeroSection() {
       {/* BACKGROUND */}
       <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0">
         <img
-          className="h-full w-full brightness-[0.75] saturate-[0.8]"
+          className="h-full w-full brightness-[0.75] "
           src="/work/herobg.webp"
           alt="Maldives Horizon"
         />

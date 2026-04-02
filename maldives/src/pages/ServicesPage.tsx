@@ -1,4 +1,4 @@
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
+import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection.tsx";
 import FAQSection from "../components/FAQSection";
 
 const servicesFAQs = [
@@ -44,12 +44,12 @@ function ServicesPage() {
         titleSuffix=""
         description="Transforming the Maldivian business landscape with tailored software solutions, automated intelligence, and premium digital experiences."
       >
-        <div className="flex flex-wrap gap-4">
-          <button className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-semibold text-on-primary transition-all hover:opacity-90">
+        <div className="flex flex-wrap justify-center gap-4">
+          <button className="flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 font-semibold text-on-primary transition-all hover:opacity-90">
             Get Started{" "}
             <span className="material-symbols-outlined">arrow_forward</span>
           </button>
-          <button className="rounded-full bg-surface-container-highest/50 px-8 py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest">
+          <button className="rounded-full border-2 border-primary px-8 py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest">
             View Portfolio
           </button>
         </div>
@@ -207,47 +207,49 @@ function ServicesPage() {
         subtitle="Common questions about our digital services and solutions"
       />
 
-      <section className="px-6 py-24 md:px-8">
-        <div className="relative mx-auto h-[450px] w-full max-w-7xl overflow-hidden rounded-2xl shadow-2xl">
+      <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
+        <div
+          className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-3xl shadow-2xl
+                  h-auto min-h-[360px] sm:min-h-[400px] md:h-[450px]"
+        >
           {/* Background Image */}
           <img
             alt="Luxurious resort setting"
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             src="https://t4.ftcdn.net/jpg/02/74/31/83/360_F_274318370_wBHOPOO8AYRapUFkxgkioO2xtCsZvkXi.jpg"
           />
 
-          {/* Darker Overlay for better text contrast */}
+          {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/25" />
 
-          {/* Gradient Overlay for a sophisticated feel */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-12 text-center">
-            <div className="relative z-10 max-w-3xl">
-              <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-white md:text-5xl">
+          {/* Gradient + Content */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-6 sm:p-10 md:p-12 text-center">
+            <div className="relative z-10 max-w-3xl w-full">
+              <h2 className="mb-4 sm:mb-5 md:mb-6 font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                 Ready to start your digital journey?
               </h2>
 
-              <p className="mb-10 text-lg text-slate-100 md:text-xl">
+              <p className="mb-7 sm:mb-8 md:mb-10 text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 max-w-xl mx-auto">
                 Join the leading resorts and businesses in the Maldives who
                 trust Viduvaru for their digital transformation. Our solutions
                 currently power operations for over 45 luxury island
                 destinations.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-6">
-                <button className="rounded-full bg-white px-8 py-3 font-bold text-primary shadow-xl transition-all hover:scale-105 active:scale-95">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
+                <button className="w-full sm:w-auto rounded-full bg-white px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-primary shadow-xl transition-all hover:scale-105 active:scale-95">
                   Schedule a Free Consultation
                 </button>
-
-                <button className="rounded-full border border-white/30 bg-white/10 px-8 py-3 font-bold text-white backdrop-blur-md transition-all hover:bg-white/20">
+                <button className="w-full sm:w-auto rounded-full border border-white/30 bg-white/10 px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all hover:bg-white/20">
                   View Case Studies
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Subtle Decorative Glows */}
-          <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
+          {/* Decorative glows */}
+          <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/20 blur-3xl sm:-left-16 sm:-top-16 sm:h-52 sm:w-52 md:-left-24 md:-top-24 md:h-64 md:w-64" />
+          <div className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-secondary/20 blur-3xl sm:-bottom-16 sm:-right-16 sm:h-52 sm:w-52 md:-bottom-24 md:-right-24 md:h-64 md:w-64" />
         </div>
       </section>
     </main>

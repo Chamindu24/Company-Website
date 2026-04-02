@@ -57,7 +57,7 @@ function HowItWorksPremium() {
         </div>
 
         {/* STEPPER */}
-        <div className="flex flex-col md:flex-row h-[800px] md:h-[600px] gap-2">
+        <div className="flex flex-col md:flex-row h-[700px] md:h-[600px] gap-2">
           {steps.map((step, index) => (
             <div
               key={step.id}

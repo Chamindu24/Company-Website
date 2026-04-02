@@ -1,4 +1,8 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
+import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
+import InquiryForm from "../components/InquiryForm";
 
 const faqItems = [
   {
@@ -68,74 +72,53 @@ const occupancyBars = [80, 90, 40, 95, 85, 100, 98];
 const occupancyDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 function PropertyManagementSystemPage() {
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+
+  const openInquiryModal = () => setIsInquiryOpen(true);
+  const closeInquiryModal = () => setIsInquiryOpen(false);
+
   return (
-    <main className="overflow-hidden bg-[#ffffff] pb-24 pt-12 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-      <section className="relative overflow-hidden px-6 py-20 md:px-8 lg:py-32">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
-          <div className="z-10">
-            <span className="mb-6 inline-block rounded-full bg-secondary-container/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary">
-              Premium Management Solution
-            </span>
-            <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[1.1] tracking-tighter text-on-surface lg:text-7xl">
-              Advanced Property &amp;{" "}
-              <span className="bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent">
-                Real Estate
-              </span>{" "}
-              Control
-            </h1>
-            <p className="mb-12 max-w-xl text-lg leading-relaxed text-on-surface-variant lg:text-xl">
-              Experience the digital sanctuary of property management.
-              Effortlessly oversee luxury villas and island retreats with
-              Maldivian precision and global intelligence.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-lg font-bold text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] transition-transform hover:scale-105">
-                Start Your Journey
-              </button>
-              <button className="rounded-full bg-surface-container-highest px-8 py-4 text-lg font-bold text-primary transition-colors hover:bg-surface-container-high">
-                View Showcase
-              </button>
-            </div>
-          </div>
+    <main className="bg-[#ffffff] pb-24 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+      <PinnedScrollHeadlineSection
+        badge="Premium Management Solution"
+        titlePrefix="Advanced Property &"
+        highlightText="Real Estate Control"
+        titleSuffix=""
+        description="Experience the digital sanctuary of property management. Effortlessly oversee luxury villas and island retreats with Maldivian precision and global intelligence."
+        sectionClassName="bg-[#ffffff]"
+      >
+        <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-8 justify-center ">
+          <button
+            type="button"
+            onClick={openInquiryModal}
+            className="rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-lg font-bold text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] transition-transform hover:scale-105"
+          >
+            Send Requirements
+          </button>
+          <Link
+            to="/contact"
+            className="rounded-full border-2 border-primary px-8 py-4 text-lg font-bold text-primary transition-colors hover:bg-surface-container-high"
+          >
+            View Showcase
+          </Link>
+        </div>
+      </PinnedScrollHeadlineSection>
 
-          <div className="relative flex items-center justify-center lg:h-[600px]">
-            <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-primary-container/10 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-tertiary-container/10 blur-3xl" />
-
-            <div className="relative z-10 aspect-square w-full overflow-hidden rounded-xl shadow-2xl">
-              <img
-                alt="Luxury villa Maldives"
-                className="h-full w-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAogCZLQISwKOmjWDJ2SGbcMS4EKmdfc_j2qcvDksP74FHmnalm0OmY3cjwtxT3ImH0KZh-BkhXm0nMrEYgdU4lPWhfL50nSgS1JcTNILQ02uJeI61VrOsKOFqTUDr2ByCEnoFFww-mF8kPVjbesAsoB7VOeiWjbkc67Al-MVQiCwhs4xNGySFZutcC9N-AYZ1MjmPlKf6AAy-ugFMcESmNUUojO3hnqTnPmhAQ2ahk-SAGxJ9UsSlsv3r-bBfGxBa6wqrnSLnc-oc"
-              />
-
-              <div className="glass-panel absolute bottom-8 left-8 right-8 rounded-lg p-6 shadow-xl">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <p className="mb-1 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
-                      Average Occupancy
-                    </p>
-                    <h3 className="font-headline text-3xl font-extrabold text-primary">
-                      94.2%
-                    </h3>
-                  </div>
-                  <div className="flex gap-2">
-                    <div className="flex h-12 w-2 flex-col justify-end rounded-full bg-primary-container/20">
-                      <div className="h-4/5 rounded-full bg-primary" />
-                    </div>
-                    <div className="flex h-12 w-2 flex-col justify-end rounded-full bg-primary-container/20">
-                      <div className="h-3/5 rounded-full bg-primary" />
-                    </div>
-                    <div className="flex h-12 w-2 flex-col justify-end rounded-full bg-primary-container/20">
-                      <div className="h-5/6 rounded-full bg-primary" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {isInquiryOpen ? (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+          <div className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white p-6 md:p-8">
+            <InquiryForm
+              topic="Property Management System"
+              ctaLabel="Submit Inquiry"
+              onSuccess={closeInquiryModal}
+              onClose={closeInquiryModal}
+              showCloseButton
+            />
           </div>
         </div>
-      </section>
+      ) : null}
+
+
 
       <section className="bg-[#ffffff] px-6 py-24 md:px-8">
         <div className="mx-auto max-w-7xl">
@@ -216,7 +199,7 @@ function PropertyManagementSystemPage() {
                       {[30, 60, 45, 90, 55, 75, 40].map((h, i) => (
                         <div
                           key={i}
-                          className="w-2.5 bg-[#26AEBF]/20 rounded-t-sm transition-all duration-1000 group-hover:bg-[#26AEBF]"
+                          className="w-2.5 bg-[#26AEBF]/80 rounded-t-sm transition-all duration-1000 group-hover:bg-[#26AEBF]"
                           style={{
                             height: `${h}%`,
                             transitionDelay: `${i * 50}ms`,
@@ -256,51 +239,50 @@ function PropertyManagementSystemPage() {
         </div>
       </section>
 
-      <section className="bg-surface px-6 py-24 md:px-8 overflow-hidden">
+      <section className="bg-surface px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl">
-          {/* 3D Perspective Wrapper - Gives the tablet "physical" presence */}
           <div className="relative mx-auto w-full max-w-[1000px] [perspective:2000px]">
-            {/* Physical iPad Hardware Chassis */}
-            <div className="relative rounded-[3.5rem] border-[1px] border-slate-500/30 bg-[#121212] p-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4),0_20px_40px_-15px_rgba(0,0,0,0.3)] [transform:rotateX(10deg)_rotateY(-5deg)_rotateZ(1deg)] transition-transform duration-700 hover:rotate-0">
-              {/* Physical Hardware Buttons */}
-              <div className="absolute -right-[2px] top-32 h-16 w-[3px] rounded-l-sm bg-slate-700" />
-              <div className="absolute -right-[2px] top-52 h-16 w-[3px] rounded-l-sm bg-slate-700" />
-              <div className="absolute right-20 -top-[2px] h-[3px] w-12 rounded-b-sm bg-slate-700" />
+            {/* iPad Chassis */}
+            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] border-[1px] border-slate-500/30 bg-[#121212] p-[8px] sm:p-[10px] lg:p-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4),0_20px_40px_-15px_rgba(0,0,0,0.3)] lg:[transform:rotateX(10deg)_rotateY(-5deg)_rotateZ(1deg)] transition-transform duration-700 hover:rotate-0">
+              {/* Hardware Buttons — hidden on mobile to avoid overflow */}
+              <div className="hidden sm:block absolute -right-[2px] top-32 h-16 w-[3px] rounded-l-sm bg-slate-700" />
+              <div className="hidden sm:block absolute -right-[2px] top-52 h-16 w-[3px] rounded-l-sm bg-slate-700" />
+              <div className="hidden sm:block absolute right-20 -top-[2px] h-[3px] w-12 rounded-b-sm bg-slate-700" />
 
-              {/* The Screen Bezel (The black border around the glass) */}
-              <div className="relative overflow-hidden rounded-[2.8rem] bg-[#050505] p-4 ring-1 ring-inset ring-white/10 shadow-inner">
-                {/* Glass Reflection Overlay */}
+              {/* Screen Bezel */}
+              <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.8rem] bg-[#050505] p-2 sm:p-3 lg:p-4 ring-1 ring-inset ring-white/10 shadow-inner">
+                {/* Glass Reflection */}
                 <div className="pointer-events-none absolute inset-0 z-50 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-60" />
 
-                {/* Front Camera Lens with blue optic coating */}
-                <div className="absolute left-1/2 top-5 z-50 h-3 w-3 -translate-x-1/2 rounded-full bg-[#1a1a1a] ring-1 ring-white/5">
-                  <div className="mx-auto mt-1 h-1 w-1 rounded-full bg-blue-900/40 shadow-[0_0_2px_rgba(0,0,255,0.5)]" />
+                {/* Camera */}
+                <div className="absolute left-1/2 top-3 sm:top-4 lg:top-5 z-50 h-2 w-2 sm:h-3 sm:w-3 -translate-x-1/2 rounded-full bg-[#1a1a1a] ring-1 ring-white/5">
+                  <div className="mx-auto mt-0.5 sm:mt-1 h-1 w-1 rounded-full bg-blue-900/40 shadow-[0_0_2px_rgba(0,0,255,0.5)]" />
                 </div>
 
-                {/* Software Interface (The actual Screen Content) */}
-                <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl">
-                  {/* Top Bar - Maldives Resort PMS Status */}
-                  <div className="flex items-center justify-between border-b border-outline-variant/10 bg-surface-container-lowest px-10 py-5">
-                    <div className="flex items-center gap-4">
-                      <div className="text-xs font-black uppercase tracking-[0.2em] text-primary">
+                {/* Screen Content */}
+                <div className="overflow-hidden rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] bg-white shadow-2xl">
+                  {/* Top Bar */}
+                  <div className="flex items-center justify-between border-b border-outline-variant/10 bg-surface-container-lowest px-4 sm:px-6 lg:px-10 py-3 sm:py-4 lg:py-5">
+                    <div className="flex items-center gap-2 sm:gap-4">
+                      <div className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-primary">
                         LUSHWARE{" "}
                         <span className="font-light text-on-surface-variant">
                           OS v5.0
                         </span>
                       </div>
-                      <div className="mx-2 h-4 w-px bg-outline-variant/50" />
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+                      <div className="mx-1 sm:mx-2 h-4 w-px bg-outline-variant/50" />
+                      <div className="hidden sm:block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
                         Maldives Luxury PMS
                       </div>
                     </div>
-                    <div className="flex items-center gap-6">
-                      <span className="material-symbols-outlined text-lg text-on-surface-variant">
+                    <div className="flex items-center gap-3 sm:gap-6">
+                      <span className="material-symbols-outlined text-base lg:text-lg text-on-surface-variant">
                         wifi
                       </span>
-                      <span className="material-symbols-outlined text-lg text-emerald-500">
+                      <span className="material-symbols-outlined text-base lg:text-lg text-emerald-500">
                         battery_full_alt
                       </span>
-                      <div className="h-9 w-9 overflow-hidden rounded-full border-2 border-white ring-1 ring-primary/20 shadow-sm">
+                      <div className="h-7 w-7 sm:h-9 sm:w-9 overflow-hidden rounded-full border-2 border-white ring-1 ring-primary/20 shadow-sm">
                         <img
                           alt="General Manager"
                           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
@@ -310,10 +292,10 @@ function PropertyManagementSystemPage() {
                   </div>
 
                   <div className="grid grid-cols-12">
-                    {/* Sidebar: Premium Maldives Operations */}
-                    <aside className="col-span-3 bg-slate-50 p-8 min-h-[550px] border-r border-slate-100">
-                      <div className="space-y-8">
-                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">
+                    {/* Sidebar */}
+                    <aside className="col-span-3 bg-slate-50 p-3 sm:p-5 lg:p-8 min-h-[400px] sm:min-h-[480px] lg:min-h-[550px] border-r border-slate-100">
+                      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+                        <p className="text-[8px] sm:text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 sm:mb-4">
                           Resort Hub
                         </p>
                         {[
@@ -329,12 +311,12 @@ function PropertyManagementSystemPage() {
                         ].map((item, i) => (
                           <div
                             key={i}
-                            className={`flex items-center gap-4 cursor-pointer transition-all hover:translate-x-1 ${item.active ? "text-primary" : "text-slate-500"}`}
+                            className={`flex items-center gap-2 sm:gap-4 cursor-pointer transition-all hover:translate-x-1 ${item.active ? "text-primary" : "text-slate-500"}`}
                           >
-                            <span className="material-symbols-outlined text-xl">
+                            <span className="material-symbols-outlined text-base sm:text-xl">
                               {item.icon}
                             </span>
-                            <span className="text-[11px] font-bold uppercase tracking-wider">
+                            <span className="hidden sm:block text-[9px] lg:text-[11px] font-bold uppercase tracking-wider">
                               {item.label}
                             </span>
                           </div>
@@ -342,88 +324,97 @@ function PropertyManagementSystemPage() {
                       </div>
                     </aside>
 
-                    {/* Main Dashboard Content */}
-                    <main className="col-span-9 p-10 bg-white">
-                      <div className="mb-10 flex items-end justify-between">
+                    {/* Main Dashboard */}
+                    <main className="col-span-9 p-4 sm:p-6 lg:p-10 bg-white">
+                      <div className="mb-5 sm:mb-7 lg:mb-10 flex items-end justify-between">
                         <div>
-                          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+                          <h2 className="text-base sm:text-lg lg:text-2xl font-black text-slate-900 tracking-tight">
                             Island Overview
                           </h2>
-                          <p className="text-xs text-slate-500">
+                          <p className="text-[9px] sm:text-xs text-slate-500">
                             Baa Atoll Portfolio • Live Briefing
                           </p>
                         </div>
-                        <div className="flex gap-2 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">
-                          <span className="material-symbols-outlined text-sm">
+                        <div className="flex gap-1 sm:gap-2 text-[9px] sm:text-xs font-bold text-emerald-600 bg-emerald-50 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
+                          <span className="material-symbols-outlined text-xs sm:text-sm">
                             sync
-                          </span>{" "}
-                          Live Sync
+                          </span>
+                          <span className="hidden sm:inline">Live Sync</span>
                         </div>
                       </div>
 
-                      {/* Luxury KPIs */}
-                      <div className="mb-10 grid grid-cols-3 gap-6">
-                        <div className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-md">
-                          <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
-                            Daily RevPAR
-                          </span>
-                          <span className="text-3xl font-black text-slate-900">
-                            $2,450
-                            <span className="text-sm font-medium text-slate-400">
-                              .00
+                      {/* KPIs */}
+                      <div className="mb-5 sm:mb-7 lg:mb-10 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
+                        {[
+                          {
+                            label: "Daily RevPAR",
+                            value: "$2,450",
+                            sub: ".00",
+                            badge: "+18.4% Yield",
+                            badgeColor: "text-emerald-600",
+                          },
+                          {
+                            label: "Villa Occupancy",
+                            value: "94%",
+                            badge: "42/45 Overwater Villas",
+                            badgeColor: "text-primary",
+                          },
+                          {
+                            label: "Seaplane Hub",
+                            value: "08",
+                            badge: "2 TMA Flights in 15m",
+                            badgeColor: "text-error",
+                          },
+                        ].map((kpi, i) => (
+                          <div
+                            key={i}
+                            className="flex flex-col gap-1 sm:gap-2 rounded-xl sm:rounded-2xl border border-slate-100 bg-white p-3 sm:p-5 lg:p-7 shadow-sm transition-all hover:shadow-md"
+                          >
+                            <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
+                              {kpi.label}
                             </span>
-                          </span>
-                          <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-600">
-                            <span className="material-symbols-outlined text-sm">
-                              trending_up
+                            <span className="text-lg sm:text-2xl lg:text-3xl font-black text-slate-900">
+                              {kpi.value}
+                              {kpi.sub && (
+                                <span className="text-xs sm:text-sm font-medium text-slate-400">
+                                  {kpi.sub}
+                                </span>
+                              )}
                             </span>
-                            +18.4% Yield
-                          </span>
-                        </div>
-
-                        <div className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-md">
-                          <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
-                            Villa Occupancy
-                          </span>
-                          <span className="text-3xl font-black text-slate-900">
-                            94%
-                          </span>
-                          <span className="text-[11px] font-bold text-primary">
-                            42/45 Overwater Villas
-                          </span>
-                        </div>
-
-                        <div className="flex flex-col gap-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-md">
-                          <span className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-400">
-                            Seaplane Hub
-                          </span>
-                          <span className="text-3xl font-black text-slate-900">
-                            08
-                          </span>
-                          <span className="text-[11px] font-bold text-error">
-                            2 TMA Flights in 15m
-                          </span>
-                        </div>
+                            <span
+                              className={`text-[8px] sm:text-[11px] font-bold ${kpi.badgeColor} flex items-center gap-1`}
+                            >
+                              {i === 0 && (
+                                <span className="material-symbols-outlined text-xs sm:text-sm">
+                                  trending_up
+                                </span>
+                              )}
+                              <span className="hidden sm:inline">
+                                {kpi.badge}
+                              </span>
+                            </span>
+                          </div>
+                        ))}
                       </div>
 
-                      {/* Chart Area */}
-                      <div className="rounded-3xl border border-slate-100 bg-slate-50/50 p-8">
-                        <div className="mb-10 flex items-center justify-between">
+                      {/* Chart */}
+                      <div className="rounded-2xl lg:rounded-3xl border border-slate-100 bg-slate-50/50 p-4 sm:p-6 lg:p-8">
+                        <div className="mb-5 sm:mb-7 lg:mb-10 flex items-center justify-between">
                           <div>
-                            <h4 className="text-sm font-black uppercase tracking-widest text-slate-900">
+                            <h4 className="text-[10px] sm:text-sm font-black uppercase tracking-widest text-slate-900">
                               Arrival Density
                             </h4>
-                            <p className="text-[10px] text-slate-500">
+                            <p className="hidden sm:block text-[10px] text-slate-500">
                               Velana Int. Airport Sync (VIA)
                             </p>
                           </div>
-                          <select className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-[10px] font-black uppercase tracking-widest outline-none">
-                            <option>Current Week</option>
+                          <select className="rounded-lg sm:rounded-xl border border-slate-200 bg-white px-2 sm:px-4 py-1 sm:py-2 text-[8px] sm:text-[10px] font-black uppercase tracking-widest outline-none">
+                            <option>This Week</option>
                             <option>Peak Forecast</option>
                           </select>
                         </div>
 
-                        <div className="flex h-44 items-end justify-between gap-4 px-4">
+                        <div className="flex h-28 sm:h-36 lg:h-44 items-end justify-between gap-1 sm:gap-2 lg:gap-4 px-1 sm:px-2 lg:px-4">
                           {occupancyBars.map((value, index) => (
                             <div
                               key={index}
@@ -434,12 +425,12 @@ function PropertyManagementSystemPage() {
                                   className="absolute bottom-0 w-full rounded-full bg-gradient-to-t from-primary to-primary-container shadow-lg transition-all duration-700"
                                   style={{ height: `${value}%` }}
                                 >
-                                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 scale-0 rounded bg-slate-900 px-2 py-1 text-[8px] text-white transition-all group-hover:scale-100">
+                                  <div className="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 scale-0 rounded bg-slate-900 px-1 sm:px-2 py-0.5 sm:py-1 text-[7px] sm:text-[8px] text-white transition-all group-hover:scale-100">
                                     {value}%
                                   </div>
                                 </div>
                               </div>
-                              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[9px] font-black uppercase tracking-tighter text-slate-400">
+                              <span className="absolute -bottom-5 sm:-bottom-8 left-1/2 -translate-x-1/2 text-[7px] sm:text-[9px] font-black uppercase tracking-tighter text-slate-400">
                                 {occupancyDays[index]}
                               </span>
                             </div>
@@ -449,48 +440,48 @@ function PropertyManagementSystemPage() {
                     </main>
                   </div>
 
-                  {/* iPad Home Bar Indicator */}
-                  <div className="mx-auto mb-2 h-1.5 w-32 rounded-full bg-slate-200" />
+                  {/* Home Bar */}
+                  <div className="mx-auto mb-1.5 sm:mb-2 h-1 sm:h-1.5 w-20 sm:w-32 rounded-full bg-slate-200" />
                 </div>
               </div>
             </div>
 
-            {/* Surface Reflection (Floor Shadow) to ground the device */}
+            {/* Floor Shadow */}
             <div className="absolute -bottom-16 left-1/2 h-10 w-[85%] -translate-x-1/2 rounded-[100%] bg-slate-900/15 blur-[40px] -z-10" />
           </div>
         </div>
       </section>
-
       <FAQSection
         items={faqItems}
         title="Property Management FAQs"
         subtitle="Everything you need to know about managing your Maldivian properties"
       />
 
-      <section className=" py-20">
-        <div className="max-w-screen-2xl mx-auto px-8 md:px-16">
-          <p className="text-center font-label text-sm font-bold tracking-[0.3em] text-on-surface-variant uppercase mb-8">
+      <section className="py-14 sm:py-16 md:py-20">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 md:px-16">
+          <p className="text-center font-label text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] text-on-surface-variant uppercase mb-6 sm:mb-8">
             Trusted by the Maldives' Finest Portfolios
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80  transition-all">
-            <div className="text-3xl font-black text-primary tracking-tighter">
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24 opacity-80 transition-all">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
               LAGOON<span className="text-secondary">ELITE</span>
             </div>
-            <div className="text-3xl font-black text-primary tracking-tighter">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
               AZURE<span className="text-secondary">HOMES</span>
             </div>
-            <div className="text-3xl font-black text-primary tracking-tighter">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
               SANDS<span className="text-secondary">MANAGEMENT</span>
             </div>
-            <div className="text-3xl font-black text-primary tracking-tighter">
+            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
               OCEANIC<span className="text-secondary">VILLAS</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24 md:px-8">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-12 text-center lg:p-20">
+      <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center sm:p-10 md:p-12 lg:p-20">
+          {/* Background texture */}
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -500,22 +491,33 @@ function PropertyManagementSystemPage() {
               backgroundPosition: "center",
             }}
           />
-          <div className="absolute right-0 top-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
+
+          {/* Decorative glow */}
+          <div className="absolute right-0 top-0 h-40 w-40 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl sm:h-52 sm:w-52 md:h-64 md:w-64" />
+
+          {/* Content */}
           <div className="relative z-10">
-            <h2 className="mb-6 font-headline text-4xl font-extrabold text-on-primary lg:text-5xl">
+            <h2 className="mb-4 font-headline text-2xl font-extrabold text-on-primary sm:mb-5 sm:text-3xl md:text-4xl lg:mb-6 lg:text-5xl">
               Elevate Your Property Standards
             </h2>
-            <p className="mx-auto mb-10 max-w-xl text-lg text-white/80">
+            <p className="mx-auto mb-7 max-w-xl text-sm text-white/80 sm:mb-8 sm:text-base md:mb-10 md:text-lg">
               Join the leading real estate firms in the Maldives using Viduvaru
               to scale their excellence.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <button className="rounded-full bg-white px-10 py-4 text-lg font-bold text-primary transition-shadow hover:shadow-xl">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
+              <button
+                type="button"
+                onClick={openInquiryModal}
+                className="w-full rounded-full bg-white px-8 py-3 text-sm font-bold text-primary transition-shadow hover:shadow-xl active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
+              >
                 Request Custom Quote
               </button>
-              <button className="rounded-full border border-white/30 px-10 py-4 text-lg font-bold text-white transition-colors hover:bg-white/10">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-white/30 px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
+              >
                 Watch Demo Video
-              </button>
+              </Link>
             </div>
           </div>
         </div>
