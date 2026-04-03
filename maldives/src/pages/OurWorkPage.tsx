@@ -96,7 +96,7 @@ function OurWorkPage() {
         description="We partner with the world's most prestigious island resorts and marine conservationists to redefine digital operations in paradise."
       />
 
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 md:px-9 lg:px-0 py-8 sm:py-10 md:py-12">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 md:px-9 lg:px-0 pb-8 sm:pb-10 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {/* Main image card */}
           <div className="md:col-span-8 group relative aspect-[16/9]  overflow-hidden rounded-xl bg-surface-container-low shadow-sm hover:shadow-xl transition-all duration-500">

@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useLayoutEffect } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import ContactPage from './pages/ContactPage'
@@ -9,8 +10,18 @@ import PropertyManagementSystemPage from './pages/PropertyManagementSystemPage'
 import LushHotelCloudPage from './pages/LushHotelCloudPage'
 import ServicesPage from './pages/ServicesPage'
 import TravelCrmPage from './pages/TravelCrmPage'
+import { useLenis } from './hooks/useLenis'
 
 function App() {
+  const location = useLocation();
+
+  // Initialize Lenis smooth scrolling globally
+  useLenis();
+
+  useLayoutEffect(() => {
+    window.dispatchEvent(new Event('lenis-scroll-to-top'));
+  }, [location.pathname]);
+
   return (
     <div className='min-h-screen bg-[#ffffff]'>
       <Navbar />

@@ -54,17 +54,18 @@ function ViduvaruTransportPage() {
           description="A digital concierge for the waves. Viduvaru streamlines fleet management and passenger experiences with enterprise-grade precision."
           sectionClassName="bg-[#ffffff]"
         >
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-8 justify-center ">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center w-full max-w-md sm:max-w-none mx-auto">
             <button
               type="button"
               onClick={openInquiryModal}
-              className="rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-transform hover:scale-105"
+              className="w-full sm:flex-1 text-center rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95"
             >
               Send Requirements
             </button>
+
             <Link
               to="/contact"
-              className="rounded-full border-2 border-primary px-8 py-4 font-bold text-primary transition-colors hover:bg-surface-container"
+              className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-primary transition-all hover:bg-surface-container hover:scale-105 active:scale-95"
             >
               View Demo
             </Link>
@@ -85,7 +86,7 @@ function ViduvaruTransportPage() {
           </div>
         ) : null}
 
-        <section className="py-12 px-4 sm:py-16 sm:px-6 md:py-24 md:px-8 max-w-7xl mx-auto">
+        <section className="pb-12 px-5 sm:pb-16 sm:px-6 md:py-24 md:px-8 max-w-7xl mx-auto">
           <div className="mb-10 md:mb-16 text-center">
             <h2 className="font-headline text-headline-md text-primary mb-4 font-semibold text-3xl sm:text-4xl md:text-5xl">
               Engineered for Excellence

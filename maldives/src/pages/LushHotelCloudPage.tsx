@@ -86,18 +86,19 @@ function LushHotelCloudPage() {
         titleSuffix=""
         description="Experience the ultimate cloud-based command center designed exclusively for luxury Maldivian atolls and global high-end resorts."
       >
-        <div className="flex flex-wrap gap-4 justify-center pt-2">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 w-full max-w-md sm:max-w-none mx-auto">
           <button
             type="button"
             onClick={openInquiryModal}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 font-bold text-on-primary shadow-lg transition-transform hover:scale-105"
+            className="w-full sm:flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-on-primary shadow-lg transition-all hover:scale-105 active:scale-95"
           >
             Send Requirements
             <span className="material-symbols-outlined">arrow_forward</span>
           </button>
+
           <Link
             to="/contact"
-            className="rounded-full border-2 border-primary px-8 py-4 font-bold text-primary transition-colors hover:bg-surface-container"
+            className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-primary transition-all hover:bg-surface-container hover:scale-105 active:scale-95"
           >
             View Virtual Tour
           </Link>
@@ -118,7 +119,7 @@ function LushHotelCloudPage() {
         </div>
       ) : null}
 
-      <section className="bg-[#ffffff] px-6 py-24 md:px-8">
+      <section className="bg-[#ffffff] px-6 pb-12 sm:pb-16 md:py-20 lg:py-24 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-20 space-y-4 text-center md:text-left">
             <h2 className="font-headline font-bold tracking-tight text-4xl sm:text-4xl md:text-5xl lg:text-5xl">

@@ -44,18 +44,19 @@ function ServicesPage() {
         titleSuffix=""
         description="Transforming the Maldivian business landscape with tailored software solutions, automated intelligence, and premium digital experiences."
       >
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 font-semibold text-on-primary transition-all hover:opacity-90">
-            Get Started{" "}
-            <span className="material-symbols-outlined">arrow_forward</span>
-          </button>
-          <button className="rounded-full border-2 border-primary px-8 py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest">
-            View Portfolio
-          </button>
-        </div>
+<div className="flex flex-col sm:flex-row mt-4 lg:mt-2 justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
+  <button className="w-full sm:flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-on-primary transition-all hover:opacity-90 hover:scale-105 active:scale-95">
+    Get Started
+    <span className="material-symbols-outlined">arrow_forward</span>
+  </button>
+
+  <button className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">
+    View Portfolio
+  </button>
+</div>
       </PinnedScrollHeadlineSection>
 
-      <section className="bg-surface px-6 py-24 md:px-8">
+      <section className="bg-[#ffffff] px-6 pb-24 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
             {/* FEATURED CARD: CRM - Large Bento */}

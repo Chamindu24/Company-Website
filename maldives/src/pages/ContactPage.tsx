@@ -133,16 +133,17 @@ function ContactPage() {
         titleSuffix=""
         description="Transform your Maldivian hospitality experience with digital solutions designed for the horizon."
       >
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row mt-4 lg:mt-2 gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
           <a
             href="#contact-form"
-            className="rounded-lg bg-gradient-to-br from-primary to-primary-container px-10 py-3 font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95"
+            className="w-full sm:flex-1 text-center rounded-lg bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95"
           >
             Schedule a Demo
           </a>
+
           <Link
             to="/services"
-            className="rounded-lg border-2 border-primary px-10 py-3 font-bold text-primary transition-all hover:bg-primary/10 active:scale-95"
+            className="w-full sm:flex-1 text-center rounded-lg border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-primary transition-all hover:bg-primary/10 hover:scale-105 active:scale-95"
           >
             View Solutions
           </Link>
@@ -317,7 +318,7 @@ function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="relative group w-full  overflow-hidden rounded-full bg-primary px-12 py-5 text-sm font-bold tracking-widest text-on-primary uppercase transition-all hover:bg-primary/90 hover:shadow-[0_20px_40px_-10px_rgba(38,174,191,0.45)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
+                  className="relative group w-full  overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-12 py-5 text-sm font-bold tracking-widest text-on-primary uppercase transition-all hover:bg-primary/90 hover:shadow-[0_20px_40px_-10px_rgba(38,174,191,0.45)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
                 >
                   <span className="flex items-center justify-center gap-3">
                     {isSubmitting ? "Sending..." : "Send Inquiry"}

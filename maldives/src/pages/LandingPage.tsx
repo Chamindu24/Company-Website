@@ -146,7 +146,7 @@ function LandingPage() {
       <main className="">
         <LandingHeroSection />
 
-        <section className="bg-surface-container-low px-6 py-24 md:px-8 md:py-32">
+        <section className="bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-20 text-center ">
               <h2 className="mb-4 text-4xl font-bold tracking-tighter">
@@ -162,7 +162,7 @@ function LandingPage() {
               {ecosystemCards.map((card) => (
                 <div
                   key={card.title}
-                  className="group relative h-[310px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)]"
+                  className="group relative h-[310px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)] rounded-xl shadow-md"
                 >
                   {/* Front Face */}
                   <div className="glass-card absolute inset-0 flex flex-col justify-center rounded-xl p-8 [backface-visibility:hidden]">
@@ -207,7 +207,7 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="overflow-hidden px-6 py-24 md:px-8 md:py-32">
+        <section className="overflow-hidden bg-stone-100 px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
               <div className="mx-auto max-w-2xl">
@@ -239,7 +239,7 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-surface-container-low px-6 py-24 md:px-8 md:py-32">
+        <section className="bg-stone-50 px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-20 text-center">
               <h2 className="mb-6 font-headline text-4xl font-bold tracking-tighter text-primary md:text-5xl">

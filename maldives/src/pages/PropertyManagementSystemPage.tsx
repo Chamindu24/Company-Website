@@ -87,21 +87,22 @@ function PropertyManagementSystemPage() {
         description="Experience the digital sanctuary of property management. Effortlessly oversee luxury villas and island retreats with Maldivian precision and global intelligence."
         sectionClassName="bg-[#ffffff]"
       >
-        <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-8 justify-center ">
-          <button
-            type="button"
-            onClick={openInquiryModal}
-            className="rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-lg font-bold text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] transition-transform hover:scale-105"
-          >
-            Send Requirements
-          </button>
-          <Link
-            to="/contact"
-            className="rounded-full border-2 border-primary px-8 py-4 text-lg font-bold text-primary transition-colors hover:bg-surface-container-high"
-          >
-            View Showcase
-          </Link>
-        </div>
+<div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center w-full max-w-md sm:max-w-none mx-auto">
+  <button
+    type="button"
+    onClick={openInquiryModal}
+    className="w-full sm:flex-1 text-center rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] transition-all hover:scale-105 active:scale-95"
+  >
+    Send Requirements
+  </button>
+
+  <Link
+    to="/contact"
+    className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-primary transition-all hover:bg-surface-container-high hover:scale-105 active:scale-95"
+  >
+    View Showcase
+  </Link>
+</div>
       </PinnedScrollHeadlineSection>
 
       {isInquiryOpen ? (
@@ -120,7 +121,7 @@ function PropertyManagementSystemPage() {
 
 
 
-      <section className="bg-[#ffffff] px-6 py-24 md:px-8">
+      <section className="bg-[#ffffff] px-6 pb-12 sm:pb-16 md:py-20 lg:py-24 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-20 text-center">
             <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-on-surface lg:text-5xl">
