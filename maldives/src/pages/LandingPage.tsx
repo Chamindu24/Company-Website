@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HowItWorksSection from "../components/HowItWorksSection";
 import LandingHeroSection from "../components/LandingHeroSection";
 
@@ -7,6 +8,7 @@ const ecosystemCards = [
     title: "Viduvaru Boats",
     description:
       "Reliable inter-island boat service connecting resorts and local destinations.",
+    route: "/viduvaru",
     textColor: "text-primary",
     bgColor: "bg-primary/10",
   },
@@ -15,6 +17,7 @@ const ecosystemCards = [
     title: "Lush Hotel Cloud",
     description:
       "Premium guest experience platform optimized for luxury island resort environments.",
+    route: "/hotelcloud",
     textColor: "text-secondary",
     bgColor: "bg-secondary/10",
   },
@@ -23,6 +26,7 @@ const ecosystemCards = [
     title: "Property Management",
     description:
       "Next-generation PMS specifically engineered for multi-island property scaling.",
+    route: "/real-estate-control",
     textColor: "text-tertiary",
     bgColor: "bg-tertiary/10",
   },
@@ -31,6 +35,7 @@ const ecosystemCards = [
     title: "Agency CRM",
     description:
       "Deep relationship management for travel agencies and destination managers.",
+    route: "/travel-crm",
     textColor: "text-primary-container",
     bgColor: "bg-primary-container/10",
   },
@@ -111,7 +116,7 @@ const industries = [
 
 const whyChooseItems = [
   {
-    icon: "flight_land",
+    icon: "public",
     title: "Built for Islands",
     description:
       "Infrastructure designed to work across distributed islands with optimized sync and low-latency connectivity.",
@@ -125,7 +130,7 @@ const whyChooseItems = [
     color: "bg-secondary",
   },
   {
-    icon: "auto_awesome",
+    icon: "psychology",
     title: "AI-Powered",
     description:
       "Predictive analytics and intelligent automation that handles repetitive tasks so your team can focus on the guest.",
@@ -197,9 +202,12 @@ function LandingPage() {
                       Discover how our software solutions can transform your
                       business workflow.
                     </p>
-                    <button className="rounded-full mt-6 border-2 border-white px-6 py-2 text-sm font-bold transition-colors hover:bg-white hover:text-[#1A7A88]">
+                    <Link
+                      to={card.route}
+                      className="rounded-full mt-6 border-2 border-white px-6 py-2 text-sm font-bold transition-colors hover:bg-white hover:text-[#1A7A88]"
+                    >
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -207,7 +215,7 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="overflow-hidden bg-stone-100 px-6 py-24 md:px-8 md:py-32">
+        <section className="overflow-hidden bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
               <div className="mx-auto max-w-2xl">
@@ -225,7 +233,7 @@ function LandingPage() {
               {industries.map((industry) => (
                 <div
                   key={`icon-${industry.label}`}
-                  className="cursor-default rounded-lg border border-transparent p-6 text-center transition-all duration-500 ease-out transform-gpu hover:scale-[1.08] hover:border-primary/10"
+                  className="cursor-default rounded-lg border border-transparent p-6 text-center transition-all duration-500 ease-out transform-gpu hover:scale-[1.1] hover:border-primary/5"
                 >
                   <span className="material-symbols-outlined mb-4 block text-8xl text-[#1F8FA0]">
                     {industry.icon}
@@ -259,15 +267,15 @@ function LandingPage() {
                 >
                   <div
                     className={`relative w-full overflow-hidden 
-                  aspect-[1] 
-                  sm:aspect-[3/4] 
-                  md:${
-                    index % 3 === 0
-                      ? "aspect-[3/4]"
-                      : index % 2 === 0
-                        ? "aspect-square"
-                        : "aspect-[4/5]"
-                  }`}
+          aspect-[1] 
+          sm:aspect-[3/4] 
+          md:${
+            index % 3 === 0
+              ? "aspect-[3/4]"
+              : index % 2 === 0
+                ? "aspect-square"
+                : "aspect-[4/5]"
+          }`}
                   >
                     {/* Base Image: Grayscale to Color Transition */}
                     <img
@@ -277,29 +285,28 @@ function LandingPage() {
                     />
 
                     {/* 1. Minimalist Header */}
-                    <div className="absolute top-0 left-0 p-6 flex items-center gap-3 transition-opacity duration-500 group-hover:opacity-0">
+                    <div className="absolute top-0 left-0 p-6 hidden md:flex items-center gap-3 transition-opacity duration-500 group-hover:opacity-0">
                       <span className="material-symbols-outlined text-[#26AEBF] text-2xl font-light leading-none">
                         {industry.icon || "star"}
                       </span>
-
                       <h3 className="text-white font-semibold text-sm uppercase tracking-wide drop-shadow-md">
                         {industry.label}
                       </h3>
                     </div>
 
                     {/* 2. The "Royal Reveal" Overlay (Centered Hover State) */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-all duration-700 ease-out group-hover:opacity-100 bg-stone-900/40 backdrop-blur-[3px]">
-                      <div className="text-center p-6 transform translate-y-8 transition-transform duration-500 ease-out group-hover:translate-y-0">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 md:opacity-0 transition-all duration-700 ease-out md:group-hover:opacity-100 bg-stone-900/40 backdrop-blur-[3px]">
+                      <div className="text-center p-6 transform translate-y-0 md:translate-y-8 transition-transform duration-500 ease-out md:group-hover:translate-y-0">
                         {/* Elegant Icon or Symbol */}
                         <span className="material-symbols-outlined text-white text-7xl mb-3 block font-extralight">
                           {industry.icon || "star"}
                         </span>
 
-                        <h3 className=" text-3xl text-white mb-2 tracking-tight ">
+                        <h3 className="text-3xl text-white mb-2 tracking-tight">
                           {industry.label}
                         </h3>
 
-                        <p className="text-stone-200 text-md  leading-relaxed max-w-[180px] mx-auto opacity-0 transition-opacity duration-700 delay-100 group-hover:opacity-100">
+                        <p className="text-stone-200 text-md leading-relaxed max-w-[180px] mx-auto opacity-100 md:opacity-0 transition-opacity duration-700 delay-100 md:group-hover:opacity-100">
                           {industry.hoverDescription}
                         </p>
                       </div>
@@ -316,7 +323,7 @@ function LandingPage() {
 
         <HowItWorksSection />
 
-        <section className="bg-[#FCFBFA] px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
+        <section className="bg-[#FCFBFA]  px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
           <h2 className="mb-8 text-3xl text-center font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Why Industry Leaders{" "}
             <span className="text-primary">
@@ -324,47 +331,49 @@ function LandingPage() {
             </span>
           </h2>
 
-          <div className="mx-auto max-w-7xl pt-10 px-0 sm:pt-14 sm:px-4 md:pt-20 md:px-6">
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-x-12 md:gap-y-8">
-              {whyChooseItems.slice(0, 4).map((item) => (
-                <div
-                  key={item.title}
-                  className="group flex bg-[#ffffff] gap-4 sm:gap-6 md:gap-8 items-start sm:items-center p-4 sm:p-5 md:p-6 transition-all duration-300 hover:bg-surface-variant/5 rounded-2xl border border-primary/20 hover:border-primary/30"
-                >
-                  {/* Icon */}
-                  <div
-                    className={`flex h-12 w-12 flex-shrink-0 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-xl ${item.color} text-on-primary shadow-sm group-hover:shadow-md transition-shadow`}
-                  >
-                    <span className="material-symbols-outlined text-2xl sm:text-3xl font-light">
+          <div className="grid grid-cols-1  max-w-6xl mt-20 mt:mt-28  mx-auto gap-12 lg:grid-cols-2 lg:gap-16">
+            {whyChooseItems.slice(0, 4).map((item, index) => (
+              <div
+                key={item.title}
+                className="group flex flex-col items-start gap-8 border-l border-secondary/50 pl-8 transition-all duration-500 hover:border-secondary"
+              >
+                {/* Subtle Label */}
+                <div className="flex items-center gap-4">
+                  <span className="text-xs font-bold tabular-nums tracking-widest text-secondary">
+                    0{index + 1}
+                  </span>
+                  <div className="h-[1px] w-8 bg-secondary/50 transition-all duration-500 group-hover:w-16 group-hover:bg-secondary" />
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    {/* Ultra-Light Iconography */}
+                    <span className="material-symbols-outlined text-4xl font-extralight text-primary group-hover:text-secondary transition-colors duration-500">
                       {item.icon}
                     </span>
+                    <h3 className="text-3xl font-semibold tracking-tighter text-primary">
+                      {item.title}
+                    </h3>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-2 sm:mb-3">
-                      <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-primary tracking-tight leading-tight">
-                        {item.title}
-                      </h4>
-                      <span className="material-symbols-outlined text-primary/30 scale-75 group-hover:translate-x-1 group-hover:text-primary transition-all flex-shrink-0 ml-2">
-                        arrow_forward
-                      </span>
-                    </div>
-
-                    {/* Animated divider */}
-                    <div className="h-px w-8 bg-primary/30 mb-2 sm:mb-4 group-hover:w-full transition-all duration-500" />
-
-                    <p className="text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  <p className="max-w-md text-lg leading-relaxed text-on-surface-variant/80">
+                    {item.description}
+                  </p>
                 </div>
-              ))}
-            </div>
+
+                {/* Interactive "Service" Link Style */}
+                <div className="flex items-center gap-2 overflow-hidden text-xs font-bold uppercase tracking-[0.2em] text-primary/90 transition-all duration-500 group-hover:gap-4 group-hover:text-primary">
+                  Explore Solution
+                  <span className="material-symbols-outlined text-sm">
+                    arrow_right_alt
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="px-4 bg-[#ffffff] py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
+        <section className="px-4 bg-[#ffffff] py-16 sm:px-6 mb-24 sm:py-20 md:px-8 md:py-32">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-secondary p-6 text-center sm:rounded-3xl sm:p-12 md:p-16 lg:p-24">
             {/* Texture overlay */}
             <div className="absolute inset-0 opacity-10">
