@@ -274,7 +274,7 @@ function OurWorkPage() {
             <h2 className="mb-4 sm:mb-6 md:mb-8 font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-on-primary">
               Ready to transform your resort experience?
             </h2>
-            <p className="mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base md:text-lg text-white/80">
+            <p className="mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base md:text-xl text-white">
               Join the Maldives&apos; leading hospitality brands in the digital
               future.
             </p>
@@ -282,7 +282,7 @@ function OurWorkPage() {
               <button className="scale-100 rounded-full bg-surface-container-lowest px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-primary transition-all active:scale-95 hover:shadow-xl">
                 Start a Project
               </button>
-              <button className="rounded-full border border-white/30 bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10">
+              <button className="rounded-full border border-white/80 backdrop-blur-sm bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10">
                 View all Services
               </button>
             </div>

@@ -763,7 +763,7 @@ function LushHotelCloudPage() {
       />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
-        <div className="relative mx-auto max-w-7xl space-y-5 sm:space-y-6 lg:space-y-8 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center shadow-2xl sm:p-10 md:p-12 lg:p-20">
+        <div className="relative mx-auto max-w-7xl space-y-5 sm:space-y-6 lg:space-y-8 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center shadow-2xl sm:p-10 md:p-12 lg:p-16">
           {/* Background texture */}
           <div
             className="absolute inset-0 opacity-10"
@@ -780,7 +780,7 @@ function LushHotelCloudPage() {
             resort&apos;s digital backbone?
           </h2>
 
-          <p className="relative z-10 mx-auto max-w-2xl text-sm text-primary-fixed sm:text-base md:text-lg">
+          <p className="relative z-10 mx-auto max-w-2xl text-sm text-white sm:text-base md:text-xl">
             Join the world&apos;s most prestigious resorts moving to
             Viduvaru&apos;s next-generation cloud infrastructure.
           </p>
@@ -795,7 +795,7 @@ function LushHotelCloudPage() {
             </button>
             <Link
               to="/contact"
-              className="w-full rounded-full border border-white/20 bg-primary-container/20 px-8 py-3 text-sm font-bold text-on-primary backdrop-blur-md transition-all hover:bg-primary-container/30 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base"
+              className="w-full rounded-full border border-white/80 bg-primary-container/20 px-8 py-3 text-sm font-bold text-on-primary backdrop-blur-md transition-all hover:bg-primary-container/30 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base"
             >
               Contact Sales
             </Link>

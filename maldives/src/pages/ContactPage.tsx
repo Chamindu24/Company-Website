@@ -152,7 +152,7 @@ function ContactPage() {
 
       <section
         id="contact-form"
-        className="mx-auto mb-24 max-w-8xl px-6 pb-20 md:px-24"
+        className="mx-auto mb-24 max-w-8xl px-6  md:px-24"
       >
         <div className="grid  grid-cols-1 gap-16 lg:grid-cols-12">
           <div className="rounded-3xl  border border-outline-variant/30 bg-[#ffffff] py-10 md:px-8 px-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] lg:col-span-8">
@@ -413,6 +413,54 @@ function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 md:px-8 md:pb-48">
+        <div
+          className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-3xl shadow-2xl
+                  h-auto min-h-[360px] sm:min-h-[400px] md:h-[450px]"
+        >
+          <img
+            alt="Luxurious resort setting"
+            className="absolute inset-0 h-full w-full object-cover"
+            src="https://media.meer.com/attachments/dca4a6f93cbbbf4fc59cd8cdef0f79dae03cdc99/store/fill/860/645/4012c2f175391b2a3a52839b8cce91dac9b5a205f9b42c9a3392500cd0ad/Turquoise-waters-and-scattered-islands-define-the-breathtaking-beauty-of-the-Maldives.jpg"
+          />
+
+          <div className="absolute inset-0 bg-black/15" />
+
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-6 text-center sm:p-10 md:p-12">
+            <div className="relative z-10 w-full max-w-3xl">
+              <h2 className="mb-4 font-headline text-2xl font-bold leading-tight tracking-tight text-white sm:mb-5 sm:text-3xl md:mb-6 md:text-4xl lg:text-5xl">
+                Ready to start your digital journey?
+              </h2>
+
+              <p className="mx-auto mb-7 max-w-xl text-sm text-slate-100 sm:mb-8 sm:text-base md:mb-10 md:text-lg lg:text-xl">
+                Join the leading resorts and businesses in the Maldives who
+                trust Viduvaru for their digital transformation. Our solutions
+                currently power operations for over 45 luxury island
+                destinations.
+              </p>
+
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
+                <a
+                  href="#contact-form"
+                  className="w-full rounded-full bg-white px-6 py-3 text-sm font-bold text-primary shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto sm:px-8 sm:text-base"
+                >
+                  Schedule a Free Consultation
+                </a>
+                <Link
+                  to="/our-work"
+                  className="w-full rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 sm:w-auto sm:px-8 sm:text-base"
+                >
+                  View Case Studies
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/20 blur-3xl sm:-left-16 sm:-top-16 sm:h-52 sm:w-52 md:-left-24 md:-top-24 md:h-64 md:w-64" />
+          <div className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-secondary/20 blur-3xl sm:-bottom-16 sm:-right-16 sm:h-52 sm:w-52 md:-bottom-24 md:-right-24 md:h-64 md:w-64" />
         </div>
       </section>
     </main>

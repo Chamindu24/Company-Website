@@ -311,7 +311,7 @@ function ViduvaruTransportPage() {
         />
 
         <section className="px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-8 sm:p-10 md:p-12 text-center text-on-primary shadow-2xl">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-8 sm:p-10 md:p-16 text-center text-on-primary shadow-2xl">
             <div
               className="absolute inset-0 opacity-10"
               style={{
@@ -340,7 +340,7 @@ function ViduvaruTransportPage() {
                 </button>
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto rounded-full border-2 border-white/30 bg-transparent px-8 md:px-10 py-3.5 md:py-4 font-bold text-white transition-colors hover:bg-white/10 font-headline"
+                  className="w-full sm:w-auto rounded-full border-2 backdrop-blur-sm border-white/80 bg-transparent px-8 md:px-10 py-3.5 md:py-4 font-bold text-white transition-colors hover:bg-white/10 font-headline"
                 >
                   Contact Sales
                 </Link>

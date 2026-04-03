@@ -515,7 +515,7 @@ function PropertyManagementSystemPage() {
               </button>
               <Link
                 to="/contact"
-                className="w-full rounded-full border border-white/30 px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
+                className="w-full rounded-full border backdrop-blur-sm border-white/80 px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
               >
                 Watch Demo Video
               </Link>
