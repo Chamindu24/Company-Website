@@ -154,7 +154,7 @@ function LandingPage() {
         <section className="bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-20 text-center ">
-              <h2 className="mb-4 text-4xl font-bold tracking-tighter">
+              <h2 className="mb-4 text-4xl md:text-5xl font-bold tracking-tighter">
                 Our Ecosystem
               </h2>
               <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
@@ -219,7 +219,7 @@ function LandingPage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-16 text-center">
               <div className="mx-auto max-w-2xl">
-                <h2 className="mb-4 text-4xl font-bold leading-tight tracking-tighter">
+                <h2 className="mb-4 text-4xl md:text-5xl font-bold leading-tight tracking-tighter">
                   Industries We Serve
                 </h2>
                 <p className="text-lg text-on-surface-variant">
@@ -250,7 +250,7 @@ function LandingPage() {
         <section className="bg-stone-50 px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-20 text-center">
-              <h2 className="mb-6 font-headline text-4xl font-bold tracking-tighter text-primary md:text-5xl">
+              <h2 className="mb-6 font-headline text-4xl md:text-5xl  font-bold tracking-tighter text-primary ">
                 Designed for Every Horizon
               </h2>
               <p className="mx-auto max-w-2xl text-on-surface-variant">

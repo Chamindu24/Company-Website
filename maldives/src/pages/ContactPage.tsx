@@ -120,7 +120,7 @@ function ContactPage() {
   };
 
   const fieldClass =
-    "w-full rounded-2xl border border-outline-variant bg-surface/40 px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60";
+    "w-full rounded-3xl border border-outline-variant bg-surface/40 px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60";
   const labelClass =
     "absolute -top-2.5 left-4 bg-surface px-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant transition-all group-focus-within:text-primary";
 
@@ -155,8 +155,8 @@ function ContactPage() {
         className="mx-auto mb-24 max-w-8xl px-6 pb-20 md:px-24"
       >
         <div className="grid  grid-cols-1 gap-16 lg:grid-cols-12">
-          <div className="rounded-3xl  border border-outline-variant/30 bg-[#ffffff] p-10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] lg:col-span-8">
-            <div className="mb-24 mt-12 ">
+          <div className="rounded-3xl  border border-outline-variant/30 bg-[#ffffff] py-10 md:px-8 px-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] lg:col-span-8">
+            <div className="mb-20 mt-12 ">
               <h2 className="font-headline text-4xl font-semibold tracking-tight text-on-surface">
                 Start a project
               </h2>
