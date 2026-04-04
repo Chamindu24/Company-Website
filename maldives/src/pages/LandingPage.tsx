@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import HowItWorksSection from "../components/HowItWorksSection";
 import LandingHeroSection from "../components/LandingHeroSection";
 
@@ -164,9 +165,15 @@ function LandingPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 [perspective:1000px]">
-              {ecosystemCards.map((card) => (
-                <div
+              {ecosystemCards.map((card, index) => (
+                <motion.div
                   key={card.title}
+                  initial={{ x: 120, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.7, delay: index * 0.12, ease: "easeOut" }}
+                >
+                <div
                   className="group relative h-[310px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)] rounded-xl shadow-md"
                 >
                   {/* Front Face */}
@@ -192,8 +199,8 @@ function LandingPage() {
 
                   {/* Back Face (Hover State) */}
                   <div
-                    className="absolute inset-0 flex flex-col items-center justify-center rounded-xl p-8 text-center text-white [backface-visibility:hidden] [transform:rotateY(180deg)]"
-                    style={{ backgroundColor: "#1A7A88" }}
+                    className="absolute inset-0 flex flex-col bg-gradient-to-br from-primary to-primary-container items-center justify-center rounded-xl p-8 text-center text-white [backface-visibility:hidden] [transform:rotateY(180deg)]"
+  
                   >
                     <h3 className="mb-4 text-2xl font-bold">
                       Explore {card.title}
@@ -210,6 +217,7 @@ function LandingPage() {
                     </Link>
                   </div>
                 </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -230,9 +238,15 @@ function LandingPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-4">
-              {industries.map((industry) => (
-                <div
+              {industries.map((industry, index) => (
+                <motion.div
                   key={`icon-${industry.label}`}
+                  initial={{ x: 100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.65, delay: index * 0.08, ease: "easeOut" }}
+                >
+                <div
                   className="cursor-default rounded-lg border border-transparent p-6 text-center transition-all duration-500 ease-out transform-gpu hover:scale-[1.1] hover:border-primary/5"
                 >
                   <span className="material-symbols-outlined mb-4 block text-8xl text-[#1F8FA0]">
@@ -242,6 +256,7 @@ function LandingPage() {
                     {industry.label}
                   </span>
                 </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -261,8 +276,14 @@ function LandingPage() {
 
             <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 px-4 py-8 bg-stone-50">
               {industries.map((industry, index) => (
-                <div
+                <motion.div
                   key={industry.label}
+                  initial={{ x: 120, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.7, delay: index * 0.08, ease: "easeOut" }}
+                >
+                <div
                   className="group relative break-inside-avoid overflow-hidden rounded-md bg-stone-100 transition-all duration-500 hover:shadow-2xl"
                 >
                   <div
@@ -316,6 +337,7 @@ function LandingPage() {
                     <div className="absolute inset-4 border border-white/0 transition-all duration-700 group-hover:border-white/20 pointer-events-none" />
                   </div>
                 </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -333,8 +355,14 @@ function LandingPage() {
 
           <div className="grid grid-cols-1  max-w-6xl mt-20 mt:mt-28  mx-auto gap-12 lg:grid-cols-2 lg:gap-16">
             {whyChooseItems.slice(0, 4).map((item, index) => (
-              <div
+              <motion.div
                 key={item.title}
+                initial={{ x: 110, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.65, delay: index * 0.1, ease: "easeOut" }}
+              >
+              <div
                 className="group flex flex-col items-start gap-8 border-l border-secondary/50 pl-8 transition-all duration-500 hover:border-secondary"
               >
                 {/* Subtle Label */}
@@ -369,6 +397,7 @@ function LandingPage() {
                   </span>
                 </div>
               </div>
+              </motion.div>
             ))}
           </div>
         </section>

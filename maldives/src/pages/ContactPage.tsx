@@ -152,7 +152,7 @@ function ContactPage() {
 
       <section
         id="contact-form"
-        className="mx-auto mb-24 max-w-8xl px-6  md:px-24"
+        className="mx-auto mb-24 max-w-8xl px-6 -mt-48 md:mt-0 md:px-24"
       >
         <div className="grid  grid-cols-1 gap-16 lg:grid-cols-12">
           <div className="rounded-3xl  border border-outline-variant/30 bg-[#ffffff] py-10 md:px-8 px-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] lg:col-span-8">
