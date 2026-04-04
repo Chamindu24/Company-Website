@@ -453,17 +453,7 @@ export default function WebKitSection() {
                 }}
               >
                 by LushWare{" "}
-                <span
-                  className="wk-serif not-italic"
-                  style={{
-                    WebkitTextStroke: "0px",
-                    color: "#fde68a",
-                    fontSize: "0.78em",
-                    fontWeight: 400,
-                  }}
-                >
-                  ORG
-                </span>
+
               </div>
             </div>
 
@@ -473,29 +463,7 @@ export default function WebKitSection() {
               style={{ background: "rgba(255,255,255,0.2)" }}
             />
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {[
-                "Production Ready",
-                "Elite Industries",
-                "Fully Customizable",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="wk-pill wk-sans font-bold uppercase cursor-default"
-                  style={{
-                    fontSize: "9px",
-                    letterSpacing: "0.16em",
-                    padding: "6px 14px",
-                    border: "1px solid rgba(255,255,255,0.48)",
-                    color: "rgba(255,255,255,0.85)",
-                    background: "rgba(0,0,0,0.1)",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+
           </motion.div>
 
           {/* ── RIGHT ── */}
@@ -545,43 +513,7 @@ export default function WebKitSection() {
               </p>
             </div>
 
-            {/* Stats — 3 columns, bordered */}
-            <div
-              className="grid grid-cols-3"
-              style={{ border: "1px solid rgba(255,255,255,0.52)" }}
-            >
-              {[
-                { value: "12+", label: "Templates" },
-                { value: "5★", label: "Rated" },
-                { value: "48h", label: "Delivery" },
-              ].map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className="wk-stat-block px-5 py-6"
-                  style={{
-                    borderRight:
-                      i < 2 ? "1px solid rgba(255,255,255,0.52)" : "none",
-                  }}
-                >
-                  <div
-                    className="wk-serif text-white font-normal leading-none mb-2"
-                    style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.25rem)" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    className="wk-sans font-bold uppercase"
-                    style={{
-                      fontSize: "8px",
-                      letterSpacing: "0.22em",
-                      color: "rgba(255,255,255,0.52)",
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+
 
             {/* CTA row */}
             <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-7">

@@ -64,14 +64,14 @@ const projects = [
     link: "https://traveliccted.com/",
   },
   {
-    name: "Travel E-Commerce Platform",
+    name: "Travel Agency Management System",
     client: "Crown Voyages",
     summary:
-      "Crown Voyages is a travel-focused e-commerce platform designed to showcase and sell curated travel products and services.",
+      "Crown Voyages is a powerful travel agency management system with automatic quotation generation designed to streamline operations.",
     description:
-      "This project demonstrates our expertise in building scalable e-commerce solutions with secure payments, dynamic product management, and a premium brand experience.",
+      "We developed a comprehensive platform that enables travel agencies to manage bookings, generate quotations automatically, handle clients, and optimize daily operations through a centralized system.",
     image: "/work/CrownVoyages.jpg",
-    link: "https://crownvoyages.com/",
+    link: "https://portal.crownvoyages.com/",
   },
 
   {
@@ -117,10 +117,8 @@ export default function WorkPage() {
   }, []);
 
   return (
-
-
-<section id="work" className="py-24 md:py-32  selection:bg-emerald-50">
-  <style>{`
+    <section id="work" className="py-24 md:py-32  selection:bg-emerald-50">
+      <style>{`
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
 
     .works-root * { font-family: 'DM Sans', sans-serif; }
@@ -144,56 +142,52 @@ export default function WorkPage() {
     }
   `}</style>
 
-  <div className="works-root mx-auto max-w-7xl px-6">
+      <div className="works-root mx-auto max-w-7xl px-6">
+        {/* ── HEADER ───────────────────────────────────── */}
+        <div className="relative max-w-6xl mt-12 mx-auto text-center mb-20 md:mb-28">
+          {/* Dot grid */}
+          <div className="works-dotgrid absolute inset-0 -z-10 opacity-50 pointer-events-none" />
 
-    {/* ── HEADER ───────────────────────────────────── */}
-    <div className="relative max-w-6xl mt-12 mx-auto text-center mb-20 md:mb-28">
+          {/* Label */}
+          <div className="works-fadeUp flex items-center justify-center gap-3 mb-7">
+            <div className="h-px w-8 bg-emerald-600" />
+            <div className="px-3 py-1 border border-emerald-600 text-[10px] font-bold text-emerald-700 uppercase tracking-[0.22em]">
+              Selected Works
+            </div>
+            <div className="h-px w-8 bg-emerald-600" />
+          </div>
 
-      {/* Dot grid */}
-      <div className="works-dotgrid absolute inset-0 -z-10 opacity-50 pointer-events-none" />
+          {/* Headline */}
+          <h1 className="works-fadeUp works-serif text-5xl sm:text-6xl lg:text-7xl font-normal text-slate-900 tracking-tight leading-[1.05] mb-7">
+            Our Projects <br />
+            <span className=" text-emerald-600">Showcasing Innovation</span>
+          </h1>
 
-      {/* Label */}
-      <div className="works-fadeUp flex items-center justify-center gap-3 mb-7">
-        <div className="h-px w-8 bg-emerald-600" />
-        <div className="px-3 py-1 border border-emerald-600 text-[10px] font-bold text-emerald-700 uppercase tracking-[0.22em]">
-          Selected Works
+          {/* Sub */}
+          <p className="works-fadeUp text-lg sm:text-xl text-slate-500 font-light max-w-2xl mx-auto leading-relaxed">
+            A selection of our work demonstrating custom software solutions for
+            real-world challenges.
+          </p>
         </div>
-        <div className="h-px w-8 bg-emerald-600" />
+
+        {/* ── PROJECT GRID ─────────────────────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24 md:gap-y-32">
+          {projects.map((project, index) => (
+            <div
+              key={project.name}
+              ref={(el) => {
+                projectRefs.current[index] = el;
+              }}
+            >
+              <WorkCard
+                project={project}
+                index={index}
+                isVisible={visibleProjects.has(index)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* Headline */}
-      <h1 className="works-fadeUp works-serif text-5xl sm:text-6xl lg:text-7xl font-normal text-slate-900 tracking-tight leading-[1.05] mb-7">
-        Our Projects <br />
-        <span className=" text-emerald-600">
-          Showcasing Innovation
-        </span>
-      </h1>
-
-      {/* Sub */}
-      <p className="works-fadeUp text-lg sm:text-xl text-slate-500 font-light max-w-2xl mx-auto leading-relaxed">
-        A selection of our work demonstrating custom software solutions for
-        real-world challenges.
-      </p>
-    </div>
-
-    {/* ── PROJECT GRID ─────────────────────────────── */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24 md:gap-y-32">
-      {projects.map((project, index) => (
-        <div
-          key={project.name}
-          ref={(el) => {
-            projectRefs.current[index] = el;
-          }}
-        >
-          <WorkCard
-            project={project}
-            index={index}
-            isVisible={visibleProjects.has(index)}
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+    </section>
   );
 }
