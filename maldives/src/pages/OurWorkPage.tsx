@@ -63,14 +63,14 @@ const projects = [
     link: "https://traveliccted.com/",
   },
   {
-    name: "Travel E-Commerce Platform",
+    name: "Travel Agency Management System",
     client: "Crown Voyages",
     summary:
-      "Crown Voyages is a travel-focused e-commerce platform designed to showcase and sell curated travel products and services.",
+      "Crown Voyages is a powerful travel agency management system with automatic quotation generation designed to streamline operations.",
     description:
-      "We built a scalable e-commerce platform featuring secure payments, dynamic product management, and a premium user experience tailored for travel businesses globally.",
+      "We developed a comprehensive management platform that enables travel agencies to handle bookings, generate quotations automatically, manage clients, and optimize daily operations efficiently through a centralized system.",
     image: "/work/CrownVoyages.jpg",
-    link: "https://crownvoyages.com/",
+    link: "https://portal.crownvoyages.com/",
   },
 
   {
