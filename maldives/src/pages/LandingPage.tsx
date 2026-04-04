@@ -168,8 +168,8 @@ function LandingPage() {
               {ecosystemCards.map((card, index) => (
                 <motion.div
                   key={card.title}
-                  initial={{ x: 120, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.25 }}
                   transition={{ duration: 0.7, delay: index * 0.12, ease: "easeOut" }}
                 >
@@ -241,8 +241,8 @@ function LandingPage() {
               {industries.map((industry, index) => (
                 <motion.div
                   key={`icon-${industry.label}`}
-                  initial={{ x: 100, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.25 }}
                   transition={{ duration: 0.65, delay: index * 0.08, ease: "easeOut" }}
                 >
@@ -278,8 +278,8 @@ function LandingPage() {
               {industries.map((industry, index) => (
                 <motion.div
                   key={industry.label}
-                  initial={{ x: 120, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.7, delay: index * 0.08, ease: "easeOut" }}
                 >
@@ -357,8 +357,8 @@ function LandingPage() {
             {whyChooseItems.slice(0, 4).map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ x: 110, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.65, delay: index * 0.1, ease: "easeOut" }}
               >

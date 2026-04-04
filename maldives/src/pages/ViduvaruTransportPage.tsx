@@ -310,7 +310,7 @@ function ViduvaruTransportPage() {
           subtitle="Everything you need to know about our fleet management and booking system"
         />
 
-        <section className="px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20">
+        <section className="px-4 py-12 sm:px-6 mb-32 sm:py-16 md:px-8 md:py-20">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-8 sm:p-10 md:p-16 text-center text-on-primary shadow-2xl">
             <div
               className="absolute inset-0 opacity-10"

@@ -762,7 +762,7 @@ function LushHotelCloudPage() {
         subtitle="Common questions about our cloud-based resort management solution"
       />
 
-      <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
+      <section className="px-4 py-16 sm:px-6 mb-32 sm:py-20 md:px-8 md:py-24">
         <div className="relative mx-auto max-w-7xl space-y-5 sm:space-y-6 lg:space-y-8 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center shadow-2xl sm:p-10 md:p-12 lg:p-16">
           {/* Background texture */}
           <div
