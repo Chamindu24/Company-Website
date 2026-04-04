@@ -92,40 +92,60 @@ export default function Navbar() {
     }, 140);
   };
 
-  const renderDropdownPanel = (items: { name: string; to: string }[]) => (
-    <div className="overflow-hidden rounded-sm bg-white border border-stone-100 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.2)]">
-      <div className="w-[360px] px-5 py-5">
-        <nav className="grid grid-cols-1 gap-y-3">
-          {items.map((item) => (
+const renderDropdownPanel = (items: { name: string; to: string }[]) => (
+  <div className="overflow-hidden rounded-sm bg-white border border-stone-200 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.15)]">
+    <div className="w-[680px] p-8">
+
+
+      <nav className="grid grid-cols-2 gap-x-12 gap-y-7">
+        {items.map((item) => {
+          const isActive = location.pathname === item.to;
+          return (
             <Link
               key={item.to}
               to={item.to}
-              className="group/item relative flex flex-col border-l border-transparent pl-5 xl:pl-6 transition-all duration-500"
+              className="group/item relative inline-flex w-fit flex-col items-start transition-all duration-300"
             >
-              <div className="flex items-center gap-2">
+              <div className="relative inline-flex w-fit items-baseline">
                 <span
-                  className={`relative inline-block text-[15px] xl:text-[17px] tracking-wide font-medium transition-all duration-700 ${
-                    location.pathname === item.to
-                      ? "text-stone-950"
-                      : "text-stone-900 group-hover/item:text-stone-950 group-hover/item:translate-x-1"
+                  className={`font-serif text-[18px] xl:text-[18px] leading-tight transition-all duration-500 ${
+                    isActive
+                      ? "text-stone-950 "
+                      : "text-stone-700 group-hover/item:text-stone-950 group-hover/item:-translate-y-0.5"
                   }`}
                 >
                   {item.name}
-                  <span
-                    className={`pointer-events-none absolute left-0 -bottom-1 h-0.5 bg-emerald-600 transition-all duration-500 ${
-                      location.pathname === item.to
-                        ? "w-full"
-                        : "w-0 group-hover/item:w-full"
-                    }`}
-                  ></span>
+                </span>
+                
+                {/* Arrow indicator with Emerald color on Active */}
+                <span className={`absolute left-full ml-2 text-xs transition-all duration-500 transform font-light 
+                  ${isActive 
+                    ? "opacity-100 translate-x-0 text-emerald-600" 
+                    : "opacity-0 -translate-x-2 text-stone-400 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                  }`}>
+                  →
                 </span>
               </div>
+
+              {/* The Emerald Underline Logic */}
+              <div className="relative mt-2.5 h-[1.5px] w-full bg-stone-100 overflow-hidden self-start">
+                <div
+                  className={`absolute top-0 left-0 h-full transition-all duration-700 ease-in-out ${
+                    isActive 
+                      ? "w-full bg-emerald-600 translate-x-0" 
+                      : "w-full bg-emerald-600 -translate-x-full group-hover/item:translate-x-0"
+                  }`}
+                />
+              </div>
             </Link>
-          ))}
-        </nav>
-      </div>
+          );
+        })}
+      </nav>
+      
+
     </div>
-  );
+  </div>
+);
 
   return (
     <nav
