@@ -390,161 +390,92 @@ export default function WebKitSection() {
       <div
         className="relative z-10 max-w-7xl mx-auto px-8 sm:px-10 md:px-12 lg:px-16"
         style={{
-          paddingTop: "clamp(52px, 7vw, 96px)",
-          paddingBottom: "clamp(64px, 9vw, 128px)",
+          paddingTop: "clamp(64px, 8vw, 110px)",
+          paddingBottom: "clamp(64px, 8vw, 110px)",
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-14 md:gap-16 lg:gap-24 items-start">
-          {/* ── LEFT ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* ── LEFT: Brand Identity ── */}
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-6"
           >
-            {/* Eyebrow */}
-            <div className="flex items-center gap-3">
-              <div
-                className="h-px w-10"
-                style={{ background: "rgba(255,255,255,0.85)" }}
-              />
-              <span
-                className="wk-sans font-bold uppercase"
-                style={{
-                  fontSize: "12px",
-                  letterSpacing: "0.32em",
-                  color: "rgba(255,255,255,0.9)",
-                }}
-              >
-                Website Templates
-              </span>
-            </div>
-
-            {/* Headline stack */}
             <div className="space-y-2">
-              <div
-                className="wk-sans font-medium uppercase"
+              <span
+                className="wk-sans font-semibold uppercase tracking-[0.2em]"
                 style={{
-                  fontSize: "14px",
-                  letterSpacing: "0.38em",
+                  fontSize: "13px",
                   color: "rgba(255,255,255,0.9)",
                 }}
               >
-                Introducing
-              </div>
+                Enterprise Solutions
+              </span>
 
-              {/* "WebKit" — the hero word */}
               <h2
-                className="wk-serif text-white font-normal leading-[0.88] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(4rem, 8.5vw, 7rem)" }}
+                className="wk-serif text-white font-medium leading-tight tracking-tight"
+                style={{ fontSize: "clamp(3.5rem, 6vw, 5.5rem)" }}
               >
                 WebKit
               </h2>
 
-              {/* Brand line — Cormorant italic, large, white outline */}
-              <div
-                className="wk-cormorant  font-light leading-none"
-                style={{
-                  fontSize: "clamp(1.6rem, 3.8vw, 3rem)",
-                  color: "transparent",
-                  WebkitTextStroke: "1px rgba(255,255,255,0.9)",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                by LushWare{" "}
-
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div
-              className="w-12 h-px"
-              style={{ background: "rgba(255,255,255,0.2)" }}
-            />
-
-
-          </motion.div>
-
-          {/* ── RIGHT ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="flex flex-col gap-10"
-            style={{
-              paddingLeft: "clamp(0px, 4vw, 56px)",
-              borderLeft: "1px solid rgba(255,255,255,0.1)",
-            }}
-          >
-            {/* Body copy with accent line */}
-            <div className="flex gap-5">
-              <div
-                className="shrink-0 w-px mt-1"
-                style={{
-                  height: "90px",
-                  background:
-                    "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)",
-                }}
-              />
               <p
-                className="wk-sans font-light leading-[1.9]"
+                className="wk-sans font-light "
                 style={{
-                  fontSize: "clamp(0.9rem, 1.6vw, 1.075rem)",
-                  color: "rgba(255,255,255,0.82)",
+                  fontSize: "1.45rem",
+                  color: "rgba(255,255,255,0.9)",
+                  marginTop: "-8px",
                 }}
               >
-                A curated collection of ready-to-deploy website templates
-                engineered for{" "}
-                <span
-                  style={{ color: "rgba(255,255,255,0.95)", fontWeight: 500 }}
-                >
-                  elite industries
-                </span>
-                . Every template is built to the same standards as our bespoke
-                solutions —{" "}
-                <span
-                  style={{ color: "rgba(255,255,255,0.95)", fontWeight: 500 }}
-                >
-                  without the timeline
-                </span>
-                .
+                by LushWare
               </p>
             </div>
 
+            <div className="h-[2px] w-16 bg-white/20" />
+          </motion.div>
 
+          {/* ── RIGHT: Value Proposition ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-8"
+          >
+            <p
+              className="wk-sans font-normal leading-relaxed"
+              style={{
+                fontSize: "clamp(1rem, 1.2vw, 1.125rem)",
+                color: "rgba(255,255,255,0.85)",
+              }}
+            >
+              Experience a curated collection of high-performance website
+              templates, precisely engineered for{" "}
+              <span className="text-white font-medium">industry leaders</span>.
+              Our frameworks deliver bespoke-level quality with
+              <span className="text-white font-medium">
+                {" "}
+                accelerated deployment
+              </span>
+              .
+            </p>
 
-            {/* CTA row */}
-            <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-7">
-              {/* Primary: white fill, dark sweep */}
+            <div className="flex flex-wrap gap-5">
               <button
                 type="button"
                 onClick={() => navigate("/solutions/websites")}
-                className="wk-cta cursor-pointer wk-sans group inline-flex items-center gap-3 bg-white active:scale-[0.97] transition-transform duration-150"
-                style={{
-                  padding: "14px 32px",
-                  fontSize: "14px",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.2em",
-                  color: "#064e3b",
-                }}
+                className="cursor-pointer transition-all duration-300 border-2 backdrop-blur-sm border-white/50 hover:border-white hover:bg-white hover:text-black px-10 py-4 text-white uppercase tracking-widest text-xs font-bold active:scale-95"
               >
-                <span className="wk-cta-text">Explore WebKit</span>
-                <svg
-                  className="wk-cta-icon w-3.5 h-3.5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                View Collection
+              </button>
+
+              <button
+                type="button"
+                className="px-6 py-4 text-white/80 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold"
+              >
+                Technical Specs
               </button>
             </div>
           </motion.div>

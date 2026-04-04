@@ -331,7 +331,7 @@ export default function ElectricServices() {
                 className="w-full h-[300px] sm:h-[420px] md:h-[560px] lg:h-[520px] object-cover object-top"
               />
 
-              <div className="absolute inset-0 flex items-end sm:items-center bg-black/20 sm:bg-transparent pb-4 sm:pb-0">
+              <div className="absolute inset-0 flex items-center bg-black/20 sm:bg-transparent pb-4 sm:pb-0">
                 <div className="w-full px-4 sm:px-10 md:pl-12 lg:pl-32">
                   <div className="flex flex-col items-start gap-3 sm:gap-5 max-w-xl">
                     <h3 className="elec-serif text-2xl sm:text-5xl md:text-6xl font-normal text-white sm:text-black leading-[1.1]">
@@ -439,7 +439,7 @@ export default function ElectricServices() {
           </div>
 
           {/* ── TRIPTYCH SPLIT IMAGE SECTION ──────────────────── */}
-          <div className="max-w-7xl mx-auto px-6 pt-12 mb-32">
+          <div className="max-w-7xl mx-auto px-2 md:px-6 pt-12 mb-32">
             <div
               className="grid items-center"
               style={{
@@ -458,8 +458,7 @@ export default function ElectricServices() {
                   <div
                     key={index}
                     className={`relative overflow-hidden border-[3px] border-slate-900 group transition-all duration-500
-            ${isMiddle ? "shadow-2xl z-10" : "shadow-lg z-0"}`}
-                    style={{ aspectRatio: isMiddle ? "3/5.2" : "3/5" }}
+                      ${isMiddle ? "shadow-2xl z-10 aspect-[3/6.4] md:aspect-[3/5.2]" : "shadow-lg z-0 aspect-[3/6.1] md:aspect-3/5"}`}
                   >
                     <div
                       className="absolute inset-0 w-full h-full transition-transform duration-1000 group-hover:scale-105"
@@ -499,7 +498,7 @@ export default function ElectricServices() {
                     What We Offer
                   </span>
                 </div>
-                <h2 className="elec-serif text-5xl sm:text-6xl font-normal tracking-tight text-slate-900 leading-none">
+                <h2 className="elec-serif text-4xl sm:text-6xl font-normal tracking-tight text-slate-900 leading-none">
                   Our <span className="text-emerald-600">Services.</span>
                 </h2>
               </div>

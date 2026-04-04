@@ -414,9 +414,9 @@ export default function Homepage() {
 
               <h2 className="lwd-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-slate-900 leading-[1.0]">
                 Lush{" "}
-                <span className="italic text-emerald-600">Web</span>{" "}
+                <span className=" text-emerald-600">Web</span>{" "}
                 <span
-                  className="text-transparent"
+                  className="text-transparent font-semibold"
                   style={{ WebkitTextStroke: "1.5px #1c1917" }}
                 >
                   Designers.

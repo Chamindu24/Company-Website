@@ -17,15 +17,8 @@ export default function GlobalPresence() {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-8 md:px-0 lg:px-0">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* ── LEFT SIDE: EDITORIAL TEXT ── */}
-          <div className="space-y-10 md:space-y-12 z-5 order-2 lg:order-1 text-center lg:text-left">
-
-            <div className="relative space-y-6">
-
-              {/* Dot grid accent */}
-              <div className="gp-grid-dot absolute inset-0 -z-10 opacity-40 pointer-events-none" />
+        <div className="flex flex-col items-center text-center mb-24 md:mb-48 lg:mb-32" >
 
               {/* Badge — Project Base flanking lines style */}
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-7">
@@ -37,7 +30,7 @@ export default function GlobalPresence() {
               </div>
 
               {/* Headline */}
-              <h2 className="gp-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-slate-900 leading-[1.05]">
+              <h2 className="gp-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-slate-900 leading-[1.05]">
                 Working with{" "}
                 <span className=" text-slate-500">the UK.</span>
                 <br />
@@ -59,6 +52,16 @@ export default function GlobalPresence() {
                   </svg>
                 </span>
               </h2>
+        </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* ── LEFT SIDE: EDITORIAL TEXT ── */}
+          <div className="space-y-10 md:space-y-12 z-5 order-2 lg:order-1 text-center lg:text-left">
+
+            <div className="relative space-y-6">
+
+
+
 
               {/* Body copy */}
               <p className="gp-sans text-slate-500 font-light leading-relaxed text-base sm:text-lg max-w-lg mx-auto lg:mx-0">

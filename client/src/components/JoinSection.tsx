@@ -92,7 +92,7 @@ export default function JoinSection() {
           </div>
 
           {/* Headline — DM Serif Display */}
-          <h2 className="pi-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-slate-900 leading-[1.05] mb-7">
+          <h2 className="pi-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-slate-900 leading-[1.05] mb-7">
             Build real{" "}
             <span className=" text-slate-500">things</span>
             {" "}that

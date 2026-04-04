@@ -434,9 +434,9 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-32 ">
           {/* ── Sidebar / Header ── */}
-<div className="lg:w-1/3 lg:sticky lg:top-48 h-fit">
-  {/* Inject fonts to match Project Base theme */}
-  <style>{`
+          <div className="lg:w-1/3 lg:sticky lg:top-48 h-fit">
+            {/* Inject fonts to match Project Base theme */}
+            <style>{`
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
     .svc-serif { font-family: 'DM Serif Display', serif; }
     .svc-sans  { font-family: 'DM Sans', sans-serif; }
@@ -456,72 +456,73 @@ export default function ServicesSection() {
     .svc-sweep-btn:hover::after { transform: translateX(0); }
   `}</style>
 
-  <div className="relative flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="relative flex flex-col items-center lg:items-start text-center lg:text-left">
+              {/* Dot grid background accent */}
+              <div className="svc-grid-dot absolute inset-0 -z-10 opacity-50 pointer-events-none rounded-xl" />
 
-    {/* Dot grid background accent */}
-    <div className="svc-grid-dot absolute inset-0 -z-10 opacity-50 pointer-events-none rounded-xl" />
+              {/* Badge */}
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-7">
+                <div className="h-px w-8 bg-emerald-600" />
+                <div className="px-3 py-1 border border-emerald-600 text-[10px] font-bold text-emerald-700 uppercase tracking-[0.22em] svc-sans">
+                  Our Services
+                </div>
+                <div className="h-px w-8 bg-emerald-600" />
+              </div>
 
-    {/* Badge — matches Project Base pill style */}
-    <div className="flex items-center gap-3 mb-7">
-      <div className="h-px w-8 bg-emerald-600" />
-      <div className="px-3 py-1 border border-emerald-600 text-[10px] font-bold text-emerald-700 uppercase tracking-[0.22em] svc-sans">
-        Our Services
-      </div>
-      <div className="h-px w-8 bg-emerald-600" />
-    </div>
+              {/* Heading */}
+              <h2 className="svc-serif text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-normal tracking-tight text-slate-900 mb-6 lg:mb-10">
+                Our Specialized <span className="text-slate-400">Software</span>
+                <br />
+                <span className="relative inline-block text-emerald-600">
+                  Solutions.
+                  <svg
+                    className="absolute -bottom-1 left-0 w-full"
+                    viewBox="0 0 200 4"
+                    preserveAspectRatio="none"
+                    height="4"
+                  >
+                    <path
+                      d="M0,2 Q50,0 100,2 T200,2"
+                      stroke="#059669"
+                      strokeWidth="1.5"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </h2>
 
-    {/* Heading — DM Serif Display like Project Base */}
-    <h2 className="svc-serif text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-normal tracking-tight text-slate-900  mb-6 lg:mb-10">
-      Our Specialized{" "}
-      <span className=" text-slate-400">Software</span>
-      <br />
-      <span className="relative inline-block  text-emerald-600">
-        Solutions.
-        <svg
-          className="absolute -bottom-1 left-0 w-full"
-          viewBox="0 0 200 4"
-          preserveAspectRatio="none"
-          height="4"
-        >
-          <path
-            d="M0,2 Q50,0 100,2 T200,2"
-            stroke="#059669"
-            strokeWidth="1.5"
-            fill="none"
-            strokeLinecap="round"
-          />
-        </svg>
-      </span>
-    </h2>
+              {/* Description */}
+              <p className="svc-sans text-slate-500 text-md font-light leading-relaxed mb-4 max-w-xs mx-auto lg:mx-0 lg:max-w-none">
+                Tailored software built to move your business forward.
+              </p>
 
-    {/* Subtle descriptor line */}
-    <p className="svc-sans text-slate-500 text-md font-light leading-relaxed mb-4 max-w-xs lg:max-w-none">
-      Tailored software built to move your business forward.
-    </p>
-
-    {/* CTA Button — sweep animation like Project Base */}
-    <button
-      onClick={() => navigate("/solutions")}
-      className="svc-sweep-btn svc-sans cursor-pointer group relative overflow-hidden h-12 px-9 bg-slate-900 transition-shadow duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.15)]"
-    >
-      <span className="relative z-10 flex items-center gap-2.5">
-        <span className="text-white text-[10px] font-bold uppercase tracking-[0.18em] whitespace-nowrap transition-colors duration-300">
-          View All Solutions
-        </span>
-        <svg
-          className="w-3.5 h-3.5 text-white transition-transform duration-500 group-hover:translate-x-1.5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="2.5"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </span>
-    </button>
-
-  </div>
-</div>
+              {/* CTA Button */}
+              <button
+                onClick={() => navigate("/solutions")}
+                className="svc-sweep-btn svc-sans cursor-pointer group relative overflow-hidden h-12 px-9 bg-slate-900 transition-shadow duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.15)]"
+              >
+                <span className="relative z-10 flex items-center gap-2.5">
+                  <span className="text-white text-[10px] font-bold uppercase tracking-[0.18em] whitespace-nowrap transition-colors duration-300">
+                    View All Solutions
+                  </span>
+                  <svg
+                    className="w-3.5 h-3.5 text-white transition-transform duration-500 group-hover:translate-x-1.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
 
           {/* ── Service Cards ── */}
           <div className="lg:w-2/3 space-y-8 sm:space-y-6 lg:mt-0 md:mt-8 mt-4 px-0 md:px-12 lg:px-0 lg:space-y-14">

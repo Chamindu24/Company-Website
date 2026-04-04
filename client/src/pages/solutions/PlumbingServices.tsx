@@ -386,7 +386,7 @@ export default function PlumbingServices() {
 
           {/* THREE IMAGES */}
           {/* ── TRIPTYCH SPLIT IMAGE SECTION ──────────────────── */}
-          <div className="max-w-7xl mx-auto px-6 pt-12 mb-20 md:mb-32">
+          <div className="max-w-7xl mx-auto px-2 md:px-6 pt-12 mb-20 md:mb-32">
             <div
               className="grid items-center"
               style={{
@@ -405,8 +405,7 @@ export default function PlumbingServices() {
                   <div
                     key={index}
                     className={`relative overflow-hidden border-[3px] border-slate-900 group transition-all duration-500
-            ${isMiddle ? "shadow-2xl z-10" : "shadow-lg z-0"}`}
-                    style={{ aspectRatio: isMiddle ? "3/5.2" : "3/5" }}
+                      ${isMiddle ? "shadow-2xl z-10 aspect-[3/6.4] md:aspect-[3/5.2]" : "shadow-lg z-0 aspect-[3/6.1] md:aspect-3/5"}`}
                   >
                     <div
                       className="absolute inset-0 w-full h-full transition-transform duration-1000 group-hover:scale-105"
@@ -446,7 +445,7 @@ export default function PlumbingServices() {
                     What We Offer
                   </span>
                 </div>
-                <h2 className="pl-serif text-5xl sm:text-6xl font-normal tracking-tight text-slate-900 leading-none">
+                <h2 className="pl-serif text-4xl sm:text-6xl font-normal tracking-tight text-slate-900 leading-none">
                   Our <span className="text-emerald-600">Services.</span>
                 </h2>
               </div>
