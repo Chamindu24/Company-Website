@@ -433,7 +433,7 @@ export default function Homepage() {
 
               <div className="mt-10">
                 <button
-                  onClick={() => window.open("https://lushwebdesigners.com/", "_blank")}
+                  onClick={() => window.open("https://lushware.net/solutions/websites", "_blank")}
                   className="group cursor-pointer relative inline-flex items-center gap-3 px-12 py-4 bg-slate-900 text-white text-[11px] font-bold tracking-[0.2em] uppercase overflow-hidden transition-shadow duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] active:scale-[0.98]"
                 >
                   <span className="relative z-10">Explore Services</span>
