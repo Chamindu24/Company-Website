@@ -402,7 +402,7 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="px-4 bg-[#ffffff] py-16 sm:px-6 mb-24 sm:py-20 md:px-8 md:py-32">
+        <section className="px-4 bg-[#ffffff] py-16 sm:px-6 pb-24 sm:py-20 md:px-8 md:py-32">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-secondary p-6 text-center sm:rounded-3xl sm:p-12 md:p-16 lg:p-16">
             {/* Texture overlay */}
             <div className="absolute inset-0 opacity-10">
