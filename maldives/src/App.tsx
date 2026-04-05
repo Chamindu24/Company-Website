@@ -1,6 +1,7 @@
 import { useLayoutEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
+import FloatingActions from './components/FloatingActions'
 import Navbar from './components/Navbar'
 import ContactPage from './pages/ContactPage'
 import LandingPage from './pages/LandingPage'
@@ -36,6 +37,7 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <FloatingActions />
       <Footer />
     </div>
   )

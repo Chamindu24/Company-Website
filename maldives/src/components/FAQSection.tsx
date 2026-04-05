@@ -11,7 +11,6 @@ interface FAQSectionProps {
   title?: string;
   subtitle?: string;
   items: FAQItem[];
-  backgroundColor?: string;
 }
 
 export default function FAQSection({
@@ -20,90 +19,102 @@ export default function FAQSection({
   items,
 }: FAQSectionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
-  const [hoverId, setHoverId] = useState<string | null>(null);
 
   const toggleFAQ = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
 
-  const isOpen = (id: string) => openId === id || hoverId === id;
-
   return (
-    <section className="bg-[#ffffff] px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
-      <div className="mx-auto max-w-5xl lg:max-w-6xl">
+    <section className="bg-[#ffffff] px-4 py-20 sm:px-6 sm:py-28 md:px-8">
+      <div className="mx-auto max-w-5xl">
         
-        {/* Header */}
-        <div className="mb-12 text-center sm:mb-16">
-          <h2 className="mb-4 font-headline text-3xl font-extrabold tracking-tight text-on-surface sm:text-4xl md:text-5xl">
+        {/* Header - Royal/Premium Centered Style */}
+        <div className="mb-16 text-center">
+          <span className="mb-3 block text-sm font-bold uppercase tracking-[0.3em] text-primary/60">
+            Assistance
+          </span>
+          <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-on-surface sm:text-5xl lg:text-5xl">
             {title}
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-on-surface-variant sm:text-lg">
+          <div className="mx-auto mb-6 h-1 w-20 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-on-surface-variant/80">
             {subtitle}
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-3 sm:space-y-4">
-          {items.map((item) => (
-            <div
-              key={item.id}
-              onMouseEnter={() => setHoverId(item.id)}
-              onMouseLeave={() => setHoverId(null)}
-              className="group overflow-hidden rounded-2xl border border-outline-variant/20 bg-surface-container-lowest shadow-sm transition-all duration-300 hover:shadow-md hover:border-outline-variant/40"
-            >
-              {/* Question Header */}
-              <button
-                onClick={() => toggleFAQ(item.id)}
-                className={`flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition-all duration-300 sm:px-6 sm:py-5 md:px-8 ${
-                  isOpen(item.id)
-                    ? "bg-[#26AEBF]/20"
-                    : "group-hover:bg-surface-container-low"
+        <div className="space-y-5">
+          {items.map((item) => {
+            const isOpen = openId === item.id;
+            return (
+              <div
+                key={item.id}
+                // Hover functionality added here
+                onMouseEnter={() => setOpenId(item.id)}
+                onMouseLeave={() => setOpenId(null)}
+                className={`group overflow-hidden rounded-2xl border transition-all duration-500 ease-out ${
+                  isOpen 
+                    ? "border-primary/40 bg-surface-container-lowest shadow-2xl shadow-primary/10 translate-y-[-4px]" 
+                    : "border-outline-variant/10 bg-white hover:border-primary/20"
                 }`}
               >
-                <h3 className="font-headline text-base font-bold leading-snug text-on-surface sm:text-lg md:text-xl">
-                  {item.question}
-                </h3>
+                {/* Question Header */}
+                <button
+                  onClick={() => toggleFAQ(item.id)}
+                  className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-8 sm:py-7"
+                >
+                  <span className={`font-headline text-lg font-bold transition-colors duration-300 sm:text-xl ${
+                    isOpen ? "text-primary" : "text-on-surface"
+                  }`}>
+                    {item.question}
+                  </span>
 
-                <span
-                  className={`flex-shrink-0 text-primary transition-transform duration-300 ${
-                    isOpen(item.id) ? "rotate-180 scale-110" : ""
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-500 ${
+                    isOpen 
+                      ? "bg-primary text-white rotate-180 border-primary shadow-lg " 
+                      : "bg-surface-container-low text-primary border-outline-variant/20"
+                  }`}>
+                    <span className="material-symbols-outlined text-2xl font-light">
+                      expand_more
+                    </span>
+                  </div>
+                </button>
+
+                {/* Answer Content */}
+                <div
+                  className={`grid transition-all duration-500 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  <span className="material-symbols-outlined text-2xl">
-                    expand_more
-                  </span>
-                </span>
-              </button>
-
-              {/* Answer Content */}
-              <div
-                className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen(item.id)
-                    ? "grid-rows-[1fr] opacity-100"
-                    : "grid-rows-[0fr] opacity-0"
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <div className="border-t border-outline-variant/20 px-4 py-4 text-sm text-on-surface-variant sm:px-6 sm:py-5 sm:text-base md:px-8">
-                    <p className="leading-relaxed">{item.answer}</p>
+                  <div className="overflow-hidden">
+                    <div className="px-6 pb-8 pt-2 sm:px-8 sm:pb-10">
+                      {/* Premium Divider */}
+                      <div className="mb-6 h-[1px] w-full bg-gradient-to-r from-primary/20 via-primary/5 to-transparent"></div>
+                      <p className="text-base leading-loose text-on-surface-variant/90 sm:text-lg">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-12 text-center sm:mt-16">
-          <p className="mb-5 text-sm text-on-surface-variant sm:text-base">
-            Didn't find what you're looking for?
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-sm font-bold text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] transition-all hover:scale-105 sm:px-8 sm:py-4 sm:text-base"
-          >
-            Contact Our Support Team
-          </Link>
+        <div className="mt-20 text-center">
+          <div className="inline-flex flex-col items-center gap-6 rounded-3xl border border-outline-variant/10 bg-surface-container-lowest p-8 shadow-sm sm:flex-row sm:gap-12 sm:px-12">
+            <p className="text-base font-medium text-on-surface-variant">
+              Still have questions? We are here to help.
+            </p>
+            <Link
+              to="/contact"
+              className="group relative overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-sm font-bold tracking-widest uppercase text-on-primary transition-all hover:bg-primary/90 hover:shadow-2xl hover:shadow-primary/30"
+            >
+              <span className="relative z-10">Contact Support</span>
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>
+            </Link>
+          </div>
         </div>
 
       </div>

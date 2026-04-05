@@ -25,8 +25,13 @@ export function ScrollFillText({
     const end = (index + 1) / totalCharacters;
     const charProgress = Math.min(
       Math.max((clampedProgress - start) / (end - start), 0),
-      1,
+      1
     );
+
+    // Upgraded animations
+    const scale = 0.8 + charProgress * 0.2; // scale up
+    const blur = (1 - charProgress) * 4; // blur fade
+    const translateY = (1 - charProgress) * 8; // subtle float
 
     return (
       <span
@@ -38,15 +43,23 @@ export function ScrollFillText({
           paddingRight: "0.05em",
         }}
       >
-        <span className={baseClassName}>{char}</span>
+        <span
+          className={baseClassName}
+          style={{
+            transform: `scale(${scale})`,
+            transition: "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
+        >
+          {char}
+        </span>
 
         <span
           className={`absolute inset-0 select-none pointer-events-none ${fillClassName}`}
           style={{
             opacity: charProgress,
-            filter: `blur(${(1 - charProgress) * 4}px)`,
-            transform: `translateY(${(1 - charProgress) * 5}px)`,
-            transition: "all 0.2s cubic-bezier(0.22, 1, 0.36, 1)",
+            filter: `blur(${blur}px) drop-shadow(0 0 4px rgba(255,255,255,0.4))`,
+            transform: `translateY(${translateY}px) scale(${scale})`,
+            transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
           aria-hidden="true"
         >
@@ -75,7 +88,7 @@ export function ScrollFillText({
         return (
           <span key={`word-${tokenIndex}`} className="inline-flex whitespace-pre">
             {tokenCharacters.map((char, charIndex) =>
-              renderCharacter(char, tokenStartIndex + charIndex),
+              renderCharacter(char, tokenStartIndex + charIndex)
             )}
           </span>
         );
@@ -110,18 +123,13 @@ function PinnedScrollHeadlineSection({
   useEffect(() => {
     const section = headlineSectionRef.current;
 
-    if (!section) {
-      return;
-    }
+    if (!section) return;
 
     let animationFrame = 0;
 
     const updateProgress = () => {
       const rect = section.getBoundingClientRect();
-      const scrollDistance = Math.max(
-        section.offsetHeight - window.innerHeight,
-        1,
-      );
+      const scrollDistance = Math.max(section.offsetHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(-rect.top / scrollDistance, 0), 1);
 
       setHeadlineFillProgress(progress);
@@ -129,53 +137,45 @@ function PinnedScrollHeadlineSection({
     };
 
     const onScroll = () => {
-      if (animationFrame !== 0) {
-        return;
-      }
-
+      if (animationFrame !== 0) return;
       animationFrame = window.requestAnimationFrame(updateProgress);
     };
 
     updateProgress();
-
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-
-      if (animationFrame !== 0) {
-        window.cancelAnimationFrame(animationFrame);
-      }
+      if (animationFrame !== 0) window.cancelAnimationFrame(animationFrame);
     };
   }, []);
 
   return (
-<section
-  ref={headlineSectionRef}
-  className={`relative mx-auto mb-12 min-h-[170vh] max-w-7xl space-y-8 px-4 sm:px-6 md:mb-24 md:px-8 ${sectionClassName}`.trim()}
->
-  <div className="sticky top-16 -mt-12 md:mt-0 md:top-28  mx-auto w-full md:max-w-4xl h-[100svh] md:h-auto flex flex-col items-center justify-center py-8 md:py-20 text-center">
-    <span className="mb-5 inline-block rounded-full mb-8  border-2 border-secondary-container px-4 py-1.5 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
-      {badge}
-    </span>
-    <h1 className="mb-4 font-headline text-4xl sm:text-5xl md:text-7xl font-black leading-[1.4] tracking-tighter text-on-surface hyphens-auto break-normal whitespace-normal w-full">
-      {titlePrefix}{" "}
-      <ScrollFillText
-        text={highlightText}
-        progress={headlineFillProgress}
-      />{" "}
-      {titleSuffix}
-    </h1>
-    <p className="w-full max-w-2xl text-lg sm:text-xl text-center mx-auto leading-relaxed text-on-surface-variant px-2 sm:px-0">
-      {description}
-    </p>
-    {children ? (
-      <div className="mt-8 flex justify-center w-full">{children}</div>
-    ) : null}
-  </div>
-</section>
+    <section
+      ref={headlineSectionRef}
+      className={`relative mx-auto mb-12 min-h-[170vh] max-w-7xl space-y-8 px-4 sm:px-6 md:mb-24 md:px-8 ${sectionClassName}`}
+    >
+      <div className="sticky top-16 -mt-12 md:mt-0 md:top-28 mx-auto w-full md:max-w-4xl h-[100svh] md:h-auto flex flex-col items-center justify-center py-8 md:py-20 text-center">
+        <span className="mb-5 inline-block rounded-full border-2 border-secondary-container px-4 py-1.5 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
+          {badge}
+        </span>
+        <h1 className="mb-4 font-headline text-5xl sm:text-5xl md:text-7xl font-black leading-[1.2] tracking-tighter text-on-surface hyphens-auto break-normal whitespace-normal w-full">
+          <span className="block mb-2">{titlePrefix}</span>
+          <ScrollFillText
+            text={highlightText}
+            progress={headlineFillProgress}
+            className="inline-block"
+          />
+          <span className="block mt-2">{titleSuffix}</span>
+        </h1>
+        <p className="w-full max-w-2xl text-lg sm:text-xl text-center mx-auto leading-relaxed text-on-surface-variant px-2 sm:px-0">
+          {description}
+        </p>
+        {children && <div className="mt-8 flex justify-center w-full">{children}</div>}
+      </div>
+    </section>
   );
 }
 

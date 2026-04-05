@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection.tsx";
 
 const projects = [
@@ -173,7 +174,7 @@ function OurWorkPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 md:px-0 py-12">
+      <section className="max-w-7xl overflow-x-hidden mx-auto px-6 md:px-0 py-12">
         <div className="flex flex-col gap-6 mb-8 sm:flex-row sm:items-center sm:justify-between sm:mb-10 md:mb-12">
           <h2 className="text-2xl font-headline font-extrabold text-primary tracking-tight sm:text-3xl md:text-4xl">
             Recent Deployments
@@ -191,8 +192,19 @@ function OurWorkPage() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((project) => (
-            <div key={project.client} className="flex flex-col  group">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.client || index}
+              initial={{ x: 120, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.12,
+                ease: "easeOut",
+              }}
+              className="flex flex-col group"
+            >
               <div className="relative mb-6 overflow-hidden rounded-xl  bg-surface-container shadow-sm group-hover:shadow-lg transition-all">
                 <img
                   className="w-full h-full aspect-video min-h-[350px]  transition-transform duration-500"
@@ -251,7 +263,7 @@ function OurWorkPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

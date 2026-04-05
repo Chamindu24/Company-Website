@@ -144,6 +144,20 @@ const whyChooseItems = [
       "From a single guest house to a portfolio of luxury resorts, our system grows with your ambition.",
     color: "bg-primary-container",
   },
+  {
+    icon: "security",
+    title: "Secure",
+    description:
+      "Enterprise-grade security with data encryption, access control, and reliable backups to keep your data safe.",
+    color: "bg-secondary-container",
+  },
+  {
+    icon: "support_agent",
+    title: "24/7 Support",
+    description:
+      "Dedicated support team available anytime to assist you and ensure your operations run smoothly.",
+    color: "bg-tertiary-container",
+  },
 ];
 
 function LandingPage() {
@@ -353,53 +367,40 @@ function LandingPage() {
             </span>
           </h2>
 
-          <div className="grid grid-cols-1  max-w-6xl mt-20 mt:mt-28  mx-auto gap-12 lg:grid-cols-2 lg:gap-16">
-            {whyChooseItems.slice(0, 4).map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ x: 110, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.65, delay: index * 0.1, ease: "easeOut" }}
-              >
-              <div
-                className="group flex flex-col items-start gap-8 border-l border-secondary/50 pl-8 transition-all duration-500 hover:border-secondary"
-              >
-                {/* Subtle Label */}
-                <div className="flex items-center gap-4">
-                  <span className="text-xs font-bold tabular-nums tracking-widest text-secondary">
-                    0{index + 1}
-                  </span>
-                  <div className="h-[1px] w-8 bg-secondary/50 transition-all duration-500 group-hover:w-16 group-hover:bg-secondary" />
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    {/* Ultra-Light Iconography */}
-                    <span className="material-symbols-outlined text-4xl font-extralight text-primary group-hover:text-secondary transition-colors duration-500">
-                      {item.icon}
-                    </span>
-                    <h3 className="text-3xl font-semibold tracking-tighter text-primary">
-                      {item.title}
-                    </h3>
-                  </div>
-
-                  <p className="max-w-md text-lg leading-relaxed text-on-surface-variant/80">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Interactive "Service" Link Style */}
-                <div className="flex items-center gap-2 overflow-hidden text-xs font-bold uppercase tracking-[0.2em] text-primary/90 transition-all duration-500 group-hover:gap-4 group-hover:text-primary">
-                  Explore Solution
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_right_alt
-                  </span>
-                </div>
-              </div>
-              </motion.div>
-            ))}
+<div className="mx-auto max-w-7xl px-6 mt-20 overflow-hidden"> {/* Added overflow-hidden to prevent horizontal scroll during animation */}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-100">
+    {whyChooseItems.map((item, index) => (
+      <motion.div
+        key={item.title}
+                  initial={{ x: 120, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.7, delay: index * 0.12, ease: "easeOut" }}
+        className="group relative p-8 md:p-12 border-r border-b border-gray-200 transition-colors duration-300 hover:bg-gray-50/50"
+      >
+        {/* Icon & Title Row */}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-50 text-primary transition-transform duration-300 group-hover:scale-110">
+            <span className="material-symbols-outlined !text-3xl ">
+              {item.icon}
+            </span>
           </div>
+          <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+            {item.title}
+          </h3>
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-500 leading-relaxed text-md md:text-base">
+          {item.description}
+        </p>
+
+        {/* Subtle Glow Effect on Hover */}
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      </motion.div>
+    ))}
+  </div>
+</div>
         </section>
 
         <section className="px-4 bg-[#ffffff] py-16 sm:px-6 pb-24 sm:py-20 md:px-8 md:py-32">
