@@ -119,11 +119,10 @@ function ContactPage() {
     }
   };
 
-  const fieldClass =
-    "w-full rounded-3xl border border-outline-variant bg-surface/40 px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60";
   const labelClass =
-    "absolute -top-2.5 left-4 bg-surface px-2 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant transition-all group-focus-within:text-primary";
-
+    "block mb-2 text-sm font-semibold tracking-tight text-on-surface/80 group-focus-within:text-primary transition-colors duration-300";
+  const fieldClass =
+    "w-full bg-[#f8fafc] border border-outline-variant/50 rounded-2xl px-6 py-4 text-on-surface placeholder:text-slate-400 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 ease-out";
   return (
     <main className="bg-[#ffffff] pt-24 font-body text-on-surface">
       <PinnedScrollHeadlineSection
@@ -155,178 +154,188 @@ function ContactPage() {
         className="mx-auto mb-24 max-w-8xl px-6 -mt-48 md:mt-0 md:px-24"
       >
         <div className="grid  grid-cols-1 gap-16 lg:grid-cols-12">
-          <div className="rounded-3xl  border border-outline-variant/30 bg-[#ffffff] py-10 md:px-8 px-4 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] lg:col-span-8">
-            <div className="mb-20 mt-12 ">
-              <h2 className="font-headline text-4xl font-semibold tracking-tight text-on-surface">
-                Start a project
-              </h2>
-              <p className="mt-2 font-medium text-on-surface-variant">
-                Fill out the form below and our team will get back to you within
-                24 hours.
-              </p>
-            </div>
-
-            {submitStatus === "success" && (
-              <div className="mb-6 rounded-2xl border border-primary/35 bg-primary-container/25 px-4 py-3 text-sm font-medium text-on-surface">
-                Inquiry submitted successfully. Our team will reach out shortly.
-              </div>
-            )}
-
-            {submitStatus === "error" && (
-              <div className="mb-6 rounded-2xl border border-error/40 bg-error-container/25 px-4 py-3 text-sm font-medium text-on-surface">
-                {errorMessage}
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-10">
-              {/* Row 1: Name Pair */}
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div className="relative group">
-                  <label className={labelClass}>First Name</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    placeholder="Enter first name"
-                    className={fieldClass}
-                    disabled={isSubmitting}
-                    required
-                  />
-                </div>
-                <div className="relative group">
-                  <label className={labelClass}>Last Name</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    placeholder="Enter last name"
-                    className={fieldClass}
-                    disabled={isSubmitting}
-                    required
-                  />
-                </div>
+          {/* Main Container */}
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-outline-variant/20 bg-white p-2 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.03)] lg:col-span-8">
+            {/* Interior Padding Box */}
+            <div className="px-2 py-12 md:px-12 md:py-16">
+              {/* Form Header */}
+              <div className="mb-14 px-2 max-w-xl">
+                <h2 className="font-headline text-4xl font-black tracking-tight text-on-surface sm:text-5xl">
+                  Start a project
+                </h2>
+                <p className="mt-4 text-lg font-light leading-relaxed text-on-surface-variant/80">
+                  Fill out the form below and our team will get back to you
+                  within
+                  <span className="font-semibold text-on-surface">
+                    {" "}
+                    24 hours.
+                  </span>
+                </p>
               </div>
 
-              {/* Row 2: Email & Country */}
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div className="relative group">
-                  <label className={labelClass}>Business Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="name@company.com"
-                    className={fieldClass}
-                    disabled={isSubmitting}
-                    required
-                  />
+              {/* Success/Error Toasts - Refined with Icons */}
+              {submitStatus === "success" && (
+                <div className="mb-10 flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-4 text-sm font-medium text-primary">
+                  <span className="material-symbols-outlined text-xl">
+                    check_circle
+                  </span>
+                  Inquiry submitted successfully. Our team will reach out
+                  shortly.
                 </div>
-                <div className="relative group">
-                  <label className={labelClass}>Geography</label>
-                  <div className="relative">
-                    <Select
-                      options={countryOptions}
-                      value={formData.country}
-                      onChange={handleCountryChange}
-                      isDisabled={isSubmitting}
-                      isClearable
-                      isSearchable
-                      className="react-select-container"
-                      classNamePrefix="react-select"
-                      styles={{
-                        control: (base, state) => ({
-                          ...base,
-                          border: "1px solid",
-                          borderColor: state.isFocused ? "#26AEBF" : "#cad5e2",
-                          backgroundColor: "#ffffff",
-                          borderRadius: "1rem",
-                          minHeight: "56px",
-                          padding: "0 8px",
-                          fontSize: "15px",
-                          cursor: "pointer",
-                          boxShadow: state.isFocused
-                            ? "0 0 0 2px rgba(38,174,191,0.15)"
-                            : "none",
-                          "&:hover": { borderColor: "#26AEBF" },
-                        }),
-                        option: (base, state) => ({
-                          ...base,
-                          backgroundColor: state.isFocused
-                            ? "#26AEBF"
-                            : "white",
-                          color: state.isFocused ? "white" : "#1f2937",
-                          cursor: "pointer",
-                        }),
-                        singleValue: (base) => ({
-                          ...base,
-                          color: "#111827",
-                        }),
-                        input: (base) => ({
-                          ...base,
-                          color: "#111827",
-                        }),
-                        placeholder: (base) => ({
-                          ...base,
-                          color: "#6b7280",
-                        }),
-                      }}
-                      placeholder="Select Country"
+              )}
+
+              {submitStatus === "error" && errorMessage && (
+                <div className="mb-10 flex items-center gap-3 rounded-2xl border border-red-200 bg-red-50 px-6 py-4 text-sm font-medium text-red-700">
+                  <span className="material-symbols-outlined text-xl">
+                    error
+                  </span>
+                  {errorMessage}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Row 1: Name Pair */}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div className="group relative">
+                    <label className={labelClass}>First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      placeholder="e.g. John"
+                      className={fieldClass}
+                      disabled={isSubmitting}
                       required
                     />
-                    <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
-                      keyboard_arrow_down
-                    </span>
+                  </div>
+                  <div className="group relative">
+                    <label className={labelClass}>Last Name</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Doe"
+                      className={fieldClass}
+                      disabled={isSubmitting}
+                      required
+                    />
                   </div>
                 </div>
-              </div>
 
-              {/* Row 3: WhatsApp */}
-              <div className="relative group">
-                <label className={labelClass}>WhatsApp Number</label>
-                <input
-                  type="tel"
-                  name="whatsappNumber"
-                  value={formData.whatsappNumber}
-                  onChange={handleInputChange}
-                  placeholder="+44 000 000 0000"
-                  className={fieldClass}
-                  disabled={isSubmitting}
-                  required
-                />
-              </div>
+                {/* Row 2: Email & Country */}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div className="group relative">
+                    <label className={labelClass}>Business Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="name@company.com"
+                      className={fieldClass}
+                      disabled={isSubmitting}
+                      required
+                    />
+                  </div>
+                  <div className="group relative">
+                    <label className={labelClass}>Geography</label>
+                    <div className="relative">
+                      <Select
+                        options={countryOptions}
+                        value={formData.country}
+                        onChange={handleCountryChange}
+                        isDisabled={isSubmitting}
+                        placeholder="Select Country"
+                        className="react-select-container"
+                        styles={{
+                          control: (base, state) => ({
+                            ...base,
+                            border: "1px solid",
+                            borderColor: state.isFocused
+                              ? "#26AEBF"
+                              : "rgba(202, 213, 226, 0.5)",
+                            backgroundColor: state.isFocused
+                              ? "#ffffff"
+                              : "#f8fafc",
+                            borderRadius: "1.25rem",
+                            minHeight: "60px",
+                            padding: "0 12px",
+                            fontSize: "15px",
+                            boxShadow: state.isFocused
+                              ? "0 0 0 4px rgba(38,174,191,0.1)"
+                              : "none",
+                            transition: "all 300ms ease-out",
+                            "&:hover": { borderColor: "#26AEBF" },
+                          }),
+                          // ... include other styles as you had them, but use these rounded/bg updates
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
 
-              {/* Row 4: Requirement */}
-              <div className="relative group">
-                <label className={labelClass}>Requirement</label>
-                <textarea
-                  name="requirements"
-                  rows={4}
-                  value={formData.requirements}
-                  onChange={handleInputChange}
-                  placeholder="How can we help you?"
-                  className={`${fieldClass} resize-none`}
-                  disabled={isSubmitting}
-                  required
-                />
-              </div>
+                {/* Row 3: WhatsApp */}
+                <div className="group relative">
+                  <label className={labelClass}>WhatsApp Number</label>
+                  <div className="relative">
+                    <span className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-lg">
+                      call
+                    </span>
+                    <input
+                      type="tel"
+                      name="whatsappNumber"
+                      value={formData.whatsappNumber}
+                      onChange={handleInputChange}
+                      placeholder="+44 000 000 0000"
+                      className={`${fieldClass} pl-14`}
+                      disabled={isSubmitting}
+                      required
+                    />
+                  </div>
+                </div>
 
-              {/* Action Button */}
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="relative group w-full  overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-12 py-5 text-sm font-bold tracking-widest text-on-primary uppercase transition-all hover:bg-primary/90 hover:shadow-[0_20px_40px_-10px_rgba(38,174,191,0.45)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
-                >
-                  <span className="flex items-center justify-center gap-3">
-                    {isSubmitting ? "Sending..." : "Send Inquiry"}
-                    <div className="h-px w-6 bg-on-primary/40 transition-all group-hover:w-8 group-hover:bg-on-primary" />
-                  </span>
-                </button>
-              </div>
-            </form>
+                {/* Row 4: Requirement */}
+                <div className="group relative">
+                  <label className={labelClass}>Requirement</label>
+                  <textarea
+                    name="requirements"
+                    rows={5}
+                    value={formData.requirements}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about your project goals..."
+                    className={`${fieldClass} resize-none`}
+                    disabled={isSubmitting}
+                    required
+                  />
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-6 flex justify-center md:justify-start">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="group relative flex w-full md:w-auto items-center justify-center gap-4 overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 py-4 sm:py-6 text-sm sm:text-base font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white transition-all hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] active:scale-[0.98] disabled:opacity-50"
+                  >
+                    {/* Button Text */}
+                    <span className="relative z-10">
+                      {isSubmitting ? "Processing..." : "Send Requirements"}
+                    </span>
+
+                    {/* Icon */}
+                    <div className="relative z-10 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:translate-x-2">
+                      <span className="material-symbols-outlined text-lg sm:text-xl">
+                        arrow_forward
+                      </span>
+                    </div>
+
+                    {/* Subtle shine effect */}
+                    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-1000 group-hover:translate-x-full pointer-events-none"></div>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
 
           <div className="space-y-8 lg:col-span-4">
