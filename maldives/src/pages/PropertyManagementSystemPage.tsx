@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import InquiryForm from "../components/InquiryForm";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const faqItems = [
   {
@@ -457,6 +458,8 @@ function PropertyManagementSystemPage() {
         title="Property Management FAQs"
         subtitle="Everything you need to know about managing your Maldivian properties"
       />
+
+      <WhyChooseUs />
 
       <section className="py-14 sm:py-16 md:py-20">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 md:px-16">

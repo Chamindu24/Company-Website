@@ -1,5 +1,6 @@
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection.tsx";
 import FAQSection from "../components/FAQSection";
+import WhyChooseUs from "../components/WhyChooseUs.tsx";
 
 const servicesFAQs = [
   {
@@ -44,16 +45,16 @@ function ServicesPage() {
         titleSuffix=""
         description="Transforming the Maldivian business landscape with tailored software solutions, automated intelligence, and premium digital experiences."
       >
-<div className="flex flex-col sm:flex-row mt-4 lg:mt-2 justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
-  <button className="w-full sm:flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-on-primary transition-all hover:opacity-90 hover:scale-105 active:scale-95">
-    Get Started
-    <span className="material-symbols-outlined">arrow_forward</span>
-  </button>
+        <div className="flex flex-col sm:flex-row mt-4 lg:mt-2 justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
+          <button className="w-full sm:flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-on-primary transition-all hover:opacity-90 hover:scale-105 active:scale-95">
+            Get Started
+            <span className="material-symbols-outlined">arrow_forward</span>
+          </button>
 
-  <button className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">
-    View Portfolio
-  </button>
-</div>
+          <button className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">
+            View Portfolio
+          </button>
+        </div>
       </PinnedScrollHeadlineSection>
 
       <section className="bg-[#ffffff] px-6 pb-24 md:px-8">
@@ -207,6 +208,8 @@ function ServicesPage() {
         title="Services FAQs"
         subtitle="Common questions about our digital services and solutions"
       />
+
+      <WhyChooseUs />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
         <div

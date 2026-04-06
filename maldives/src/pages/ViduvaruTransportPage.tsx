@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import InquiryForm from "../components/InquiryForm";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const transportFAQs = [
   {
@@ -309,6 +310,7 @@ function ViduvaruTransportPage() {
           title="Viduvaru Transport FAQs"
           subtitle="Everything you need to know about our fleet management and booking system"
         />
+        <WhyChooseUs />
 
         <section className="px-4 py-12 sm:px-6 mb-32 sm:py-16 md:px-8 md:py-20">
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-8 sm:p-10 md:p-16 text-center text-on-primary shadow-2xl">

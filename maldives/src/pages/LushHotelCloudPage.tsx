@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import InquiryForm from "../components/InquiryForm";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const reservationTags = ["Real-time Sync", "Direct Booking", "Channel Manager"];
 
@@ -761,7 +762,7 @@ function LushHotelCloudPage() {
         title="Lush Hotel Cloud FAQs"
         subtitle="Common questions about our cloud-based resort management solution"
       />
-
+      <WhyChooseUs />
       <section className="px-4 py-16 sm:px-6 mb-32 sm:py-20 md:px-8 md:py-24">
         <div className="relative mx-auto max-w-7xl space-y-5 sm:space-y-6 lg:space-y-8 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center shadow-2xl sm:p-10 md:p-12 lg:p-16">
           {/* Background texture */}

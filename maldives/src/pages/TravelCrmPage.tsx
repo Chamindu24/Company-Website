@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
 import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import InquiryForm from "../components/InquiryForm";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const featureCards = [
   {
@@ -483,6 +484,8 @@ function TravelCrmPage() {
         title="Travel CRM FAQs"
         subtitle="Common questions about managing your travel agency with Lushware's CRM"
       />
+
+      <WhyChooseUs />
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 mb-32 md:py-20 lg:px-8 lg:py-24">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-secondary to-primary shadow-2xl">
