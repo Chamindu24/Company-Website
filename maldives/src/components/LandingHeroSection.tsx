@@ -25,7 +25,7 @@ function LandingHeroSection() {
         <img
           className="h-full w-full object-cover brightness-[0.85]"
           //src="/work/herobg.webp"
-          src="/bg22.webp"
+          src="/bg222.jpg"
           alt="Maldives Horizon"
         />
       </motion.div>
