@@ -53,7 +53,7 @@ function LandingHeroSection() {
         <img
           className="h-full w-full object-cover "
           //src="/work/herobgremoved.webp"
-          src="/bgremoved22.webp"
+          src="/bgremoved22.avif"
           alt="Foreground villas"
         />
       </motion.div>
