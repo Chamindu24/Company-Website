@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import HowItWorksSection from "../components/HowItWorksSection";
 import LandingHeroSection from "../components/LandingHeroSection";
+import { useEffect, useState } from "react";
 
 const ecosystemCards = [
   {
@@ -160,7 +161,24 @@ const whyChooseItems = [
   },
 ];
 
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth < breakpoint,
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
 function LandingPage() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="overflow-x-hidden bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
       <main className="overflow-x-hidden">
@@ -182,55 +200,58 @@ function LandingPage() {
               {ecosystemCards.map((card, index) => (
                 <motion.div
                   key={card.title}
-                  initial={{ x: 120, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.7, delay: index * 0.12, ease: "easeOut" }}
+                  initial={{
+                    y: isMobile ? 30 : 0,
+                    x: isMobile ? 0 : 120,
+                    opacity: 0,
+                  }}
+                  whileInView={{ y: 0, x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: isMobile ? 0.45 : 0.7,
+                    delay: isMobile ? index * 0.06 : index * 0.12,
+                    ease: "easeOut",
+                  }}
                 >
-                <div
-                  className="group relative h-[310px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)] rounded-xl shadow-md"
-                >
-                  {/* Front Face */}
-                  <div className="glass-card absolute inset-0 flex flex-col justify-center rounded-xl p-8 [backface-visibility:hidden]">
-                    <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full text-primary-container">
-                      <span className="material-symbols-outlined text-5xl">
-                        {card.icon}
-                      </span>
+                  <div className="group relative h-[310px] w-full [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)] rounded-xl shadow-md">
+                    {/* Front Face */}
+                    <div className="glass-card absolute inset-0 flex flex-col justify-center rounded-xl p-8 [backface-visibility:hidden]">
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full text-primary-container">
+                        <span className="material-symbols-outlined text-5xl">
+                          {card.icon}
+                        </span>
+                      </div>
+                      <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
+                      <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">
+                        {card.description}
+                      </p>
+                      <div
+                        className={`flex items-center text-xs font-bold uppercase tracking-widest ${card.textColor}`}
+                      >
+                        Learn More
+                        <span className="material-symbols-outlined ml-2 text-sm">
+                          arrow_forward
+                        </span>
+                      </div>
                     </div>
-                    <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
-                    <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">
-                      {card.description}
-                    </p>
-                    <div
-                      className={`flex items-center text-xs font-bold uppercase tracking-widest ${card.textColor}`}
-                    >
-                      Learn More
-                      <span className="material-symbols-outlined ml-2 text-sm">
-                        arrow_forward
-                      </span>
-                    </div>
-                  </div>
 
-                  {/* Back Face (Hover State) */}
-                  <div
-                    className="absolute inset-0 flex flex-col bg-gradient-to-br from-primary to-primary-container items-center justify-center rounded-xl p-8 text-center text-white [backface-visibility:hidden] [transform:rotateY(180deg)]"
-  
-                  >
-                    <h3 className="mb-4 text-2xl font-bold">
-                      Explore {card.title}
-                    </h3>
-                    <p className="mb-6 text-sm opacity-90">
-                      Discover how our software solutions can transform your
-                      business workflow.
-                    </p>
-                    <Link
-                      to={card.route}
-                      className="rounded-full mt-6 border-2 border-white px-6 py-2 text-sm font-bold transition-colors hover:bg-white hover:text-[#1A7A88]"
-                    >
-                      View Details
-                    </Link>
+                    {/* Back Face (Hover State) */}
+                    <div className="absolute inset-0 flex flex-col bg-gradient-to-br from-primary to-primary-container items-center justify-center rounded-xl p-8 text-center text-white [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                      <h3 className="mb-4 text-2xl font-bold">
+                        Explore {card.title}
+                      </h3>
+                      <p className="mb-6 text-sm opacity-90">
+                        Discover how our software solutions can transform your
+                        business workflow.
+                      </p>
+                      <Link
+                        to={card.route}
+                        className="rounded-full mt-6 border-2 border-white px-6 py-2 text-sm font-bold transition-colors hover:bg-white hover:text-[#1A7A88]"
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </div>
-                </div>
                 </motion.div>
               ))}
             </div>
@@ -255,21 +276,27 @@ function LandingPage() {
               {industries.map((industry, index) => (
                 <motion.div
                   key={`icon-${industry.label}`}
-                  initial={{ x: 100, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.65, delay: index * 0.08, ease: "easeOut" }}
+                  initial={{
+                    y: isMobile ? 30 : 0,
+                    x: isMobile ? 0 : 100,
+                    opacity: 0,
+                  }}
+                  whileInView={{ y: 0, x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: isMobile ? 0.45 : 0.65,
+                    delay: isMobile ? index * 0.05 : index * 0.08,
+                    ease: "easeOut",
+                  }}
                 >
-                <div
-                  className="cursor-default rounded-lg border border-transparent p-6 text-center transition-all duration-500 ease-out transform-gpu hover:scale-[1.1] hover:border-primary/5"
-                >
-                  <span className="material-symbols-outlined mb-4 block text-8xl text-[#1F8FA0]">
-                    {industry.icon}
-                  </span>
-                  <span className="text-lg font-bold uppercase tracking-widest text-on-surface">
-                    {industry.label}
-                  </span>
-                </div>
+                  <div className="cursor-default rounded-lg border border-transparent p-6 text-center transition-all duration-500 ease-out transform-gpu hover:scale-[1.1] hover:border-primary/5">
+                    <span className="material-symbols-outlined mb-4 block text-8xl text-[#1F8FA0]">
+                      {industry.icon}
+                    </span>
+                    <span className="text-lg font-bold uppercase tracking-widest text-on-surface">
+                      {industry.label}
+                    </span>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -292,16 +319,22 @@ function LandingPage() {
               {industries.map((industry, index) => (
                 <motion.div
                   key={industry.label}
-                  initial={{ x: 120, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.7, delay: index * 0.08, ease: "easeOut" }}
+                  initial={{
+                    y: isMobile ? 30 : 0,
+                    x: isMobile ? 0 : 120,
+                    opacity: 0,
+                  }}
+                  whileInView={{ y: 0, x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: isMobile ? 0.45 : 0.7,
+                    delay: isMobile ? index * 0.05 : index * 0.08,
+                    ease: "easeOut",
+                  }}
                 >
-                <div
-                  className="group relative break-inside-avoid overflow-hidden rounded-md bg-stone-100 transition-all duration-500 hover:shadow-2xl"
-                >
-                  <div
-                    className={`relative w-full overflow-hidden 
+                  <div className="group relative break-inside-avoid overflow-hidden rounded-md bg-stone-100 transition-all duration-500 hover:shadow-2xl">
+                    <div
+                      className={`relative w-full overflow-hidden 
           aspect-[1] 
           sm:aspect-[3/4] 
           md:${
@@ -311,46 +344,46 @@ function LandingPage() {
                 ? "aspect-square"
                 : "aspect-[4/5]"
           }`}
-                  >
-                    {/* Base Image: Grayscale to Color Transition */}
-                    <img
-                      className="h-full w-full object-cover grayscale-[50%] brightness-90 transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-100"
-                      src={industry.image}
-                      alt={industry.alt}
-                    />
+                    >
+                      {/* Base Image: Grayscale to Color Transition */}
+                      <img
+                        className="h-full w-full object-cover grayscale-[50%] brightness-90 transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-100"
+                        src={industry.image}
+                        alt={industry.alt}
+                      />
 
-                    {/* 1. Minimalist Header */}
-                    <div className="absolute top-0 left-0 p-6 hidden md:flex items-center gap-3 transition-opacity duration-500 group-hover:opacity-0">
-                      <span className="material-symbols-outlined text-[#26AEBF] text-2xl font-light leading-none">
-                        {industry.icon || "star"}
-                      </span>
-                      <h3 className="text-white font-semibold text-sm uppercase tracking-wide drop-shadow-md">
-                        {industry.label}
-                      </h3>
-                    </div>
-
-                    {/* 2. The "Royal Reveal" Overlay (Centered Hover State) */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 md:opacity-0 transition-all duration-700 ease-out md:group-hover:opacity-100 bg-stone-900/40 backdrop-blur-[3px]">
-                      <div className="text-center p-6 transform translate-y-0 md:translate-y-8 transition-transform duration-500 ease-out md:group-hover:translate-y-0">
-                        {/* Elegant Icon or Symbol */}
-                        <span className="material-symbols-outlined text-white text-7xl mb-3 block font-extralight">
+                      {/* 1. Minimalist Header */}
+                      <div className="absolute top-0 left-0 p-6 hidden md:flex items-center gap-3 transition-opacity duration-500 group-hover:opacity-0">
+                        <span className="material-symbols-outlined text-[#26AEBF] text-2xl font-light leading-none">
                           {industry.icon || "star"}
                         </span>
-
-                        <h3 className="text-3xl text-white mb-2 tracking-tight">
+                        <h3 className="text-white font-semibold text-sm uppercase tracking-wide drop-shadow-md">
                           {industry.label}
                         </h3>
-
-                        <p className="text-stone-200 text-md leading-relaxed max-w-[180px] mx-auto opacity-100 md:opacity-0 transition-opacity duration-700 delay-100 md:group-hover:opacity-100">
-                          {industry.hoverDescription}
-                        </p>
                       </div>
-                    </div>
 
-                    {/* 3. Royal Framing: Thin Interior Border */}
-                    <div className="absolute inset-4 border border-white/0 transition-all duration-700 group-hover:border-white/20 pointer-events-none" />
+                      {/* 2. The "Royal Reveal" Overlay (Centered Hover State) */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 md:opacity-0 transition-all duration-700 ease-out md:group-hover:opacity-100 bg-stone-900/40 backdrop-blur-[3px]">
+                        <div className="text-center p-6 transform translate-y-0 md:translate-y-8 transition-transform duration-500 ease-out md:group-hover:translate-y-0">
+                          {/* Elegant Icon or Symbol */}
+                          <span className="material-symbols-outlined text-white text-7xl mb-3 block font-extralight">
+                            {industry.icon || "star"}
+                          </span>
+
+                          <h3 className="text-3xl text-white mb-2 tracking-tight">
+                            {industry.label}
+                          </h3>
+
+                          <p className="text-stone-200 text-md leading-relaxed max-w-[180px] mx-auto opacity-100 md:opacity-0 transition-opacity duration-700 delay-100 md:group-hover:opacity-100">
+                            {industry.hoverDescription}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* 3. Royal Framing: Thin Interior Border */}
+                      <div className="absolute inset-4 border border-white/0 transition-all duration-700 group-hover:border-white/20 pointer-events-none" />
+                    </div>
                   </div>
-                </div>
                 </motion.div>
               ))}
             </div>
@@ -367,40 +400,46 @@ function LandingPage() {
             </span>
           </h2>
 
-<div className="mx-auto max-w-7xl px-6 mt-20 overflow-hidden"> {/* Added overflow-hidden to prevent horizontal scroll during animation */}
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-100">
-    {whyChooseItems.map((item, index) => (
-      <motion.div
-        key={item.title}
-                  initial={{ x: 120, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.7, delay: index * 0.12, ease: "easeOut" }}
-        className="group relative p-8 md:p-12 border-r border-b border-gray-200 transition-colors duration-300 hover:bg-gray-50/50"
-      >
-        {/* Icon & Title Row */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-50 text-primary transition-transform duration-300 group-hover:scale-110">
-            <span className="material-symbols-outlined !text-3xl ">
-              {item.icon}
-            </span>
+          <div className="mx-auto max-w-7xl px-6 mt-20 overflow-hidden">
+            {" "}
+            {/* Added overflow-hidden to prevent horizontal scroll during animation */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-100">
+              {whyChooseItems.map((item, index) => (
+<motion.div
+  key={item.title}
+  initial={{ y: isMobile ? 30 : 0, x: isMobile ? 0 : 120, opacity: 0 }}
+  whileInView={{ y: 0, x: 0, opacity: 1 }}
+  viewport={{ once: true, amount: 0.15 }}
+  transition={{
+    duration: isMobile ? 0.45 : 0.7,
+    delay: isMobile ? index * 0.06 : index * 0.12,
+    ease: "easeOut",
+  }}
+  className="group relative p-8 md:p-12 border-r border-b border-gray-200 transition-colors duration-300 hover:bg-gray-50/50"
+>
+                  {/* Icon & Title Row */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-50 text-primary transition-transform duration-300 group-hover:scale-110">
+                      <span className="material-symbols-outlined !text-3xl ">
+                        {item.icon}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-500 leading-relaxed text-md md:text-base">
+                    {item.description}
+                  </p>
+
+                  {/* Subtle Glow Effect on Hover */}
+                  <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <h3 className="text-2xl font-bold tracking-tight text-gray-900">
-            {item.title}
-          </h3>
-        </div>
-
-        {/* Description */}
-        <p className="text-gray-500 leading-relaxed text-md md:text-base">
-          {item.description}
-        </p>
-
-        {/* Subtle Glow Effect on Hover */}
-        <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-      </motion.div>
-    ))}
-  </div>
-</div>
         </section>
 
         <section className="px-4 bg-[#ffffff] py-16 sm:px-6 pb-24 sm:py-20 md:px-8 md:py-32">
