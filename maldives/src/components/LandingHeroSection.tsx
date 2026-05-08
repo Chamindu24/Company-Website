@@ -14,7 +14,7 @@ function LandingHeroSection() {
   );
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#030303]">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#ffffff]">
       {/* TOP GRADIENT */}
       <div className="absolute top-0 left-0 w-full z-50 pointer-events-none">
         <div className="h-64 w-full bg-gradient-to-b from-white to-transparent" />
