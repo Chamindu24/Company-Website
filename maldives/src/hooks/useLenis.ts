@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from "@studio-freight/lenis";
 import type { LenisOptions } from "@studio-freight/lenis";
 
 /**
- * Ultra-Premium easing function - ultra smooth exponential decay
- * Creates a luxurious, butter-silk smooth scrolling experience
+ * Balanced easing - smooth but responsive
+ * Cubic ease-out: fast start, gentle deceleration
  */
-const premiumEasing = (t: number) => {
-  // Extended exponential ease-out for ultimate smoothness
-  return 1 - Math.pow(1 - t, 5);
+const balancedEasing = (t: number) => {
+  return 1 - Math.pow(1 - t, 3); // Power of 3, not 5
 };
 
 interface LenisConfig {
@@ -20,66 +19,47 @@ interface LenisConfig {
   infinite?: boolean;
 }
 
-/**
- * useLenis Hook
- * Initialize smooth scrolling with Lenis
- * Provides premium, lag-free scrolling experience
- * Works seamlessly with animations and transitions
- * 
- * @param config - Optional Lenis configuration
- * @returns void
- */
 export function useLenis(config: LenisConfig = {}) {
+  const lenisRef = useRef<Lenis | null>(null);
+  const rafIdRef = useRef<number>(0);
+
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
 
-    // Detect if device is mobile
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    // Initialize Lenis with ultra-premium smooth scrolling
     const lenisConfig: LenisOptions = {
-      duration: config.duration ?? 2.5, // Extra long duration for ultra-smooth glided feel
-      easing: config.easing ?? premiumEasing,
+      duration: config.duration ?? 1.2,       // ✅ Was 2.5 — this was your main problem
+      easing: config.easing ?? balancedEasing, // ✅ Power 3 instead of 5
       smoothWheel: config.smoothWheel ?? true,
-      // Disable smooth touch on mobile to avoid conflicts with native scroll
-      syncTouch: isMobile ? false : (config.smoothTouch ?? false),
-      touchMultiplier: config.touchMultiplier ?? (isMobile ? 2 : 1.5),
+      syncTouch: false,                        // ✅ Always off — native touch is better
+      touchMultiplier: config.touchMultiplier ?? (isMobile ? 1.5 : 1.2),
       infinite: config.infinite ?? false,
     };
 
     const lenis = new Lenis(lenisConfig);
+    lenisRef.current = lenis;
 
-    // Animation loop - runs continuously for smooth interpolation
-    let lastTime = 0;
+    // ✅ Simplified RAF — no deltaTime check needed, Lenis handles this internally
     function raf(time: number) {
-      // Calculate delta for frame-rate independent timing
-      const deltaTime = time - lastTime;
-      lastTime = time;
-
-      // Only update if delta is reasonable (avoid huge jumps on tab switch)
-      if (deltaTime < 1000) {
-        lenis.raf(time);
-      }
-
-      requestAnimationFrame(raf);
+      lenis.raf(time);
+      rafIdRef.current = requestAnimationFrame(raf);
     }
 
-    const rafId = requestAnimationFrame(raf);
+    rafIdRef.current = requestAnimationFrame(raf);
 
-    // Scroll to top handler for page navigation
     const handleScrollToTop = () => {
-      lenis.scrollTo(0, { duration: 1.0 });
+      lenis.scrollTo(0, { duration: 0.8 }); // ✅ Was 1.0
     };
 
-    // Listen for scroll-to-top events (for navigation)
     window.addEventListener('lenis-scroll-to-top', handleScrollToTop);
 
-    // Cleanup on unmount
     return () => {
-      cancelAnimationFrame(rafId);
+      cancelAnimationFrame(rafIdRef.current);
       window.removeEventListener('lenis-scroll-to-top', handleScrollToTop);
       window.history.scrollRestoration = 'auto';
       lenis.destroy();
+      lenisRef.current = null;
     };
-  }, [config]);
+  }, []); // ✅ Empty deps — config object was causing re-init on every render
 }
