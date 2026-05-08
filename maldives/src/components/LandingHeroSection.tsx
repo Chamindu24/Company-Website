@@ -3,8 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 function LandingHeroSection() {
   const { scrollY } = useScroll();
 
-  const bgScale = useTransform(scrollY, [0, 1000], [1, 1]);
-  const fgScale = useTransform(scrollY, [0, 1000], [1, 1.3]);
   const textOpacity = useTransform(scrollY, [0, 400], [0.9, 0]);
   const brandMoveX = useTransform(scrollY, [0, 500], [0, 260]);
   const headingBlur = useTransform(
@@ -13,6 +11,9 @@ function LandingHeroSection() {
     ["blur(0px)", "blur(6px)"],
   );
 
+  // Lightweight parallax — only translates, doesn't scale a full image
+  const fgY = useTransform(scrollY, [0, 600], [0, 60]);
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#ffffff]">
       {/* TOP GRADIENT */}
@@ -20,19 +21,24 @@ function LandingHeroSection() {
         <div className="h-64 w-full bg-gradient-to-b from-white to-transparent" />
       </div>
 
-      {/* BACKGROUND */}
-      <motion.div style={{ scale: bgScale }} className="absolute inset-0 z-0">
+      {/* BACKGROUND — plain div, no motion, no scale */}
+      <div className="absolute inset-0 z-0">
         <img
           className="h-full w-full object-cover brightness-[0.85]"
-          //src="/work/herobg.webp"
           src="/bg222.jpg"
           alt="Maldives Horizon"
+          loading="eager"
         />
-      </motion.div>
+      </div>
 
       {/* BRAND TEXT */}
       <motion.div
-        style={{ opacity: textOpacity, x: brandMoveX, filter: "blur(3px)" }}
+        style={{
+          opacity: textOpacity,
+          x: brandMoveX,
+          filter: "blur(3px)",
+          willChange: "transform, opacity",
+        }}
         className="absolute top-72 left-0 sm:top-32 sm:left-16 md:top-96 lg:top-36 md:left-2 lg:left-96 z-10 p-3 sm:p-4 md:p-6 pointer-events-none"
       >
         <motion.h1
@@ -45,43 +51,35 @@ function LandingHeroSection() {
         </motion.h1>
       </motion.div>
 
-      {/* FOREGROUND */}
+      {/* FOREGROUND — translateY instead of scale, much cheaper */}
       <motion.div
-        style={{ scale: fgScale }}
+        style={{ y: fgY, willChange: "transform" }}
         className="absolute inset-0 z-20 pointer-events-none"
       >
         <img
-          className="h-full w-full object-cover "
-          //src="/work/herobgremoved.webp"
+          className="h-full w-full object-cover"
           src="/bgremoved22.avif"
           alt="Foreground villas"
+          loading="eager"
         />
       </motion.div>
 
       {/* UI CONTENT CONTAINER */}
       <div className="absolute inset-0 z-30 flex flex-col justify-end pb-24 px-6 lg:px-24 overflow-hidden">
-        {/* --- THE FIX LAYER: MULTI-STAGE VIGNETTE --- */}
-        {/* We replace the weak vignette with a three-stage 'shadow mask'. 
-      This darkens ONLY the area behind the text, not the whole screen. */}
         <div className="absolute inset-x-0 bottom-0 h-[60vh] pointer-events-none z-0">
-          {/* Stage 1: Deep anchor at the very bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          {/* Stage 2: Middle-lift to push light away from the Maldives text */}
-          {/* Stage 3: High-level blur to soften the transition */}
         </div>
 
         <div className="max-w-[1600px] w-full mx-auto relative z-10">
           <motion.h2
-            style={{ filter: headingBlur }}
+            style={{ filter: headingBlur, willChange: "filter" }}
             className="flex flex-col items-start select-none"
           >
-            {/* LINE 1: SMART DIGITAL SOLUTIONS */}
             {/* LINE 1: SMART DIGITAL SOLUTIONS */}
             <div className="overflow-hidden mb-1 py-2">
               <motion.span
                 initial={{ y: "100%" }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
+                animate={{ y: 0 }}
                 transition={{
                   delay: 0.5,
                   duration: 1.2,
@@ -89,56 +87,48 @@ function LandingHeroSection() {
                 }}
                 className="block text-[11vw] md:text-8xl lg:text-8xl tracking-[-0.06em] leading-none"
               >
-                {/* --- ONLY SMART DIGITAL HAS THE BORDER/SHADOW --- */}
                 <span
                   className="text-white font-bold"
-                  style={{
-                    textShadow: "0px 4px 10px rgba(0,0,0,0.6)",
-                  }}
+                  style={{ textShadow: "0px 4px 10px rgba(0,0,0,0.6)" }}
                 >
                   Smart Digital{" "}
                 </span>
-
-                {/* --- SOLUTIONS REMAINS AS PER YOUR ORIGINAL DESIGN --- */}
                 <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60">
                   Solutions
                 </span>
               </motion.span>
             </div>
 
-            {/* LINE 2: THE HERO 'MALDIVES' */}
+            {/* LINE 2: FOR MALDIVES */}
             <div className="relative flex flex-wrap items-end gap-x-6 gap-y-2 mt-2">
               <motion.span
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
-                // --- THE FIX: Text shadow protection ---
-                className="text-[6vw] md:text-5xl lg:text-5xl  text-white italic leading-none pb-2 [text-shadow:0_4px_12px_rgba(0,0,0,0.5)]"
+                className="text-[6vw] md:text-5xl lg:text-5xl text-white italic leading-none pb-2 [text-shadow:0_4px_12px_rgba(0,0,0,0.5)]"
               >
                 for
               </motion.span>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{
                   delay: 1,
                   duration: 1.5,
                   ease: [0.16, 1, 0.3, 1],
                 }}
+                style={{ willChange: "transform, opacity" }}
                 className="relative"
               >
-                {/* Emerald Glow - Keep this, it helps contrast! */}
                 <div className="absolute -inset-x-10 inset-y-0 bg-emerald-500/15 blur-[100px] rounded-full opacity-60" />
-
                 <h2
-                  // --- THE FIX: Layered text shadows for maximum protection ---
                   style={{
                     textShadow: `
-                0px 10px 30px rgba(0,0,0,0.8),
-                0px 20px 60px rgba(0,0,0,0.4),
-                0px 0px 100px rgba(0,0,0,0.3)
-              `,
+                      0px 10px 30px rgba(0,0,0,0.8),
+                      0px 20px 60px rgba(0,0,0,0.4),
+                      0px 0px 100px rgba(0,0,0,0.3)
+                    `,
                   }}
                   className="relative text-[19.5vw] sm:text-[12vw] md:text-[12rem] lg:text-[12rem] font-black tracking-[-0.08em] leading-[0.8] text-white"
                 >
@@ -149,15 +139,17 @@ function LandingHeroSection() {
               {/* LINE 3: HOSPITALITY CHIP */}
               <motion.div
                 initial={{ opacity: 0, y: 30, rotateX: 45 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{
                   delay: 1.3,
                   duration: 1,
                   type: "spring",
                   stiffness: 50,
                 }}
-                style={{ transformStyle: "preserve-3d" }}
-                // --- THE FIX: Darken the glass chip's gradient ---
+                style={{
+                  transformStyle: "preserve-3d",
+                  willChange: "transform, opacity",
+                }}
                 className="px-8 py-3 bg-gradient-to-b from-black/50 to-white/10 border-t border-white/10 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
               >
                 <span className="text-[9vw] sm:text-[5vw] md:text-7xl lg:text-7xl font-thin tracking-tighter text-amber-100/90">

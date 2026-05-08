@@ -405,18 +405,22 @@ function LandingPage() {
             {/* Added overflow-hidden to prevent horizontal scroll during animation */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-100">
               {whyChooseItems.map((item, index) => (
-<motion.div
-  key={item.title}
-  initial={{ y: isMobile ? 30 : 0, x: isMobile ? 0 : 120, opacity: 0 }}
-  whileInView={{ y: 0, x: 0, opacity: 1 }}
-  viewport={{ once: true, amount: 0.15 }}
-  transition={{
-    duration: isMobile ? 0.45 : 0.7,
-    delay: isMobile ? index * 0.06 : index * 0.12,
-    ease: "easeOut",
-  }}
-  className="group relative p-8 md:p-12 border-r border-b border-gray-200 transition-colors duration-300 hover:bg-gray-50/50"
->
+                <motion.div
+                  key={item.title}
+                  initial={{
+                    y: isMobile ? 30 : 0,
+                    x: isMobile ? 0 : 120,
+                    opacity: 0,
+                  }}
+                  whileInView={{ y: 0, x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: isMobile ? 0.45 : 0.7,
+                    delay: isMobile ? index * 0.06 : index * 0.12,
+                    ease: "easeOut",
+                  }}
+                  className="group relative p-8 md:p-12 border-r border-b border-gray-200 transition-colors duration-300 hover:bg-gray-50/50"
+                >
                   {/* Icon & Title Row */}
                   <div className="flex items-center gap-4 mb-6">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-50 text-primary transition-transform duration-300 group-hover:scale-110">
