@@ -15,8 +15,9 @@ interface Inquiry {
   firstName: string;
   lastName: string;
   email: string;
-  whatsapp: string;
-  country: string;
+  whatsapp?: string;
+  country?: string;
+  budget?: string;
   inquiryType: string;
   status: 'seen' | 'not-seen';
   requirements?: string;
@@ -168,6 +169,13 @@ export default function CommandCenter() {
       },
     ],
     consultation: [
+      {
+        key: 'budget',
+        label: 'Estimated Budget',
+        className: 'bg-emerald-50 border-emerald-200 border-2 rounded-lg p-4',
+        labelClass: 'text-emerald-700',
+        valueClass: 'text-emerald-950',
+      },
       {
         key: 'message',
         label: 'Message',
@@ -497,8 +505,8 @@ export default function CommandCenter() {
                 {/* Contact Information */}
                 <div className="grid grid-cols-2 gap-14 mb-16">
                   <DetailBlock icon={<Mail />} label="Email" value={selectedInquiry.email} />
-                  <DetailBlock icon={<Phone />} label="WhatsApp" value={selectedInquiry.whatsapp} />
-                  <DetailBlock icon={<Globe />} label="Location" value={selectedInquiry.country} />
+                  <DetailBlock icon={<Phone />} label="WhatsApp" value={selectedInquiry.whatsapp || "Not Provided"} />
+                  <DetailBlock icon={<Globe />} label="Location" value={selectedInquiry.country || "Not Provided"} />
                   <DetailBlock icon={<Clock />} label="Received" value={new Date(selectedInquiry.createdAt).toLocaleDateString()} />
                 </div>
 

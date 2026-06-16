@@ -35,7 +35,7 @@ export function useLenis(config: LenisConfig = {}) {
 
     // Initialize Lenis with premium smooth scrolling
     const lenisConfig: LenisConfig = {
-      duration: config.duration ?? 1.8, // Longer duration for glided feel
+      duration: config.duration ?? 0.8, // Longer duration for glided feel
       easing: config.easing ?? premiumEasing,
       smoothWheel: config.smoothWheel ?? true,
       // Disable smooth touch on mobile to avoid conflicts with native scroll

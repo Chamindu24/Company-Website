@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const InquirySchema = new mongoose.Schema({
   // Common fields for all inquiry types
   firstName: { type: String, required: true, trim: true },
-  lastName: { type: String, required: true, trim: true },
+  lastName: { type: String, trim: true, default: "" },
   email: { type: String, required: true, trim: true, lowercase: true },
-  country: { type: String, required: true, trim: true },
-  whatsapp: { type: String, required: true, trim: true },
+  country: { type: String, trim: true, default: null },
+  budget: { type: String, trim: true, default: null },
+  whatsapp: { type: String, trim: true, default: null },
   inquiryType: { 
     type: String, 
     enum: ['solution', 'project', 'consultation'],

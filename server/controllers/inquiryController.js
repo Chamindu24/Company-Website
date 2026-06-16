@@ -7,23 +7,24 @@ const { sendInquiryEmail, sendUserConfirmationEmail } = require("../utils/emailS
  */
 const submitInquiry = async (req, res) => {
   try {
-    const { firstName, lastName, email, country, whatsapp, inquiryType } = req.body;
+    const { firstName, lastName, email, country, whatsapp,budget, inquiryType } = req.body;
 
     // Validation
-    if (!firstName || !lastName || !email || !country || !whatsapp || !inquiryType) {
+    if (!firstName || !email  || !inquiryType) {
       return res.status(400).json({ 
         message: "Missing required fields",
-        required: ["firstName", "lastName", "email", "country", "whatsapp", "inquiryType"]
+        required: ["firstName", "email", "inquiryType"]
       });
     }
 
     // Create new inquiry document
     const inquiry = new Inquiry({
       firstName: firstName.trim(),
-      lastName: lastName.trim(),
+      lastName: lastName ? lastName.trim() : "",
       email: email.trim().toLowerCase(),
-      country: country.trim(),
-      whatsapp: whatsapp.trim(),
+      country: country ? country.trim() : null,
+      budget: budget ? budget.trim() : null,
+      whatsapp: whatsapp ? whatsapp.trim() : null,
       inquiryType,
       organization: req.body.organization || null,
       

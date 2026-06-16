@@ -24,11 +24,13 @@ interface SubmitInquiryApiResponse {
 
 export interface InquiryFormData {
   // Common fields
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
+  fullName?: string;
   email: string;
-  country: string;
-  whatsapp: string;
+  country?: string;
+  budget?: string;
+  whatsapp?: string;
   inquiryType: InquiryType;
   
   // Solution-specific fields
@@ -51,17 +53,43 @@ export interface InquiryFormData {
 export const submitInquiry = async (data: InquiryFormData): Promise<{ success: boolean; message: string; id?: string }> => {
   try {
     // Validate required fields
-    if (!data.firstName || !data.lastName || !data.email || !data.country || !data.whatsapp) {
+    if (!data.email || !data.inquiryType) {
       throw new Error("Missing required fields");
+    }
+
+    // Resolve name fields: support both firstName/lastName and fullName
+    let firstName = (data.firstName || "").trim();
+    let lastName = (data.lastName || "").trim();
+
+    if (data.fullName && !firstName && !lastName) {
+      const [first, ...rest] = data.fullName.trim().split(/\s+/);
+      firstName = first || "";
+      lastName = rest.join(" ");
+    }
+
+    if (!firstName) {
+      throw new Error("First name or full name is required");
+    }
+
+    // Inquiry-type-specific validations on client side
+    if (data.inquiryType === 'consultation') {
+      if (!data.budget) {
+        throw new Error("Budget is required for consultation");
+      }
+    } else {
+      if (!data.country || !data.whatsapp) {
+        throw new Error("Geography and WhatsApp number are required");
+      }
     }
 
     // Build payload - only include relevant fields based on inquiry type
     const payload = {
-      firstName: data.firstName.trim(),
-      lastName: data.lastName.trim(),
+      firstName,
+      lastName,
       email: data.email.trim(),
-      country: data.country.trim(),
-      whatsapp: data.whatsapp.trim(),
+      country: data.country?.trim() || null,
+      budget: data.budget?.trim() || null,
+      whatsapp: data.whatsapp?.trim() || null,
       inquiryType: data.inquiryType,
       organization: data.organization?.trim() || null,
       submittedAt: new Date().toISOString(),

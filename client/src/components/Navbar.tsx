@@ -92,60 +92,48 @@ export default function Navbar() {
     }, 140);
   };
 
-const renderDropdownPanel = (items: { name: string; to: string }[]) => (
-  <div className="overflow-hidden rounded-sm bg-white border border-stone-200 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.15)]">
-    <div className="w-[680px] p-8">
+  const renderDropdownPanel = (items: { name: string; to: string }[]) => (
+    <div className="overflow-hidden rounded-[2px] bg-white border border-emerald-600 shadow-[0_20px_50px_-12px_rgba(28,25,23,0.4)]">
+      <div className="w-[720px] px-10 py-8">
+        <nav className="grid grid-cols-2 gap-x-14 gap-y-4">
+          {items.map((item) => {
+            const isActive = location.pathname === item.to;
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="group/item relative flex flex-col justify-between py-2 border-b border-stone-100 transition-colors duration-300"
+              >
+                <div className="flex items-center justify-between w-full">
+                  {/* Clean, Editorial Typography */}
+                  <span
+                    className={`text-[16px] tracking-wide font-medium transition-all duration-300 ${
+                      isActive
+                        ? "text-stone-950 font-semibold"
+                        : "text-stone-600 group-hover/item:text-stone-950 group-hover/item:translate-x-2"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
 
-
-      <nav className="grid grid-cols-2 gap-x-12 gap-y-7">
-        {items.map((item) => {
-          const isActive = location.pathname === item.to;
-          return (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="group/item relative inline-flex w-fit flex-col items-start transition-all duration-300"
-            >
-              <div className="relative inline-flex w-fit items-baseline">
-                <span
-                  className={`font-serif text-[18px] xl:text-[18px] leading-tight transition-all duration-500 ${
-                    isActive
-                      ? "text-stone-950 "
-                      : "text-stone-700 group-hover/item:text-stone-950 group-hover/item:-translate-y-0.5"
-                  }`}
-                >
-                  {item.name}
-                </span>
-                
-                {/* Arrow indicator with Emerald color on Active */}
-                <span className={`absolute left-full ml-2 text-xs transition-all duration-500 transform font-light 
-                  ${isActive 
-                    ? "opacity-100 translate-x-0 text-emerald-600" 
-                    : "opacity-0 -translate-x-2 text-stone-400 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                  }`}>
-                  →
-                </span>
-              </div>
-
-              {/* The Emerald Underline Logic */}
-              <div className="relative mt-2.5 h-[1.5px] w-full bg-stone-100 overflow-hidden self-start">
-                <div
-                  className={`absolute top-0 left-0 h-full transition-all duration-700 ease-in-out ${
-                    isActive 
-                      ? "w-full bg-emerald-600 translate-x-0" 
-                      : "w-full bg-emerald-600 -translate-x-full group-hover/item:translate-x-0"
-                  }`}
-                />
-              </div>
-            </Link>
-          );
-        })}
-      </nav>
-      
-
+                  {/* Ultra-minimal Micro-indicator */}
+                  <span
+                    className={`text-[11px] tracking-widest uppercase transition-all duration-500 font-light ${
+                      isActive
+                        ? "text-stone-950 opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-2 text-stone-400 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                    }`}
+                  >
+                    {isActive ? "Active" : "Discover"}
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
     </div>
-  </div>
-);
+  );
 
   return (
     <nav
@@ -182,8 +170,8 @@ const renderDropdownPanel = (items: { name: string; to: string }[]) => (
                   WARE
                 </span>
               </span>
-              <span className="text-[7px] sm:text-[8px] lg:text-[10px] tracking-tight lg:tracking-tighter text-emerald-600 font-bold uppercase leading-none mt-0.5">
-                Hoisting Your Life to The Next Level
+              <span className="text-[7px] sm:text-[8px] lg:text-[10px] tracking-tight lg:tracking-tighter text-emerald-600 font-bold uppercase leading-none ">
+                Business Operations on Autopilot
               </span>
             </div>
           </Link>
@@ -254,9 +242,7 @@ const renderDropdownPanel = (items: { name: string; to: string }[]) => (
               <svg
                 className={`w-3 h-3 transition-transform duration-300 ${
                   desktopDropdownOpen === "solutions" ? "rotate-180" : ""
-                } ${
-                  isSolutionsActive ? "text-emerald-900" : "text-stone-800"
-                }`}
+                } ${isSolutionsActive ? "text-emerald-900" : "text-stone-800"}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

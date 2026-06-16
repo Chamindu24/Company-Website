@@ -73,6 +73,7 @@ const generateEmailBody = (inquiry) => {
     <a href="mailto:${inquiry.email}">${inquiry.email}</a>
   </td>
 </tr>
+${inquiry.whatsapp ? `
 <tr>
   <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb;">
     <strong>WhatsApp:</strong>
@@ -81,6 +82,8 @@ const generateEmailBody = (inquiry) => {
     <a href="https://wa.me/${inquiry.whatsapp.replace(/\D/g, '')}">${inquiry.whatsapp}</a>
   </td>
 </tr>
+` : ''}
+${inquiry.country ? `
 <tr>
   <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb;">
     <strong>Country:</strong>
@@ -89,6 +92,17 @@ const generateEmailBody = (inquiry) => {
     ${inquiry.country}
   </td>
 </tr>
+` : ''}
+${inquiry.budget ? `
+<tr>
+  <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb;">
+    <strong>Budget:</strong>
+  </td>
+  <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">
+    ${inquiry.budget}
+  </td>
+</tr>
+` : ''}
 ${inquiry.organization ? `
 <tr>
   <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; background-color: #f9fafb;">
@@ -350,11 +364,12 @@ const sendUserConfirmationEmail = async (inquiry) => {
       <table>
         <tr><td><strong>Name</strong></td><td>${inquiry.firstName} ${inquiry.lastName}</td></tr>
         <tr><td><strong>Email</strong></td><td>${inquiry.email}</td></tr>
-        <tr><td><strong>Country</strong></td><td>${inquiry.country}</td></tr>
-        <tr><td><strong>WhatsApp</strong></td><td>${inquiry.whatsapp}</td></tr>
+        ${inquiry.country ? `<tr><td><strong>Country</strong></td><td>${inquiry.country}</td></tr>` : ''}
+        ${inquiry.whatsapp ? `<tr><td><strong>WhatsApp</strong></td><td>${inquiry.whatsapp}</td></tr>` : ''}
         <tr><td><strong>Inquiry Type</strong></td><td>${inquiry.inquiryType}</td></tr>
 
         ${inquiry.organization ? `<tr><td><strong>Organization</strong></td><td>${inquiry.organization}</td></tr>` : ''}
+        ${inquiry.budget ? `<tr><td><strong>Budget</strong></td><td>${inquiry.budget}</td></tr>` : ''}
         ${inquiry.industry ? `<tr><td><strong>Industry</strong></td><td>${inquiry.industry}</td></tr>` : ''}
         ${inquiry.project ? `<tr><td><strong>Project</strong></td><td>${inquiry.project}</td></tr>` : ''}
         ${inquiry.requirements ? `<tr><td><strong>Requirements</strong></td><td>${inquiry.requirements}</td></tr>` : ''}

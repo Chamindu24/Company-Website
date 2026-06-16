@@ -31,7 +31,7 @@ const AnimatedLink = ({
 
 export default function Footer() {
   return (
-<footer className="bg-white text-zinc-900 pt-16 pb-8 font-sans border-t border-emerald-50 relative overflow-hidden">
+    <footer className="bg-white text-zinc-900 pt-16 pb-8 font-sans border-t border-emerald-50 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         <div className="absolute -bottom-24 -left-24 w-[600px] h-[600px] opacity-[0.08] md:opacity-[0.1]">
           <svg
@@ -58,10 +58,8 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto lg:px-0 md:px-8 px-10 relative z-10">
-
         {/* Top: Logo + Inquiry — stacked on mobile/tablet, side-by-side on lg */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 md:gap-12 lg:gap-16 mb-10">
-
           {/* Left: Logo + Tagline heading */}
           <div className="w-full lg:max-w-xl space-y-5 md:space-y-6">
             <div className="flex justify-start">
@@ -80,7 +78,12 @@ export default function Footer() {
                 <div className="flex flex-col space-y-0.5 md:space-y-1">
                   <span className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide text-stone-700 leading-none">
                     LUSH
-                    <span style={{ WebkitTextStroke: "1px #1c1917", color: "transparent" }}>
+                    <span
+                      style={{
+                        WebkitTextStroke: "1px #1c1917",
+                        color: "transparent",
+                      }}
+                    >
                       WARE.
                     </span>
                   </span>
@@ -136,9 +139,17 @@ export default function Footer() {
               <div className="relative z-10 h-10 w-10 flex items-center justify-center">
                 <div className="absolute inset-0 border-2 border-dashed border-emerald-500/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-1000" />
                 <div className="h-8 w-8 bg-emerald-800 rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-300">
-                  <ArrowUpRight size={14} strokeWidth={2} className="text-white" />
+                  <ArrowUpRight
+                    size={14}
+                    strokeWidth={2}
+                    className="text-white"
+                  />
                 </div>
-                <ArrowUpRight size={18} strokeWidth={1} className="absolute text-emerald-950 group-hover:opacity-0 transition-opacity duration-300" />
+                <ArrowUpRight
+                  size={18}
+                  strokeWidth={1}
+                  className="absolute text-emerald-950 group-hover:opacity-0 transition-opacity duration-300"
+                />
               </div>
             </Link>
           </div>
@@ -147,43 +158,104 @@ export default function Footer() {
         {/* Links Grid — 2 cols mobile, 4 cols md+ */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-16 gap-x-6 md:gap-x-8 pb-8">
           <div className="space-y-5 md:space-y-6">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">Services</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
+              Services
+            </h4>
             <ul className="space-y-3 md:space-y-4">
-              <li><AnimatedLink to="/solutions">Our Solutions</AnimatedLink></li>
-              <li><AnimatedLink to="/solutions">Web Development</AnimatedLink></li>
-              <li><AnimatedLink to="/solutions">Mobile Apps</AnimatedLink></li>
-              <li><AnimatedLink to="/solutions">Custom Software</AnimatedLink></li>
+              <li>
+                <AnimatedLink to="/solutions/websites">
+                  Web Development
+                </AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/solutions/mobile-apps">
+                  Mobile Apps
+                </AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/solutions/crm">CRM Systems</AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/solutions/bpm">
+                  Business Process Management
+                </AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/solutions/ai-agents">AI Agents</AnimatedLink>
+              </li>
             </ul>
           </div>
 
           <div className="space-y-5 md:space-y-6">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">Company</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
+              Company
+            </h4>
             <ul className="space-y-3 md:space-y-4">
-              <li><AnimatedLink to="/">About Us</AnimatedLink></li>
-              <li><AnimatedLink to="/work">Our Work</AnimatedLink></li>
-              <li><AnimatedLink to="/project-base">Join Our Team</AnimatedLink></li>
-              <li><AnimatedLink to="/contact">Contact Us</AnimatedLink></li>
+              <li>
+                <AnimatedLink to="/">About Us</AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/work">Our Work</AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/project-base">Join Our Team</AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/contact">Contact Us</AnimatedLink>
+              </li>
             </ul>
           </div>
 
           <div className="space-y-5 md:space-y-6">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">Support</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400">
+              Industries
+            </h4>
             <ul className="space-y-3 md:space-y-4">
-              <li><AnimatedLink to="/contact">Get in Touch</AnimatedLink></li>
-              <li><AnimatedLink to="/contact">Request a Quote</AnimatedLink></li>
-              <li><AnimatedLink to="/contact">Free Consultation</AnimatedLink></li>
-              <li><AnimatedLink to="/contact">Help Center</AnimatedLink></li>
+              <li>
+                <AnimatedLink to="/industries/hvac">HVAC Services</AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/industries/plumbing">
+                  Plumbing Services
+                </AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/industries/electrical">
+                  Electrical Services
+                </AnimatedLink>
+              </li>
+              <li>
+                <AnimatedLink to="/contact">Free Consultation</AnimatedLink>
+              </li>
             </ul>
           </div>
 
           <div className="space-y-5 md:space-y-6">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400">Connect</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-400">
+              Connect
+            </h4>
             <ul className="space-y-3 md:space-y-4">
               {[
-                { name: "Instagram", icon: Instagram, href: "#" },
-                { name: "Twitter / X", icon: Twitter, href: "#" },
-                { name: "LinkedIn", icon: Linkedin, href: "#" },
-                { name: "Facebook", icon: Facebook, href: "#" },
+                {
+                  name: "Instagram",
+                  icon: Instagram,
+                  href: "https://www.instagram.com/lush_ware_org/",
+                },
+                {
+                  name: "Twitter / X",
+                  icon: Twitter,
+                  href: "https://twitter.com/lushware",
+                },
+                {
+                  name: "LinkedIn",
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/company/lushware",
+                },
+                {
+                  name: "Facebook",
+                  icon: Facebook,
+                  href: "https://web.facebook.com/lushware/?_rdc=1&_rdr#",
+                },
               ].map((social) => (
                 <li key={social.name}>
                   <a
@@ -191,11 +263,18 @@ export default function Footer() {
                     className="group flex items-center gap-3 md:gap-4 text-sm font-medium tracking-wide text-zinc-500 hover:text-emerald-950 transition-all duration-300"
                   >
                     <div className="flex items-center justify-center w-5 h-5 overflow-hidden">
-                      <social.icon size={18} strokeWidth={1.2} className="transform transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110" />
+                      <social.icon
+                        size={18}
+                        strokeWidth={1.2}
+                        className="transform transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110"
+                      />
                     </div>
                     <span className="flex items-center gap-2">
                       {social.name}
-                      <ArrowUpRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-emerald-500" />
+                      <ArrowUpRight
+                        size={12}
+                        className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-emerald-500"
+                      />
                     </span>
                   </a>
                 </li>
@@ -204,22 +283,20 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-zinc-300 gap-4 md:gap-6">
-          <div className="flex items-center gap-5 md:gap-8 text-[11px] md:text-[12px] font-medium uppercase tracking-widest text-zinc-900">
-            <span>&copy; {new Date().getFullYear()} LushWare ORG</span>
-            <Link to="/privacy" className="hover:text-emerald-700 transition">Privacy</Link>
-            <Link to="/terms" className="hover:text-emerald-700 transition">Terms</Link>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-zinc-200">
+          {/* Copyright */}
+          <div className="text-center md:text-left">
+            <p className="text-[11px] md:text-[12px] font-medium tracking-[0.15em] uppercase text-zinc-500">
+              © {new Date().getFullYear()} LushWare. All Rights Reserved.
+            </p>
           </div>
-          <div className="flex items-center gap-6">
-            <div className="h-3 w-px bg-zinc-100"></div>
-            <div className="flex items-center gap-2 text-[10px] font-bold text-zinc-900">
-              <Globe size={12} strokeWidth={1.5} className="text-emerald-600" />
-              <span>LK / GLOBAL</span>
-            </div>
+
+          {/* Region */}
+          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-500">
+            <Globe size={13} strokeWidth={1.5} className="text-emerald-600" />
+            <span>LK / Global</span>
           </div>
         </div>
-
       </div>
     </footer>
   );
