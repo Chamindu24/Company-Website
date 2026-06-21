@@ -93,16 +93,16 @@ export default function Navbar() {
   };
 
   const renderDropdownPanel = (items: { name: string; to: string }[]) => (
-    <div className="overflow-hidden rounded-[2px] bg-white border border-emerald-600 shadow-[0_20px_50px_-12px_rgba(28,25,23,0.4)]">
+    <div className="overflow-hidden rounded-[2px] bg-white  shadow-[0_20px_50px_-12px_rgba(28,25,23,0.4)]">
       <div className="w-[720px] px-10 py-8">
-        <nav className="grid grid-cols-2 gap-x-14 gap-y-4">
+        <nav className="grid grid-cols-2 gap-x-14 gap-y-3">
           {items.map((item) => {
             const isActive = location.pathname === item.to;
             return (
               <Link
                 key={item.to}
                 to={item.to}
-                className="group/item relative flex flex-col justify-between py-2 border-b border-stone-100 transition-colors duration-300"
+                className="group/item relative flex flex-col justify-between py-1 border-b border-stone-100 transition-colors duration-300"
               >
                 <div className="flex items-center justify-between w-full">
                   {/* Clean, Editorial Typography */}

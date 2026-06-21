@@ -4,12 +4,20 @@
  * - Solutions Page (Industry-based)
  * - Project Base (Project-based)
  * - Free Tech Consultation
+ *
+ * Performance features:
+ *   - 10-second AbortController request timeout
+ *   - In-flight de-duplication guard (prevents double-submit races)
+ *   - "processing" email status treated as success (async background emails)
  */
 
 
 
 export type InquiryType = 'solution' | 'project' | 'consultation';
 const BACKEND_URL = import.meta.env.VITE_API_URL;
+
+/** Tracks emails currently being submitted to prevent duplicate in-flight requests */
+const _inFlight = new Set<string>();
 
 type EmailDeliveryStatus = 'sent' | 'failed' | 'processing';
 
@@ -47,12 +55,13 @@ export interface InquiryFormData {
 }
 
 /**
- * Submit an inquiry to the backend
- * Optimized for all form types with flexible field support
+ * Submit an inquiry to the backend.
+ * The server saves to MongoDB and responds immediately; emails are sent
+ * asynchronously server-side so the user never waits for SMTP.
  */
 export const submitInquiry = async (data: InquiryFormData): Promise<{ success: boolean; message: string; id?: string }> => {
   try {
-    // Validate required fields
+    // ── Basic field validation ─────────────────────────────────────────────
     if (!data.email || !data.inquiryType) {
       throw new Error("Missing required fields");
     }
@@ -81,6 +90,15 @@ export const submitInquiry = async (data: InquiryFormData): Promise<{ success: b
         throw new Error("Geography and WhatsApp number are required");
       }
     }
+
+    // ── Duplicate in-flight guard ──────────────────────────────────────────
+    // Prevents the same email from submitting twice if the user rapidly
+    // double-clicks or the component re-renders during the request.
+    const dedupKey = `${data.email}::${data.inquiryType}`;
+    if (_inFlight.has(dedupKey)) {
+      throw new Error('A submission is already in progress. Please wait.');
+    }
+    _inFlight.add(dedupKey);
 
     // Build payload - only include relevant fields based on inquiry type
     const payload = {
@@ -113,13 +131,29 @@ export const submitInquiry = async (data: InquiryFormData): Promise<{ success: b
       }),
     };
 
-    const response = await fetch(`${BACKEND_URL}/api/inquiries`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    // ── Request with 10-second hard timeout ───────────────────────────────
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10_000);
+
+    let response: Response;
+    try {
+      response = await fetch(`${BACKEND_URL}/api/inquiries`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+    } catch (fetchErr: unknown) {
+      if (fetchErr instanceof Error && fetchErr.name === 'AbortError') {
+        throw new Error('Request timed out. Please check your connection and try again.');
+      }
+      throw fetchErr;
+    } finally {
+      clearTimeout(timeoutId);
+      _inFlight.delete(dedupKey); // Always release the guard
+    }
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
@@ -131,17 +165,19 @@ export const submitInquiry = async (data: InquiryFormData): Promise<{ success: b
     const adminEmailStatus = result.emailStatus?.adminNotification;
     const userEmailStatus = result.emailStatus?.userConfirmation;
 
+    // "processing" = emails are running async in the background — this is the
+    // happy path. Only "failed" warrants a warning.
     console.log('[Inquiry] Submission successful:', {
       inquiryId: result.id,
       emailStatus: {
         adminNotification: adminEmailStatus ?? 'unknown',
         userConfirmation: userEmailStatus ?? 'unknown',
       },
-      note: adminEmailStatus === 'processing' ? 'Emails are being sent in the background' : undefined,
+      note: adminEmailStatus === 'processing' ? 'Emails are being dispatched in the background' : undefined,
     });
 
     if (adminEmailStatus === 'failed' || userEmailStatus === 'failed') {
-      console.warn('[Inquiry] Email delivery failed. Check server logs for SMTP error details (auth, host, port, TLS, or provider response).');
+      console.warn('[Inquiry] Email delivery failed. Check server logs for SMTP error details.');
     }
     
     return {

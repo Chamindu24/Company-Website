@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   ArrowUpRight,
   Linkedin,
@@ -56,10 +56,9 @@ const socials = [
 ];
 
 const inputClass = (hasError?: boolean) =>
-  `w-full border-b bg-transparent py-2 text-md sm:text-md  text-slate-900 outline-none transition-colors placeholder:text-slate-300 ${
-    hasError
-      ? "border-red-400 focus:border-red-500"
-      : "border-slate-300 focus:border-emerald-600"
+  `w-full border-b bg-transparent py-2 text-md sm:text-md  text-slate-900 outline-none transition-colors placeholder:text-slate-300 ${hasError
+    ? "border-red-400 focus:border-red-500"
+    : "border-slate-300 focus:border-emerald-600"
   }`;
 
 const selectStyles = (hasError?: boolean) => ({
@@ -68,9 +67,8 @@ const selectStyles = (hasError?: boolean) => ({
     backgroundColor: "transparent",
     border: "none",
     borderRadius: 0,
-    borderBottom: `1px solid ${
-      hasError ? "#f87171" : state.isFocused ? "#059669" : "#cbd5e1"
-    }`,
+    borderBottom: `1px solid ${hasError ? "#f87171" : state.isFocused ? "#059669" : "#cbd5e1"
+      }`,
     boxShadow: "none",
     padding: "6px 2px",
   }),
@@ -142,6 +140,10 @@ export default function ConsultationPageV15() {
   >("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
+  // Hard guard against concurrent submits (React state alone is not reliable
+  // for preventing double-fires within the same event flush).
+  const isSubmittingRef = useRef(false);
+
   const clearFieldError = (field: keyof FormState) => {
     setFieldErrors((prev) => {
       if (!prev[field]) return prev;
@@ -182,6 +184,9 @@ export default function ConsultationPageV15() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Prevent concurrent submissions (ref guard is synchronous — state is not)
+    if (isSubmittingRef.current) return;
+
     const errors = validate();
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
@@ -190,6 +195,7 @@ export default function ConsultationPageV15() {
       return;
     }
 
+    isSubmittingRef.current = true;
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -208,10 +214,10 @@ export default function ConsultationPageV15() {
       });
 
       if (result.success) {
-        setSubmitStatus("success");
-        setStatusMessage(
-          "Thank you. Your request is in — we'll be in touch within one business day.",
-        );
+        // Reset form and unblock the button before showing success banner
+        // so the UI feels snappy — the server has already saved the data.
+        setIsSubmitting(false);
+        isSubmittingRef.current = false;
 
         setFormData({
           fullName: "",
@@ -221,8 +227,13 @@ export default function ConsultationPageV15() {
           requirement: "",
         });
         setFieldErrors({});
+        setSubmitStatus("success");
+        setStatusMessage(
+          "Thank you. Your request is in — we'll be in touch within one business day.",
+        );
 
-        setTimeout(() => setSubmitStatus("idle"), 4000);
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+        return; // skip the finally block's cleanup since we already did it
       } else {
         throw new Error(result.message);
       }
@@ -234,7 +245,9 @@ export default function ConsultationPageV15() {
           : "Failed to submit. Please try again.",
       );
     } finally {
+      // Ensures cleanup even when an exception is thrown
       setIsSubmitting(false);
+      isSubmittingRef.current = false;
     }
   };
 
@@ -318,11 +331,11 @@ export default function ConsultationPageV15() {
                     Email
                   </p>
                   <a
-                    href="mailto:info@lushware.org"
+                    href="mailto:info@lushware.net"
                     className="group inline-flex items-center gap-2 text-xl font-medium text-slate-900 hover:text-emerald-600 transition-colors"
                   >
                     <Mail size={18} className="text-emerald-600" />
-                    info@lushware.org
+                    info@lushware.net
                     <ArrowUpRight
                       size={16}
                       className="opacity-0 group-hover:opacity-100 transition-all"
@@ -513,11 +526,10 @@ export default function ConsultationPageV15() {
                   <div className="mt-14">
                     {submitStatus !== "idle" && (
                       <div
-                        className={`mb-6 flex items-start gap-3 rounded-2xl border px-5 py-4 text-sm font-semibold ${
-                          submitStatus === "success"
+                        className={`mb-6 flex items-start gap-3 rounded-2xl border px-5 py-4 text-sm font-semibold ${submitStatus === "success"
                             ? "border-emerald-200 bg-emerald-50 text-emerald-700"
                             : "border-red-200 bg-red-50 text-red-700"
-                        }`}
+                          }`}
                         role="status"
                       >
                         {submitStatus === "success" ? (

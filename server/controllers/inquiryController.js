@@ -4,20 +4,26 @@ const { sendInquiryEmail, sendUserConfirmationEmail } = require("../utils/emailS
 /**
  * Submit a new inquiry
  * Handles all inquiry types: solution, project, consultation
+ *
+ * Performance strategy:
+ *   1. Validate input
+ *   2. Save to MongoDB
+ *   3. Respond 201 immediately — user never waits for email
+ *   4. Fire emails in the background via setImmediate (non-blocking)
  */
 const submitInquiry = async (req, res) => {
   try {
-    const { firstName, lastName, email, country, whatsapp,budget, inquiryType } = req.body;
+    const { firstName, lastName, email, country, whatsapp, budget, inquiryType } = req.body;
 
     // Validation
-    if (!firstName || !email  || !inquiryType) {
-      return res.status(400).json({ 
+    if (!firstName || !email || !inquiryType) {
+      return res.status(400).json({
         message: "Missing required fields",
-        required: ["firstName", "email", "inquiryType"]
+        required: ["firstName", "email", "inquiryType"],
       });
     }
 
-    // Create new inquiry document
+    // Build and persist the inquiry document
     const inquiry = new Inquiry({
       firstName: firstName.trim(),
       lastName: lastName ? lastName.trim() : "",
@@ -27,70 +33,80 @@ const submitInquiry = async (req, res) => {
       whatsapp: whatsapp ? whatsapp.trim() : null,
       inquiryType,
       organization: req.body.organization || null,
-      
-      // Solution specific
+
+      // Solution-specific
       industry: req.body.industry || null,
       requirements: req.body.requirements || null,
-      
-      // Project specific
+
+      // Project-specific
       project: req.body.project || null,
       teamMembers: req.body.teamMembers || null,
-      
-      // General message
+
+      // Shared message field
       message: req.body.message || null,
-      
+
       submittedAt: new Date(),
-      status: 'not-seen'
+      status: "not-seen",
     });
 
-    // Save to database
+    // ── Step 1: Save to DB ────────────────────────────────────────────────
     const savedInquiry = await inquiry.save();
+    console.log(`\n✅ [INQUIRY: ${savedInquiry._id}] Saved to MongoDB — type: ${savedInquiry.inquiryType}, from: ${savedInquiry.email}`);
 
-    // In serverless environments (e.g. Vercel), background work after response is not reliable.
-    // Send emails before responding, while keeping email failures non-fatal to inquiry creation.
-    console.log('\n===============================================');
-    console.log(`📬 [INQUIRY: ${savedInquiry._id}] Processing emails...`);
-    console.log(`   Inquiry Type: ${savedInquiry.inquiryType}`);
-    console.log(`   From: ${savedInquiry.firstName} ${savedInquiry.lastName}`);
-    console.log(`   Email: ${savedInquiry.email}`);
-    console.log('===============================================');
-
-    const [adminEmailResult, userEmailResult] = await Promise.all([
-      sendInquiryEmail(savedInquiry),
-      sendUserConfirmationEmail(savedInquiry)
-    ]);
-
-    console.log('\n===============================================');
-    console.log(`📊 [INQUIRY: ${savedInquiry._id}] Email Summary:`);
-    console.log(`   Admin Email: ${adminEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
-    if (adminEmailResult.sent) console.log(`     Message ID: ${adminEmailResult.messageId}`);
-    if (adminEmailResult.error) console.log(`     Error: ${adminEmailResult.error.message}`);
-
-    console.log(`   User Email: ${userEmailResult.sent ? '✅ SENT' : '❌ FAILED'}`);
-    if (userEmailResult.sent) console.log(`     Message ID: ${userEmailResult.messageId}`);
-    if (userEmailResult.error) console.log(`     Error: ${userEmailResult.error.message}`);
-    console.log('===============================================\n');
-
+    // ── Step 2: Respond immediately ───────────────────────────────────────
+    // The client receives success as soon as the DB write completes.
+    // Email status is reported as "processing" since they haven't run yet.
     res.status(201).json({
       message: "Inquiry submitted successfully",
       id: savedInquiry._id,
       emailStatus: {
-        adminNotification: adminEmailResult.sent ? "sent" : "failed",
-        userConfirmation: userEmailResult.sent ? "sent" : "failed"
+        adminNotification: "processing",
+        userConfirmation: "processing",
       },
       inquiry: {
         id: savedInquiry._id,
         email: savedInquiry.email,
         inquiryType: savedInquiry.inquiryType,
         status: savedInquiry.status,
-        submittedAt: savedInquiry.submittedAt
+        submittedAt: savedInquiry.submittedAt,
+      },
+    });
+
+    // ── Step 3: Fire emails in background ─────────────────────────────────
+    // setImmediate defers execution until after the current I/O event (response
+    // is already flushed). Errors here are fully logged but never surface to
+    // the user — email failures never affect inquiry creation.
+    setImmediate(async () => {
+      console.log(`\n===============================================`);
+      console.log(`📬 [BG: ${savedInquiry._id}] Sending email notifications...`);
+      console.log(`===============================================`);
+
+      try {
+        const [adminEmailResult, userEmailResult] = await Promise.all([
+          sendInquiryEmail(savedInquiry),
+          sendUserConfirmationEmail(savedInquiry),
+        ]);
+
+        console.log(`\n📊 [BG: ${savedInquiry._id}] Email Summary:`);
+        console.log(`   Admin Email : ${adminEmailResult.sent ? "✅ SENT" : "❌ FAILED"}`);
+        if (adminEmailResult.sent) console.log(`     Message ID : ${adminEmailResult.messageId}`);
+        if (adminEmailResult.error) console.log(`     Error      : ${adminEmailResult.error.message}`);
+
+        console.log(`   User Email  : ${userEmailResult.sent ? "✅ SENT" : "❌ FAILED"}`);
+        if (userEmailResult.sent) console.log(`     Message ID : ${userEmailResult.messageId}`);
+        if (userEmailResult.error) console.log(`     Error      : ${userEmailResult.error.message}`);
+        console.log(`===============================================\n`);
+      } catch (emailErr) {
+        // Catches unexpected throws from the email service itself
+        console.error(`\n❌ [BG: ${savedInquiry._id}] Unhandled email error:`, emailErr.message);
       }
     });
+
   } catch (error) {
     console.error("Error submitting inquiry:", error);
-    res.status(500).json({ 
+    res.status(500).json({
       message: "Error submitting inquiry",
-      error: error.message 
+      error: error.message,
     });
   }
 };

@@ -5,7 +5,14 @@ const nodemailer = require('nodemailer');
  * Uses SMTP (configurable host, port, and authentication)
  */
 
+let cachedTransporter = null;
+let cachedSender = null;
+
 const configureSmtp = () => {
+  if (cachedTransporter) {
+    return { transporter: cachedTransporter, sender: cachedSender };
+  }
+
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = parseInt(process.env.SMTP_PORT || '587');
   const smtpUser = process.env.SMTP_USER;
@@ -30,9 +37,14 @@ const configureSmtp = () => {
   const isStartTlsPort = smtpPort === 587;
 
   const transporter = nodemailer.createTransport({
+    pool: true,              // Enable pooling to reuse connections
+    maxConnections: 3,       // Max connections to keep open
+    maxMessages: 100,        // Max messages to send per connection
+    rateDelta: 1000,         // Wait 1 second before sending next email (prevents rate limits)
+    rateLimit: 5,            // Max 5 messages per rateDelta
     host: smtpHost,
     port: smtpPort,
-    secure: smtpSecure, // true for 465 (implicit TLS), false for 587 (STARTTLS)
+    secure: smtpSecure,      // true for 465 (implicit TLS), false for 587 (STARTTLS)
     requireTLS: isStartTlsPort,
     auth: {
       user: smtpUser,
@@ -40,13 +52,17 @@ const configureSmtp = () => {
     },
     tls: {
       minVersion: 'TLSv1.2',
+      rejectUnauthorized: false, // Prevents certificate errors on local SMTP hosts or Gmail TLS handshakes
     },
-    // Add timeouts to prevent serverless function hanging
-    connectionTimeout: 10000, // 10 seconds
-    greetingTimeout: 10000,   // 10 seconds
-    socketTimeout: 15000,     // 15 seconds
-    dnsTimeout: 10000,        // 10 seconds
+    // Reduced timeouts to fail faster and not freeze request if SMTP is down
+    connectionTimeout: 5000,  // 5 seconds
+    greetingTimeout: 5000,    // 5 seconds
+    socketTimeout: 8000,      // 8 seconds
+    dnsTimeout: 5000,         // 5 seconds
   });
+
+  cachedTransporter = transporter;
+  cachedSender = sender;
 
   return { transporter, sender };
 };
