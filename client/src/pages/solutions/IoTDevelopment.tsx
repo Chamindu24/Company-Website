@@ -162,7 +162,7 @@ const IoTProductDevelopment: React.FC = () => {
                 <div className="h-px w-8 bg-emerald-600" />
               </div>
 
-              <p className="iot-serif text-2xl md:text-3xl text-slate-700 font-normal leading-snug ">
+              <p className=" text-2xl md:text-3xl text-slate-700 font-normal leading-snug ">
                 IoT solutions empower organizations to streamline physical
                 operations, optimize hardware workflows, and achieve measurable
                 business results through smart, connected ecosystems.

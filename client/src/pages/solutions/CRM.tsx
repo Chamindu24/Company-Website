@@ -152,7 +152,7 @@ const CRM: React.FC = () => {
                 <div className="h-px w-8 bg-emerald-600" />
               </div>
 
-              <p className="crm-serif text-2xl md:text-3xl text-slate-700 font-normal  leading-snug">
+              <p className=" text-2xl md:text-3xl text-slate-700 font-normal  leading-snug">
                 Our CRM platform is designed to{" "}
                 <span className="not-italic text-emerald-700 font-medium">
                   improve operational efficiency

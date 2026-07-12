@@ -148,7 +148,7 @@ const AIAgents: React.FC = () => {
                 <div className="h-px w-8 bg-emerald-600" />
               </div>
 
-              <p className="ai-serif text-2xl md:text-3xl text-slate-700 font-normal leading-snug ">
+              <p className=" text-2xl md:text-3xl text-slate-700 font-normal leading-snug ">
                 Our AI solutions help automate business operations, enhance
                 engagement, and deliver intelligent insights for smarter
                 decision-making.

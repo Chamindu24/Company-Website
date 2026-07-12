@@ -157,7 +157,7 @@ const BPM: React.FC = () => {
                 <div className="h-px w-8 bg-emerald-600" />
               </div>
 
-              <p className="bpm-serif text-2xl md:text-3xl text-slate-700 font-normal leading-snug ">
+              <p className=" text-2xl md:text-3xl text-slate-700 font-normal leading-snug ">
                 BPM software empowers organizations to streamline operations,
                 optimize workflows, and achieve measurable business results.
               </p>
@@ -234,7 +234,7 @@ const BPM: React.FC = () => {
               <div className="space-y-6 md:space-y-10">
 
                 {/* Card 01 — Full-width */}
-                <div className="group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden border border-slate-200 hover:border-emerald-400 transition-all duration-500 hover:shadow-[0_24px_64px_rgba(0,0,0,0.07)]">
+                <div className="group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden border border-slate-200  transition-all duration-500 hover:shadow-[0_24px_64px_rgba(0,0,0,0.07)]">
                   {/* Left dark panel */}
                   <div className="lg:col-span-4 bg-emerald-800 p-8 md:p-12 flex flex-col justify-between text-white min-h-[160px]">
                     <span className="bpm-serif text-6xl md:text-8xl font-normal italic opacity-30 leading-none">
@@ -260,8 +260,6 @@ const BPM: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Emerald left accent bar */}
-                  <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-400 group-hover:h-full transition-all duration-700" />
                 </div>
 
                 {/* Cards 02 + 03 — Split */}
@@ -287,8 +285,6 @@ const BPM: React.FC = () => {
                       </span>{" "}
                       into operations for faster, data-driven decisions.
                     </p>
-                    {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 group-hover:w-full transition-all duration-700" />
                   </div>
 
                   {/* Card 03 */}

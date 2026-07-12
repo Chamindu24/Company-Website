@@ -52,7 +52,6 @@ const WhyChooseLushWare: React.FC = () => {
 
       <section className="wlw-root w-full bg-white py-16 md:py-28 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
-
           {/* ── HEADER ─────────────────────────────────── */}
           <div className="mb-16 md:mb-24 text-center relative">
             <div className="wlw-grid-dot absolute inset-0 -z-10 opacity-60 pointer-events-none" />
@@ -90,7 +89,6 @@ const WhyChooseLushWare: React.FC = () => {
 
           {/* ── MAIN GRID ──────────────────────────────── */}
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-0">
-
             {/* IMAGE — order-1 mobile, order-2 desktop */}
             <div className="lg:col-span-6 relative order-1 lg:order-2">
               <div className="relative aspect-[4/3] sm:aspect-[4/4] lg:aspect-square w-full">
@@ -134,7 +132,6 @@ const WhyChooseLushWare: React.FC = () => {
             {/* TEXT — order-2 mobile, order-1 desktop */}
             <div className="lg:col-span-6 lg:pr-16 z-10 order-2 lg:order-1">
               <div className="space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
-
                 {/* Section label */}
                 <div className="flex items-center gap-3">
                   <div className="w-6 h-px bg-emerald-600" />
@@ -163,9 +160,12 @@ const WhyChooseLushWare: React.FC = () => {
 
                 <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                   {[
-                    "Scalable Architecture",
-                    "Customer-Centric Focus",
-                    "Future-Ready Tech",
+                    "Enterprise Ready",
+                    "Scalable Solutions",
+                    "Secure by Design",
+                    "Client-Focused",
+                    "On-Time Delivery",
+                    "24/7 Support",
                   ].map((item) => (
                     <span
                       key={item}
@@ -201,7 +201,6 @@ const WhyChooseLushWare: React.FC = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
