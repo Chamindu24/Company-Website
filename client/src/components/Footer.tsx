@@ -183,6 +183,7 @@ export default function Footer() {
               <li>
                 <AnimatedLink to="/solutions/ai-agents">AI Agents</AnimatedLink>
               </li>
+              
             </ul>
           </div>
 
@@ -224,9 +225,7 @@ export default function Footer() {
                   Electrical Services
                 </AnimatedLink>
               </li>
-              <li>
-                <AnimatedLink to="/contact">Free Consultation</AnimatedLink>
-              </li>
+
             </ul>
           </div>
 

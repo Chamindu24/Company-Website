@@ -51,6 +51,7 @@ export default function Navbar() {
     { name: "Business Process Management Software", to: "/solutions/bpm" },
     { name: "Business & Corporate Websites", to: "/solutions/websites" },
     { name: "Mobile Apps", to: "/solutions/mobile-apps" },
+    { name: "IoT Product Development", to: "/solutions/iot-product-development" },
   ];
 
   const solutionLinks = [

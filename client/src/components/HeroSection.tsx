@@ -73,6 +73,17 @@ const heroSlides: HeroSlide[] = [
     maxWidthClass: "w-full px-4 sm:px-6 md:max-w-lg lg:max-w-md",
     aspectClass: "aspect-[3/4] sm:aspect-[4/5] lg:aspect-[2/3]",
   },
+    {
+    id: "06",
+    titleTop: "IoT ",
+    titleHighlight: "Product",
+    titleOutline: "Development.",
+    description:
+      "Connected devices and custom-built software that turn physical hardware into intelligent, data-driven systems.",
+    image: "/hero3/iot5.jpg",
+    maxWidthClass: "w-full px-4 sm:px-6 md:max-w-lg lg:max-w-lg",
+    aspectClass: "aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto",
+  },
 ];
 
 export default function HeroSection() {

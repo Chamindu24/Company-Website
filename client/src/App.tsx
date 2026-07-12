@@ -26,6 +26,7 @@ import { useLenis } from './hooks/useLenis'
 import ElectricalServices from './pages/solutions/ElectricalServices'
 import PlumbingServices from './pages/solutions/PlumbingServices'
 import HVACServices from './pages/solutions/HVACServices'
+import IoTProductDevelopment from './pages/solutions/IoTDevelopment'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -90,6 +91,7 @@ function App() {
           <Route path="/solutions/bpm" element={<BPM />} />
           <Route path="/solutions/websites" element={<Websites />} />
           <Route path="/solutions/mobile-apps" element={<MobileApps />} />
+          <Route path="/solutions/iot-product-development" element={<IoTProductDevelopment />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/project-base" element={<ProjectBasePage />} />
           <Route path="/contact" element={<ConsultationPage />} />
