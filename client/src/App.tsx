@@ -37,12 +37,12 @@ function App() {
   // Initialize Lenis smooth scrolling globally
   useLenis();
 
-  useEffect(() => {
+  /*useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
-  }, []);
+  }, []);*/
 
-  if (loading) return <Loading/>;
+  //if (loading) return <Loading/>;
 
   return (
     /* 1. Ensure the parent is relative and has a min-height */

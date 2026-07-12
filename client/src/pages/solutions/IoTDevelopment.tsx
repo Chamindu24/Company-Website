@@ -196,6 +196,12 @@ const IoTProductDevelopment: React.FC = () => {
                   desc: "Ensure smooth oversight of remote physical assets across teams while maintaining regulatory compliance.",
                   link: "Monitoring",
                 },
+                {
+                  num: "05",
+                  title: "Security & Device Management",
+                  desc: "Secure devices with encrypted communication and centralized management.",
+                  link: "Security",
+                },
               ].map((item, index) => (
                 <ValueCard
                   key={index}

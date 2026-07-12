@@ -415,8 +415,8 @@ export default function ConsultationPageV15() {
 
             {/* RIGHT: The Form */}
             <div className="lg:col-span-7">
-              <div className="relative rounded-[1.5rem] lg:rounded-[2rem] bg-white shadow-[0_2px_30px_rgba(15,23,42,0.07)] ring-1 ring-slate-200 overflow-hidden">
-                <div className="h-0.5 w-full bg-gradient-to-r from-emerald-400 via-emerald-600 to-emerald-400" />
+              <div className="relative  bg-white shadow-[0_2px_30px_rgba(15,23,42,0.07)] ring-1 ring-slate-200 overflow-hidden">
+                <div className="h-0.25 w-full bg-gradient-to-r from-emerald-400 via-emerald-600 to-emerald-400" />
 
                 <form
                   className="px-6 md:px-14 lg:px-16 py-10 lg:py-16"
@@ -544,7 +544,7 @@ export default function ConsultationPageV15() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative w-full cursor-pointer py-4 sm:py-5 lg:py-6 px-6 sm:px-8 lg:px-10 bg-slate-900 rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_rgba(16,185,129,0.25)] disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group relative w-full cursor-pointer py-4 sm:py-5 lg:py-6 px-6 sm:px-8 lg:px-10 bg-slate-900 rounded-sm overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_rgba(16,185,129,0.25)] disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                       <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
