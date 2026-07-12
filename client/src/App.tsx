@@ -20,8 +20,8 @@ import ConsultancyPage from './pages/templates/ConsultancyPage'
 import HealthcarePage from './pages/templates/HealthcarePage'
 import RealEstatePage from './pages/templates/RealEstatePage'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import Loading from './components/Loading'
+//import { useEffect, useState } from 'react'
+//import Loading from './components/Loading'
 import { useLenis } from './hooks/useLenis'
 import ElectricalServices from './pages/solutions/ElectricalServices'
 import PlumbingServices from './pages/solutions/PlumbingServices'
@@ -29,7 +29,7 @@ import HVACServices from './pages/solutions/HVACServices'
 import IoTProductDevelopment from './pages/solutions/IoTDevelopment'
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  //const [loading, setLoading] = useState(true);
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith('/admin') || location.pathname.startsWith('/dashboard');
   const isTemplatePage = location.pathname.startsWith('/templates');
