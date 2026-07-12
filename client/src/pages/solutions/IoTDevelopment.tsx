@@ -239,7 +239,7 @@ const IoTProductDevelopment: React.FC = () => {
               {/* Architecture cards */}
               <div className="space-y-6 md:space-y-10">
                 {/* Card 01 — Full-width */}
-                <div className="group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden border border-slate-200 hover:border-emerald-400 transition-all duration-500 hover:shadow-[0_24px_64px_rgba(0,0,0,0.07)]">
+                <div className="group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden border border-slate-200  transition-all duration-500 hover:shadow-[0_24px_64px_rgba(0,0,0,0.07)]">
                   {/* Left dark panel */}
                   <div className="lg:col-span-4 bg-emerald-800 p-8 md:p-12 flex flex-col justify-between text-white min-h-[160px]">
                     <span className="iot-serif text-6xl md:text-8xl font-normal italic opacity-30 leading-none">
@@ -264,15 +264,12 @@ const IoTProductDevelopment: React.FC = () => {
                       efficiency.
                     </p>
                   </div>
-
-                  {/* Emerald left accent bar */}
-                  <div className="absolute top-0 left-0 w-1 h-0 bg-emerald-400 group-hover:h-full transition-all duration-700" />
                 </div>
 
                 {/* Cards 02 + 03 — Split */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
                   {/* Card 02 */}
-                  <div className="relative group p-8 md:p-12 border border-slate-200 hover:border-emerald-400 transition-all duration-500 hover:shadow-[0_24px_64px_rgba(0,0,0,0.06)] overflow-hidden">
+                  <div className="relative group p-8 md:p-12 border border-slate-200  transition-all duration-500 hover:shadow-[0_24px_64px_rgba(0,0,0,0.06)] overflow-hidden">
                     <div className="flex items-center gap-4 mb-8">
                       <span className="iot-serif text-2xl italic text-emerald-600">
                         02
@@ -291,8 +288,6 @@ const IoTProductDevelopment: React.FC = () => {
                       , allowing for automated responses, preventative
                       maintenance, and complete control from a single dashboard.
                     </p>
-                    {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 group-hover:w-full transition-all duration-700" />
                   </div>
 
                   {/* Card 03 */}
@@ -456,23 +451,22 @@ const IoTProductDevelopment: React.FC = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="group relative flex flex-col md:flex-row md:items-start lg:items-center gap-6 md:gap-10 py-10 md:py-12 px-4 sm:px-8 hover:bg-slate-50 transition-colors duration-500"
+                    className="group relative flex flex-col md:flex-row md:items-start lg:items-center gap-6 md:gap-10 py-10 md:py-12 px-4 sm:px-8 hover:bg-slate-50 hover:shadow-xl transition-all duration-700 ease-in-out"
                   >
                     <div className="flex items-center gap-6 md:w-80 lg:w-96 shrink-0">
                       <span className="iot-serif text-xs italic text-slate-300 tabular-nums">
                         {item.num}
                       </span>
-                      <div className="w-14 h-14 flex items-center justify-center text-slate-300 group-hover:text-emerald-600 transition-colors duration-400 shrink-0">
+                      <div className="w-14 h-14 flex items-center justify-center text-slate-400 group-hover:text-emerald-600 transition-colors duration-400 shrink-0">
                         {item.svg}
                       </div>
                       <h4 className="text-xl md:text-2xl font-semibold text-slate-900 tracking-tight">
                         {item.title}
                       </h4>
                     </div>
-                    <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed flex-1 md:pt-1 lg:pt-0">
+                    <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed flex-1 md:pt-1 lg:pt-0">
                       {item.desc}
                     </p>
-                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 group-hover:w-full transition-all duration-700" />
                   </div>
                 ))}
               </div>
