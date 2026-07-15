@@ -108,22 +108,20 @@ export default function Navbar() {
                 <div className="flex items-center justify-between w-full">
                   {/* Clean, Editorial Typography */}
                   <span
-                    className={`text-[16px] tracking-wide font-medium transition-all duration-300 ${
-                      isActive
-                        ? "text-stone-950 font-semibold"
-                        : "text-stone-600 group-hover/item:text-stone-950 group-hover/item:translate-x-2"
-                    }`}
+                    className={`text-[16px] tracking-wide font-medium transition-all duration-300 ${isActive
+                      ? "text-stone-950 font-semibold"
+                      : "text-stone-600 group-hover/item:text-stone-950 group-hover/item:translate-x-2"
+                      }`}
                   >
                     {item.name}
                   </span>
 
                   {/* Ultra-minimal Micro-indicator */}
                   <span
-                    className={`text-[11px] tracking-widest uppercase transition-all duration-500 font-light ${
-                      isActive
-                        ? "text-stone-950 opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-2 text-stone-400 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                    }`}
+                    className={`text-[11px] tracking-widest uppercase transition-all duration-500 font-light ${isActive
+                      ? "text-stone-950 opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-2 text-stone-400 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                      }`}
                   >
                     {isActive ? "Active" : "Discover"}
                   </span>
@@ -138,11 +136,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white backdrop-blur-md py-3 shadow-sm sm:shadow-md lg:shadow-lg shadow-emerald-200/20"
-          : "bg-white py-4 lg:py-5"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-500 ${scrolled
+        ? "bg-white backdrop-blur-md py-3 shadow-sm sm:shadow-md lg:shadow-lg shadow-emerald-200/20"
+        : "bg-white py-4 lg:py-5"
+        }`}
     >
       <div className="w-[98%] max-w-[1800px] px-5 sm:px-8 lg:px-14 xl:px-20 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4">
         <div className="flex justify-start">
@@ -185,17 +182,15 @@ export default function Navbar() {
             onMouseLeave={closeDesktopDropdown}
           >
             <div
-              className={`flex items-center gap-2 text-sm font-bold tracking-widest uppercase transition-colors relative cursor-pointer ${
-                isServicesActive
-                  ? "text-emerald-900"
-                  : "text-stone-800 hover:text-emerald-700"
-              }`}
+              className={`flex items-center gap-2 text-sm font-bold tracking-widest uppercase transition-colors relative cursor-pointer ${isServicesActive
+                ? "text-emerald-900"
+                : "text-stone-800 hover:text-emerald-700"
+                }`}
             >
               <span>Services</span>
               <svg
-                className={`w-3 h-3 transition-transform duration-300 ${
-                  desktopDropdownOpen === "services" ? "rotate-180" : ""
-                } ${isServicesActive ? "text-emerald-900" : "text-stone-800"}`}
+                className={`w-3 h-3 transition-transform duration-300 ${desktopDropdownOpen === "services" ? "rotate-180" : ""
+                  } ${isServicesActive ? "text-emerald-900" : "text-stone-800"}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -208,18 +203,16 @@ export default function Navbar() {
                 />
               </svg>
               <span
-                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${
-                  isServicesActive ? "w-full" : "w-0 group-hover:w-full"
-                }`}
+                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${isServicesActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
               ></span>
             </div>
 
             <div
-              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
-                desktopDropdownOpen === "services"
-                  ? "pointer-events-auto opacity-100 translate-y-0"
-                  : "pointer-events-none opacity-0 translate-y-2"
-              }`}
+              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${desktopDropdownOpen === "services"
+                ? "pointer-events-auto opacity-100 translate-y-0"
+                : "pointer-events-none opacity-0 translate-y-2"
+                }`}
               onMouseEnter={() => openDesktopDropdown("services")}
               onMouseLeave={closeDesktopDropdown}
             >
@@ -233,17 +226,15 @@ export default function Navbar() {
             onMouseLeave={closeDesktopDropdown}
           >
             <div
-              className={`flex items-center gap-2 text-sm font-bold tracking-widest uppercase transition-colors relative cursor-pointer ${
-                isSolutionsActive
-                  ? "text-emerald-900"
-                  : "text-stone-800 hover:text-emerald-700"
-              }`}
+              className={`flex items-center gap-2 text-sm font-bold tracking-widest uppercase transition-colors relative cursor-pointer ${isSolutionsActive
+                ? "text-emerald-900"
+                : "text-stone-800 hover:text-emerald-700"
+                }`}
             >
               <span>Solutions</span>
               <svg
-                className={`w-3 h-3 transition-transform duration-300 ${
-                  desktopDropdownOpen === "solutions" ? "rotate-180" : ""
-                } ${isSolutionsActive ? "text-emerald-900" : "text-stone-800"}`}
+                className={`w-3 h-3 transition-transform duration-300 ${desktopDropdownOpen === "solutions" ? "rotate-180" : ""
+                  } ${isSolutionsActive ? "text-emerald-900" : "text-stone-800"}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -256,18 +247,16 @@ export default function Navbar() {
                 />
               </svg>
               <span
-                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${
-                  isSolutionsActive ? "w-full" : "w-0 group-hover:w-full"
-                }`}
+                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${isSolutionsActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
               ></span>
             </div>
 
             <div
-              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${
-                desktopDropdownOpen === "solutions"
-                  ? "pointer-events-auto opacity-100 translate-y-0"
-                  : "pointer-events-none opacity-0 translate-y-2"
-              }`}
+              className={`absolute left-0 top-full pt-4 transition-all duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] ${desktopDropdownOpen === "solutions"
+                ? "pointer-events-auto opacity-100 translate-y-0"
+                : "pointer-events-none opacity-0 translate-y-2"
+                }`}
               onMouseEnter={() => openDesktopDropdown("solutions")}
               onMouseLeave={closeDesktopDropdown}
             >
@@ -279,19 +268,17 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.to}
-              className={`text-sm font-bold tracking-widest uppercase whitespace-nowrap hover:text-emerald-700 transition-colors relative group ${
-                location.pathname === link.to
-                  ? "text-emerald-700"
-                  : "text-stone-800"
-              }`}
+              className={`text-sm font-bold tracking-widest uppercase whitespace-nowrap hover:text-emerald-700 transition-colors relative group ${location.pathname === link.to
+                ? "text-emerald-700"
+                : "text-stone-800"
+                }`}
             >
               {link.name}
               <span
-                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${
-                  location.pathname === link.to
-                    ? "w-full"
-                    : "w-0 group-hover:w-full"
-                }`}
+                className={`absolute -bottom-1.5 left-0 h-0.5 bg-emerald-500 transition-all duration-300 ${location.pathname === link.to
+                  ? "w-full"
+                  : "w-0 group-hover:w-full"
+                  }`}
               ></span>
             </Link>
           ))}
@@ -484,11 +471,10 @@ export default function Navbar() {
                       setMobileServicesOpen(false);
                       setMobileSolutionsOpen(false);
                     }}
-                    className={`nb-sans group px-4 py-3.5 font-bold text-[10px] sm:text-lg uppercase tracking-[0.18em] transition-all duration-300 flex items-center justify-between ${
-                      location.pathname === link.to
-                        ? "text-emerald-700 bg-emerald-50/60"
-                        : "text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60"
-                    }`}
+                    className={`nb-sans group px-4 py-3.5 font-bold text-[10px] sm:text-lg uppercase tracking-[0.18em] transition-all duration-300 flex items-center justify-between ${location.pathname === link.to
+                      ? "text-emerald-700 bg-emerald-50/60"
+                      : "text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60"
+                      }`}
                     style={{
                       animation: `slideIn 0.4s ease-out ${0.15 + i * 0.1}s backwards`,
                     }}

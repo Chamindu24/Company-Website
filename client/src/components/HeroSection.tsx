@@ -114,10 +114,10 @@ export default function HeroSection() {
       >
         {heroSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative h-full w-full px-6 md:px-16 lg:px-20 flex flex-col justify-center z-10 overflow-hidden">
+            <div className="relative h-full w-full px-6 md:px-16 lg:px-20 flex flex-col justify-start lg:justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-0 z-10 overflow-y-auto overflow-x-hidden lg:overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-center">
                 {/* Left Content */}
-                <div className="lg:col-span-7 mt-[190px] md:mt-[140px] lg:mt-12 flex flex-col md:items-center lg:items-start">
+                <div className="lg:col-span-7 lg:pt-12 flex flex-col md:items-center lg:items-start">
                   <h1 className="flex flex-col gap-0 select-none mb-6 md:items-center lg:items-start md:text-center lg:text-left">
                     <span className="text-5xl md:text-7xl lg:text-[6.5rem] font-black text-emerald-600 sm:text-transparent uppercase leading-[0.8] tracking-tighter hero-line hero-stroke">
                       {slide.titleTop}
@@ -263,6 +263,7 @@ export default function HeroSection() {
             transform: scale(1);
           }
         }
+
       `}</style>
     </section>
   );

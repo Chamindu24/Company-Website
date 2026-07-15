@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const solutionItems = [
-  { label: "Property Mgmt", to: "/real-estate-control", icon: "apartment" },
+  { label: "Property Management", to: "/real-estate-control", icon: "apartment" },
   { label: "Hotel Cloud", to: "/hotelcloud", icon: "hotel" },
   { label: "Boat Booking", to: "/viduvaru", icon: "directions_boat" },
   { label: "Travel CRM", to: "/travel-crm", icon: "luggage" },
@@ -47,8 +47,8 @@ const Navbar = () => {
         <nav
           className={`relative flex items-center justify-between rounded-3xl border border-white/40 px-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ${
             isScrolled
-              ? "bg-white/85 backdrop-blur-2xl py-2.5"
-              : "bg-white/30 backdrop-blur-md py-3"
+              ? "bg-white backdrop-blur-2xl py-2.5"
+              : "bg-white backdrop-blur-md py-3"
           }`}
         >
           {/* ── Logo ──────────────────────────────────────────────────────── */}
@@ -104,9 +104,9 @@ const Navbar = () => {
                     >
                       <div className="flex items-center gap-4">
                         <div
-                          className={`flex h-11 w-11 items-center justify-center rounded-full border border-slate-100 bg-white text-slate-400 transition-all duration-500 group-hover/nav:scale-110 group-hover/nav:border-cyan-200 group-hover/nav:text-cyan-600 group-hover/nav:shadow-sm`}
+                          className={`flex h-11 w-11 items-center justify-center rounded-full  bg-white text-slate-400 transition-all duration-500 group-hover/nav:scale-110  group-hover/nav:text-cyan-600 group-hover/nav:shadow-sm`}
                         >
-                          <span className="material-symbols-outlined text-[22px] ">
+                          <span className="material-symbols-outlined text-[24px] ">
                             {item.icon}
                           </span>
                         </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
                           <span className="text-[15px] font-medium tracking-tight text-slate-800 transition-colors duration-300 group-hover/nav:text-cyan-700">
                             {item.label}
                           </span>
-                          <span className="text-[12px] text-slate-400 font-light">
+                          <span className="text-[12px] text-slate-500 font-light">
                             Explore {item.label.toLowerCase()}
                           </span>
                         </div>
