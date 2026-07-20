@@ -36,21 +36,15 @@ const Navbar = () => {
   }, [isMobileOpen]);
 
   return (
-    <header className="fixed top-0 z-[100] w-full transition-all duration-700 ease-in-out">
-      <div
-        className={`mx-auto transition-all duration-500 ${
-          isScrolled
-            ? "max-w-7xl md:px-0 px-4 mt-4" // compact pill when scrolled
-            : "max-w-screen-2xl px-6 sm:px-10 lg:px-28 mt-6" // full-bleed on top
-        }`}
-      >
-        <nav
-          className={`relative flex items-center justify-between rounded-3xl border border-white/40 px-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ${
-            isScrolled
-              ? "bg-white backdrop-blur-2xl py-2.5"
-              : "bg-white backdrop-blur-md py-3"
-          }`}
-        >
+    <header 
+      className={`fixed top-0 left-0 right-0 z-[100] w-full border-b transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-2xl py-3 shadow-md border-slate-100"
+          : "bg-white backdrop-blur-md py-5 border-transparent"
+      }`}
+    >
+      <div className="mx-auto max-w-screen-2xl px-6 sm:px-10 lg:px-28">
+        <nav className="flex items-center justify-between">
           {/* ── Logo ──────────────────────────────────────────────────────── */}
           <Link to="/" className="group flex items-center gap-2 shrink-0">
             <div className="relative flex h-8 w-18 items-center justify-center rounded-md overflow-hidden">
@@ -104,9 +98,9 @@ const Navbar = () => {
                     >
                       <div className="flex items-center gap-4">
                         <div
-                          className={`flex h-11 w-11 items-center justify-center rounded-full  bg-white text-slate-400 transition-all duration-500 group-hover/nav:scale-110  group-hover/nav:text-cyan-600 group-hover/nav:shadow-sm`}
+                          className={`flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-400 transition-all duration-500 group-hover/nav:scale-110 group-hover/nav:text-cyan-600 group-hover/nav:shadow-sm`}
                         >
-                          <span className="material-symbols-outlined text-[24px] ">
+                          <span className="material-symbols-outlined text-[24px]">
                             {item.icon}
                           </span>
                         </div>

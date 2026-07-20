@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import HowItWorksSection from "../components/HowItWorksSection";
-import LandingHeroSection from "../components/LandingHeroSection";
 import { useEffect, useState } from "react";
+import HeroSection from "../components/HeroSection";
 
 const ecosystemCards = [
   {
@@ -182,18 +182,41 @@ function LandingPage() {
   return (
     <div className="overflow-x-hidden bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
       <main className="overflow-x-hidden">
-        <LandingHeroSection />
+        {/* <LandingHeroSection /> */}
+        <HeroSection />
 
-        <section className="bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
+        <section className="bg-[#ffffff] px-6 py-16 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-20 text-center ">
-              <h2 className="mb-4 text-4xl md:text-5xl font-bold tracking-tighter">
-                Our Ecosystem
-              </h2>
-              <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
-                Integrated tools designed to streamline every touchpoint of the
-                guest journey and back-office operations.
-              </p>
+            <div className="relative mb-6 md:mb-12 w-full overflow-hidden py-8 sm:py-10 md:overflow-visible md:py-12">
+              {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+              <div className="absolute -top-2 -left-2 select-none font-headline font-black text-[9rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] xs:text-[6rem] sm:-top-4 sm:-left-3 sm:text-[9rem] md:-top-16 md:-left-4 lg:-top-6 lg:-left-4 md:text-[20rem] lg:text-[18rem]">
+                OUR
+              </div>
+
+              {/* Main Content Layout Container */}
+              <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-start pt-8 sm:pt-12 md:pt-16 lg:pt-20 lg:flex-row lg:items-end lg:justify-between lg:gap-32">
+                {/* Left Side: Headline with Minimalist Category Kicker */}
+                <div className="relative flex flex-col items-start gap-0 md:gap-2 lg:max-w-xl">
+                  <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+                    Architecture & Vision
+                  </span>
+                  <h2 className="text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-8xl dark:text-white">
+                    Ecosystem
+                  </h2>
+                </div>
+
+                {/* Right Side: High-End Editorial Layout Block */}
+                <div className="relative mt-8 max-w-xl sm:mt-10 lg:ml-auto lg:mt-0 lg:text-right flex flex-col items-start lg:items-end gap-4">
+                  <p className="text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+                    Integrated tools designed to seamlessly orchestrate every
+                    digital touchpoint of the{" "}
+                    <span className="relative inline-block font-bold text-on-background dark:text-white pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-primary-container transition-all duration-350 hover:after:h-[4px]">
+                      guest journey
+                    </span>{" "}
+                    and predictive back-office operations.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 [perspective:1000px]">
@@ -260,17 +283,34 @@ function LandingPage() {
 
         <section className="overflow-hidden bg-[#ffffff] px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-16 text-center">
-              <div className="mx-auto max-w-2xl">
-                <h2 className="mb-4 text-4xl md:text-5xl font-bold leading-tight tracking-tighter">
-                  Industries We Serve
-                </h2>
-                <p className="text-lg text-on-surface-variant">
-                  From luxury private islands to intimate homestays, our
-                  technology adapts to your scale.
-                </p>
-              </div>
-            </div>
+<div className="relative mb-6 md:mb-12 w-full  py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-14 left-1/2  -translate-x-1/2 select-none font-headline font-black text-[4.75rem] tracking-tighter leading-none text-primary-container/[0.15] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-16 lg:text-[12rem]">
+    INDUSTRIES
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-3xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      Reach & Scale
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-8xl dark:text-white">
+       We Serve
+    </h2>
+
+    {/* Editorial Description */}
+    <p className="mt-8 sm:mt-10 max-w-xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+      From luxury private islands to intimate homestays, our{" "}
+      <span className="relative inline-block font-bold text-on-background dark:text-white pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-primary-container transition-all duration-350 hover:after:h-[4px]">
+        technology adapts
+      </span>{" "}
+      to your scale.
+    </p>
+  </div>
+</div>
 
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-4">
               {industries.map((industry, index) => (
@@ -305,15 +345,34 @@ function LandingPage() {
 
         <section className="bg-stone-50 px-6 py-24 md:px-8 md:py-32">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-20 text-center">
-              <h2 className="mb-6 font-headline text-4xl md:text-5xl  font-bold tracking-tighter text-primary ">
-                Designed for Every Horizon
-              </h2>
-              <p className="mx-auto max-w-2xl text-on-surface-variant">
-                From boutique guesthouses to sprawling private island resorts,
-                our platform scales with your ambition.
-              </p>
-            </div>
+<div className="relative mb-6 md:mb-12 w-full  py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-11 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.16] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[16rem] lg:top-9 lg:text-[14rem]">
+    HORIZON
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-3xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      Scale & Ambition
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-8xl dark:text-white">
+      Designed for Every Horizon
+    </h2>
+
+    {/* Editorial Description */}
+    <p className="mt-8 sm:mt-10 max-w-3xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+      From boutique guesthouses to sprawling{" "}
+      <span className="relative inline-block font-bold text-on-background dark:text-white pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-primary-container transition-all duration-350 hover:after:h-[4px]">
+        private island resorts
+      </span>
+      , our platform scales with your ambition.
+    </p>
+  </div>
+</div>
 
             <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 px-4 py-8 bg-stone-50">
               {industries.map((industry, index) => (
@@ -392,13 +451,29 @@ function LandingPage() {
 
         <HowItWorksSection />
 
-        <section className="bg-[#FCFBFA]  px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
-          <h2 className="mb-8 text-3xl text-center font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Why Industry Leaders{" "}
-            <span className="text-primary">
-              Choose <br className="hidden sm:block" /> LUSHWARE
-            </span>
-          </h2>
+        <section className="bg-[#Ffffff]  px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-32">
+<div className="relative mb-6 md:mb-12 w-full  py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[6rem] tracking-tighter leading-none text-primary-container/[0.16] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[18rem] lg:top-4 lg:text-[14rem]">
+    TRUSTED
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-5xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      Trusted by the Best
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+      Why Industry Leaders{" "}
+      <span className="text-primary">
+        Choose <br className="hidden sm:block" /> LUSHWARE
+      </span>
+    </h2>
+  </div>
+</div>
 
           <div className="mx-auto max-w-7xl px-6 mt-20 overflow-hidden">
             {" "}
@@ -446,37 +521,55 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="px-4 bg-[#ffffff] py-16 sm:px-6 pb-24 sm:py-20 md:px-8 md:py-32">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-secondary p-6 text-center sm:rounded-3xl sm:p-12 md:p-16 lg:p-16">
-            {/* Texture overlay */}
-            <div className="absolute inset-0 opacity-10">
-              <img
-                className="h-full w-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDOhuteQmcK_zdeVItlnPL-Mj11GxM7RYUy0eF4FTZ8UwdIwaqbjH2hQabjr41IbhExmc9AQdef1p3lxiaeVFC_n9V9PpgeX1VgyqZob_lIvYtaAxMzEt8TwjzhYk8ZNahGIp1KbJdCsLgtppJDGVsiR8pIRcCmW8Wv18Ac3r59WZp0zWOMqrOnH38d7A91xjedgiWJUDmJcZlq2zaOj_w2z3NNbjjmJ0HJD-NSfuWqyhk2vwB55WyLmZoIxAUlKPDU_t5lheYEeY"
-                alt="Abstract water ripple texture"
-              />
-            </div>
+<section className="relative w-full overflow-hidden bg-[#ffffff] py-16 sm:py-20 lg:py-24">
+  {/* Subtle Background Grain/Texture Hint */}
+  <div className="pointer-events-none absolute -right-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-[120px]" />
 
-            {/* Content */}
-            <div className="relative z-10 mx-auto max-w-2xl">
-              <h2 className="mb-4 text-2xl font-extrabold tracking-tighter text-on-primary sm:mb-6 sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl">
-                Ready to transform your hospitality experience?
-              </h2>
-              <p className="mb-8 text-sm text-primary-fixed opacity-90 sm:text-base md:mb-12 md:text-lg">
-                Join the growing network of Maldivian properties leading the
-                digital revolution with Viduvaru.
-              </p>
-              <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
-                <button className="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-primary shadow-2xl transition-all hover:bg-primary-fixed sm:w-auto sm:px-10 sm:py-5 sm:text-lg">
-                  Get Started Now
-                </button>
-                <button className="w-full rounded-full border-2 border-white/30 bg-transparent px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto sm:px-10 sm:py-5 sm:text-lg">
-                  Schedule a Demo
-                </button>
-              </div>
-            </div>
+  <div className="relative mx-auto max-w-7xl rounded-lg px-4 sm:px-6 lg:px-8 lg:px-2">
+    {/* Refined Border - Subtle and elegant */}
+    <div className="border border-gray-100 rounded-lg bg-white/50 p-6 sm:p-10 md:p-14 lg:p-20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-sm">
+      <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-[1fr_auto] lg:gap-24">
+        
+        {/* Left: Heading + Supporting Copy */}
+        <div className="max-w-3xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] sm:leading-[1] lg:leading-[0.9] tracking-[-0.02em] lg:tracking-[-0.04em] text-gray-950">
+            Ready to transform your{" "}
+            <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              hospitality experience?
+            </span>
+          </h2>
+
+          <p className="mt-4 sm:mt-6 lg:mt-8 max-w-md text-base sm:text-lg leading-relaxed text-gray-600">
+            Join the growing network of Maldivian properties leading the
+            digital revolution with Viduvaru.
+          </p>
+        </div>
+
+        {/* Right: Action Panel */}
+        <div className="relative w-full max-w-sm mx-auto lg:mx-0 lg:w-[320px]">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <button className="group relative flex w-full items-center justify-between overflow-hidden rounded-lg bg-primary px-6 sm:px-8 py-3.5 sm:py-4 text-left text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white transition-all duration-500 hover:shadow-2xl">
+              <span className="relative z-10">Get Started Now</span>
+              <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+              <div className="absolute inset-0 translate-x-[-100%] bg-black/10 transition-transform duration-700 group-hover:translate-x-0" />
+            </button>
+
+            <button className="group flex w-full items-center justify-between rounded-lg border border-gray-200 bg-white px-6 sm:px-8 py-3.5 sm:py-4 text-left text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-950 transition-all duration-300 hover:border-gray-950">
+              <span>Schedule a Demo</span>
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center text-gray-400 transition-all duration-300 group-hover:text-gray-950">
+                →
+              </span>
+            </button>
           </div>
-        </section>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
       </main>
     </div>
   );

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getNames } from "country-list";
 import Select from "react-select";
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import type { InquiryFormData } from "../services/inquiryService";
 import {
   submitInquiry,
@@ -124,30 +123,54 @@ function ContactPage() {
   const fieldClass =
     "w-full bg-[#f8fafc] border border-outline-variant/50 rounded-2xl px-6 py-4 text-on-surface placeholder:text-slate-400 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 ease-out";
   return (
-    <main className="bg-[#ffffff] pt-24 font-body text-on-surface">
-      <PinnedScrollHeadlineSection
-        badge="Partner with us"
-        titlePrefix="Let's Scale Your"
-        highlightText="Island Business"
-        titleSuffix=""
-        description="Transform your Maldivian hospitality experience with digital solutions designed for the horizon."
-      >
-        <div className="flex flex-col sm:flex-row mt-4 lg:mt-2 gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
-          <a
-            href="#contact-form"
-            className="w-full sm:flex-1 text-center rounded-lg bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95"
-          >
-            Schedule a Demo
-          </a>
+    <main className="bg-[#ffffff] pt-24 md:pt-20 font-body text-on-surface">
+{/* HERO */}
+{/* HERO */}
+<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+  {/* Modern Background Accents */}
+  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+  <div className="mx-auto max-w-5xl text-center">
+    {/* Refined Modern Badge */}
+    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+      <span className="text-balance">Partner with us</span>
+    </span>
 
-          <Link
-            to="/services"
-            className="w-full sm:flex-1 text-center rounded-lg border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-primary transition-all hover:bg-primary/10 hover:scale-105 active:scale-95"
-          >
-            View Solutions
-          </Link>
-        </div>
-      </PinnedScrollHeadlineSection>
+    {/* Stronger, Cleaner Typographic Hierarchy */}
+    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+      <span className="block text-balance">Let's Scale Your</span>
+      <span className="mt-1 block sm:mt-2">
+        <span className="bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm">
+          Island Business
+        </span>{" "}
+        <span className="text-on-surface">Together</span>
+      </span>
+    </h1>
+
+    {/* Optimized Description Reading Width */}
+    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+      Transform your Maldivian hospitality experience with digital
+      solutions designed for the horizon.
+    </p>
+
+    {/* Premium Split-Action Controller */}
+    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+      <a
+        href="#contact-form"
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-center font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+      >
+        Schedule a Demo
+      </a>
+      <Link
+        to="/services"
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+      >
+        View Solutions
+      </Link>
+    </div>
+  </div>
+</section>
 
       <section
         id="contact-form"
@@ -371,7 +394,7 @@ function ContactPage() {
                 </a>
 
                 <a
-                  href="mailto:info@lushware.org"
+                  href="mailto:info@lushware.net"
                   className="group flex items-center rounded-lg bg-white/10 p-4 transition-colors hover:bg-white/20"
                 >
                   <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary-container shadow-lg">
@@ -387,7 +410,7 @@ function ContactPage() {
                       Email Us
                     </p>
                     <p className="font-headline font-semibold">
-                      info@lushware.org
+                      info@lushware.net
                     </p>
                   </div>
                   <span className="material-symbols-outlined ml-auto text-white/90 transition-transform group-hover:translate-x-1">
@@ -425,53 +448,46 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 md:px-8 md:pb-48">
-        <div
-          className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-3xl shadow-2xl
-                  h-auto min-h-[360px] sm:min-h-[400px] md:h-[450px]"
-        >
-          <img
-            alt="Luxurious resort setting"
-            className="absolute inset-0 h-full w-full object-cover"
-            src="https://media.meer.com/attachments/dca4a6f93cbbbf4fc59cd8cdef0f79dae03cdc99/store/fill/860/645/4012c2f175391b2a3a52839b8cce91dac9b5a205f9b42c9a3392500cd0ad/Turquoise-waters-and-scattered-islands-define-the-breathtaking-beauty-of-the-Maldives.jpg"
-          />
+<section className="relative w-full bg-white py-16 sm:py-24 lg:py-40 overflow-hidden">
 
-          <div className="absolute inset-0 bg-black/15" />
 
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-6 text-center sm:p-10 md:p-12">
-            <div className="relative z-10 w-full max-w-3xl">
-              <h2 className="mb-4 font-headline text-2xl font-bold leading-tight tracking-tight text-white sm:mb-5 sm:text-3xl md:mb-6 md:text-4xl lg:text-5xl">
-                Ready to start your digital journey?
-              </h2>
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32">
+      
+      {/* Editorial Content Block */}
+      <div className="flex-1">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-gray-950 text-center lg:text-left">
+          Ready to start your <br />
+          <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-medium">digital journey?</span>
+        </h2>
+      </div>
 
-              <p className="mx-auto mb-7 max-w-xl text-sm text-slate-100 sm:mb-8 sm:text-base md:mb-10 md:text-lg lg:text-xl">
-                Join the leading resorts and businesses in the Maldives who
-                trust Viduvaru for their digital transformation. Our solutions
-                currently power operations for over 45 luxury island
-                destinations.
-              </p>
+      {/* Structured Action Block */}
+      <div className="flex-1 flex flex-col items-center lg:items-end justify-center border-t lg:border-t-0 lg:border-l border-gray-100 pt-10 lg:pt-0 pl-0 lg:pl-16">
+        <p className="text-base sm:text-lg leading-relaxed text-center lg:text-right text-gray-600 mb-8 sm:mb-12 max-w-md">
+          Join the leading resorts and businesses in the Maldives who trust Viduvaru for their digital transformation. We deliver precision-engineered solutions for the modern enterprise.
+        </p>
 
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
-                <a
-                  href="#contact-form"
-                  className="w-full rounded-full bg-white px-6 py-3 text-sm font-bold text-primary shadow-xl transition-all hover:scale-105 active:scale-95 sm:w-auto sm:px-8 sm:text-base"
-                >
-                  Schedule a Free Consultation
-                </a>
-                <Link
-                  to="/our-work"
-                  className="w-full rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 sm:w-auto sm:px-8 sm:text-base"
-                >
-                  View Case Studies
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/20 blur-3xl sm:-left-16 sm:-top-16 sm:h-52 sm:w-52 md:-left-24 md:-top-24 md:h-64 md:w-64" />
-          <div className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-secondary/20 blur-3xl sm:-bottom-16 sm:-right-16 sm:h-52 sm:w-52 md:-bottom-24 md:-right-24 md:h-64 md:w-64" />
+        <div className="flex flex-wrap justify-center lg:justify-end gap-4 w-full sm:w-auto">
+          <a
+            href="/our-work"
+            className="flex items-center justify-center gap-3 border-b-2 border-gray-950 px-2 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-950 transition-all hover:text-primary hover:border-primary"
+          >
+            Explore Portfolio
+          </a>
+          <a
+            href="#contact-form"
+            className="group flex rounded-full items-center justify-center gap-3 bg-gradient-to-br from-primary to-primary-container text-white px-8 sm:px-10 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-primary w-full sm:w-auto"
+          >
+            Request Consultation
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </a>
         </div>
-      </section>
+      </div>
+      
+    </div>
+  </div>
+</section>
     </main>
   );
 }

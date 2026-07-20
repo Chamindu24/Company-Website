@@ -353,7 +353,7 @@ export default function WebKitSection() {
                 {[
                   "Production Ready Templates",
                   "Elite Industry Design",
-                  "Built by LushWare ORG",
+                  "Built by LushWare",
                   "Fully Customizable",
                   "Rapid Deployment",
                   "Enterprise Grade",

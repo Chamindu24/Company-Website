@@ -71,7 +71,7 @@ export default function Footer() {
                 <div className="relative h-12 lg:w-18 md:w-15 w-12  rounded-xl mr-0 md:mr-2">
                   <img
                     src="/logo.jpeg"
-                    alt="LushWare ORG"
+                    alt="LushWare"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -112,10 +112,10 @@ export default function Footer() {
                 Inquiries
               </p>
               <a
-                href="mailto:info@lushware.org"
+                href="mailto:info@lushware.net"
                 className="block text-xl sm:text-2xl md:text-3xl font-extralight tracking-tighter text-emerald-950 transition-all duration-700 hover:opacity-40"
               >
-                info@lushware.org
+                info@lushware.net
               </a>
               <div className="mt-3 h-px w-full bg-emerald-900/10 overflow-hidden">
                 <div className="h-full w-0 bg-emerald-500 transition-all duration-700 group-hover:w-full" />

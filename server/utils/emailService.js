@@ -279,7 +279,7 @@ const sendInquiryEmail = async (inquiry) => {
       <div class="status-box">
         <p class="status-text">
           A new <span class="type-highlight">${inquiry.inquiryType.charAt(0).toUpperCase() + inquiry.inquiryType.slice(1)}</span> 
-          entry has been processed through the <strong>LushWare ORG</strong> web server.
+          entry has been processed through the <strong>LushWare</strong> web server.
         </p>
       </div>
 
@@ -293,7 +293,7 @@ const sendInquiryEmail = async (inquiry) => {
         <strong>Processed on:</strong> ${new Date(inquiry.submittedAt).toLocaleString()}
       </p>
       <p class="brand" style="margin-top: 10px;">
-        LushWare ORG &copy; 2026 | Internal Request System
+        LushWare  &copy; 2026 | Internal Request System
       </p>
     </div>
   </div>
@@ -404,7 +404,7 @@ const sendUserConfirmationEmail = async (inquiry) => {
     </div>
 
     <div class="footer">
-      © 2026 LushWare ORG · 
+      © 2026 LushWare  · 
     </div>
   </div>
 </body>

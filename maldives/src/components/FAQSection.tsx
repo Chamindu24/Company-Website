@@ -28,22 +28,34 @@ export default function FAQSection({
     <section className="bg-[#ffffff] px-4 py-20 sm:px-6 sm:py-28 md:px-8">
       <div className="mx-auto max-w-5xl">
         
-        {/* Header - Royal/Premium Centered Style */}
-        <div className="mb-16 text-center">
-          <span className="mb-3 block text-sm font-bold uppercase tracking-[0.3em] text-primary/60">
-            Assistance
-          </span>
-          <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-on-surface sm:text-5xl lg:text-5xl">
-            {title}
-          </h2>
-          <div className="mx-auto mb-6 h-1 w-20 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-on-surface-variant/80">
-            {subtitle}
-          </p>
-        </div>
+{/* HEADER */}
+<div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.18] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+    FAQ
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-5xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      Assistance
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+      {title}
+    </h2>
+
+    {/* Editorial Description */}
+    <p className="mt-8 sm:mt-10 max-w-xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+      {subtitle}
+    </p>
+  </div>
+</div>
 
         {/* FAQ Items */}
-        <div className="space-y-5">
+        <div className="space-y-0">
           {items.map((item) => {
             const isOpen = openId === item.id;
             return (
@@ -61,7 +73,7 @@ export default function FAQSection({
                 {/* Question Header */}
                 <button
                   onClick={() => toggleFAQ(item.id)}
-                  className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-8 sm:py-7"
+                  className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-8 sm:py-6"
                 >
                   <span className={`font-headline text-lg font-bold transition-colors duration-300 sm:text-xl ${
                     isOpen ? "text-primary" : "text-on-surface"

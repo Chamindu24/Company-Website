@@ -329,7 +329,7 @@ export default function Homepage() {
                   <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed font-light">
                     At{" "}
                     <span className="font-semibold text-white">
-                      LushWare ORG
+                      LushWare
                     </span>
                     , we design software that goes beyond solving problems — it{" "}
                     <span className="text-emerald-300 italic">transforms</span>{" "}

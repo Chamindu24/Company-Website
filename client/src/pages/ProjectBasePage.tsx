@@ -331,7 +331,7 @@ export default function ProjectBasePage() {
                       <p className="text-slate-600 leading-relaxed text-base md:text-lg font-light">
                         As{" "}
                         <strong className="text-slate-900 font-semibold">
-                          LushWare ORG
+                          LushWare
                         </strong>
                         , we continuously create new platforms that help the
                         general public simplify their daily lives, while

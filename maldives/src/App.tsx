@@ -11,13 +11,13 @@ import PropertyManagementSystemPage from './pages/PropertyManagementSystemPage'
 import LushHotelCloudPage from './pages/LushHotelCloudPage'
 import ServicesPage from './pages/ServicesPage'
 import TravelCrmPage from './pages/TravelCrmPage'
-import { useLenis } from './hooks/useLenis'
+//import { useLenis } from './hooks/useLenis'
 
 function App() {
   const location = useLocation();
 
   // Initialize Lenis smooth scrolling globally
-  useLenis();
+  //useLenis();
 
   useLayoutEffect(() => {
     window.dispatchEvent(new Event('lenis-scroll-to-top'));

@@ -1,40 +1,78 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import InquiryForm from "../components/InquiryForm";
 import WhyChooseUs from "../components/WhyChooseUs";
+
+const audiences = [
+  { icon: "directions_boat", label: "Speedboat operators" },
+  { icon: "sailing", label: "Ferry service providers" },
+  { icon: "water", label: "Water taxi companies" },
+];
+
+const challenges = [
+  {
+    icon: "call",
+    title: "Bookings by phone and WhatsApp",
+    description:
+      "Every reservation lives in a different chat thread, so nothing is confirmed until someone remembers to check.",
+  },
+  {
+    icon: "content_copy",
+    title: "Double bookings, no warning",
+    description:
+      "Without one shared seat count, the same seat gets sold twice and someone's left at the jetty.",
+  },
+  {
+    icon: "calendar_view_week",
+    title: "Routes and schedules, untracked",
+    description:
+      "Managing several boats across several routes by memory means gaps and clashes creep in.",
+  },
+  {
+    icon: "home_work",
+    title: "Guest house coordination by hand",
+    description:
+      "Every transfer request for a guest means another call, another message, another chance to lose track.",
+  },
+];
 
 const transportFAQs = [
   {
     id: "transport-faq-1",
-    question: "How does Viduvaru's real-time capacity management work?",
+    question: "Can I manage multiple boats and routes?",
     answer:
-      "Our system uses GPS and IoT sensors to provide live occupancy data for every vessel in your fleet. You can view capacity, fuel efficiency, and passenger counts across all routes simultaneously. The dashboard updates every 30 seconds for real-time visibility.",
+      "Yes. Register every boat in your fleet, assign it to routes, and manage schedules, destinations, and seat availability from a single dashboard.",
   },
   {
     id: "transport-faq-2",
-    question: "Can the booking system work offline?",
+    question: "Can customers book tickets online?",
     answer:
-      "Yes! Our system is designed for remote island operations. The QR boarding validation and ticket verification work completely offline. Data automatically syncs once connectivity is restored, ensuring seamless operations even in areas with intermittent connectivity.",
+      "Yes. Customers reserve seats online, pay securely, and get an instant booking confirmation — no back-and-forth over the phone.",
   },
   {
     id: "transport-faq-3",
-    question: "What payment methods does the online booking system support?",
+    question: "Can my staff still create bookings manually?",
     answer:
-      "Our payment gateway supports all major credit cards, digital wallets, and local Maldivian payment methods. We handle multi-currency transactions with real-time conversion and integrated compliance for international travelers.",
+      "Yes. Staff can create, edit, and manage bookings directly in the dashboard for walk-ins or phone requests, with the same protection against double-booking.",
   },
   {
     id: "transport-faq-4",
-    question: "How does the automated revenue split system work?",
+    question: "Can guest houses book transfers through the platform?",
     answer:
-      "The system automatically calculates and distributes commissions to agents, partners, and operators based on configurable rules. Payments are processed through our secure escrow system with detailed audit trails and instant visibility into payouts.",
+      "Yes. Guest houses get their own portal to book transfers for guests, schedule special transportation, and track their reservations directly.",
   },
   {
     id: "transport-faq-5",
-    question: "Is Viduvaru compliant with Maldivian maritime regulations?",
+    question: "Can I monitor revenue and business performance?",
     answer:
-      "Absolutely. Our system maintains full compliance with Maldivian Maritime Authority requirements including passenger manifests, vessel documentation, safety records, and coast guard communications. All documents are automatically generated and stored for instant retrieval.",
+      "Yes. The dashboard includes revenue tracking, daily income reports, and route performance so you always know how the business is doing.",
+  },
+  {
+    id: "transport-faq-6",
+    question: "Is the platform cloud-based?",
+    answer:
+      "Yes. Everything runs securely in the cloud, so you and your team can manage the business from anywhere with an internet connection.",
   },
 ];
 
@@ -46,32 +84,54 @@ function ViduvaruTransportPage() {
 
   return (
     <div className="selection:bg-primary-container selection:text-on-primary-container">
-      <main className="pt-24">
-        <PinnedScrollHeadlineSection
-          badge="The Fluid Horizon"
-          titlePrefix="Seamless Marine"
-          highlightText="Transport Solutions"
-          titleSuffix=""
-          description="A digital concierge for the waves. Viduvaru streamlines fleet management and passenger experiences with enterprise-grade precision."
-          sectionClassName="bg-[#ffffff]"
-        >
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center w-full max-w-md sm:max-w-none mx-auto">
-            <button
-              type="button"
-              onClick={openInquiryModal}
-              className="w-full sm:flex-1 text-center rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95"
-            >
-              Send Requirements
-            </button>
+      <main className="pt-24 md:pt-12 bg-[#ffffff] selection:bg-primary-container selection:text-on-primary-container">
+{/* HERO */}
+<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+  {/* Modern Background Accents */}
+  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-            <Link
-              to="/contact"
-              className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-primary transition-all hover:bg-surface-container hover:scale-105 active:scale-95"
-            >
-              View Demo
-            </Link>
-          </div>
-        </PinnedScrollHeadlineSection>
+  <div className="mx-auto max-w-5xl text-center">
+    {/* Refined Modern Badge */}
+    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+      <span className="text-balance">Speedboat Ticketing & Operations</span>
+    </span>
+
+    {/* Stronger, Cleaner Typographic Hierarchy */}
+    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+      <span className="block text-balance">Run Your Speedboat Business</span>
+      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+        From One Platform
+      </span>
+    </h1>
+
+    {/* Optimized Description Reading Width */}
+    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+      Routes, bookings, boats, guest house partnerships, payments, and
+      performance — one cloud-based system built for Maldivian speedboat,
+      ferry, and water taxi operators.
+    </p>
+
+    {/* Premium Split-Action Controller */}
+    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+      <button
+        type="button"
+        onClick={openInquiryModal}
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+      >
+        Book a Free Demo
+      </button>
+
+      <Link
+        to="/contact"
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+      >
+        View Demo
+      </Link>
+    </div>
+  </div>
+</section>
 
         {isInquiryOpen ? (
           <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -87,6 +147,87 @@ function ViduvaruTransportPage() {
           </div>
         ) : null}
 
+        {/* ---------------------------------------------------------- */}
+        {/* Who is it for                                                */}
+        {/* ---------------------------------------------------------- */}
+        <section className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 pt-4 pb-12 md:pb-16">
+          <div className="mb-8 text-center">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">
+              Built For
+            </span>
+            <h2 className="mt-2 font-headline text-2xl sm:text-3xl font-semibold text-primary">
+              Every Vessel-Based Transport Business
+            </h2>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {audiences.map((a) => (
+              <div
+                key={a.label}
+                className="flex items-center gap-2 rounded-full border border-outline-variant/40 bg-surface-container-lowest px-5 py-3 text-sm font-semibold text-on-surface shadow-sm"
+              >
+                <span className="material-symbols-outlined text-lg text-primary">
+                  {a.icon}
+                </span>
+                {a.label}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ---------------------------------------------------------- */}
+        {/* Challenges we solve                                          */}
+        {/* ---------------------------------------------------------- */}
+        <section className="bg-surface/50 px-5 sm:px-6 md:px-8 py-16 md:py-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-10 md:mb-14 text-center max-w-2xl mx-auto">
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">
+                The Problem
+              </span>
+              <h2 className="mt-2 mb-4 font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
+                Manual Operations Cost You Seats and Revenue
+              </h2>
+              <p className="text-on-surface-variant text-sm sm:text-base">
+                Running a speedboat business by phone and spreadsheet adds
+                friction your passengers and your team both feel.
+              </p>
+            </div>
+{/* Premium Interactive Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {challenges.map((c, index) => (
+                <div
+                  key={c.title}
+                  className="group relative rounded-2xl bg-white border border-outline-variant/40 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-secondary/40 flex flex-col justify-between"
+                >
+
+                  <div>
+                    {/* Icon Container with subtle background ring */}
+                    <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-surface border border-outline-variant/30 group-hover:border-secondary/20 transition-colors duration-300">
+                      <span className="material-symbols-outlined text-2xl text-secondary">
+                        {c.icon}
+                      </span>
+                    </div>
+
+                    <h3 className="mb-3 text-lg font-bold text-primary tracking-tight transition-colors duration-300 group-hover:text-secondary">
+                      {c.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-on-surface-variant font-normal">
+                      {c.description}
+                    </p>
+                  </div>
+
+                  {/* Elegant step indicator for structured hierarchy */}
+                  <div className="mt-8 text-right font-mono text-xs font-bold text-outline-variant/50 select-none group-hover:text-secondary/50 transition-colors duration-300">
+                    0{index + 1}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------------------------------------------------- */}
+        {/* Core feature grid                                            */}
+        {/* ---------------------------------------------------------- */}
         <section className="pb-12 px-5 sm:pb-16 sm:px-6 md:py-24 md:px-8 max-w-7xl mx-auto">
           <div className="mb-10 md:mb-16 text-center">
             <h2 className="font-headline text-headline-md text-primary mb-4 font-semibold text-3xl sm:text-4xl md:text-5xl">
@@ -96,23 +237,23 @@ function ViduvaruTransportPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-px bg-outline-variant/30 border border-outline-variant/30 rounded-lg overflow-hidden bg-surface">
-            {/* SECTION 1: CAPACITY MANAGEMENT */}
+            {/* SECTION 1: FLEET & BOAT MANAGEMENT */}
             <div className="md:col-span-8 bg-[#ffffff] p-6 sm:p-8 md:p-12 flex flex-col justify-between min-h-[auto] md:min-h-[500px] border-b md:border-b-0 md:border-r border-outline-variant/30">
               <div className="max-w-xl">
                 <div className="flex items-center gap-3 mb-6 md:mb-8">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">
-                    System Analytics
+                    Fleet Overview
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary tracking-tight mb-4 md:mb-6">
                   Real-time{" "}
-                  <span className="font-semibold">Capacity Management</span>
+                  <span className="font-semibold">Boat & Capacity Management</span>
                 </h3>
                 <p className="text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed opacity-80">
-                  Enterprise-grade visual telemetry monitoring fleet occupancy,
-                  route efficiency, and live fuel consumption across your entire
-                  maritime network.
+                  Register every boat, assign it to a route, and track
+                  operational status and live seat occupancy across your
+                  entire fleet from one screen.
                 </p>
               </div>
 
@@ -121,7 +262,7 @@ function ViduvaruTransportPage() {
                 <div className="flex justify-between items-end mb-5 md:mb-6">
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-outline font-bold mb-1">
-                      Vessel Identifier
+                      Vessel
                     </p>
                     <p className="text-lg md:text-xl font-bold text-primary">
                       Coral Express V
@@ -132,7 +273,7 @@ function ViduvaruTransportPage() {
                       84<span className="text-sm ml-1 opacity-60">%</span>
                     </p>
                     <p className="text-[10px] uppercase tracking-tighter font-bold text-outline">
-                      Live Load
+                      Seats Booked
                     </p>
                   </div>
                 </div>
@@ -165,7 +306,7 @@ function ViduvaruTransportPage() {
               </div>
             </div>
 
-            {/* SECTION 2: BOOKING */}
+            {/* SECTION 2: ONLINE TICKET BOOKING */}
             <div className="md:col-span-4 bg-gradient-to-br from-primary to-primary-container text-white p-6 sm:p-8 md:p-12 flex flex-col justify-between">
               <div>
                 <span className="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-8 font-light text-white/80 block">
@@ -176,8 +317,8 @@ function ViduvaruTransportPage() {
                   Booking
                 </h3>
                 <p className="text-white leading-relaxed text-sm md:text-md">
-                  A seamless, high-conversion interface engineered for global
-                  travelers and high-frequency routes.
+                  Passengers reserve seats, pay securely, and get an instant
+                  confirmation — no phone call required.
                 </p>
               </div>
 
@@ -198,7 +339,39 @@ function ViduvaruTransportPage() {
               </div>
             </div>
 
-            {/* SECTION 3: E-TICKETING */}
+            {/* SECTION 3: ROUTE & SCHEDULE MANAGEMENT */}
+            <div className="md:col-span-4 bg-surface p-6 sm:p-8 md:p-12 border-t border-outline-variant/30 flex flex-col items-start hover:bg-surface-container-low transition-colors">
+              <div className="w-10 h-10 md:w-12 md:h-12 border border-outline-variant/40 flex rounded-lg items-center justify-center mb-6 md:mb-8">
+                <span className="material-symbols-outlined text-primary">
+                  calendar_view_week
+                </span>
+              </div>
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3">
+                Route & Schedule Management
+              </h3>
+              <p className="text-on-surface-variant text-sm md:text-md leading-relaxed opacity-80">
+                Create routes, configure departure schedules, manage
+                destinations, and control seat availability in one place.
+              </p>
+            </div>
+
+            {/* SECTION 4: CUSTOMER MANAGEMENT */}
+            <div className="md:col-span-4 bg-surface p-6 sm:p-8 md:p-12 border-t border-outline-variant/30 flex flex-col items-start hover:bg-surface-container-low transition-colors">
+              <div className="w-10 h-10 md:w-12 md:h-12 border border-outline-variant/40 flex rounded-lg items-center justify-center mb-6 md:mb-8">
+                <span className="material-symbols-outlined text-primary">
+                  group
+                </span>
+              </div>
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3">
+                Customer Management
+              </h3>
+              <p className="text-on-surface-variant text-sm md:text-md leading-relaxed opacity-80">
+                Keep a passenger database with full booking history, and send
+                notifications and updates straight to their phone.
+              </p>
+            </div>
+
+            {/* SECTION 5: DIGITAL E-TICKETING */}
             <div className="md:col-span-4 bg-surface p-6 sm:p-8 md:p-12 border-t md:border-r border-outline-variant/30 flex flex-col items-start hover:bg-surface-container-low transition-colors">
               <div className="w-10 h-10 md:w-12 md:h-12 border border-outline-variant/40 flex rounded-lg items-center justify-center mb-6 md:mb-8">
                 <span className="material-symbols-outlined text-primary">
@@ -209,21 +382,21 @@ function ViduvaruTransportPage() {
                 Digital Issuance
               </h3>
               <p className="text-on-surface-variant text-sm md:text-md leading-relaxed opacity-80">
-                Paperless documentation with instantaneous delivery to mobile
-                wallets via encrypted protocols.
+                Paperless tickets delivered instantly to a passenger's phone,
+                ready to scan at boarding.
               </p>
             </div>
 
-            {/* SECTION 4: VALIDATION */}
+            {/* SECTION 6: BOOKING VALIDATION & LIVE UPDATES */}
             <div className="md:col-span-8 bg-surface-container-lowest p-6 sm:p-8 md:p-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12">
               <div className="max-w-md w-full">
                 <h3 className="text-xl md:text-2xl font-bold text-primary mb-3 md:mb-4">
-                  Boarding Validation
+                  Boarding Validation &amp; Live Updates
                 </h3>
                 <p className="text-on-surface-variant text-sm md:text-md leading-relaxed opacity-80 mb-5 md:mb-6">
-                  Proprietary offline validation technology ensuring
-                  zero-latency boarding even in remote island locations without
-                  stable connectivity.
+                  Offline-ready QR validation prevents double bookings at the
+                  jetty, while departure notifications and route changes reach
+                  passengers automatically.
                 </p>
                 <div className="flex flex-wrap gap-4 md:gap-6">
                   <div className="flex items-center gap-2">
@@ -231,15 +404,15 @@ function ViduvaruTransportPage() {
                       verified
                     </span>
                     <span className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-outline">
-                      Instant Sync
+                      No Double Bookings
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-md text-primary">
-                      shield
+                      notifications_active
                     </span>
                     <span className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-outline">
-                      AES-256 Security
+                      Live Notifications
                     </span>
                   </div>
                 </div>
@@ -250,9 +423,28 @@ function ViduvaruTransportPage() {
                 <div className="w-full h-full bg-[url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=PRO')] bg-cover opacity-90 grayscale" />
               </div>
             </div>
+
+            {/* SECTION 7: GUEST HOUSE PORTAL */}
+            <div className="md:col-span-4 bg-surface p-6 sm:p-8 md:p-12 border-t border-outline-variant/30 flex flex-col items-start hover:bg-surface-container-low transition-colors">
+              <div className="w-10 h-10 md:w-12 md:h-12 border border-outline-variant/40 flex rounded-lg items-center justify-center mb-6 md:mb-8">
+                <span className="material-symbols-outlined text-primary">
+                  home_work
+                </span>
+              </div>
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3">
+                Guest House Portal
+              </h3>
+              <p className="text-on-surface-variant text-sm md:text-md leading-relaxed opacity-80">
+                Guest houses and tour operators book, schedule, and track
+                guest transfers themselves, through their own portal.
+              </p>
+            </div>
           </div>
         </section>
 
+        {/* ---------------------------------------------------------- */}
+        {/* Finance, reporting & admin                                   */}
+        {/* ---------------------------------------------------------- */}
         <section className="px-8 bg-[#ffffff] py-32 bg-surface">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2 order-2 lg:order-1">
@@ -266,7 +458,7 @@ function ViduvaruTransportPage() {
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <span className="text-secondary font-bold tracking-widest uppercase text-sm">
-                Advanced Logistics
+                One Dashboard, Whole Business
               </span>
               <h2 className="font-headline text-4xl lg:text-5xl font-extrabold text-primary mt-6 mb-8 tracking-tight leading-tight">
                 Command your fleet with absolute precision.
@@ -274,29 +466,44 @@ function ViduvaruTransportPage() {
               <div className="space-y-8">
                 <div className="flex gap-6">
                   <span className="material-symbols-outlined text-secondary text-3xl shrink-0">
-                    analytics
+                    payments
                   </span>
                   <div>
                     <h4 className="font-bold text-primary mb-2">
-                      Automated Revenue Splits
+                      Finance Management
                     </h4>
                     <p className="text-on-surface-variant">
-                      Intelligent escrow and payout management for agents and
-                      operators.
+                      Track revenue and payments and generate daily income
+                      reports without a spreadsheet in sight.
                     </p>
                   </div>
                 </div>
                 <div className="flex gap-6">
                   <span className="material-symbols-outlined text-secondary text-3xl shrink-0">
-                    speed
+                    analytics
                   </span>
                   <div>
                     <h4 className="font-bold text-primary mb-2">
-                      Real-time manifest
+                      Reports &amp; Analytics
                     </h4>
                     <p className="text-on-surface-variant">
-                      Instant access to passenger manifests and vessel documents
-                      for coastguard compliance.
+                      Booking statistics, route performance, and passenger
+                      trends, rolled up into one business dashboard.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-6">
+                  <span className="material-symbols-outlined text-secondary text-3xl shrink-0">
+                    admin_panel_settings
+                  </span>
+                  <div>
+                    <h4 className="font-bold text-primary mb-2">
+                      Administration Dashboard
+                    </h4>
+                    <p className="text-on-surface-variant">
+                      Daily overview, quick actions, support, and user
+                      management — everything an operator needs, in one
+                      place.
                     </p>
                   </div>
                 </div>
@@ -304,6 +511,114 @@ function ViduvaruTransportPage() {
             </div>
           </div>
         </section>
+
+        {/* ---------------------------------------------------------- */}
+        {/* How it works                                                 */}
+        {/* ---------------------------------------------------------- */}
+<section className="relative max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-20 md:py-32 overflow-hidden">
+  {/* Modern ambient line grid pattern behind content */}
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+    
+    {/* Left Anchor Column: Sticky Brand Hub */}
+    <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">
+              How It Works
+            </span>
+      <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-primary leading-[1.15]">
+        From Booking <br className="hidden lg:block" />to Boarding
+      </h2>
+      <p className="text-sm md:text-base text-on-surface-variant/70 leading-relaxed font-normal max-w-md">
+        An interconnected infrastructure engineering a fluid transition between dynamic reservations and live maritime operations.
+      </p>
+
+      {/* Mini Visual Stepper Widget Metric */}
+      <div className="hidden lg:flex items-center gap-1.5 p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest/50 backdrop-blur-sm max-w-xs shadow-sm">
+        <div className="flex -space-x-2">
+          {[1, 2, 3, 4, 5].map((num) => (
+            <div key={num} className="w-6 h-6 rounded-full bg-primary border-2 border-surface-container-lowest flex items-center justify-center font-mono text-[8px] font-bold text-white shadow-sm">
+              {num}
+            </div>
+          ))}
+        </div>
+        <span className="text-[11px] font-medium text-on-surface-variant/80 pl-2">100% Automated Flow</span>
+      </div>
+    </div>
+
+    {/* Right Column: The Interconnected Vertical Stepper Pipeline */}
+    <div className="lg:col-span-8 relative">
+      {/* The Continuous Vertical Stepper Axis Line */}
+      <div className="absolute top-8 bottom-8 left-6 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent z-0" />
+
+      <div className="space-y-8 relative z-10">
+        {[
+          {
+            step: "01",
+            title: "Set up your fleet",
+            tagline: "Infrastructure Initialization",
+            description: "Configure boats, routes, schedules, and destinations with micro-precision control filters.",
+          },
+          {
+            step: "02",
+            title: "Take the booking",
+            tagline: "Omnichannel Acquisition",
+            description: "Customers seamlessly check out online, or localized port staff create instant manual reservations.",
+          },
+          {
+            step: "03",
+            title: "Confirm the trip",
+            tagline: "Instantaneous Telemetry",
+            description: "Passengers receive atomic, real-time dispatch confirmations accompanied by modern live updates.",
+          },
+          {
+            step: "04",
+            title: "Coordinate transfers",
+            tagline: "B2B Ecosystem Integration",
+            description: "Affiliated guest houses and external cruise operators securely provision tickets via dedicated APIs.",
+          },
+          {
+            step: "05",
+            title: "Track performance",
+            tagline: "Analytical Overview Dashboard",
+            description: "Supervise historical global bookings, live revenue margins, and deep operational logistics dynamically.",
+          },
+        ].map((s) => (
+          <div 
+            key={s.step} 
+            className="group relative flex flex-row items-start gap-6 rounded-2xl p-2 transition-all duration-300 hover:bg-primary/[0.01]"
+          >
+            {/* Elegant Circular Node Step Indicator */}
+            <div className="flex-shrink-0 relative mt-1">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full font-mono text-xs font-bold bg-surface-container-lowest text-primary border-2 border-outline-variant/80 shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:scale-105 transition-all duration-300">
+                {s.step}
+              </div>
+              {/* Active pulsing dynamic dot positioned on the pipeline core */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary/5 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+            </div>
+
+            {/* Stepper Content Block Card */}
+            <div className="flex-1 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur-sm p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-300 group-hover:border-outline-variant/60 group-hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
+                <h3 className="text-base sm:text-lg font-bold text-primary tracking-tight">
+                  {s.title}
+                </h3>
+                <span className="inline-block  text-[9px] font-bold tracking-wider text-primary/80 uppercase bg-primary/[0.03] px-2 py-0.5 rounded border border-primary/5 group-hover:text-primary group-hover:bg-primary/5 transition-colors duration-300">
+                  {s.tagline}
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant/80 font-normal">
+                {s.description}
+              </p>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
 
         <FAQSection
           items={transportFAQs}
@@ -326,11 +641,11 @@ function ViduvaruTransportPage() {
             <div className="absolute right-0 top-0 -mr-32 -mt-32 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="relative z-10">
               <h2 className="mb-4 md:mb-6 text-2xl sm:text-3xl md:text-4xl font-bold font-headline">
-                Ready to Digitalize Your Fleet?
+                Ready to Modernize Your Speedboat Operations?
               </h2>
               <p className="mx-auto mb-7 md:mb-10 max-w-xl text-sm sm:text-base md:text-lg opacity-90 font-body">
-                Join the leading transport providers in the Maldives who have
-                already automated their booking operations.
+                Manage bookings, routes, customers, finances, and guest
+                transfers from one intelligent platform.
               </p>
               <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
                 <button
@@ -338,7 +653,7 @@ function ViduvaruTransportPage() {
                   onClick={openInquiryModal}
                   className="w-full sm:w-auto rounded-full bg-white px-8 md:px-10 py-3.5 md:py-4 font-bold text-primary shadow-xl transition-transform hover:scale-105 font-headline"
                 >
-                  Get Started Today
+                  Book a Free Demo
                 </button>
                 <Link
                   to="/contact"

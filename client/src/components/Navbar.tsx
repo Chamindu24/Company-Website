@@ -151,7 +151,7 @@ export default function Navbar() {
             <div className="relative h-10 w-12 sm:h-11 sm:w-14 lg:h-12 lg:w-18 rounded-xl mr-0 md:mr-2">
               <img
                 src="/logo.jpeg"
-                alt="LushWare ORG"
+                alt="LushWare "
                 className="h-full w-full object-contain"
               />
             </div>

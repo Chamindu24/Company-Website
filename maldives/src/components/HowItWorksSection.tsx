@@ -6,7 +6,7 @@ const steps = [
     description:
       "We analyze your business model, identify pain points, and conduct a deep audit of your existing systems to uncover growth opportunities.",
     icon: "lightbulb",
-    img: "https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "/implementation/Discovery.jpg",
   },
   {
     id: "02",
@@ -15,7 +15,7 @@ const steps = [
     description:
       "We configure Lushware around your workflows and integrate seamlessly with your existing tools — no forced workarounds.",
     icon: "settings",
-    img: "https://thumbs.dreamstime.com/b/system-engineer-checking-code-multiple-monitors-working-app-developer-system-engineer-checking-code-multiple-277461401.jpg?w=1200",
+    img: "/implementation/Configuration.jpg",
   },
   {
     id: "03",
@@ -24,7 +24,7 @@ const steps = [
     description:
       "Our team ensures a smooth deployment with zero downtime while training your staff for full system mastery.",
     icon: "school",
-    img: "https://media.gettyimages.com/id/863553004/photo/happy-businessman-writing-on-whiteboard-during-business-presentation-in-the-office.jpg?s=612x612&w=0&k=20&c=7yhfziehnL2gXOkbFaAvutquxuYU3SJhhxIopJhmRDo=",
+    img: "/implementation/Deployment.jpg",
   },
   {
     id: "04",
@@ -33,7 +33,7 @@ const steps = [
     description:
       "We continuously monitor, refine, and optimize your system to maximize ROI and long-term efficiency.",
     icon: "trending_up",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    img: "/implementation/Optimization.jpg",
   },
 ];
 
@@ -45,16 +45,35 @@ function HowItWorksPremium() {
   return (
     <section className="bg-[#F8F7F4] px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        {/* HEADER */}
-        <div className="mb-24 text-center">
-          <h2 className="mb-6 text-4xl font-bold tracking-tighter text-primary md:text-5xl">
-            How It Works
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
-            A seamless 4-step journey from discovery to optimization. We guide
-            you through every phase.
-          </p>
-        </div>
+{/* HEADER */}
+<div className="relative mb-6 md:mb-12 w-full  py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-9 lg:text-[14rem]">
+    PROCESS
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-3xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      Discovery to Optimization
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-8xl dark:text-white">
+      How It Works
+    </h2>
+
+    {/* Editorial Description */}
+    <p className="mt-8 sm:mt-10 max-w-xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+      A seamless{" "}
+      <span className="relative inline-block font-bold text-on-background dark:text-white pb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-primary-container transition-all duration-350 hover:after:h-[4px]">
+        4-step journey
+      </span>{" "}
+      from discovery to optimization. We guide you through every phase.
+    </p>
+  </div>
+</div>
 
         {/* STEPPER */}
         <div className="flex flex-col md:flex-row h-[700px] md:h-[600px] gap-2">

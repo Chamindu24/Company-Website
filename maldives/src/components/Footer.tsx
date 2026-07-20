@@ -13,103 +13,92 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full overflow-hidden bg-[#0A192F]">
+    <footer className="relative w-full bg-on-primary-container text-white font-body overflow-hidden border-t border-[#bcc9cb]/20">
       
-      {/* --- 1. THE SHORELINE (Wave Transition) --- */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-20">
-        <svg 
-          className="relative block w-[200%] h-[60px] md:h-[100px] animate-wave-flow" 
-          viewBox="0 0 1200 120" 
-          preserveAspectRatio="none"
-        >
-          <path 
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
-            fill="#ffffff"
-          ></path>
-        </svg>
+      {/* Deep Royal Ambient Light Layer */}
+      <div className="absolute top-0 right-0 pointer-events-none opacity-[0.25] w-[600px] h-[600px]">
+        <div className="absolute inset-0 bg-gradient-to-bl from-[#96f0ff] via-[#7bd0ff] to-transparent rounded-full blur-[120px]" />
       </div>
 
-      {/* --- 2. UNDERWATER CAUSTICS (Shallow Water Glow) --- */}
-      <div className="absolute top-0 left-0 h-full w-full pointer-events-none opacity-30">
-        <div className="absolute top-20 left-1/4 w-[400px] h-[400px] bg-[#26AEBF] rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-10 right-1/4 w-[300px] h-[300px] bg-[#26AEBF] rounded-full blur-[100px]" />
-      </div>
-
-      {/* --- MAIN CONTENT --- */}
-      {/* 
-        Mobile:  pt-20  (wave is shorter on mobile, ~60px)
-        Tablet:  pt-32  (wave grows to ~100px on md)
-        Desktop: pt-48  (unchanged)
-      */}
-      <div className="relative z-30 mx-auto max-w-7xl px-6 md:px-8 pt-20 md:pt-32 lg:pt-48 pb-16">
-        <div className="grid grid-cols-1 gap-10 md:gap-8 lg:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        
+        {/* Main Grid Deck */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 pt-20 pb-16 border-b border-[#bcc9cb]/10">
           
-          {/* Brand Identity */}
-          {/* Mobile: full width stacked | Tablet: full width | Desktop: 5 cols */}
-          <div className="lg:col-span-5">
-            <div className="mb-6 md:mb-8">
-              <h2 className="text-4xl md:text-5xl font-light tracking-tighter text-white">
-                LUSHWARE<span className="text-[#26AEBF] animate-pulse">.</span>
+          {/* Identity & Mission Node */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-3 py-1 rounded-full mb-6">
+                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#96f0ff] font-label">
+                  Global Technology Grid
+                </span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight font-headline text-white">
+                LUSHWARE<span className="text-[#96f0ff]">.</span>
               </h2>
-              <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.6em] text-[#26AEBF]">
-                The Maldives Digital Frontier
+              
+              <p className="mt-5 max-w-md text-base font-light text-[#f2f4f6]/90 leading-relaxed">
+                Designing the future of <span className="text-white font-medium underline decoration-[#96f0ff] decoration-2 underline-offset-4">Island Tech</span>. 
+                Bridging the gap between the tranquility of the atolls and the global tech landscape.
               </p>
             </div>
-            
-            <p className="max-w-md text-[16px] md:text-[17px] leading-relaxed text-slate-200 font-light">
-              Designing the future of <span className="text-white font-medium underline decoration-[#26AEBF] decoration-2 underline-offset-4">Island Tech</span>. 
-              Bridging the gap between the tranquility of the atolls and the global technology grid.
-            </p>
 
-            <div className="mt-8 md:mt-10 flex gap-3 md:gap-4">
+            {/* Premium Social Dock */}
+            <div className="mt-10 flex gap-2.5">
               {[FaLinkedinIn, FaInstagram, FaFacebookF, FaXTwitter, FaYoutube].map((Icon, i) => (
-                <a key={i} href="#" className="flex h-10 w-10 md:h-11 md:w-11 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white transition-all hover:bg-[#26AEBF] hover:text-[#0A192F] hover:scale-110">
-                  <Icon className="text-base md:text-lg" />
+                <a
+                  key={i}
+                  href="#"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white transition-all duration-300 hover:bg-[#96f0ff] hover:text-[#001f24] hover:border-[#96f0ff] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#96f0ff]/20"
+                >
+                  <Icon className="text-lg" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Navigation Links */}
-          {/* Mobile: 2 cols spanning full width | Tablet: 2 cols spanning full width | Desktop: 4 cols */}
+          {/* Structured Directory Links */}
           <div className="grid grid-cols-2 gap-8 lg:col-span-4">
             <div>
-              <h5 className="mb-6 md:mb-10 text-[11px] font-black uppercase tracking-[0.4em] text-white/80">Solutions</h5>
-              <ul className="space-y-4 md:space-y-5 text-[14px] md:text-[15px]">
-                {solutionLinks.map(link => (
-                  <li key={link} className="group flex items-center gap-3">
-                    <span className="h-[2px] w-0 bg-[#26AEBF] transition-all group-hover:w-4 shrink-0" />
-                    <a href="#" className="text-slate-300 hover:text-white transition-colors">{link}</a>
+              <h5 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-[#96f0ff] font-label">Solutions</h5>
+              <ul className="space-y-4 text-sm font-medium">
+                {solutionLinks.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-[#f2f4f6]/80 hover:text-white transition-colors duration-200 block">
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h5 className="mb-6 md:mb-10 text-[11px] font-black uppercase tracking-[0.4em] text-white/80">Company</h5>
-              <ul className="space-y-4 md:space-y-5 text-[14px] md:text-[15px]">
-                {companyLinks.map(link => (
-                  <li key={link} className="group flex items-center gap-3">
-                    <span className="h-[2px] w-0 bg-[#26AEBF] transition-all group-hover:w-4 shrink-0" />
-                    <a href="#" className="text-slate-300 hover:text-white transition-colors">{link}</a>
+              <h5 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-[#96f0ff] font-label">Company</h5>
+              <ul className="space-y-4 text-sm font-medium">
+                {companyLinks.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-[#f2f4f6]/80 hover:text-white transition-colors duration-200 block">
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          {/* Newsletter Card */}
-          {/* Mobile & Tablet: full width | Desktop: 3 cols */}
+          {/* Premium Glassmorphic Newsletter Box */}
           <div className="lg:col-span-3">
-            <div className="relative rounded-[2rem] md:rounded-[2.5rem] border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl transition-all hover:border-[#26AEBF]/40">
-              <h4 className="text-lg font-medium text-white mb-2">Island Insights</h4>
-              <p className="text-[13px] text-slate-400 mb-6">Receive curated tech updates from the heart of the Indian Ocean.</p>
-              <div className="space-y-3 md:space-y-4">
-                <input 
-                  type="email" 
-                  placeholder="Professional Email" 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white outline-none focus:border-[#26AEBF] placeholder:text-slate-600"
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl shadow-black/5">
+              <h4 className="text-base font-semibold text-white font-headline mb-1">Island Insights</h4>
+              <p className="text-xs text-[#f2f4f6]/70 mb-4">Receive curated enterprise tech updates directly from our hub.</p>
+              
+              <div className="space-y-3">
+                <input
+                  type="email"
+                  placeholder="Professional Email"
+                  className="w-full bg-[#004f57]/50 border border-white/10 rounded-lg py-2.5 px-4 text-sm text-white outline-none focus:border-[#96f0ff] focus:ring-1 focus:ring-[#96f0ff] transition-all placeholder-white/30"
                 />
-                <button className="w-full bg-[#26AEBF] text-[#0A192F] py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:brightness-110 shadow-lg shadow-[#26AEBF]/20">
+                <button className="w-full bg-[#96f0ff] text-[#001f24] py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:bg-[#7bd0ff] hover:shadow-md">
                   Subscribe
                 </button>
               </div>
@@ -117,35 +106,25 @@ function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        {/* Mobile: stacked center-aligned | Desktop: flex row (unchanged) */}
-        <div className="mt-10 md:mt-12 pt-10 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-8 text-center md:text-left">
-          <div className="flex items-center gap-3">
-            <div className="h-2 w-2 rounded-full bg-[#26AEBF] shadow-[0_0_8px_#26AEBF] shrink-0" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-slate-300">HQ: Male', Maldives</span>
+        {/* Lower Utility strip */}
+        <div className="py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#f2f4f6]/70 font-medium">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 font-label tracking-wider">
+            <span>HQ: MALE', MALDIVES</span>
+            <span className="hidden md:inline text-white/20">&bull;</span>
+            <span>ENGINEERING HUB: COLOMBO, LK</span>
           </div>
-          
-          <p className="text-[11px] text-slate-400 font-medium uppercase tracking-[0.2em]">
-            © {currentYear} Lushware Maldives • <span className="text-[#26AEBF]">Digital Atoll Co.</span>
+
+          <p className="font-label tracking-wide order-last md:order-none text-center">
+            &copy; {currentYear} LUSHWARE MALDIVES &bull; <span className="text-[#96f0ff] font-bold">DIGITAL ATOLL CO.</span>
           </p>
 
-          <div className="flex gap-6 md:gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <a href="#" className="hover:text-[#26AEBF] transition-colors">Privacy</a>
-            <a href="#" className="hover:text-[#26AEBF] transition-colors">Terms</a>
+          <div className="flex gap-6 uppercase font-bold tracking-widest text-[10px]">
+            <a href="#" className="hover:text-[#96f0ff] transition-colors">Privacy</a>
+            <a href="#" className="hover:text-[#96f0ff] transition-colors">Terms</a>
           </div>
         </div>
-      </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes wave-flow {
-          0% { transform: translateX(0); }
-          50% { transform: translateX(-25%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-wave-flow {
-          animation: wave-flow 12s ease-in-out infinite;
-        }
-      `}} />
+      </div>
     </footer>
   );
 }

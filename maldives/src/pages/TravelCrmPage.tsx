@@ -1,51 +1,158 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
 import InquiryForm from "../components/InquiryForm";
 import WhyChooseUs from "../components/WhyChooseUs";
 
-const featureCards = [
-  {
-    icon: "history_edu",
-    iconColor: "text-tertiary",
-    title: "Smart Follow-ups",
-    description:
-      'Automated post-trip surveys and "Welcome Home" sequences to build lifelong loyalty.',
+// ---------------------------------------------------------------------------
+// Content data
+// ---------------------------------------------------------------------------
+
+const audiences = [
+  { 
+    label: "Travel agencies", 
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=150&auto=format&fit=crop&q=80" 
+  },
+  { 
+    label: "Tour operators", 
+    image: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=150&auto=format&fit=crop&q=80" 
+  },
+  { 
+    label: "Destination management companies", 
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&auto=format&fit=crop&q=80" 
+  },
+  { 
+    label: "Holiday planners", 
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=150&auto=format&fit=crop&q=80" 
+  },
+  { 
+    label: "Travel consultants", 
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" 
+  },
+  { 
+    label: "Inbound & outbound operators", 
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=150&auto=format&fit=crop&q=80" 
   },
 ];
+const challenges = [
+  {
+    icon: "table_rows",
+    title: "Scattered across spreadsheets",
+    description:
+      "Customer details, package pricing, and payment status live in different files, so nothing lines up when you need it.",
+  },
+  {
+    icon: "hourglass_bottom",
+    title: "Itineraries take hours to build",
+    description:
+      "Every enquiry starts from a blank document, even when the trip is 80% the same as the last one you quoted.",
+  },
+  {
+    icon: "receipt_long",
+    title: "Invoices tracked by memory",
+    description:
+      "Without a single source of truth, it's easy to lose sight of who's paid, who's overdue, and what's still owed to vendors.",
+  },
+  {
+    icon: "visibility_off",
+    title: "No view of the whole business",
+    description:
+      "Owners can't see booking volume, revenue, or customer history at a glance — only after chasing it down manually.",
+  },
+];
+
+const coreFeatureBlurbs = {
+  quotation: {
+    title: "Quotation Management",
+    description:
+      "Turn an enquiry into a priced, branded quotation in minutes — with custom pricing across flights, stays, and transfers, exported straight to PDF.",
+  },
+  tourPackage: {
+    title: "Tour Package Management",
+    description:
+      "Build your catalogue once. Categorize by destination, set pricing and availability, and mark your best sellers as featured packages.",
+  },
+  documents: {
+    title: "Document Management",
+    description:
+      "Quotations, invoices, receipts, and itineraries generated and filed automatically — nothing lives in a scattered downloads folder again.",
+  },
+  booking: {
+    title: "Booking Management",
+    description:
+      "Track every reservation from confirmed to travelled, with automatic customer confirmations and a shared view of your travel schedule.",
+  },
+};
 
 const travelCrmFAQs = [
   {
     id: "crm-faq-1",
-    question:
-      "How does the Travel CRM handle itinerary building and customization?",
+    question: "Can I manage all my customer enquiries in one place?",
     answer:
-      "Our intelligent itinerary builder leverages AI to suggest personalized experiences based on guest preferences, past travel history, and seasonal availability. You can customize every detail—from seaplane transfers to spa reservations—with a single click.",
+      "Yes. Every enquiry, conversation, and booking is logged against a single customer profile, so your whole team can see the full history without digging through old emails.",
   },
   {
     id: "crm-faq-2",
-    question: "What integration options are available for booking systems?",
+    question: "Can the system generate travel itineraries automatically?",
     answer:
-      "We support integrations with all major booking platforms including Booking.com, Airbnb, Expedia, and custom APIs. Availability, pricing, and guest data sync automatically across all channels in real-time to prevent overbooking.",
+      "Yes. The AI itinerary generator drafts a complete multi-day plan from your package details and customer preferences, ready to fine-tune and export as a professional document.",
   },
   {
     id: "crm-faq-3",
-    question: "Can the CRM help with automated follow-ups and guest retention?",
+    question: "Can I create quotations and invoices from the same platform?",
     answer:
-      "Yes! Our automated post-trip surveys, personalized thank-you sequences, and 'Welcome Home' campaigns build lasting relationships. The system tracks guest preferences and suggests re-engagement offers for repeat bookings and referrals.",
+      "Yes. Quotations, invoices, and receipts are generated from the same booking data, so pricing stays consistent from the first proposal to the final receipt — no re-typing figures.",
   },
   {
     id: "crm-faq-4",
-    question: "How does payment processing work within the platform?",
+    question: "Can I manage more than one tour package at a time?",
     answer:
-      "We handle all payment processing securely with support for multiple currencies and payment methods. Deposits, final payments, and split payments between multiple guests are configured easily. Automated invoicing and payment reminders keep bookings on track.",
+      "Yes. Create, categorize, and update as many packages as you run, set pricing and availability per package, and promote your top sellers as featured listings.",
   },
   {
     id: "crm-faq-5",
-    question: "What reporting and analytics are available for travel agencies?",
+    question: "Does the platform include financial reporting?",
     answer:
-      "Access comprehensive dashboards showing booking trends, revenue per guest, agent performance, seasonal patterns, and ROI metrics. Export custom reports for client meetings or use real-time dashboards to monitor agency performance at a glance.",
+      "Yes. Income, expenses, and payments are tracked automatically, and the dashboard rolls them up into revenue summaries and profit reports whenever you need them.",
+  },
+  {
+    id: "crm-faq-6",
+    question: "Is the platform cloud-based?",
+    answer:
+      "Yes. It runs securely in the cloud, so you and your team can access customer records, packages, and finances from any device with an internet connection.",
+  },
+];
+
+const howItWorks = [
+  {
+    step: "01",
+    title: "Capture the enquiry",
+    description:
+      "Log every customer enquiry and conversation straight into the CRM as it comes in.",
+  },
+  {
+    step: "02",
+    title: "Match a package",
+    description:
+      "Recommend and customize a tour package around what the customer actually wants.",
+  },
+  {
+    step: "03",
+    title: "Generate the plan",
+    description:
+      "Produce an AI-drafted itinerary and a priced quotation in the same pass.",
+  },
+  {
+    step: "04",
+    title: "Confirm the booking",
+    description:
+      "Once they're in, the invoice and receipt are generated automatically.",
+  },
+  {
+    step: "05",
+    title: "Track the business",
+    description:
+      "Follow payments, customer activity, and performance from one dashboard.",
   },
 ];
 
@@ -56,32 +163,57 @@ function TravelCrmPage() {
   const closeInquiryModal = () => setIsInquiryOpen(false);
 
   return (
-    <main className="bg-[#ffffff] pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-      <PinnedScrollHeadlineSection
-        badge="NEXT-GEN TRAVEL CRM"
-        titlePrefix="Automate Your"
-        highlightText="Travel Agency Lifecycle"
-        titleSuffix=""
-        description="The all-in-one digital sanctuary for modern travel curators. From lead generation to tropical touchdown, manage every detail with ethereal ease."
-        sectionClassName="bg-[#ffffff]"
-      >
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full max-w-md sm:max-w-none mx-auto">
-          <button
-            type="button"
-            onClick={openInquiryModal}
-            className="w-full sm:flex-1 text-center rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-on-primary shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95"
-          >
-            Send Requirements
-          </button>
+    <main className="bg-[#ffffff] pt-24 md:pt-12 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+{/* HERO */}
+<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+  {/* Modern Background Accents */}
+  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-          <Link
-            to="/contact"
-            className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 font-bold text-primary transition-all hover:bg-surface-container hover:scale-105 active:scale-95"
-          >
-            Explore Features
-          </Link>
-        </div>
-      </PinnedScrollHeadlineSection>
+  <div className="mx-auto max-w-5xl text-center">
+    {/* Refined Modern Badge */}
+    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+      <span className="text-balance">Travel CRM & Tour Operations</span>
+    </span>
+
+    {/* Stronger, Cleaner Typographic Hierarchy */}
+    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+      <span className="block text-balance">Run Your Entire</span>
+      <span className="mt-1 block sm:mt-2">
+        <span className="bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm">
+          Travel Business
+        </span>{" "}
+        <span className="text-on-surface">From One Platform</span>
+      </span>
+    </h1>
+
+    {/* Optimized Description Reading Width */}
+    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+      Customer relationships, tour packages, quotations, invoicing, and
+      finances — one AI-powered CRM built for travel agencies and tour
+      operators, not a generic sales tool with travel bolted on.
+    </p>
+
+    {/* Premium Split-Action Controller */}
+    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+      <button
+        type="button"
+        onClick={openInquiryModal}
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+      >
+        Book a Free Demo
+      </button>
+
+      <Link
+        to="/contact"
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+      >
+        See Every Feature
+      </Link>
+    </div>
+  </div>
+</section>
 
       {isInquiryOpen ? (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -97,37 +229,178 @@ function TravelCrmPage() {
         </div>
       ) : null}
 
-      <section className="mx-auto max-w-7xl px-6 pb-12 sm:px-6 sm:pb-16 md:px-8 md:pb-24">
-        <div className="mx-auto mb-10 md:mb-16 max-w-2xl text-center">
-          <h2 className="mb-4 font-headline text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-            Precision Tools for Global Explorers
-          </h2>
-          <p className="text-sm sm:text-base text-on-surface-variant">
-            Our CRM bridges the gap between chaotic spreadsheets and seamless
-            guest experiences.
-          </p>
+      {/* ------------------------------------------------------------ */}
+      {/* Who is it for                                                  */}
+      {/* ------------------------------------------------------------ */}
+      <section className="mx-auto max-w-7xl px-6 pb-12 sm:px-6 md:px-8">
+{/* HEADER */}
+<div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.18] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-11 lg:text-[12rem]">
+    BUILT FOR
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      Built For
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+      Every Kind of Travel Business
+    </h2>
+  </div>
+</div>
+<div className="flex flex-wrap justify-center gap-4 p-4">
+  {audiences.map((a) => (
+    <div
+      key={a.label}
+      className="group flex items-center gap-3 rounded-full border border-slate-200 bg-surface-container-lowest pl-2 pr-5 py-2 text-sm font-semibold text-on-surface shadow-sm transition-all duration-300 hover:border-slate-300 hover:shadow-md hover:scale-[1.02] cursor-pointer"
+    >
+      {/* Premium Circular Thumbnail */}
+      <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-inner">
+        <img 
+          src={a.image} 
+          alt={a.label} 
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+        />
+      </div>
+      
+      {/* Label Text */}
+      <span className="tracking-wide">{a.label}</span>
+    </div>
+  ))}
+</div>
+      </section>
+
+      {/* ------------------------------------------------------------ */}
+      {/* Challenges we solve                                            */}
+      {/* ------------------------------------------------------------ */}
+      <section className="bg-surface/50 px-6 py-20 md:py-28 md:px-8 relative overflow-hidden">
+        {/* Fine architectural geometric alignment line */}
+        <div className="absolute top-0 bottom-0 left-[max(2rem,calc(50%-36rem))] w-px bg-slate-200/50 hidden xl:block" />
+
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Column: Bold Header & Primary Focus Callout */}
+            <div className="lg:col-span-5 sticky top-8">
+              <span className="text-xs font-black uppercase tracking-[0.3em] text-primary">
+                The Problem
+              </span>
+              <h2 className="mt-6 mb-6 font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                Running a Travel Business Shouldn't Mean Ten Open Tabs
+              </h2>
+              <p className="text-base text-on-surface-variant leading-relaxed mb-8">
+                Spreadsheets, fragmented email threads, and disconnected tools
+                scale back your team's velocity. We engineer order out of the
+                chaos.
+              </p>
+
+              {/* Featured Card Showcase */}
+              {challenges.length > 0 && (
+                <div className="hidden lg:block relative rounded-2xl bg-gradient-to-br from-primary to-primary-container p-8 text-white shadow-xl overflow-hidden group">
+                  <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl transition-all duration-500 group-hover:bg-primary/40" />
+                  <span className="material-symbols-outlined mb-4 text-3xl text-white">
+                    {challenges[0].icon}
+                  </span>
+                  <h3 className="mb-2 text-lg font-bold text-white tracking-tight">
+                    {challenges[0].title}
+                  </h3>
+                  <p className="text-sm text-slate-50 leading-relaxed">
+                    {challenges[0].description}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Right Column: Stacked Interactive Timeline/List Structure */}
+            <div className="lg:col-span-7 space-y-4">
+              {/* If utilizing the featured layout above, you can skip index 0 on desktop, or map all for a unified list */}
+              {challenges.map((c, idx) => (
+                <div
+                  key={c.title}
+                  className="group flex flex-col sm:flex-row items-start gap-6 rounded-2xl bg-white border border-slate-100 p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.01)] transition-all duration-300 hover:border-slate-200 hover:shadow-lg "
+                >
+                  {/* Minimal Indexing Circle */}
+                  <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 font-mono text-sm font-bold text-slate-400 transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary group-hover:border-transparent">
+                    <span className="material-symbols-outlined text-xl group-hover:hidden">
+                      {c.icon}
+                    </span>
+                    <span className="hidden group-hover:inline font-mono text-xs">
+                      0{idx + 1}
+                    </span>
+                  </div>
+
+                  {/* Core Content */}
+                  <div className="space-y-1">
+                    <h3 className="text-base font-bold text-slate-900 tracking-tight transition-colors duration-300 group-hover:text-primary">
+                      {c.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-on-surface-variant/90">
+                      {c.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* ------------------------------------------------------------ */}
+      {/* Core feature bento grid                                       */}
+      {/* ------------------------------------------------------------ */}
+      <section className="mx-auto max-w-7xl px-6 pb-12 pt-16 sm:px-6 sm:pb-16 sm:pt-20 md:px-8 md:pb-24">
+{/* HEADER */}
+<div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+    RUNS ON
+  </div>
+
+  {/* Main Content Layout Container */}
+  <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+    {/* Minimalist Category Kicker */}
+    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+      All-in-One Platform
+    </span>
+
+    {/* Headline */}
+    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+      Everything a Travel Business Runs On
+    </h2>
+
+    {/* Editorial Description */}
+    <p className="mt-8 sm:mt-10 max-w-xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+      CRM, packages, quotations, invoicing, and finance — connected, not
+      cobbled together.
+    </p>
+  </div>
+</div>
 
         <div className="grid grid-cols-1 gap-4 md:gap-6 md:grid-cols-12">
-          {/* Lead-to-Trip Pipeline — full width on mobile */}
+          {/* Enquiry-to-Booking Pipeline — full width on mobile */}
           <div className="glass-card group border relative overflow-hidden rounded-xl p-8 sm:p-8 md:p-10 md:col-span-8">
             <div className="relative z-10">
               <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl text-primary">
                 query_stats
               </span>
               <h3 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold tracking-tight">
-                Lead-to-Trip Pipeline
+                Enquiry-to-Booking Pipeline
               </h3>
               <p className="mb-6 md:mb-8 max-w-md text-sm md:text-base text-on-surface-variant">
-                Visualize every stage of the traveler&apos;s journey.
-                Drag-and-drop inquiries through custom stages from
-                &apos;Dreaming&apos; to &apos;Departure&apos;.
+                See every lead and enquiry in one view. Drag customers through
+                custom stages — from first message to confirmed booking — and
+                keep a full history of every conversation.
               </p>
               <div className="mt-6 md:mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-12 p-4 md:p-8">
                 {/* Column 1: 3D Fanned Stack */}
                 <div className="relative group">
                   <span className="mb-4 md:mb-6 block text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-                    Inquiry Stack
+                    Enquiry Stack
                   </span>
                   <div className="relative h-40 md:h-48 w-full">
                     <div className="absolute inset-0 translate-x-4 translate-y-2 rotate-3 rounded-2xl border border-slate-200 bg-slate-100/50 shadow-sm transition-transform group-hover:rotate-6" />
@@ -138,19 +411,19 @@ function TravelCrmPage() {
                           <div className="flex items-center gap-2">
                             <span className="h-2 w-2 rounded-full bg-emerald-500" />
                             <h4 className="text-[12px] md:text-[13px] font-bold text-slate-900">
-                              Maldives Escape
+                              Kandy Family Tour
                             </h4>
                           </div>
                           <p className="mt-2 text-[10px] md:text-[11px] text-slate-500 leading-relaxed">
-                            Luxury water villa booking for Marcelin Group.
+                            6-day cultural package, 4 travelers.
                           </p>
                         </div>
                         <div className="flex justify-between items-center border-t border-slate-100 pt-3">
                           <span className="text-[9px] md:text-[10px] font-mono text-slate-400">
-                            #INV-2026
+                            #ENQ-2026
                           </span>
                           <div className="text-[9px] md:text-[10px] font-bold bg-slate-900 text-white px-2 py-1 rounded">
-                            2 New
+                            New
                           </div>
                         </div>
                       </div>
@@ -158,14 +431,14 @@ function TravelCrmPage() {
                   </div>
                 </div>
 
-                {/* Column 2: Floating Proposal Slot */}
+                {/* Column 2: Floating Quotation Slot */}
                 <div className="flex flex-col justify-center items-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/50 p-4 md:p-6">
                   <div className="relative">
                     <div className="h-14 w-10 md:h-16 md:w-12 rounded border border-slate-300 bg-white shadow-2xl rotate-12 origin-bottom-right opacity-40" />
                     <div className="absolute inset-0 h-14 w-10 md:h-16 md:w-12 rounded border border-slate-300 bg-white shadow-lg -rotate-6" />
                   </div>
                   <span className="mt-4 md:mt-6 text-[10px] md:text-[11px] font-medium text-slate-400">
-                    Drop Proposal Here
+                    Drop Quotation Here
                   </span>
                 </div>
               </div>
@@ -173,60 +446,81 @@ function TravelCrmPage() {
             <div className="absolute -bottom-20 -right-20 h-80 w-80 bg-primary-fixed/20 blur-[100px] transition-colors group-hover:bg-primary-fixed/30" />
           </div>
 
-          {/* Payment Tracking */}
+          {/* Finance & Invoicing */}
           <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-8 sm:p-8 md:p-10 text-on-secondary md:col-span-4">
             <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl">
               credit_score
             </span>
             <h3 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold tracking-tight">
-              Payment Tracking
+              Finance &amp; Invoicing
             </h3>
             <p className="text-sm leading-relaxed text-white/90">
-              Automated invoicing and payment reconciliation. Never miss a final
-              balance or vendor deposit again.
+              Invoices and receipts generate automatically from booking data.
+              Income, expenses, and payments roll up into reports without a
+              spreadsheet in sight.
             </p>
             <div className="mt-8 md:mt-12 space-y-4">
               <div className="h-[2px] w-full bg-secondary-container/30">
                 <div className="h-full w-[70%] bg-secondary-fixed" />
               </div>
               <p className="text-[10px] font-bold uppercase tracking-widest">
-                70% Collected
+                70% of Invoices Collected
               </p>
             </div>
           </div>
 
-          {/* Feature Cards */}
-          {featureCards.map((card) => (
-            <div
-              key={card.title}
-              className="rounded-xl bg-surface-container-lowest p-8 sm:p-10 md:p-10 border shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4"
-            >
-              <span
-                className={`material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl ${card.iconColor}`}
-              >
-                {card.icon}
-              </span>
-              <h3 className="mb-3 md:mb-4 text-lg md:text-xl font-bold">
-                {card.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-on-surface-variant">
-                {card.description}
-              </p>
-            </div>
-          ))}
+          {/* Tour Package Management */}
+          <div className="rounded-xl bg-surface-container-lowest p-8 sm:p-10 md:p-10 border shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4">
+            <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl text-tertiary">
+              luggage
+            </span>
+            <h3 className="mb-3 md:mb-4 text-lg md:text-xl font-bold">
+              {coreFeatureBlurbs.tourPackage.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-on-surface-variant">
+              {coreFeatureBlurbs.tourPackage.description}
+            </p>
+          </div>
 
-          {/* Itinerary Creation */}
+          {/* Quotation Management */}
+          <div className="rounded-xl bg-surface-container-lowest p-8 sm:p-10 md:p-10 border shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4">
+            <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl text-secondary">
+              request_quote
+            </span>
+            <h3 className="mb-3 md:mb-4 text-lg md:text-xl font-bold">
+              {coreFeatureBlurbs.quotation.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-on-surface-variant">
+              {coreFeatureBlurbs.quotation.description}
+            </p>
+          </div>
+
+          {/* Document Management */}
+          <div className="rounded-xl bg-surface-container-lowest p-8 sm:p-10 md:p-10 border shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4">
+            <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl text-primary">
+              folder_managed
+            </span>
+            <h3 className="mb-3 md:mb-4 text-lg md:text-xl font-bold">
+              {coreFeatureBlurbs.documents.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-on-surface-variant">
+              {coreFeatureBlurbs.documents.description}
+            </p>
+          </div>
+
+          {/* AI Itinerary Creation */}
           <div className="flex flex-col gap-6 md:gap-10 overflow-hidden border rounded-xl bg-white p-6 sm:p-8 md:p-10 md:col-span-8 md:flex-row md:items-center">
             <div className="flex-1">
               <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl text-secondary">
                 map
               </span>
               <h3 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold tracking-tight">
-                Itinerary Creation
+                AI-Powered Itinerary Generator
               </h3>
               <p className="text-sm md:text-base leading-relaxed text-on-surface-variant">
-                Drag-and-drop blocks to build stunning mobile-first itineraries
-                that travelers will love to share.
+                Turn a package and a customer preference into a full, day-by-day
+                itinerary in minutes — then drag, drop, and edit until it's
+                exactly right, ready to export as a client-ready document.
               </p>
             </div>
             <div className="relative w-full flex-1">
@@ -240,10 +534,10 @@ function TravelCrmPage() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      Arrival
+                      Day 1
                     </span>
                     <span className="text-xs md:text-sm font-semibold text-slate-800">
-                      SQ-425 Arrives Male
+                      Arrival &amp; Airport Transfer
                     </span>
                   </div>
                 </div>
@@ -252,15 +546,15 @@ function TravelCrmPage() {
                 <div className="group mb-4 md:mb-6 flex items-center gap-3 md:gap-4 rounded-xl bg-white p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                   <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-amber-500/20 shrink-0">
                     <span className="material-symbols-outlined text-[18px] md:text-[20px]">
-                      sailing
+                      tour
                     </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      Transport
+                      Day 2
                     </span>
                     <span className="text-xs md:text-sm font-semibold text-slate-800">
-                      Speedboat Transfer
+                      Guided City Tour
                     </span>
                   </div>
                 </div>
@@ -279,11 +573,39 @@ function TravelCrmPage() {
               </div>
             </div>
           </div>
+
+          {/* Booking Management */}
+          <div className="rounded-xl bg-surface-container-lowest p-8 sm:p-10 md:p-10 border shadow-[0_20px_40px_rgba(0,104,116,0.04)] md:col-span-4">
+            <span className="material-symbols-outlined mb-4 md:mb-6 text-3xl md:text-4xl text-tertiary">
+              event_available
+            </span>
+            <h3 className="mb-3 md:mb-4 text-lg md:text-xl font-bold">
+              {coreFeatureBlurbs.booking.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-on-surface-variant">
+              {coreFeatureBlurbs.booking.description}
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="bg-surface px-6 py-24 md:px-8 overflow-hidden">
+      {/* ------------------------------------------------------------ */}
+      {/* Dashboard mockup (recontent to agency operations)             */}
+      {/* ------------------------------------------------------------ */}
+      <section className="bg-[#ffffff] px-6 py-24 md:px-8 overflow-hidden">
         <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-10 md:mb-16 max-w-2xl text-center">
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-primary">
+              Dashboard
+            </span>
+            <h2 className="mt-3 mb-4 font-headline text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+              Your Whole Business, One Screen
+            </h2>
+            <p className="text-sm sm:text-base text-on-surface-variant">
+              Sales, bookings, and follow-ups — updated the moment they happen.
+            </p>
+          </div>
+
           {/* 3D Perspective Wrapper */}
           <div className="relative mx-auto w-full max-w-[1024px] [perspective:2000px]">
             {/* Physical iPad Hardware Chassis */}
@@ -302,14 +624,14 @@ function TravelCrmPage() {
                   <div className="mx-auto mt-0.5 md:mt-1 h-1 w-1 rounded-full bg-blue-900/40" />
                 </div>
 
-                {/* INTERNAL SCREEN: PMS INTERFACE */}
+                {/* INTERNAL SCREEN: CRM DASHBOARD */}
                 <div className="relative overflow-hidden rounded-[1.2rem] md:rounded-[2.2rem] bg-surface-container-lowest min-h-[420px] md:min-h-[600px]">
                   <div className="flex h-full min-h-[420px] md:min-h-[600px]">
                     {/* Ultra-Modern Vertical Nav */}
                     <div className="flex w-12 md:w-20 flex-col items-center gap-4 md:gap-8 bg-white border-r border-slate-100 py-6 md:py-10">
                       <div className="mb-2 md:mb-4 flex h-7 w-7 md:h-10 md:w-10 items-center justify-center rounded-lg md:rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
                         <span className="material-symbols-outlined text-sm md:text-xl">
-                          pepper
+                          flight
                         </span>
                       </div>
                       <span
@@ -319,13 +641,13 @@ function TravelCrmPage() {
                         dashboard
                       </span>
                       <span className="material-symbols-outlined text-base md:text-[24px] text-slate-400 hover:text-primary cursor-pointer">
-                        bed
+                        groups
                       </span>
                       <span className="material-symbols-outlined text-base md:text-[24px] text-slate-400 hover:text-primary cursor-pointer">
-                        sailing
+                        luggage
                       </span>
                       <span className="material-symbols-outlined text-base md:text-[24px] text-slate-400 hover:text-primary cursor-pointer">
-                        analytics
+                        receipt_long
                       </span>
                       <div className="mt-auto">
                         <span className="material-symbols-outlined text-base md:text-[24px] text-slate-400 cursor-pointer">
@@ -340,10 +662,10 @@ function TravelCrmPage() {
                       <div className="mb-5 md:mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                         <div>
                           <h4 className="text-base md:text-2xl font-black tracking-tight text-slate-900">
-                            Island Briefing
+                            Agency Overview
                           </h4>
                           <p className="text-[10px] md:text-sm font-medium text-slate-500">
-                            Baa Atoll • Resort Operations
+                            Today's business at a glance
                           </p>
                         </div>
                         <div className="flex gap-2 md:gap-4">
@@ -354,7 +676,7 @@ function TravelCrmPage() {
                             Today
                           </div>
                           <div className="flex h-8 md:h-11 items-center rounded-lg md:rounded-xl bg-primary px-3 md:px-6 text-[10px] md:text-xs font-bold text-white shadow-xl shadow-primary/20">
-                            + New Booking
+                            + New Quotation
                           </div>
                         </div>
                       </div>
@@ -364,7 +686,7 @@ function TravelCrmPage() {
                         {/* Revenue Card */}
                         <div className="md:col-span-4 rounded-2xl md:rounded-3xl bg-white p-5 md:p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border border-slate-100">
                           <p className="mb-1 md:mb-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest text-slate-400">
-                            Daily RevPAR
+                            Today's Sales
                           </p>
                           <p className="text-xl md:text-3xl font-black text-slate-900">
                             $2,840
@@ -385,14 +707,14 @@ function TravelCrmPage() {
                             <span className="material-symbols-outlined text-xs">
                               trending_up
                             </span>{" "}
-                            +12% Peak Performance
+                            +12% vs last week
                           </p>
                         </div>
 
-                        {/* Operational Logistics Card */}
+                        {/* Operational Follow-ups Card */}
                         <div className="md:col-span-8 rounded-2xl md:rounded-3xl bg-white p-5 md:p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border border-slate-100">
                           <p className="mb-4 md:mb-6 text-[9px] md:text-[10px] font-black uppercase tracking-widest text-slate-400">
-                            Critical Transfers & Maintenance
+                            Needs Your Attention
                           </p>
                           <div className="space-y-4 md:space-y-6">
                             {/* Entry 1 */}
@@ -400,20 +722,20 @@ function TravelCrmPage() {
                               <div className="flex items-center gap-3 md:gap-4">
                                 <div className="flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-xl md:rounded-2xl bg-amber-50 text-amber-600">
                                   <span className="material-symbols-outlined text-base md:text-xl">
-                                    flight_land
+                                    request_quote
                                   </span>
                                 </div>
                                 <div>
                                   <span className="block text-[10px] md:text-xs font-black text-slate-900">
-                                    Seaplane Arrival • TMA Flight 402
+                                    Quotation Sent • European Grand Tour
                                   </span>
                                   <span className="text-[9px] md:text-[10px] font-medium text-slate-500">
-                                    14 Guests from Velana Int. Airport
+                                    Awaiting customer response
                                   </span>
                                 </div>
                               </div>
                               <span className="text-[9px] md:text-[10px] font-black bg-amber-100 text-amber-700 px-2 md:px-3 py-1 rounded-full uppercase tracking-tighter whitespace-nowrap">
-                                In 12 Mins
+                                Follow Up
                               </span>
                             </div>
 
@@ -422,21 +744,20 @@ function TravelCrmPage() {
                               <div className="flex items-center gap-3 md:gap-4">
                                 <div className="flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-xl md:rounded-2xl bg-primary/5 text-primary">
                                   <span className="material-symbols-outlined text-base md:text-xl">
-                                    villa
+                                    receipt_long
                                   </span>
                                 </div>
                                 <div>
                                   <span className="block text-[10px] md:text-xs font-black text-slate-900">
-                                    Villa 402 • Deep Clean
+                                    Invoice Due • Corporate Retreat, ABC Ltd.
                                   </span>
                                   <span className="text-[9px] md:text-[10px] font-medium text-slate-500">
-                                    Butler: Ahmed Hussain • Ready for 15:00
-                                    Check-in
+                                    Balance due in 3 days
                                   </span>
                                 </div>
                               </div>
                               <span className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-tighter tracking-widest whitespace-nowrap">
-                                In Progress
+                                Pending
                               </span>
                             </div>
                           </div>
@@ -447,19 +768,19 @@ function TravelCrmPage() {
                           <div className="flex items-center gap-2 md:gap-4 px-1 md:px-2">
                             <span className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-emerald-500 shrink-0" />
                             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-slate-400 leading-tight">
-                              Island Capacity: 98%
+                              Active Bookings: 42
                             </span>
                           </div>
                           <div className="flex items-center gap-2 md:gap-4 px-1 md:px-2 border-x border-slate-100">
                             <span className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-primary shrink-0" />
                             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-slate-400 leading-tight">
-                              Butler Active: 24/24
+                              Quotations Pending: 08
                             </span>
                           </div>
                           <div className="flex items-center gap-2 md:gap-4 px-1 md:px-2">
                             <span className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-amber-500 shrink-0" />
                             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-slate-400 leading-tight">
-                              Yacht Transfers: 04
+                              Invoices Overdue: 02
                             </span>
                           </div>
                         </div>
@@ -479,10 +800,63 @@ function TravelCrmPage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------------ */}
+      {/* How it works                                                   */}
+      {/* ------------------------------------------------------------ */}
+      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28 md:px-8 relative">
+{/* Header Section */}
+<div className="relative overflow-visible pt-8 pb-8 mb-16 border-b border-slate-200/60">
+  {/* Giant Structural Background Typography */}
+  <div className="absolute -top-4 left-0 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.16] whitespace-nowrap xs:text-[6rem] sm:text-[8rem] md:text-[11rem] lg:text-[9rem] pointer-events-none">
+    ROADMAP
+  </div>
+
+  <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div>
+      <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em] block mb-3">
+        Execution Roadmap
+      </span>
+      <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900">
+        From First Message to Paid Invoice
+      </h2>
+    </div>
+    <p className="mt-4 md:mt-0 text-sm sm:text-base text-slate-500 max-w-sm">
+      Our structured deployment framework ensuring speed, transparency,
+      and perfection.
+    </p>
+  </div>
+</div>
+
+        {/* Timeline Process Grid */}
+        <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          {/* Connecting line for large screens */}
+          <div className="hidden lg:block absolute top-[27px] left-6 right-6 h-[2px] bg-gradient-to-r from-slate-100 via-slate-200 to-slate-100 -z-10" />
+
+          {howItWorks.map((s) => (
+            <div key={s.step} className="group relative flex flex-col">
+              {/* Timeline Node */}
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-slate-200 bg-white font-headline text-base font-bold text-slate-600 shadow-sm transition-all duration-300 group-hover:border-primary group-hover:text-primary group-hover:scale-110 group-hover:shadow-md">
+                {s.step}
+              </div>
+
+              {/* Content Box */}
+              <div className="mt-6 flex-1 rounded-2xl border border-slate-100 bg-slate-50/50 p-5 transition-all duration-300 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-slate-100/70 group-hover:border-slate-200">
+                <h3 className="mb-2 text-base font-bold text-slate-900 tracking-tight transition-colors duration-300 group-hover:text-primary">
+                  {s.title}
+                </h3>
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-500">
+                  {s.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <FAQSection
         items={travelCrmFAQs}
         title="Travel CRM FAQs"
-        subtitle="Common questions about managing your travel agency with Lushware's CRM"
+        subtitle="Common questions about managing your travel business with Lushware's CRM"
       />
 
       <WhyChooseUs />
@@ -503,12 +877,13 @@ function TravelCrmPage() {
           {/* Content */}
           <div className="relative z-10 space-y-6 px-6 py-12 text-center sm:space-y-7 sm:px-10 sm:py-14 md:space-y-8 md:px-14 md:py-16 lg:p-16">
             <h2 className="font-headline text-2xl font-black leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
-              Scale Your Agency with the{" "}
-              <span className="block sm:inline">Spirit of the Maldives.</span>
+              Ready to Run Your Agency{" "}
+              <span className="block sm:inline">From One Screen?</span>
             </h2>
 
             <p className="mx-auto max-w-xs text-sm text-white/80 sm:max-w-sm sm:text-base md:max-w-xl md:text-lg">
-              Join over 200+ luxury agencies managing paradise through Viduvaru.
+              Manage customers, automate quotations and invoicing, and grow your
+              travel business with Lushware.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
@@ -516,7 +891,7 @@ function TravelCrmPage() {
                 onClick={openInquiryModal}
                 className="w-full rounded-full bg-white px-8 py-4 font-black text-primary transition-transform hover:scale-105 sm:w-auto sm:px-10 sm:py-5"
               >
-                Get Started Free
+                Book a Free Demo
               </button>
             </div>
           </div>

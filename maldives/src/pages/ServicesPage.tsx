@@ -1,4 +1,3 @@
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection.tsx";
 import FAQSection from "../components/FAQSection";
 import WhyChooseUs from "../components/WhyChooseUs.tsx";
 
@@ -37,25 +36,55 @@ const servicesFAQs = [
 
 function ServicesPage() {
   return (
-    <main className="bg-[#ffffff] pb-24 pt-24 text-on-surface antialiased">
-      <PinnedScrollHeadlineSection
-        badge="Elevating Hospitality & Enterprise"
-        titlePrefix="Expert Digital Services for"
-        highlightText="Island Businesses"
-        titleSuffix=""
-        description="Transforming the Maldivian business landscape with tailored software solutions, automated intelligence, and premium digital experiences."
-      >
-        <div className="flex flex-col sm:flex-row mt-4 lg:mt-2 justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
-          <button className="w-full sm:flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-on-primary transition-all hover:opacity-90 hover:scale-105 active:scale-95">
-            Get Started
-            <span className="material-symbols-outlined">arrow_forward</span>
-          </button>
+    <main className="bg-[#ffffff] pb-24 pt-24  text-on-surface antialiased">
+{/* HERO */}
+<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+  {/* Modern Background Accents */}
+  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-          <button className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 font-semibold text-primary backdrop-blur-sm transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">
-            View Portfolio
-          </button>
-        </div>
-      </PinnedScrollHeadlineSection>
+  <div className="mx-auto max-w-5xl text-center">
+    {/* Refined Modern Badge */}
+    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+      <span className="text-balance">Elevating Hospitality & Enterprise</span>
+    </span>
+
+    {/* Stronger, Cleaner Typographic Hierarchy */}
+    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+      <span className="block text-balance">Expert Digital Services for</span>
+      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+        Island Businesses
+      </span>
+    </h1>
+
+    {/* Optimized Description Reading Width */}
+    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+      Transforming the Maldivian business landscape with tailored software
+      solutions, automated intelligence, and premium digital experiences.
+    </p>
+
+    {/* Premium Split-Action Controller */}
+    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+      <button
+        type="button"
+        className="w-full sm:w-auto sm:min-w-[180px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+      >
+        Get Started
+        <span className="material-symbols-outlined text-xl leading-none">
+          arrow_forward
+        </span>
+      </button>
+
+      <button
+        type="button"
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+      >
+        View Portfolio
+      </button>
+    </div>
+  </div>
+</section>
 
       <section className="bg-[#ffffff] px-6 pb-24 md:px-8">
         <div className="mx-auto max-w-7xl">

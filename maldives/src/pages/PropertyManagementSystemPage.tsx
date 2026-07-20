@@ -1,280 +1,401 @@
-import { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
-import PinnedScrollHeadlineSection from "../components/PinnedScrollHeadlineSection";
-import InquiryForm from "../components/InquiryForm";
-import WhyChooseUs from "../components/WhyChooseUs";
+
+// TODO: replace with the client's live WhatsApp Business number (international format, no + or spaces)
+const WHATSAPP_NUMBER = "9607XXXXXXX";
+const WHATSAPP_MESSAGE =
+  "Hi! I'd like to book a free demo of the Property Management System.";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  WHATSAPP_MESSAGE,
+)}`;
 
 const faqItems = [
   {
     id: "faq-1",
-    question: "What features does the Property Management System include?",
+    question: "Can I manage multiple properties?",
     answer:
-      "Our comprehensive platform includes listings management, revenue analytics, maintenance ticketing, communication tools, compliance automation, and 24/7 concierge support. All designed specifically for Maldivian luxury property management.",
+      "Yes. Add as many resorts, hotels, guest houses, restaurants or rental units as you operate, and manage every one of them from a single dashboard — no separate logins or spreadsheets per property.",
   },
   {
     id: "faq-2",
-    question: "How do I integrate my existing property portfolio?",
+    question: "Can multiple staff members access the system?",
     answer:
-      "Integration is seamless! Our team assists with data migration from your current system. Typically, portfolio setup takes 3-5 business days with dedicated onboarding support. We support all major OTA platforms and custom integrations.",
+      "Yes. Invite your reservations, finance and operations teams with their own logins and permission levels, so everyone works from the same up-to-date information without stepping on each other's bookings.",
   },
   {
     id: "faq-3",
-    question: "What is the pricing structure for the platform?",
+    question: "Is my data securely stored?",
     answer:
-      "Pricing is flexible and scales with your portfolio size. We offer tiered plans starting from single property management up to large enterprise portfolios with 100+ units. Contact our sales team for a custom quote tailored to your needs.",
+      "Your data is encrypted, backed up automatically, and hosted on secure cloud infrastructure with regular audits — so property, booking and financial records stay protected and recoverable at all times.",
   },
   {
     id: "faq-4",
-    question: "Can I automate guest communication and check-ins?",
+    question: "Can I access the system from my phone?",
     answer:
-      "Yes! Our unified communication hub supports automatic guest confirmations, check-in instructions, and multi-language support with auto-translation. You can customize templates and automate common inquiries while maintaining personal touch.",
+      "Yes. The platform is fully cloud-based and works on any device with a browser, so you can check availability, confirm a booking or review revenue from your phone, tablet or laptop, anywhere.",
   },
   {
     id: "faq-5",
-    question: "How do you handle data security and compliance?",
+    question: "Is training provided?",
     answer:
-      "We maintain enterprise-grade security with 256-bit encryption, regular security audits, and compliance with Maldivian data protection regulations. Your data is backed up hourly with redundant servers and disaster recovery protocols.",
+      "Yes. Every account comes with guided onboarding and hands-on training for your team, plus ongoing support so new staff can get up to speed quickly as your business grows.",
   },
 ];
 
-const featureCards = [
+const audiences = [
+  { icon: "confirmation_number", label: "Travel Agencies" },
+  { icon: "travel_explore", label: "Destination Management Companies" },
+  { icon: "hiking", label: "Tour Operators" },
+  { icon: "apartment", label: "Property Management Companies" },
+  { icon: "bungalow", label: "Resort & Guest House Operators" },
+];
+
+const challenges = [
+  { icon: "event_busy", label: "Double bookings" },
+  { icon: "edit_note", label: "Manual reservation management" },
   {
-    icon: "engineering",
-    iconColor: "text-tertiary",
-    title: "Maintenance",
-    description:
-      "Smart ticketing and real-time vendor dispatch for flawless property upkeep.",
+    icon: "calendar_month",
+    label: "Difficulty tracking property availability",
+  },
+  { icon: "receipt_long", label: "Time-consuming financial management" },
+  {
+    icon: "visibility_off",
+    label: "Poor visibility into business performance",
+  },
+  { icon: "hub", label: "Scattered customer and property information" },
+];
+
+const coreFeatures = [
+  {
+    icon: "villa",
+    title: "Property Management",
+    items: [
+      "List resorts, hotels, guest houses, restaurants and rental properties",
+      "Organize rooms and accommodation units",
+      "Manage property information and availability",
+    ],
   },
   {
-    icon: "forum",
-    iconColor: "text-secondary",
-    title: "Communication",
-    description:
-      "Unified inbox for guest requests and tenant agreements with auto-translation.",
+    icon: "event_available",
+    title: "Booking Management",
+    items: [
+      "Create and manage reservations",
+      "Prevent double bookings",
+      "Real-time booking updates",
+      "Booking history and tracking",
+    ],
   },
   {
-    icon: "verified_user",
-    iconColor: "text-error",
-    title: "Compliance",
-    description:
-      "Automated local tax reporting and legal documentation for Maldivian regulations.",
+    icon: "payments",
+    title: "Finance Management",
+    items: [
+      "Income and expense tracking",
+      "Payment management",
+      "Financial reporting",
+    ],
   },
   {
-    icon: "support_agent",
-    iconColor: "text-primary",
-    title: "24/7 Concierge",
-    description:
-      "Dedicated account managers for white-glove platform assistance.",
+    icon: "dashboard",
+    title: "Business Dashboard",
+    items: [
+      "Booking overview",
+      "Revenue insights",
+      "Occupancy and performance monitoring",
+      "Key business statistics in one place",
+    ],
   },
+];
+
+
+
+const steps = [
+  {
+    title: "Add your properties",
+    description:
+      "Bring your resorts, hotels, guest houses or rentals into the system.",
+  },
+  {
+    title: "Set up availability",
+    description: "Manage room availability and property details in one place.",
+  },
+  {
+    title: "Take bookings",
+    description:
+      "Receive and manage reservations through a centralized dashboard.",
+  },
+  {
+    title: "Track payments",
+    description: "Monitor payments and financial performance as it happens.",
+  },
+  {
+    title: "Monitor performance",
+    description: "Follow your business with real-time reports and analytics.",
+  },
+];
+
+const whyChooseUs = [
+  { icon: "cloud_done", label: "Cloud-based platform" },
+  { icon: "location_on", label: "Optimized for Maldivian businesses" },
+  { icon: "touch_app", label: "Easy-to-use interface" },
+  { icon: "hub", label: "Centralized operations" },
+  { icon: "lock", label: "Secure data management" },
+  { icon: "flight", label: "Designed for tourism businesses" },
+  { icon: "trending_up", label: "Scalable as your business grows" },
 ];
 
 const occupancyBars = [80, 90, 40, 95, 85, 100, 98];
 const occupancyDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
-function PropertyManagementSystemPage() {
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-
-  const openInquiryModal = () => setIsInquiryOpen(true);
-  const closeInquiryModal = () => setIsInquiryOpen(false);
-
+function WhatsAppButton({
+  children,
+  className = "",
+  variant = "solid",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  variant?: "solid" | "outline";
+}) {
+  const base =
+    "inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm sm:text-base font-bold transition-all active:scale-95";
+  const styles =
+    variant === "solid"
+      ? "bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] hover:scale-105"
+      : "border-2 border-primary text-primary hover:bg-surface-container-high hover:scale-105";
   return (
-    <main className="bg-[#ffffff] pb-24 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-      <PinnedScrollHeadlineSection
-        badge="Premium Management Solution"
-        titlePrefix="Advanced Property &"
-        highlightText="Real Estate Control"
-        titleSuffix=""
-        description="Experience the digital sanctuary of property management. Effortlessly oversee luxury villas and island retreats with Maldivian precision and global intelligence."
-        sectionClassName="bg-[#ffffff]"
+    <a
+      href={WHATSAPP_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${base} ${styles} ${className}`}
+    >
+      <span className="material-symbols-outlined text-xl leading-none">
+        chat
+      </span>
+      {children}
+    </a>
+  );
+}
+
+
+
+function PropertyManagementSystemPage() {
+  return (
+    <main className="bg-[#ffffff] pb-24 md:pt-12 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+      {/* 1. HERO */}
+<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+  {/* Modern Background Accents */}
+  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+
+  <div className="mx-auto max-w-5xl text-center">
+    {/* Refined Modern Badge */}
+    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+      <span className="text-balance">Built for Travel Agencies & DMCs</span>
+    </span>
+
+    {/* Stronger, Cleaner Typographic Hierarchy */}
+    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+      <span className="block text-balance">Property Management System for</span>
+      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+        Travel Agencies
+      </span>
+    </h1>
+
+    {/* Optimized Description Reading Width */}
+    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+      Manage properties, bookings, finances and daily operations from one
+      cloud-based platform — built for the way Maldivian tourism
+      businesses actually work.
+    </p>
+
+    {/* Premium Split-Action Controller */}
+    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+      <WhatsAppButton className="w-full sm:w-auto sm:min-w-[180px] rounded-full shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
+        Book a Demo
+      </WhatsAppButton>
+
+      <a
+        href="#features"
+        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
       >
-<div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center w-full max-w-md sm:max-w-none mx-auto">
-  <button
-    type="button"
-    onClick={openInquiryModal}
-    className="w-full sm:flex-1 text-center rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 lg:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-on-primary shadow-[0_10px_20px_rgba(0,104,116,0.15)] transition-all hover:scale-105 active:scale-95"
-  >
-    Send Requirements
-  </button>
+        See How It Works
+      </a>
+    </div>
+  </div>
+</section>
 
-  <Link
-    to="/contact"
-    className="w-full sm:flex-1 text-center rounded-full border-2 border-primary px-6 sm:px-10 lg:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold text-primary transition-all hover:bg-surface-container-high hover:scale-105 active:scale-95"
-  >
-    View Showcase
-  </Link>
-</div>
-      </PinnedScrollHeadlineSection>
-
-      {isInquiryOpen ? (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
-          <div className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white p-6 md:p-8">
-            <InquiryForm
-              topic="Property Management System"
-              ctaLabel="Submit Inquiry"
-              onSuccess={closeInquiryModal}
-              onClose={closeInquiryModal}
-              showCloseButton
-            />
-          </div>
-        </div>
-      ) : null}
-
-
-
-      <section className="bg-[#ffffff] px-6 pb-12 sm:pb-16 md:py-20 lg:py-24 md:px-8">
+      {/* 2. WHO IS IT FOR */}
+      <section className="bg-[#ffffff] px-6 py-14 sm:py-16 md:py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-20 text-center">
-            <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-on-surface lg:text-5xl">
-              Integrated Control, Reimagined.
-            </h2>
-            <p className="mx-auto max-w-2xl text-lg text-on-surface-variant">
-              Four core pillars designed to streamline your property empire with
-              elegance.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 text-[#1A2E35]">
-            {/* Left Column: The "Hero" Feature */}
-            <div className="group relative lg:col-span-4 flex flex-col overflow-hidden rounded-[2.5rem] bg-white p-10 border border-[#26AEBF]/10 shadow-[0_30px_60px_-15px_rgba(38,174,191,0.08)] transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(38,174,191,0.15)] ">
-              {/* Subtle Background Glow */}
-              <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-[#26AEBF]/5 blur-3xl group-hover:bg-[#26AEBF]/10 transition-colors" />
-
-              <div className="mb-12">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#26AEBF]/5 text-[#26AEBF] outline outline-1 outline-[#26AEBF]/30 outline-offset-8">
-                  <span className="material-symbols-outlined text-3xl">
-                    house_with_shield
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-auto relative z-10">
-                <span className="mb-2 block text-[10px] font-black uppercase tracking-[0.4em] text-[#26AEBF]/60">
-                  Core Module
-                </span>
-                <h3 className="mb-6 font-headline text-4xl font-bold leading-[1.1] tracking-tight">
-                  Listings
-                  <br />
-                  Management
-                </h3>
-                <p className="text-lg leading-relaxed text-slate-500">
-                  Centralize your entire portfolio. Dynamic pricing and rich
-                  media management.
-                </p>
-
-                <button className="mt-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#26AEBF] text-white transition-all duration-500 group-hover:w-full group-hover:rounded-2xl shadow-lg shadow-[#26AEBF]/20">
-                  <div className="flex items-center gap-3 overflow-hidden whitespace-nowrap px-4">
-                    <span className="material-symbols-outlined">
-                      arrow_forward
-                    </span>
-                    <span className="opacity-0 transition-opacity group-hover:opacity-100 font-bold uppercase tracking-widest text-sm">
-                      Explore Portfolio
-                    </span>
-                  </div>
-                </button>
-              </div>
+          {/* HEADER */}
+          <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+            {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+              MALDIVES
             </div>
 
-            {/* Right Column: The "Dynamic Grid" */}
-            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Revenue Analytics (Wide Feature) */}
-              <div className="group relative md:col-span-2 overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#26AEBF]/10 via-white to-white p-8 border border-[#26AEBF]/10 transition-all hover:border-[#26AEBF]/30">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-                  <div className="max-w-md">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#26AEBF] text-white shadow-lg shadow-[#26AEBF]/20">
-                      <span className="material-symbols-outlined text-2xl">
-                        analytics
-                      </span>
-                    </div>
-                    <h3 className="mb-2 font-headline text-2xl font-bold tracking-tight">
-                      Revenue Analytics
-                    </h3>
-                    <p className="text-slate-500">
-                      Predictive insights into cash flow, yield optimization,
-                      and global performance.
-                    </p>
-                  </div>
+            {/* Main Content Layout Container */}
+            <div className="relative z-10 mx-auto max-w-6xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+              {/* Minimalist Category Kicker */}
+              <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+                Who It's For
+              </span>
 
-                  {/* Modern Data Visualization Mockup */}
-                  <div className="relative h-32 w-full md:w-56 overflow-hidden rounded-2xl bg-white/60 backdrop-blur-md border border-[#26AEBF]/10 shadow-inner flex items-center justify-center group-hover:bg-white transition-colors">
-                    <div className="flex items-end gap-1.5 px-4 h-16">
-                      {[30, 60, 45, 90, 55, 75, 40].map((h, i) => (
-                        <div
-                          key={i}
-                          className="w-2.5 bg-[#26AEBF]/80 rounded-t-sm transition-all duration-1000 group-hover:bg-[#26AEBF]"
-                          style={{
-                            height: `${h}%`,
-                            transitionDelay: `${i * 50}ms`,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* Headline */}
+              <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+                Built for the businesses that run Maldivian tourism
+              </h2>
 
-              {/* Small Interactive Cards */}
-              {featureCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="group relative flex items-start gap-5 rounded-[2rem] bg-white p-6 border border-slate-200 transition-all duration-300 hover:border-[#26AEBF]/20 hover:shadow-xl hover:shadow-[#26AEBF]/5"
-                >
-                  <div
-                    className={`mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-[#26AEBF] transition-all duration-500 group-hover:bg-[#26AEBF] group-hover:text-white `}
-                  >
-                    <span className="material-symbols-outlined text-2xl transition-transform group-hover:scale-110">
-                      {card.icon}
+              {/* Editorial Description */}
+              <p className="mt-8 sm:mt-10 max-w-3xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg md:text-xl dark:text-zinc-400">
+                One platform for every team that manages guests, properties and
+                bookings across the islands.
+              </p>
+            </div>
+          </div>
+          <div className="relative z-10 grid grid-cols-2 border-t border-l border-slate-200/60 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {audiences.map((item) => (
+              <div
+                key={item.label}
+                className="group relative flex  flex-col justify-between bg-white p-6 min-h-[160px] border-r border-b border-slate-200/60 transition-all duration-300 ease-in-out hover:bg-slate-50/30"
+              >
+                {/* 4-Corner High-Tech Framing Brackets (Revealed on Hover) */}
+                <div className="pointer-events-none rounded-md absolute inset-0 border border-primary scale-95 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100" />
+
+                {/* Top Utility Layer */}
+                <div className="relative z-10 flex w-full items-start justify-between">
+                  <div className="text-[#1F8FA0] transition-colors duration-300 group-hover:text-primary">
+                    <span className="material-symbols-outlined text-[44px] transition-transform duration-300 group-hover:scale-105">
+                      {item.icon}
                     </span>
                   </div>
-                  <div>
-                    <h3 className="mb-1 font-headline font-bold text-lg tracking-tight">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-slate-400">
-                      {card.description}
-                    </p>
-                  </div>
+
+                  {/* Modern Corporate Interactive Indicator */}
+                  <span className="material-symbols-outlined text-sm font-bold text-slate-300 opacity-0 transition-all duration-300 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-primary">
+                    north_east
+                  </span>
                 </div>
-              ))}
+
+                {/* Bottom Typographic Content */}
+                <div className="relative z-10 mt-auto pt-8">
+                  <h4 className="text-[14px] font-bold tracking-tight text-on-surface leading-snug transition-colors duration-200 group-hover:text-primary">
+                    {item.label}
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. THE CHALLENGES WE SOLVE */}
+      <section className="bg-[#ffffff] px-6 py-14 sm:py-16 md:py-20 mb-12  md:px-24">
+        <div className="mx-auto max-w-8xl">
+          <div className="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span className="mb-3 block font-label text-xs font-black uppercase tracking-[0.3em] text-primary">
+                The Problem
+              </span>
+              <h2 className="mb-5 font-headline text-3xl font-extrabold tracking-tight text-on-surface sm:text-4xl">
+                Spreadsheets and WhatsApp chats weren't built to run a portfolio
+              </h2>
+              <p className="mb-8 text-base text-on-surface-variant sm:text-lg">
+                Many travel agencies still rely on spreadsheets, WhatsApp
+                messages, emails and disconnected systems to run their
+                properties. That leads to:
+              </p>
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {challenges.map((item) => (
+                  <li
+                    key={item.label}
+                    className="flex items-center gap-3 rounded-full border border-primary/10 bg-white px-4 py-3.5"
+                  >
+                    <span className="material-symbols-outlined shrink-0 text-lg text-primary">
+                      {item.icon}
+                    </span>
+                    <span className="text-sm font-semibold text-on-surface">
+                      {item.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="relative flex min-h-[400px] w-full items-stretch justify-center lg:min-h-full">
+              <div className="relative w-full overflow-hidden ">
+                <div className="h-full w-full overflow-hidden rounded-md">
+                  <img
+                    src="/prm.jpg"
+                    alt="Premium Portfolio Management Visual"
+                    className="h-full w-full object-cover object-center "
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* 4. OUR SOLUTION */}
+      <section className="bg-primary px-6 py-14 sm:py-16 md:py-20 md:px-8">
+        {/* HEADER */}
+        <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+          {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-white/[0.15] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+            CLOUD
+          </div>
+
+          {/* Main Content Layout Container */}
+          <div className="relative z-10 mx-auto max-w-6xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+            {/* Minimalist Category Kicker */}
+            <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-white sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+              Our Solution
+            </span>
+
+            {/* Headline */}
+            <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-white sm:text-6xl md:text-8xl lg:text-7xl">
+              One cloud-based platform for your entire operation
+            </h2>
+
+            {/* Editorial Description */}
+            <p className="mt-8 sm:mt-10 max-w-6xl text-balance text-base font-light font-body leading-relaxed tracking-wide text-white/70 sm:text-lg md:text-xl">
+              Manage your properties, handle bookings, monitor finances and
+              track business performance through an intuitive dashboard —
+              accessible anytime, anywhere.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Dashboard mockup — visual proof of the centralized platform */}
       <section className="bg-surface px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl">
           <div className="relative mx-auto w-full max-w-[1000px] [perspective:2000px]">
-            {/* iPad Chassis */}
             <div className="relative rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] border-[1px] border-slate-500/30 bg-[#121212] p-[8px] sm:p-[10px] lg:p-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4),0_20px_40px_-15px_rgba(0,0,0,0.3)] lg:[transform:rotateX(10deg)_rotateY(-5deg)_rotateZ(1deg)] transition-transform duration-700 hover:rotate-0">
-              {/* Hardware Buttons — hidden on mobile to avoid overflow */}
               <div className="hidden sm:block absolute -right-[2px] top-32 h-16 w-[3px] rounded-l-sm bg-slate-700" />
               <div className="hidden sm:block absolute -right-[2px] top-52 h-16 w-[3px] rounded-l-sm bg-slate-700" />
               <div className="hidden sm:block absolute right-20 -top-[2px] h-[3px] w-12 rounded-b-sm bg-slate-700" />
 
-              {/* Screen Bezel */}
               <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.8rem] bg-[#050505] p-2 sm:p-3 lg:p-4 ring-1 ring-inset ring-white/10 shadow-inner">
-                {/* Glass Reflection */}
                 <div className="pointer-events-none absolute inset-0 z-50 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-60" />
-
-                {/* Camera */}
                 <div className="absolute left-1/2 top-3 sm:top-4 lg:top-5 z-50 h-2 w-2 sm:h-3 sm:w-3 -translate-x-1/2 rounded-full bg-[#1a1a1a] ring-1 ring-white/5">
                   <div className="mx-auto mt-0.5 sm:mt-1 h-1 w-1 rounded-full bg-blue-900/40 shadow-[0_0_2px_rgba(0,0,255,0.5)]" />
                 </div>
 
-                {/* Screen Content */}
                 <div className="overflow-hidden rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] bg-white shadow-2xl">
-                  {/* Top Bar */}
                   <div className="flex items-center justify-between border-b border-outline-variant/10 bg-surface-container-lowest px-4 sm:px-6 lg:px-10 py-3 sm:py-4 lg:py-5">
                     <div className="flex items-center gap-2 sm:gap-4">
                       <div className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-primary">
                         LUSHWARE{" "}
                         <span className="font-light text-on-surface-variant">
-                          OS v5.0
+                          PMS
                         </span>
                       </div>
                       <div className="mx-1 sm:mx-2 h-4 w-px bg-outline-variant/50" />
                       <div className="hidden sm:block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                        Maldives Luxury PMS
+                        Travel Agency Dashboard
                       </div>
                     </div>
                     <div className="flex items-center gap-3 sm:gap-6">
@@ -286,7 +407,7 @@ function PropertyManagementSystemPage() {
                       </span>
                       <div className="h-7 w-7 sm:h-9 sm:w-9 overflow-hidden rounded-full border-2 border-white ring-1 ring-primary/20 shadow-sm">
                         <img
-                          alt="General Manager"
+                          alt="Operations Manager"
                           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
                         />
                       </div>
@@ -294,22 +415,21 @@ function PropertyManagementSystemPage() {
                   </div>
 
                   <div className="grid grid-cols-12">
-                    {/* Sidebar */}
                     <aside className="col-span-3 bg-slate-50 p-3 sm:p-5 lg:p-8 min-h-[400px] sm:min-h-[480px] lg:min-h-[550px] border-r border-slate-100">
                       <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                         <p className="text-[8px] sm:text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 sm:mb-4">
-                          Resort Hub
+                          Portfolio
                         </p>
                         {[
                           {
                             icon: "bungalow",
-                            label: "Villa Mgmt",
+                            label: "Properties",
                             active: true,
                           },
-                          { icon: "kayaking", label: "Excursions" },
-                          { icon: "flight_land", label: "Transfers" },
-                          { icon: "account_balance", label: "Revenue/Yield" },
-                          { icon: "cleaning_services", label: "Butler Svc" },
+                          { icon: "event_available", label: "Bookings" },
+                          { icon: "payments", label: "Finance" },
+                          { icon: "dashboard", label: "Dashboard" },
+                          { icon: "groups", label: "Staff Access" },
                         ].map((item, i) => (
                           <div
                             key={i}
@@ -326,15 +446,14 @@ function PropertyManagementSystemPage() {
                       </div>
                     </aside>
 
-                    {/* Main Dashboard */}
                     <main className="col-span-9 p-4 sm:p-6 lg:p-10 bg-white">
                       <div className="mb-5 sm:mb-7 lg:mb-10 flex items-end justify-between">
                         <div>
                           <h2 className="text-base sm:text-lg lg:text-2xl font-black text-slate-900 tracking-tight">
-                            Island Overview
+                            Portfolio Overview
                           </h2>
                           <p className="text-[9px] sm:text-xs text-slate-500">
-                            Baa Atoll Portfolio • Live Briefing
+                            All Properties • Live Briefing
                           </p>
                         </div>
                         <div className="flex gap-1 sm:gap-2 text-[9px] sm:text-xs font-bold text-emerald-600 bg-emerald-50 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
@@ -345,26 +464,24 @@ function PropertyManagementSystemPage() {
                         </div>
                       </div>
 
-                      {/* KPIs */}
                       <div className="mb-5 sm:mb-7 lg:mb-10 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
                         {[
                           {
-                            label: "Daily RevPAR",
-                            value: "$2,450",
-                            sub: ".00",
-                            badge: "+18.4% Yield",
+                            label: "Revenue MTD",
+                            value: "$48.2k",
+                            badge: "+18.4% vs last month",
                             badgeColor: "text-emerald-600",
                           },
                           {
-                            label: "Villa Occupancy",
+                            label: "Occupancy",
                             value: "94%",
-                            badge: "42/45 Overwater Villas",
+                            badge: "42/45 Units Booked",
                             badgeColor: "text-primary",
                           },
                           {
-                            label: "Seaplane Hub",
-                            value: "08",
-                            badge: "2 TMA Flights in 15m",
+                            label: "Open Bookings",
+                            value: "12",
+                            badge: "3 arriving today",
                             badgeColor: "text-error",
                           },
                         ].map((kpi, i) => (
@@ -377,11 +494,6 @@ function PropertyManagementSystemPage() {
                             </span>
                             <span className="text-lg sm:text-2xl lg:text-3xl font-black text-slate-900">
                               {kpi.value}
-                              {kpi.sub && (
-                                <span className="text-xs sm:text-sm font-medium text-slate-400">
-                                  {kpi.sub}
-                                </span>
-                              )}
                             </span>
                             <span
                               className={`text-[8px] sm:text-[11px] font-bold ${kpi.badgeColor} flex items-center gap-1`}
@@ -399,20 +511,19 @@ function PropertyManagementSystemPage() {
                         ))}
                       </div>
 
-                      {/* Chart */}
                       <div className="rounded-2xl lg:rounded-3xl border border-slate-100 bg-slate-50/50 p-4 sm:p-6 lg:p-8">
                         <div className="mb-5 sm:mb-7 lg:mb-10 flex items-center justify-between">
                           <div>
                             <h4 className="text-[10px] sm:text-sm font-black uppercase tracking-widest text-slate-900">
-                              Arrival Density
+                              Booking Activity
                             </h4>
                             <p className="hidden sm:block text-[10px] text-slate-500">
-                              Velana Int. Airport Sync (VIA)
+                              Reservations by day
                             </p>
                           </div>
                           <select className="rounded-lg sm:rounded-xl border border-slate-200 bg-white px-2 sm:px-4 py-1 sm:py-2 text-[8px] sm:text-[10px] font-black uppercase tracking-widest outline-none">
                             <option>This Week</option>
-                            <option>Peak Forecast</option>
+                            <option>Peak Season</option>
                           </select>
                         </div>
 
@@ -442,50 +553,244 @@ function PropertyManagementSystemPage() {
                     </main>
                   </div>
 
-                  {/* Home Bar */}
                   <div className="mx-auto mb-1.5 sm:mb-2 h-1 sm:h-1.5 w-20 sm:w-32 rounded-full bg-slate-200" />
                 </div>
               </div>
             </div>
-
-            {/* Floor Shadow */}
             <div className="absolute -bottom-16 left-1/2 h-10 w-[85%] -translate-x-1/2 rounded-[100%] bg-slate-900/15 blur-[40px] -z-10" />
           </div>
         </div>
       </section>
-      <FAQSection
-        items={faqItems}
-        title="Property Management FAQs"
-        subtitle="Everything you need to know about managing your Maldivian properties"
-      />
 
-      <WhyChooseUs />
+      {/* 5. CORE FEATURES */}
+      <section
+        id="features"
+        className="bg-[#ffffff] px-6 py-14 sm:py-16 md:py-20 md:px-8"
+      >
+        <div className="mx-auto max-w-7xl">
+          {/* HEADER */}
+          <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+            {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+              FEATURES
+            </div>
 
-      <section className="py-14 sm:py-16 md:py-20">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 md:px-16">
-          <p className="text-center font-label text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] text-on-surface-variant uppercase mb-6 sm:mb-8">
-            Trusted by the Maldives' Finest Portfolios
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 lg:gap-24 opacity-80 transition-all">
-            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
-              LAGOON<span className="text-secondary">ELITE</span>
+            {/* Main Content Layout Container */}
+            <div className="relative z-10 mx-auto max-w-6xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+              {/* Minimalist Category Kicker */}
+              <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+                Core Features
+              </span>
+
+              {/* Headline */}
+              <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+                Everything your operation needs, in one place
+              </h2>
             </div>
-            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
-              AZURE<span className="text-secondary">HOMES</span>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {coreFeatures.map((feature, index) => (
+              <div
+                key={feature.title}
+                className="group relative flex flex-col justify-between rounded-2xl border border-outline-variant/40 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-secondary/40 hover:shadow-md"
+              >
+                <div>
+                  {/* Icon */}
+                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-outline-variant/30 bg-surface transition-colors duration-300 group-hover:border-secondary/20">
+                    <span className="material-symbols-outlined text-2xl text-secondary">
+                      {feature.icon}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="mb-4 text-lg font-bold tracking-tight text-primary transition-colors duration-300 group-hover:text-secondary">
+                    {feature.title}
+                  </h3>
+
+                  {/* Feature List */}
+                  <ul className="space-y-3">
+                    {feature.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-sm leading-relaxed text-on-surface-variant"
+                      >
+                        <span className="material-symbols-outlined mt-0.5 text-base text-secondary">
+                          check_circle
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Step Number */}
+                <div className="mt-8 text-right font-mono text-xs font-bold text-outline-variant/50 transition-colors duration-300 group-hover:text-secondary/50 select-none">
+                  0{index + 1}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. HOW IT WORKS */}
+      <section className="relative mx-auto max-w-7xl overflow-hidden px-5 py-20 sm:px-6 md:px-8 md:py-32">
+        {/* Background Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+        <div className="relative z-10 grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Side */}
+          <div className="space-y-6 lg:sticky lg:top-28 lg:col-span-4">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">
+              How It Works
+            </span>
+
+            <h2 className="font-headline text-3xl font-black tracking-tight text-primary sm:text-4xl md:text-5xl leading-[1.15]">
+              From Setup <br className="hidden lg:block" />
+              to Insight
+            </h2>
+
+            <p className="max-w-md text-sm leading-relaxed text-on-surface-variant/70 md:text-base">
+              Get started in minutes. Configure your workspace, connect your
+              data, automate workflows, and gain actionable insights through one
+              seamless platform.
+            </p>
+
+            {/* Metric */}
+            <div className="hidden max-w-xs items-center gap-1.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest/50 p-4 shadow-sm backdrop-blur-sm lg:flex">
+              <div className="flex -space-x-2">
+                {steps.map((_, index) => (
+                  <div
+                    key={index}
+                    className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-surface-container-lowest bg-primary font-mono text-[8px] font-bold text-white shadow-sm"
+                  >
+                    {index + 1}
+                  </div>
+                ))}
+              </div>
+
+              <span className="pl-2 text-[11px] font-medium text-on-surface-variant/80">
+                5-Step Guided Process
+              </span>
             </div>
-            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
-              SANDS<span className="text-secondary">MANAGEMENT</span>
-            </div>
-            <div className="text-xl sm:text-2xl md:text-3xl font-black text-primary tracking-tighter">
-              OCEANIC<span className="text-secondary">VILLAS</span>
+          </div>
+
+          {/* Right Timeline */}
+          <div className="relative lg:col-span-8">
+            {/* Timeline Line */}
+            <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent" />
+
+            <div className="relative z-10 space-y-8">
+              {steps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="group relative flex items-start gap-6 rounded-2xl p-2 transition-all duration-300 hover:bg-primary/[0.01]"
+                >
+                  {/* Number */}
+                  <div className="relative mt-1 shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-outline-variant/80 bg-surface-container-lowest font-mono text-xs font-bold text-primary shadow-[0_2px_6px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:scale-105 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    <div className="absolute left-1/2 top-1/2 -z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-100" />
+                  </div>
+
+                  {/* Card */}
+                  <div className="flex-1 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest/80 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] backdrop-blur-sm transition-all duration-300 group-hover:border-outline-variant/60 group-hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]">
+                    <div className="mb-2.5 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+                      <h3 className="text-base font-bold tracking-tight text-primary sm:text-lg">
+                        {step.title}
+                      </h3>
+
+                      <span className="inline-block rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
+                        Step {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+
+                    <p className="text-xs font-normal leading-relaxed text-on-surface-variant/80 sm:text-sm">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
+      {/* 8. WHY CHOOSE OUR PMS */}
+      <section className="bg-[#ffffff] px-6 py-14 sm:py-16 md:py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          {/* HEADER */}
+          <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+            {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+              WHY US
+            </div>
+
+            {/* Main Content Layout Container */}
+            <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+              {/* Minimalist Category Kicker */}
+              <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+                Why Choose Us
+              </span>
+
+              {/* Headline */}
+              <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+                Why Choose Our Property Management System?
+              </h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+            {whyChooseUs.map((item) => (
+              <div
+                key={item.label}
+                className="group relative flex flex-col justify-between bg-white p-7 min-h-[160px] transition-all duration-300 ease-out hover:z-10"
+              >
+                {/* The Apple-style ambient backdrop plate that materializes on hover */}
+                <div className="absolute inset-[4px] rounded-2xl bg-slate-50 border border-slate-100/70 opacity-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-[1.01]" />
+
+                {/* Top Section: High-contrast horizontal structural track */}
+                <div className="relative z-10 flex w-full items-start justify-between">
+                  {/* Clean, unboxed icon — floats freely to maximize whitespace layout */}
+                  <div className="text-slate-400 transition-colors duration-300 group-hover:text-primary">
+                    <span className="material-symbols-outlined text-[34px] transition-transform duration-500 group-hover:rotate-6">
+                      {item.icon}
+                    </span>
+                  </div>
+
+                  {/* Elegant corporate tracking crosshair dot */}
+                  <div className="h-1.5 w-1.5 rounded-full bg-slate-200 transition-all duration-300 group-hover:w-4 group-hover:bg-primary" />
+                </div>
+
+                {/* Bottom Section: Left-aligned, high-density typographic unit */}
+                <div className="relative z-10 mt-auto pt-6 text-left space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-bold tracking-widest uppercase text-slate-400">
+                      System Node
+                    </span>
+                  </div>
+
+                  <h4 className="text-[15px] font-bold tracking-tight text-on-surface leading-snug transition-transform duration-300 group-hover:translate-x-1">
+                    {item.label}
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FAQ */}
+      <FAQSection
+        items={faqItems}
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about the Property Management System"
+      />
+
+      {/* 10. FINAL CTA */}
       <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center sm:p-10 md:p-12 lg:p-20">
-          {/* Background texture */}
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -495,32 +800,33 @@ function PropertyManagementSystemPage() {
               backgroundPosition: "center",
             }}
           />
-
-          {/* Decorative glow */}
           <div className="absolute right-0 top-0 h-40 w-40 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl sm:h-52 sm:w-52 md:h-64 md:w-64" />
 
-          {/* Content */}
           <div className="relative z-10">
             <h2 className="mb-4 font-headline text-2xl font-extrabold text-on-primary sm:mb-5 sm:text-3xl md:text-4xl lg:mb-6 lg:text-5xl">
-              Elevate Your Property Standards
+              Ready to simplify your property management?
             </h2>
             <p className="mx-auto mb-7 max-w-xl text-sm text-white/80 sm:mb-8 sm:text-base md:mb-10 md:text-lg">
-              Join the leading real estate firms in the Maldives using Viduvaru
-              to scale their excellence.
+              Book a free demo and discover how our Property Management System
+              can help your travel business operate more efficiently.
             </p>
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
-              <button
-                type="button"
-                onClick={openInquiryModal}
-                className="w-full rounded-full bg-white px-8 py-3 text-sm font-bold text-primary transition-shadow hover:shadow-xl active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-bold text-primary transition-shadow hover:shadow-xl active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
               >
-                Request Custom Quote
-              </button>
+                <span className="material-symbols-outlined text-xl leading-none">
+                  chat
+                </span>
+                Book a Free Demo
+              </a>
               <Link
                 to="/contact"
                 className="w-full rounded-full border backdrop-blur-sm border-white/80 px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
               >
-                Watch Demo Video
+                Contact Us
               </Link>
             </div>
           </div>
