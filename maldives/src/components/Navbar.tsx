@@ -1,33 +1,31 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-const solutionItems = [
-  { label: "Property Management", to: "/real-estate-control", icon: "apartment" },
-  { label: "Hotel Cloud", to: "/hotelcloud", icon: "hotel" },
-  { label: "Boat Booking", to: "/viduvaru", icon: "directions_boat" },
-  { label: "Travel CRM", to: "/travel-crm", icon: "luggage" },
-];
-
 const navItems = [
-  { label: "Our Services", to: "/services" },
+  { label: "Services", to: "/services" },
   { label: "Our Work", to: "/our-work" },
 ];
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const { pathname } = useLocation();
+const solutionItems = [
+  { label: "Property Operations", to: "/real-estate-control", icon: "apartment" },
+  { label: "Guest House Operations", to: "/hotelcloud", icon: "hotel" },
+  { label: "Marine Transport", to: "/viduvaru", icon: "directions_boat" },
+  { label: "Travel Operations", to: "/travel-crm", icon: "luggage" },
+];
 
-  const isSolutionsActive = solutionItems.some((item) => item.to === pathname);
+const Navbar = () => {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
     return () => {
@@ -35,16 +33,18 @@ const Navbar = () => {
     };
   }, [isMobileOpen]);
 
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [pathname]);
+
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-[100] w-full border-b transition-all duration-500 ease-in-out ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-2xl py-3 shadow-md border-slate-100"
-          : "bg-white backdrop-blur-md py-5 border-transparent"
+    <header
+      className={`fixed top-0 w-full z-[100] bg-white border-b transition-colors duration-300 ${
+        isScrolled ? "border-slate-200" : "border-transparent"
       }`}
     >
-      <div className="mx-auto max-w-screen-2xl px-6 sm:px-10 lg:px-28">
-        <nav className="flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-6 md:h-20 h-20 flex items-center justify-between">
+
           {/* ── Logo ──────────────────────────────────────────────────────── */}
           <Link to="/" className="group flex items-center gap-2 shrink-0">
             <div className="relative flex h-8 w-18 items-center justify-center rounded-md overflow-hidden">
@@ -59,203 +59,122 @@ const Navbar = () => {
                 LUSHWARE
               </span>
               <span className="text-[9px] font-black tracking-[0.85em] text-cyan-600 uppercase">
-                 Maldives
+                Maldives
               </span>
             </div>
           </Link>
 
-          {/* ── Desktop Navigation ────────────────────────────────────────── */}
-          <div className="hidden lg:flex items-center gap-10">
-            {/* Solutions Dropdown */}
-            <div className="group relative">
-              <button
-                className={`flex items-center gap-1.5 text-sm uppercase font-bold tracking-tight transition-colors ${
-                  isSolutionsActive
-                    ? "text-cyan-700"
-                    : "text-slate-800 hover:text-slate-900"
-                }`}
-              >
-                Our Solutions
-                <span className="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">
-                  expand_more
-                </span>
-              </button>
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-12">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="text-sm font-bold uppercase tracking-[0.05em] text-slate-600 hover:text-slate-950 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
 
-              <div className="invisible absolute left-1/2 -translate-x-1/2 top-full z-50 mt-8 w-80 rounded-[20px] border border-slate-100 bg-white p-2 opacity-0 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] backdrop-blur-xl transition-all duration-500 ease-out group-hover:visible group-hover:opacity-100 group-hover:mt-4">
-                <div className="relative flex flex-col gap-0.5">
-                  {/* Subtle Top Notch/Pointer */}
-                  <div className="absolute -top-[13px] left-1/2 -translate-x-1/2 border-8 border-transparent border-b-white/95" />
-
-                  {solutionItems.map((item) => (
-                    <NavLink
-                      key={item.to}
-                      to={item.to}
-                      className={({ isActive }) =>
-                        `group/nav flex items-center justify-between rounded-[14px] px-5 py-4 transition-all duration-300 ${
-                          isActive ? "bg-slate-50/80" : "hover:bg-slate-50/50"
-                        }`
-                      }
-                    >
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-400 transition-all duration-500 group-hover/nav:scale-110 group-hover/nav:text-cyan-600 group-hover/nav:shadow-sm`}
-                        >
-                          <span className="material-symbols-outlined text-[24px]">
-                            {item.icon}
-                          </span>
-                        </div>
-
-                        <div className="flex flex-col">
-                          <span className="text-[15px] font-medium tracking-tight text-slate-800 transition-colors duration-300 group-hover/nav:text-cyan-700">
-                            {item.label}
-                          </span>
-                          <span className="text-[12px] text-slate-500 font-light">
-                            Explore {item.label.toLowerCase()}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Elegant Chevron that appears on hover */}
-                      <span className="material-symbols-outlined text-slate-300 opacity-0 -translate-x-2 transition-all duration-300 group-hover/nav:opacity-100 group-hover/nav:translate-x-0 text-sm">
-                        arrow_forward_ios
-                      </span>
-                    </NavLink>
-                  ))}
-                </div>
+          <div className="group relative py-8">
+            <span className="text-sm font-bold uppercase tracking-[0.05em] text-slate-950 cursor-pointer flex items-center gap-1.5">
+              Solutions <span className="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+            </span>
+            <div className="absolute top-full right-0 pt-4  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <div className="w-[300px] bg-white border rounded-md border-slate-200 p-3 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+                {solutionItems.map((item) => (
+                  <Link key={item.to} to={item.to} className="flex items-center gap-4 px-4 py-4 rounded-md hover:bg-slate-50 transition-colors group/item">
+                    <span className="text-cyan-600 material-symbols-outlined">{item.icon}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-900">{item.label}</span>
+                  </Link>
+                ))}
               </div>
             </div>
-
-            {navItems.map((item) => (
-              <NavLink
-                key={item.label}
-                to={item.to}
-                className={({ isActive }) =>
-                  `group relative uppercase text-sm font-bold tracking-tight transition-colors ${
-                    isActive
-                      ? "text-cyan-700"
-                      : "text-slate-800 hover:text-slate-900"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {item.label}
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[2px] bg-cyan-600 transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                    />
-                  </>
-                )}
-              </NavLink>
-            ))}
           </div>
 
-          {/* ── CTA + Hamburger ───────────────────────────────────────────── */}
-          <div className="flex items-center gap-3">
-            <Link
-              to="/contact"
-              className="hidden sm:block overflow-hidden relative rounded-xl bg-gradient-to-br from-primary to-primary-container px-7 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-xl transition-all hover:opacity-90 active:scale-95"
-            >
-              <span className="relative z-10">Request Consultation</span>
-            </Link>
+          <Link
+            to="/contact"
+            className="px-5 py-2 bg-gradient-to-br from-primary to-primary-container text-white rounded-lg text-[12px] font-medium uppercase tracking-[0.05em] shadow-lg shadow-cyan-900/10 hover:opacity-90 hover:shadow-xl transition-all active:scale-95"
+          >
+            Request Consultation
+          </Link>
+        </div>
 
-            {/* Hamburger */}
-            <button
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={isMobileOpen}
-              className="lg:hidden flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full bg-slate-100 transition-colors hover:bg-slate-200"
-            >
-              <span
-                className={`block h-0.5 w-5 rounded-full bg-slate-900 transition-all duration-300 origin-center ${
-                  isMobileOpen ? "rotate-45 translate-y-[7px]" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-5 rounded-full bg-slate-900 transition-all duration-300 ${
-                  isMobileOpen ? "opacity-0 scale-x-0" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-5 rounded-full bg-slate-900 transition-all duration-300 origin-center ${
-                  isMobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
-                }`}
-              />
-            </button>
-          </div>
-        </nav>
+        {/* Mobile Toggle */}
+        <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="lg:hidden text-slate-950" aria-label="Open menu">
+          <span className="material-symbols-outlined text-3xl">menu</span>
+        </button>
       </div>
 
+      {/* Mobile Full-Screen Overlay */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-0 z-[-1] flex flex-col bg-white lg:hidden overflow-y-auto"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
+            className="fixed inset-0 bg-white z-[99] flex flex-col lg:hidden"
           >
-            {/* Top spacer so content clears the navbar */}
-            <div className="h-24 shrink-0" />
-
-            {/* Content */}
-            <div className="flex flex-col flex-1 px-8 py-8 gap-0">
-              {/* Primary nav */}
-              <p className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600">
-                Navigation
-              </p>
-              <div className="flex flex-col gap-1 mb-10">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="group flex items-center justify-between rounded-xl px-4 py-3.5 text-lg font-semibold text-slate-900 transition-colors hover:bg-slate-50 hover:text-cyan-700 active:scale-[0.98]"
-                  >
-                    {item.label}
-                    <span className="material-symbols-outlined text-xl text-slate-300 transition-colors group-hover:text-cyan-400">
-                      chevron_right
-                    </span>
-                  </Link>
-                ))}
+            {/* Top bar: logo + close */}
+            <div className="flex items-center justify-between px-6 h-24 border-b border-slate-100 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="relative flex h-8 w-[50px] items-center justify-center  overflow-hidden">
+                  <img src="/logo.jpeg" alt="Lushware Logo" className="h-full w-full object-cover" />
+                </div>
+                <span className="text-lg font-black text-slate-950 tracking-tighter">LUSHWARE</span>
               </div>
+              <button onClick={() => setIsMobileOpen(false)} aria-label="Close menu" className="text-slate-950">
+                <span className="material-symbols-outlined text-3xl">close</span>
+              </button>
+            </div>
 
-              {/* Divider */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-px flex-1 bg-slate-100" />
-              </div>
-
-              {/* Solutions */}
-              <p className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600">
-                Our Solutions
-              </p>
+            {/* Scrollable content */}
+            <div className="flex-1 overflow-y-auto px-8 py-10 flex flex-col">
               <div className="flex flex-col gap-1 mb-10">
-                {solutionItems.map((item) => (
-                  <Link
+                {navItems.map((item, i) => (
+                  <motion.div
                     key={item.to}
-                    to={item.to}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="group flex items-center gap-4 rounded-xl px-4 py-3.5 transition-colors hover:bg-cyan-50 active:scale-[0.98]"
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.05 * i }}
                   >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors group-hover:bg-cyan-100 group-hover:text-cyan-700">
-                      <span className="material-symbols-outlined text-lg">
-                        {item.icon}
-                      </span>
-                    </span>
-                    <span className="text-base font-semibold text-slate-700 group-hover:text-cyan-700 transition-colors">
+                    <Link
+                      to={item.to}
+                      className="flex items-center justify-between py-4 text-xl font-bold tracking-wide text-slate-950 border-b border-slate-100"
+                    >
                       {item.label}
-                    </span>
-                  </Link>
+                      <span className="material-symbols-outlined text-2xl text-slate-300">chevron_right</span>
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="mt-auto pt-6 pb-safe">
+              <p className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-600">Solutions</p>
+              <div className="flex flex-col gap-1 mb-10">
+                {solutionItems.map((item, i) => (
+                  <motion.div
+                    key={item.to}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.05 * (i + navItems.length) }}
+                  >
+                    <Link to={item.to} className="group flex items-center gap-4 py-3 active:scale-[0.98] transition-transform">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors group-hover:bg-cyan-100 group-hover:text-cyan-700 shrink-0">
+                        <span className="material-symbols-outlined text-xl">{item.icon}</span>
+                      </span>
+                      <span className="text-lg font-semibold tracking-tight text-slate-800 group-hover:text-cyan-700 transition-colors">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-auto pt-4 pb-4">
                 <Link
                   to="/contact"
-                  onClick={() => setIsMobileOpen(false)}
-                  className="flex w-full items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-sm font-bold uppercase tracking-widest text-white shadow-xl transition-all hover:opacity-90 active:scale-[0.98]"
+                  className="flex w-full items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-white shadow-xl transition-all hover:opacity-90 active:scale-[0.98]"
                 >
                   Request Consultation
                 </Link>

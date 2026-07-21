@@ -131,7 +131,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full pt-24 pb-20 px-3 sm:px-8 md:px-12 lg:px-16 bg-[#ffffff] overflow-hidden font-body">
+    <section className="relative w-full pt-[88px] pb-20 px-3 sm:px-8 md:px-12 lg:px-16 bg-[#ffffff] overflow-hidden font-body">
       {/* 100% COVER LAYER IMAGE CONTAINER
           - min-h added only at the base (mobile) breakpoint so very narrow
             phones don't get squeezed by the aspect-ratio math; it's cleared
