@@ -151,7 +151,13 @@ const guestHouseFAQs = [
   },
 ];
 
-function WhatsAppLink({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function WhatsAppLink({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <a
       href={WHATSAPP_LINK}
@@ -172,53 +178,57 @@ function GuestHouseManagementSystemPage() {
 
   return (
     <main className="md:pt-12 pt-24 bg-[#ffffff] selection:bg-primary-container selection:text-on-primary-container">
-{/* 1. HERO */}
-<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-  {/* Modern Background Accents */}
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+      {/* 1. HERO */}
+      <section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+        {/* Modern Background Accents */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-  <div className="mx-auto max-w-5xl text-center">
-    {/* Refined Modern Badge */}
-    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300  sm:px-4 sm:py-1.5 sm:text-xs">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-      <span className="text-balance">Cloud Operations for Modern Guest Houses</span>
-    </span>
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Refined Modern Badge */}
+          <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300  sm:px-4 sm:py-1.5 sm:text-xs">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+            <span className="text-balance">
+              Cloud Operations for Modern Guest Houses
+            </span>
+          </span>
 
-    {/* Stronger, Cleaner Typographic Hierarchy */}
-    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
-      <span className="block text-balance">Simplify Every Aspect of Your</span>
-      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
-        Guest House Operations
-      </span>
-    </h1>
+          {/* Stronger, Cleaner Typographic Hierarchy */}
+          <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+            <span className="block text-balance">
+              Simplify Every Aspect of Your
+            </span>
+            <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+              Guest House Operations
+            </span>
+          </h1>
 
-    {/* Optimized Description Reading Width */}
-    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
-      Manage reservations, rooms, finances, housekeeping, maintenance and
-      daily operations from one cloud-based platform, built for guest
-      houses, B&Bs and small hotels.
-    </p>
+          {/* Optimized Description Reading Width */}
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+            Manage reservations, rooms, finances, housekeeping, maintenance and
+            daily operations from one cloud-based platform, built for guest
+            houses, B&Bs and small hotels.
+          </p>
 
-    {/* Premium Split-Action Controller */}
-    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
-      <WhatsAppLink className="w-full sm:w-auto sm:min-w-[180px] flex items-center justify-center gap-2 rounded-full shadow-md shadow-primary/5 bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5">
-        <span className="material-symbols-outlined text-xl leading-none">
-          chat
-        </span>
-        Book a Free Demo
-      </WhatsAppLink>
+          {/* Premium Split-Action Controller */}
+          <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+            <WhatsAppLink className="w-full sm:w-auto sm:min-w-[180px] flex items-center justify-center gap-2 rounded-full shadow-md shadow-primary/5 bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5">
+              <span className="material-symbols-outlined text-xl leading-none">
+                chat
+              </span>
+              Book a Free Demo
+            </WhatsAppLink>
 
-      <button
-        type="button"
-        onClick={openInquiryModal}
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
-      >
-        Request Pricing
-      </button>
-    </div>
-  </div>
-</section>
+            <button
+              type="button"
+              onClick={openInquiryModal}
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+            >
+              Request Pricing
+            </button>
+          </div>
+        </div>
+      </section>
 
       {isInquiryOpen ? (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -255,57 +265,56 @@ function GuestHouseManagementSystemPage() {
         </div>
       </section>
 
-{/* CHALLENGES + SOLUTION */}
-<section className="relative overflow-hidden bg-primary px-6 py-20 sm:py-28 md:px-8 text-white ">
-  {/* Decorative Ambient Background Glows */}
-  <div className="absolute top-0 left-1/4 -translate-y-1/2 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
-  <div className="absolute bottom-0 right-1/4 translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* CHALLENGES + SOLUTION */}
+      <section className="relative overflow-hidden bg-primary px-6 py-20 sm:py-28 md:px-8 text-white ">
+        {/* Decorative Ambient Background Glows */}
+        <div className="absolute top-0 left-1/4 -translate-y-1/2 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
-  <div className="relative z-10 mx-auto max-w-7xl">
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      {/* Left Column: The Problem & Tags */}
-      <div className="lg:col-span-6 text-left">
-        <span className="inline-flex items-center text-white/80 font-semibold tracking-wider uppercase text-xs sm:text-sm bg-white/5 px-4 py-1.5 rounded-full border border-white/10 mb-6">
-          The Problem
-        </span>
-        <h2 className="font-headline text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white mb-8">
-          Spreadsheets and notebooks weren't built to run a guest house
-        </h2>
-        <div className="flex flex-wrap gap-2.5">
-          {challengeTags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-white/80 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-            >
-              {tag}
-            </span>
-          ))}
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column: The Problem & Tags */}
+            <div className="lg:col-span-6 text-left">
+              <span className="inline-flex items-center text-white/80 font-semibold tracking-wider uppercase text-xs sm:text-sm bg-white/5 px-4 py-1.5 rounded-full border border-white/10 mb-6">
+                The Problem
+              </span>
+              <h2 className="font-headline text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white mb-8">
+                Spreadsheets and notebooks weren't built to run a guest house
+              </h2>
+              <div className="flex flex-wrap gap-2.5">
+                {challengeTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/20 px-4 py-2 text-xs md:text-sm font-medium text-white/80 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: The Premium Solution Card */}
+            <div className="lg:col-span-6">
+              <div className="relative group rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-md p-8 sm:p-10 shadow-2xl transition-all duration-500 ">
+                {/* Elegant top accent line */}
+                <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent" />
+
+                <span className="text-white text-xs uppercase tracking-widest font-bold block mb-4">
+                  Our Solution
+                </span>
+                <p className="text-white text-base sm:text-lg leading-relaxed font-light">
+                  Our Guest House Management System centralizes every part of
+                  your accommodation business into one easy-to-use cloud
+                  platform. Manage reservations, room availability, finances,
+                  maintenance and kitchen operations from a single dashboard, so
+                  your team can focus on delivering a great guest experience
+                  instead of chasing information.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Right Column: The Premium Solution Card */}
-      <div className="lg:col-span-6">
-        <div className="relative group rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-md p-8 sm:p-10 shadow-2xl transition-all duration-500 ">
-          {/* Elegant top accent line */}
-          <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent" />
-
-          <span className="text-white text-xs uppercase tracking-widest font-bold block mb-4">
-            Our Solution
-          </span>
-          <p className="text-white text-base sm:text-lg leading-relaxed font-light">
-            Our Guest House Management System centralizes every part of your
-            accommodation business into one easy-to-use cloud platform. Manage
-            reservations, room availability, finances, maintenance and kitchen
-            operations from a single dashboard, so your team can focus on
-            delivering a great guest experience instead of chasing information.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* DASHBOARD DEVICE MOCKUP */}
       <section className="overflow-hidden bg-[#ffffff] px-4 py-20 sm:px-6 sm:py-24 md:px-8 md:py-32">
@@ -668,31 +677,32 @@ function GuestHouseManagementSystemPage() {
 
       {/* CORE FEATURES — Precision Components bento */}
       <section className="py-16 px-4 sm:py-20 sm:px-6 md:py-24 md:px-8 max-w-7xl mx-auto">
-{/* HEADER */}
-<div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
-  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-  <div className="absolute top-10 left-0 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-9 lg:text-[14rem]">
-    FEATURES
-  </div>
+        {/* HEADER */}
+        <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-hidden md:py-12">
+          {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+          <div className="absolute top-10 left-0 select-none font-headline font-black text-[5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-14 md:text-[10rem] lg:top-9 lg:text-[14rem]">
+            FEATURES
+          </div>
 
-  {/* Main Content Layout Container */}
-  <div className="relative z-10 flex flex-col items-start px-2 pt-8 text-left sm:pt-12 md:pt-16 lg:pt-20">
-    {/* Minimalist Category Kicker */}
-    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
-      Core Features
-    </span>
+          {/* Main Content Layout Container */}
+          <div className="relative z-10 flex flex-col items-start px-2 pt-8 text-left sm:pt-12 md:pt-16 lg:pt-20">
+            {/* Minimalist Category Kicker */}
+            <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+              Core Features
+            </span>
 
-    {/* Headline */}
-    <h2 className="mt-0 md:mt-2 text-4xl font-extrabold font-headline tracking-tight text-primary sm:text-5xl md:text-7xl lg:text-8xl">
-      Core Features
-    </h2>
+            {/* Headline */}
+            <h2 className="mt-0 md:mt-2 text-4xl font-extrabold font-headline tracking-tight text-primary sm:text-5xl md:text-7xl lg:text-8xl">
+              Core Features
+            </h2>
 
-    {/* Editorial Description */}
-    <p className="mt-6 sm:mt-8 max-w-md text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg">
-      Every part of running a guest house, handled by one connected platform.
-    </p>
-  </div>
-</div>
+            {/* Editorial Description */}
+            <p className="mt-6 sm:mt-8 max-w-md text-balance text-base font-light font-body leading-relaxed tracking-wide text-on-surface-variant sm:text-lg">
+              Every part of running a guest house, handled by one connected
+              platform.
+            </p>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 md:grid-rows-2 md:h-[500px]">
           {/* Reservation Management — featured */}
@@ -782,26 +792,26 @@ function GuestHouseManagementSystemPage() {
       {/* KEY BENEFITS */}
       <section className="bg-surface px-6 py-16 sm:py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-{/* HEADER */}
-<div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
-  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
-    BENEFITS
-  </div>
+          {/* HEADER */}
+          <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+            {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-20 md:text-[10rem] lg:top-4 lg:text-[14rem]">
+              BENEFITS
+            </div>
 
-  {/* Main Content Layout Container */}
-  <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
-    {/* Minimalist Category Kicker */}
-    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
-      Key Benefits
-    </span>
+            {/* Main Content Layout Container */}
+            <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+              {/* Minimalist Category Kicker */}
+              <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+                Key Benefits
+              </span>
 
-    {/* Headline */}
-    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
-      What it means for your guest house
-    </h2>
-  </div>
-</div>
+              {/* Headline */}
+              <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+                What it means for your guest house
+              </h2>
+            </div>
+          </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => (
               <div key={item.title} className="flex items-start gap-4">
@@ -825,122 +835,114 @@ function GuestHouseManagementSystemPage() {
         </div>
       </section>
 
-{/* HOW IT WORKS */}
-<section className="relative mx-auto max-w-7xl overflow-hidden px-5 py-20 sm:px-6 md:px-8 md:py-32">
+      {/* HOW IT WORKS */}
+      <section className="relative mx-auto max-w-7xl overflow-hidden px-5 py-20 sm:px-6 md:px-8 md:py-32">
+        {/* Ambient Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-  {/* Ambient Grid */}
-  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="relative z-10 grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column */}
+          <div className="space-y-6 lg:sticky lg:top-28 lg:col-span-4">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">
+              How It Works
+            </span>
 
-  <div className="relative z-10 grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+            <h2 className="font-headline text-3xl font-black tracking-tight text-primary leading-[1.15] sm:text-4xl md:text-5xl">
+              Live in <br className="hidden lg:block" />
+              Five Steps
+            </h2>
 
-    {/* Left Column */}
-    <div className="space-y-6 lg:sticky lg:top-28 lg:col-span-4">
+            <p className="max-w-md text-sm leading-relaxed text-on-surface-variant/70 md:text-base">
+              Launch your business in minutes with a streamlined workflow
+              designed to guide you from initial setup to daily operations
+              without unnecessary complexity.
+            </p>
 
-      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-outline">
-        How It Works
-      </span>
-
-      <h2 className="font-headline text-3xl font-black tracking-tight text-primary leading-[1.15] sm:text-4xl md:text-5xl">
-        Live in <br className="hidden lg:block" />
-        Five Steps
-      </h2>
-
-      <p className="max-w-md text-sm leading-relaxed text-on-surface-variant/70 md:text-base">
-        Launch your business in minutes with a streamlined workflow designed to
-        guide you from initial setup to daily operations without unnecessary
-        complexity.
-      </p>
-
-      {/* Metric */}
-      <div className="hidden max-w-xs items-center gap-1.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest/50 p-4 shadow-sm backdrop-blur-sm lg:flex">
-        <div className="flex -space-x-2">
-          {steps.map((_, index) => (
-            <div
-              key={index}
-              className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-surface-container-lowest bg-primary font-mono text-[8px] font-bold text-white shadow-sm"
-            >
-              {index + 1}
-            </div>
-          ))}
-        </div>
-
-        <span className="pl-2 text-[11px] font-medium text-on-surface-variant/80">
-          Simple 5-Step Workflow
-        </span>
-      </div>
-    </div>
-
-    {/* Right Timeline */}
-    <div className="relative lg:col-span-8">
-
-      {/* Timeline */}
-      <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent" />
-
-      <div className="relative z-10 space-y-8">
-        {steps.map((step) => (
-          <div
-            key={step.n}
-            className="group relative flex items-start gap-6 rounded-2xl p-2 transition-all duration-300 hover:bg-primary/[0.01]"
-          >
-            {/* Step Circle */}
-            <div className="relative mt-1 shrink-0">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-outline-variant/80 bg-surface-container-lowest font-mono text-xs font-bold text-primary shadow-[0_2px_6px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:scale-105 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
-                {String(step.n).padStart(2, "0")}
+            {/* Metric */}
+            <div className="hidden max-w-xs items-center gap-1.5 rounded-xl border border-outline-variant/30 bg-surface-container-lowest/50 p-4 shadow-sm backdrop-blur-sm lg:flex">
+              <div className="flex -space-x-2">
+                {steps.map((_, index) => (
+                  <div
+                    key={index}
+                    className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-surface-container-lowest bg-primary font-mono text-[8px] font-bold text-white shadow-sm"
+                  >
+                    {index + 1}
+                  </div>
+                ))}
               </div>
 
-              <div className="absolute left-1/2 top-1/2 -z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-100" />
-            </div>
-
-            {/* Card */}
-            <div className="flex-1 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest/80 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] backdrop-blur-sm transition-all duration-300 group-hover:border-outline-variant/60 group-hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]">
-
-              <div className="mb-2.5 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
-                <h3 className="text-base font-bold tracking-tight text-primary sm:text-lg">
-                  {step.title}
-                </h3>
-
-                <span className="inline-block rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
-                  Phase {String(step.n).padStart(2, "0")}
-                </span>
-              </div>
-
-              <p className="text-xs font-normal leading-relaxed text-on-surface-variant/80 sm:text-sm">
-                {step.description}
-              </p>
-
+              <span className="pl-2 text-[11px] font-medium text-on-surface-variant/80">
+                Simple 5-Step Workflow
+              </span>
             </div>
           </div>
-        ))}
-      </div>
 
-    </div>
+          {/* Right Timeline */}
+          <div className="relative lg:col-span-8">
+            {/* Timeline */}
+            <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent" />
 
-  </div>
-</section>
+            <div className="relative z-10 space-y-8">
+              {steps.map((step) => (
+                <div
+                  key={step.n}
+                  className="group relative flex items-start gap-6 rounded-2xl p-2 transition-all duration-300 hover:bg-primary/[0.01]"
+                >
+                  {/* Step Circle */}
+                  <div className="relative mt-1 shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-outline-variant/80 bg-surface-container-lowest font-mono text-xs font-bold text-primary shadow-[0_2px_6px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:scale-105 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                      {String(step.n).padStart(2, "0")}
+                    </div>
+
+                    <div className="absolute left-1/2 top-1/2 -z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-100" />
+                  </div>
+
+                  {/* Card */}
+                  <div className="flex-1 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest/80 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] backdrop-blur-sm transition-all duration-300 group-hover:border-outline-variant/60 group-hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]">
+                    <div className="mb-2.5 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+                      <h3 className="text-base font-bold tracking-tight text-primary sm:text-lg">
+                        {step.title}
+                      </h3>
+
+<span className="inline-flex w-fit self-start rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
+  Phase {String(step.n).padStart(2, "0")}
+</span>
+                    </div>
+
+                    <p className="text-xs font-normal leading-relaxed text-on-surface-variant/80 sm:text-sm">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* WHY CHOOSE */}
       <section className="bg-[#ffffff] px-6 py-16 sm:py-20 md:px-8">
         <div className="mx-auto max-w-7xl">
-{/* HEADER */}
-<div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
-  {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
-    WHY US
-  </div>
+          {/* HEADER */}
+          <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
+            {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
+              WHY US
+            </div>
 
-  {/* Main Content Layout Container */}
-  <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
-    {/* Minimalist Category Kicker */}
-    <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
-      Why Choose Us
-    </span>
+            {/* Main Content Layout Container */}
+            <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center pt-8 text-center sm:pt-12 md:pt-16 lg:pt-20">
+              {/* Minimalist Category Kicker */}
+              <span className="font-body text-[10px] font-semibold uppercase tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em] md:text-xs md:tracking-[0.25em]">
+                Why Choose Us
+              </span>
 
-    {/* Headline */}
-    <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
-      Why Choose Our Guest House Management System?
-    </h2>
-  </div>
-</div>
+              {/* Headline */}
+              <h2 className="mt-0 md:mt-2 text-5xl font-extrabold font-headline tracking-tight text-on-background sm:text-6xl md:text-8xl lg:text-7xl dark:text-white">
+                Why Choose Our Guest House Management System?
+              </h2>
+            </div>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {whyChoose.map((item) => (
               <div

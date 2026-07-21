@@ -27,27 +27,27 @@ function Footer() {
   return (
     <footer className="relative w-full bg-on-primary-container text-white font-body overflow-hidden border-t border-[#bcc9cb]/20">
       {/* Deep Royal Ambient Light Layer */}
-      <div className="absolute top-0 right-0 pointer-events-none opacity-[0.25] w-[600px] h-[600px]">
-        <div className="absolute inset-0 bg-gradient-to-bl from-[#96f0ff] via-[#7bd0ff] to-transparent rounded-full blur-[120px]" />
+      <div className="absolute top-0 right-0 pointer-events-none opacity-[0.25] w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px]">
+        <div className="absolute inset-0 bg-gradient-to-bl from-[#96f0ff] via-[#7bd0ff] to-transparent rounded-full blur-[80px] sm:blur-[100px] lg:blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-6 lg:px-2">
         {/* Main Grid Deck */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 pt-20 pb-16 border-b border-[#bcc9cb]/10">
+        <div className="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-8 pt-12 pb-10 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16 border-b border-[#bcc9cb]/10">
           {/* Identity & Mission Node */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-3 py-1 rounded-full mb-6">
-                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#96f0ff] font-label">
+              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-3 py-1 rounded-full mb-5 sm:mb-6">
+                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-[#96f0ff] font-label">
                   Global Technology Grid
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight font-headline text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight font-headline text-white">
                 LUSHWARE<span className="text-[#96f0ff]">.</span>
               </h2>
 
-              <p className="mt-5 max-w-md text-base font-light text-[#f2f4f6]/90 leading-relaxed">
+              <p className="mt-4 sm:mt-5 max-w-md text-sm sm:text-base font-light text-[#f2f4f6]/90 leading-relaxed">
                 Designing the future of{" "}
                 <span className="text-white font-medium underline decoration-[#96f0ff] decoration-2 underline-offset-4">
                   Island Tech
@@ -58,7 +58,7 @@ function Footer() {
             </div>
 
             {/* Premium Social Dock */}
-            <div className="mt-10 flex gap-2.5">
+            <div className="mt-8 sm:mt-10 flex flex-wrap gap-2 sm:gap-2.5">
               {[
                 FaLinkedinIn,
                 FaInstagram,
@@ -69,21 +69,21 @@ function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white transition-all duration-300 hover:bg-[#96f0ff] hover:text-[#001f24] hover:border-[#96f0ff] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#96f0ff]/20"
+                  className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white transition-all duration-300 hover:bg-[#96f0ff] hover:text-[#001f24] hover:border-[#96f0ff] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#96f0ff]/20"
                 >
-                  <Icon className="text-lg" />
+                  <Icon className="text-base sm:text-lg" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Structured Directory Links */}
-          <div className="grid grid-cols-2 gap-8 lg:col-span-4">
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:col-span-4">
             <div>
-              <h5 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-[#96f0ff] font-label">
+              <h5 className="mb-4 sm:mb-6 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#96f0ff] font-label">
                 Solutions
               </h5>
-              <ul className="space-y-4 text-sm font-medium">
+              <ul className="space-y-3 sm:space-y-4 text-sm font-medium">
                 {solutionLinks.map((link) => (
                   <li key={link}>
                     <a
@@ -97,10 +97,10 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h5 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-[#96f0ff] font-label">
+              <h5 className="mb-4 sm:mb-6 text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#96f0ff] font-label">
                 Company
               </h5>
-              <ul className="space-y-4 text-sm font-medium">
+              <ul className="space-y-3 sm:space-y-4 text-sm font-medium">
                 {companyLinks.map((link) => (
                   <li key={link}>
                     <a
@@ -117,7 +117,7 @@ function Footer() {
 
           {/* Premium Glassmorphic Newsletter Box */}
           <div className="lg:col-span-3">
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl shadow-black/5">
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 backdrop-blur-xl shadow-xl shadow-black/5">
               <h4 className="text-base font-semibold text-white font-headline mb-1">
                 Island Insights
               </h4>
@@ -140,8 +140,8 @@ function Footer() {
         </div>
 
         {/* Lower Utility Strip */}
-        <div className="py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#f2f4f6]/70 font-medium">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 font-label tracking-wider">
+        <div className="py-6 sm:py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#f2f4f6]/70 font-medium">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 sm:gap-x-6 gap-y-2 font-label tracking-wider text-center">
             <span>MALE', MALDIVES</span>
             <span className="hidden md:inline text-white/20">&bull;</span>
             <span>COLOMBO, SRI LANKA</span>
@@ -151,7 +151,7 @@ function Footer() {
             &copy; {currentYear} LUSHWARE MALDIVES
           </p>
 
-          <div className="flex gap-6 uppercase font-bold tracking-widest text-[10px]">
+          <div className="flex gap-4 sm:gap-6 uppercase font-bold tracking-widest text-[10px]">
             <a href="#" className="hover:text-[#96f0ff] transition-colors">
               Privacy Policy
             </a>

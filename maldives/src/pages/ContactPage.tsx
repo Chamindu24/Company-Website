@@ -124,63 +124,63 @@ function ContactPage() {
     "w-full bg-[#f8fafc] border border-outline-variant/50 rounded-2xl px-6 py-4 text-on-surface placeholder:text-slate-400 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all duration-300 ease-out";
   return (
     <main className="bg-[#ffffff] pt-24 md:pt-20 font-body text-on-surface">
-{/* HERO */}
-{/* HERO */}
-<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-  {/* Modern Background Accents */}
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
-  <div className="mx-auto max-w-5xl text-center">
-    {/* Refined Modern Badge */}
-    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-      <span className="text-balance">Partner with us</span>
-    </span>
+      {/* HERO */}
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+        {/* Modern Background Accents */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Refined Modern Badge */}
+          <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+            <span className="text-balance">Partner with us</span>
+          </span>
 
-    {/* Stronger, Cleaner Typographic Hierarchy */}
-    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
-      <span className="block text-balance">Let's Scale Your</span>
-      <span className="mt-1 block sm:mt-2">
-        <span className="bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm">
-          Island Business
-        </span>{" "}
-        <span className="text-on-surface">Together</span>
-      </span>
-    </h1>
+          {/* Stronger, Cleaner Typographic Hierarchy */}
+          <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+            <span className="block text-balance">Let's Scale Your</span>
+            <span className="mt-1 block sm:mt-2">
+              <span className="bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm">
+                Island Business
+              </span>{" "}
+              <span className="text-on-surface">Together</span>
+            </span>
+          </h1>
 
-    {/* Optimized Description Reading Width */}
-    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
-      Transform your Maldivian hospitality experience with digital
-      solutions designed for the horizon.
-    </p>
+          {/* Optimized Description Reading Width */}
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+            Transform your Maldivian hospitality experience with digital
+            solutions designed for the horizon.
+          </p>
 
-    {/* Premium Split-Action Controller */}
-    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
-      <a
-        href="#contact-form"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-center font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
-      >
-        Schedule a Demo
-      </a>
-      <Link
-        to="/services"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
-      >
-        View Solutions
-      </Link>
-    </div>
-  </div>
-</section>
+          {/* Premium Split-Action Controller */}
+          <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+            <a
+              href="#contact-form"
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-center font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+            >
+              Schedule a Demo
+            </a>
+            <Link
+              to="/services"
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+            >
+              View Solutions
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section
         id="contact-form"
-        className="mx-auto mb-24 max-w-8xl px-6 -mt-48 md:mt-0 md:px-24"
+        className="mx-auto mb-24 max-w-8xl px-6 -mt-48 md:mt-0 md:px-12 lg:px-24"
       >
         <div className="grid  grid-cols-1 gap-16 lg:grid-cols-12">
           {/* Main Container */}
           <div className="relative overflow-hidden rounded-[2.5rem] border border-outline-variant/20 bg-white p-2 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.03)] lg:col-span-8">
             {/* Interior Padding Box */}
-            <div className="px-2 py-12 md:px-12 md:py-16">
+            <div className="px-2 py-12 md:px-8 lg:px-12 md:py-16">
               {/* Form Header */}
               <div className="mb-14 px-2 max-w-xl">
                 <h2 className="font-headline text-4xl font-black tracking-tight text-on-surface sm:text-5xl">
@@ -339,7 +339,7 @@ function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group relative flex w-full md:w-auto items-center justify-center gap-4 overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 py-4 sm:py-6 text-sm sm:text-base font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white transition-all hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] active:scale-[0.98] disabled:opacity-50"
+                    className="group relative flex w-full md:w-auto items-center justify-center gap-4 overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-6 sm:px-10 py-3 md:py-4 lg:py-3 text-sm sm:text-base font-black uppercase tracking-[0.1em] sm:tracking-[0.1em] text-white transition-all hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] active:scale-[0.98] disabled:opacity-50"
                   >
                     {/* Button Text */}
                     <span className="relative z-10">
@@ -448,46 +448,48 @@ function ContactPage() {
         </div>
       </section>
 
-<section className="relative w-full bg-white py-16 sm:py-24 lg:py-40 overflow-hidden">
+      <section className="relative w-full bg-white py-16 sm:py-24 lg:py-40 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32">
+            {/* Editorial Content Block */}
+            <div className="flex-1">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-gray-950 text-center lg:text-left">
+                Ready to start your <br />
+                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-medium">
+                  digital journey?
+                </span>
+              </h2>
+            </div>
 
+            {/* Structured Action Block */}
+            <div className="flex-1 flex flex-col items-center lg:items-end justify-center border-t lg:border-t-0 lg:border-l border-gray-100 pt-10 lg:pt-0 pl-0 lg:pl-16">
+              <p className="text-base sm:text-lg leading-relaxed text-center lg:text-right text-gray-600 mb-8 sm:mb-12 max-w-md">
+                Join the leading resorts and businesses in the Maldives who
+                trust Viduvaru for their digital transformation. We deliver
+                precision-engineered solutions for the modern enterprise.
+              </p>
 
-  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32">
-      
-      {/* Editorial Content Block */}
-      <div className="flex-1">
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-gray-950 text-center lg:text-left">
-          Ready to start your <br />
-          <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-medium">digital journey?</span>
-        </h2>
-      </div>
-
-      {/* Structured Action Block */}
-      <div className="flex-1 flex flex-col items-center lg:items-end justify-center border-t lg:border-t-0 lg:border-l border-gray-100 pt-10 lg:pt-0 pl-0 lg:pl-16">
-        <p className="text-base sm:text-lg leading-relaxed text-center lg:text-right text-gray-600 mb-8 sm:mb-12 max-w-md">
-          Join the leading resorts and businesses in the Maldives who trust Viduvaru for their digital transformation. We deliver precision-engineered solutions for the modern enterprise.
-        </p>
-
-        <div className="flex flex-wrap justify-center lg:justify-end gap-4 w-full sm:w-auto">
-          <a
-            href="/our-work"
-            className="flex items-center justify-center gap-3 border-b-2 border-gray-950 px-2 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-950 transition-all hover:text-primary hover:border-primary"
-          >
-            Explore Portfolio
-          </a>
-          <a
-            href="#contact-form"
-            className="group flex rounded-full items-center justify-center gap-3 bg-gradient-to-br from-primary to-primary-container text-white px-8 sm:px-10 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-primary w-full sm:w-auto"
-          >
-            Request Consultation
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </a>
+              <div className="flex flex-wrap justify-center lg:justify-end gap-4 w-full sm:w-auto">
+                <a
+                  href="/our-work"
+                  className="flex items-center justify-center gap-3 border-b-2 border-gray-950 px-2 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-950 transition-all hover:text-primary hover:border-primary"
+                >
+                  Explore Portfolio
+                </a>
+                <a
+                  href="#contact-form"
+                  className="group flex rounded-full items-center justify-center gap-3 bg-gradient-to-br from-primary to-primary-container text-white px-8 sm:px-10 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-primary w-full sm:w-auto"
+                >
+                  Request Consultation
+                  <span className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
+      </section>
     </main>
   );
 }

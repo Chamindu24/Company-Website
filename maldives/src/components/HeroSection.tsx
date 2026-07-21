@@ -120,14 +120,26 @@ const HeroSection = () => {
   // "wipe" with perceptible lag.
   const backgroundVariants = {
     initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 0.5, ease: "easeInOut" as const } },
-    exit: { opacity: 0, transition: { duration: 0.5, ease: "easeInOut" as const } },
+    animate: {
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeInOut" as const },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5, ease: "easeInOut" as const },
+    },
   };
 
   const elementVariants = {
     initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 0.35, ease: "easeInOut" as const } },
-    exit: { opacity: 0, transition: { duration: 0.2, ease: "easeInOut" as const } },
+    animate: {
+      opacity: 1,
+      transition: { duration: 0.35, ease: "easeInOut" as const },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.2, ease: "easeInOut" as const },
+    },
   };
 
   return (
@@ -257,19 +269,15 @@ const HeroSection = () => {
             </div>
 
             {/* Premium Directional Capsule Hub */}
-            <div className="flex items-center bg-surface-container-lowest/45 backdrop-blur-xl p-1.5 rounded-2xl border border-white/50 w-full sm:w-auto justify-between sm:justify-start gap-4 shadow-[0_10px_30px_-10px_rgba(0,45,50,0.12)]">
-              <div className="text-xs font-mono font-bold text-on-surface px-3 sm:hidden">
-                0{current + 1} / 0{slides.length}
-              </div>
-
-              <div className="flex gap-2">
+            <div className="flex w-full justify-end">
+              <div className="flex items-center rounded-xl sm:rounded-2xl bg-surface-container-lowest/45 backdrop-blur-xl p-1 sm:p-1.5 border border-white/50 gap-2 shadow-[0_10px_30px_-10px_rgba(0,45,50,0.12)]">
                 <button
                   onClick={handlePrev}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/60 text-on-surface active:scale-90 transition-all shadow-sm"
+                  className="flex h-9 w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12 items-center justify-center rounded-lg sm:rounded-xl bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/60 text-on-surface transition-all active:scale-90 shadow-sm"
                   aria-label="Previous module"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -282,13 +290,14 @@ const HeroSection = () => {
                     />
                   </svg>
                 </button>
+
                 <button
                   onClick={handleNext}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary hover:bg-secondary active:scale-90 transition-all shadow-sm"
+                  className="flex h-9 w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary transition-all hover:opacity-90 active:scale-90 shadow-sm"
                   aria-label="Next module"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

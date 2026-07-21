@@ -107,8 +107,6 @@ const coreFeatures = [
   },
 ];
 
-
-
 const steps = [
   {
     title: "Add your properties",
@@ -177,54 +175,56 @@ function WhatsAppButton({
   );
 }
 
-
-
 function PropertyManagementSystemPage() {
   return (
     <main className="bg-[#ffffff] pb-24 md:pt-12 pt-24 font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
       {/* 1. HERO */}
-<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-  {/* Modern Background Accents */}
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+      <section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+        {/* Modern Background Accents */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-  <div className="mx-auto max-w-5xl text-center">
-    {/* Refined Modern Badge */}
-    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-      <span className="text-balance">Built for Travel Agencies & DMCs</span>
-    </span>
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Refined Modern Badge */}
+          <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+            <span className="text-balance">
+              Built for Travel Agencies & DMCs
+            </span>
+          </span>
 
-    {/* Stronger, Cleaner Typographic Hierarchy */}
-    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
-      <span className="block text-balance">Property Management System for</span>
-      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
-        Travel Agencies
-      </span>
-    </h1>
+          {/* Stronger, Cleaner Typographic Hierarchy */}
+          <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+            <span className="block text-balance">
+              Property Management System for
+            </span>
+            <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+              Travel Agencies
+            </span>
+          </h1>
 
-    {/* Optimized Description Reading Width */}
-    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
-      Manage properties, bookings, finances and daily operations from one
-      cloud-based platform — built for the way Maldivian tourism
-      businesses actually work.
-    </p>
+          {/* Optimized Description Reading Width */}
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+            Manage properties, bookings, finances and daily operations from one
+            cloud-based platform — built for the way Maldivian tourism
+            businesses actually work.
+          </p>
 
-    {/* Premium Split-Action Controller */}
-    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
-      <WhatsAppButton className="w-full sm:w-auto sm:min-w-[180px] rounded-full shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
-        Book a Demo
-      </WhatsAppButton>
+          {/* Premium Split-Action Controller */}
+          <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+            <WhatsAppButton className="w-full sm:w-auto sm:min-w-[180px] rounded-full shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
+              Book a Demo
+            </WhatsAppButton>
 
-      <a
-        href="#features"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
-      >
-        See How It Works
-      </a>
-    </div>
-  </div>
-</section>
+            <a
+              href="#features"
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+            >
+              See How It Works
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* 2. WHO IS IT FOR */}
       <section className="bg-[#ffffff] px-6 py-14 sm:py-16 md:py-20 md:px-8">
@@ -232,7 +232,7 @@ function PropertyManagementSystemPage() {
           {/* HEADER */}
           <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
             {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+            <div className="absolute top-12 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
               MALDIVES
             </div>
 
@@ -343,7 +343,7 @@ function PropertyManagementSystemPage() {
         {/* HEADER */}
         <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
           {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-white/[0.15] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-white/[0.15] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
             CLOUD
           </div>
 
@@ -571,7 +571,7 @@ function PropertyManagementSystemPage() {
           {/* HEADER */}
           <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
             {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
               FEATURES
             </div>
 
@@ -702,7 +702,7 @@ function PropertyManagementSystemPage() {
                         {step.title}
                       </h3>
 
-                      <span className="inline-block rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
+                      <span className="inline-flex w-fit self-start rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
                         Step {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -724,7 +724,7 @@ function PropertyManagementSystemPage() {
           {/* HEADER */}
           <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
             {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+            <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
               WHY US
             </div>
 

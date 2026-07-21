@@ -31,7 +31,7 @@ export default function FAQSection({
 {/* HEADER */}
 <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
   {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.18] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+  <div className="absolute top-9 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[6rem] tracking-tighter leading-none text-primary-container/[0.18] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
     FAQ
   </div>
 
@@ -121,7 +121,7 @@ export default function FAQSection({
             </p>
             <Link
               to="/contact"
-              className="group relative overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-8 py-4 text-sm font-bold tracking-widest uppercase text-on-primary transition-all hover:bg-primary/90 hover:shadow-2xl hover:shadow-primary/30"
+              className="group relative overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-sm font-bold tracking-widest uppercase text-on-primary transition-all hover:bg-primary/90 hover:shadow-2xl hover:shadow-primary/30"
             >
               <span className="relative z-10">Contact Support</span>
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>

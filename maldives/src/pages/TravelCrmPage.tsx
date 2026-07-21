@@ -236,7 +236,7 @@ function TravelCrmPage() {
 {/* HEADER */}
 <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
   {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.18] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-11 lg:text-[12rem]">
+  <div className="absolute top-12 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5rem] tracking-tighter leading-none text-primary-container/[0.18] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-11 lg:text-[12rem]">
     BUILT FOR
   </div>
 
@@ -357,7 +357,7 @@ function TravelCrmPage() {
 {/* HEADER */}
 <div className="relative mb-6 md:mb-12 w-full py-8 sm:py-10 overflow-visible md:py-12">
   {/* Giant Structural Background Typography - Pure Royal Editorial Aesthetic */}
-  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:-top-16 md:text-[20rem] lg:top-4 lg:text-[14rem]">
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.14] dark:text-white/[0.01] whitespace-nowrap xs:text-[6rem] sm:-top-4 sm:text-[9rem] md:top-12 md:text-[12rem] lg:top-4 lg:text-[14rem]">
     RUNS ON
   </div>
 
@@ -807,9 +807,9 @@ function TravelCrmPage() {
 {/* Header Section */}
 <div className="relative overflow-visible pt-8 pb-8 mb-16 border-b border-slate-200/60">
   {/* Giant Structural Background Typography */}
-  <div className="absolute -top-4 left-0 select-none font-headline font-black text-[5.5rem] tracking-tighter leading-none text-primary-container/[0.16] whitespace-nowrap xs:text-[6rem] sm:text-[8rem] md:text-[11rem] lg:text-[9rem] pointer-events-none">
-    ROADMAP
-  </div>
+<div className="pointer-events-none absolute -left-1 top-10 xs:-top-4 sm:-top-4 md:-top-0 lg:-left-2 lg:-top-4  select-none whitespace-nowrap font-headline font-black leading-none tracking-tighter text-primary-container/[0.16] text-[clamp(3rem,14vw,9rem)]">
+  ROADMAP
+</div>
 
   <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div>

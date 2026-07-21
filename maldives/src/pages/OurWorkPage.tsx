@@ -215,7 +215,7 @@ function OurWorkPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl overflow-x-hidden mx-auto px-6 md:px-0 py-12">
+      <section className="max-w-7xl overflow-x-hidden mx-auto px-6 md:px-6 lg:px-0 py-12">
         <div className="flex flex-col gap-6 mb-8 sm:flex-row sm:items-center sm:justify-between sm:mb-10 md:mb-12">
           <h2 className="text-2xl font-headline font-extrabold text-primary tracking-tight sm:text-3xl md:text-4xl">
             Recent Deployments
