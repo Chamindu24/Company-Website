@@ -5,9 +5,9 @@ import FAQSection from "../components/FAQSection";
 import InquiryForm from "../components/InquiryForm";
 
 // TODO: replace with the client's live WhatsApp Business number (international format, no + or spaces)
-const WHATSAPP_NUMBER = "9607XXXXXXX";
+const WHATSAPP_NUMBER = "94716430053";
 const WHATSAPP_MESSAGE =
-  "Hi! I'd like to book a free demo of the Guest House Management System.";
+  "Hi LushWare! I'm interested in your Guest House Management System. Could we book a free demo to see how it can help my property?";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
 )}`;
@@ -904,9 +904,9 @@ function GuestHouseManagementSystemPage() {
                         {step.title}
                       </h3>
 
-<span className="inline-flex w-fit self-start rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
-  Phase {String(step.n).padStart(2, "0")}
-</span>
+                      <span className="inline-flex w-fit self-start rounded border border-primary/5 bg-primary/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary/80 transition-colors duration-300 group-hover:bg-primary/5 group-hover:text-primary">
+                        Phase {String(step.n).padStart(2, "0")}
+                      </span>
                     </div>
 
                     <p className="text-xs font-normal leading-relaxed text-on-surface-variant/80 sm:text-sm">
@@ -976,40 +976,74 @@ function GuestHouseManagementSystemPage() {
       />
 
       {/* FINAL CTA */}
-      <section className="px-4 py-16 sm:px-6 mb-32 sm:py-20 md:px-8 md:py-24">
-        <div className="relative mx-auto max-w-7xl space-y-5 sm:space-y-6 lg:space-y-8 overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center shadow-2xl sm:p-10 md:p-12 lg:p-16">
+      <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24 mb-32">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
           <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+            className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+            style={{ backgroundImage: `url('/cta.jpg')` }}
+          >
+            {/* Dark Overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+            />
 
-          <h2 className="relative z-10 font-headline text-2xl font-extrabold leading-tight text-on-primary sm:text-3xl md:text-4xl lg:text-5xl">
-            Ready to Modernize Your Guest House?
-          </h2>
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+              {/* Content */}
+              <div className="lg:col-span-2 max-w-2xl">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                  <span>Guest House Management</span>
+                </div>
 
-          <p className="relative z-10 mx-auto max-w-2xl text-sm text-white sm:text-base md:text-xl">
-            Deliver a better guest experience while managing your entire
-            business from one platform.
-          </p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white">
+                  Ready to Modernize Your
+                  <br className="hidden sm:block" />
+                  Guest House?
+                </h2>
 
-          <div className="relative z-10 flex flex-col items-center gap-3 pt-3 sm:flex-row sm:justify-center sm:gap-4 sm:pt-4 lg:pt-6">
-            <WhatsAppLink className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-bold text-primary shadow-xl transition-all hover:bg-opacity-90 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base">
-              <span className="material-symbols-outlined text-xl leading-none">
-                chat
-              </span>
-              Book a Free Demo
-            </WhatsAppLink>
-            <Link
-              to="/contact"
-              className="w-full rounded-full border border-white/80 bg-primary-container/20 px-8 py-3 text-sm font-bold text-on-primary backdrop-blur-md transition-all hover:bg-primary-container/30 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base"
-            >
-              Contact Sales
-            </Link>
+                <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200">
+                  Deliver a better guest experience while managing your entire
+                  business from one platform.
+                </p>
+
+                {/* Buttons */}
+                <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                  <WhatsAppLink className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[240px]">
+                    <span className="relative z-10 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-lg">
+                        chat
+                      </span>
+                      Book a Free Demo
+                    </span>
+
+                    <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
+
+                    <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                  </WhatsAppLink>
+
+                  <Link
+                    to="/contact"
+                    className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span>Contact Sales</span>
+
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Empty column to preserve image composition */}
+              <div
+                className="hidden lg:block lg:col-span-1 pointer-events-none"
+                aria-hidden="true"
+              />
+            </div>
           </div>
         </div>
       </section>

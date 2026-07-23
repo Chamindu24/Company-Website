@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+
+const WHATSAPP_NUMBER = "94716430053";
+const WHATSAPP_LANDING_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi LushWare! I'd like to learn more about your software solutions and see how they can help my business. Could we schedule a quick chat?")}`;
 import { motion } from "framer-motion";
 import HowItWorksSection from "../components/HowItWorksSection";
 import { useEffect, useState } from "react";
@@ -521,48 +524,71 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="relative w-full overflow-hidden bg-[#ffffff] py-16 sm:py-20 lg:py-24">
-          {/* Subtle Background Grain/Texture Hint */}
-          <div className="pointer-events-none absolute -right-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-[120px]" />
+        <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
+            <div
+              className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+              style={{ backgroundImage: `url('/cta.jpg')` }}
+            >
+              <div
+                className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+              />
 
-          <div className="relative mx-auto max-w-7xl rounded-lg px-4 sm:px-6 lg:px-8 lg:px-2">
-            {/* Refined Border - Subtle and elegant */}
-            <div className="border border-gray-100 rounded-lg bg-white/50 p-6 sm:p-10 md:p-14 lg:p-20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-sm">
-              <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-[1fr_auto] lg:gap-24">
-                {/* Left: Heading + Supporting Copy */}
-                <div className="max-w-3xl">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] sm:leading-[1] lg:leading-[0.9] tracking-[-0.02em] lg:tracking-[-0.04em] text-gray-950">
+              <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+                {/* Content panel */}
+                <div className="lg:col-span-2 max-w-2xl">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md mb-6 shadow-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                    <span>Next Generation Platform</span>
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.1]">
                     Ready to transform your <br className="hidden sm:block" />
-                    <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                      hospitality experience?
-                    </span>
+                    software experience?
                   </h2>
 
-                  <p className="mt-4 sm:mt-6 lg:mt-8 max-w-md text-base sm:text-lg leading-relaxed text-gray-600">
-                    Join the growing network of Maldivian properties leading the
-                    digital revolution with Viduvaru.
+                  <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200 font-normal">
+                    Join the growing network of companies leading the digital
+                    revolution with LushWare's enterprise solutions.
                   </p>
-                </div>
 
-                {/* Right: Action Panel */}
-                <div className="relative w-full max-w-sm mx-auto lg:mx-0 lg:w-[320px]">
-                  <div className="flex flex-col gap-3 sm:gap-4">
-                    <button className="group relative flex w-full items-center justify-between overflow-hidden rounded-lg bg-primary px-6 sm:px-8 py-3.5 sm:py-4 text-left text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white transition-all duration-500 hover:shadow-2xl">
-                      <span className="relative z-10">Get Started Now</span>
-                      <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  {/* Action Panel */}
+                  <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                    <a
+                      href={WHATSAPP_LANDING_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                    >
+                      <span className="relative z-10 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-lg">chat</span>
+                        Get Started Now
+                      </span>
+                      <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
                         →
                       </span>
-                      <div className="absolute inset-0 translate-x-[-100%] bg-black/10 transition-transform duration-700 group-hover:translate-x-0" />
-                    </button>
+                      <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                    </a>
 
-                    <button className="group flex w-full items-center justify-between rounded-lg border border-gray-200 bg-white px-6 sm:px-8 py-3.5 sm:py-4 text-left text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-gray-950 transition-all duration-300 hover:border-gray-950">
+                    <Link
+                      to="/contact"
+                      className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                    >
                       <span>Schedule a Demo</span>
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-gray-400 transition-all duration-300 group-hover:text-gray-950">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
                         →
                       </span>
-                    </button>
+                    </Link>
                   </div>
                 </div>
+
+                {/* Empty column preserving the image on large screens */}
+                <div
+                  className="hidden lg:block lg:col-span-1 pointer-events-none"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </div>

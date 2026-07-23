@@ -89,54 +89,54 @@ const projects = [
 function OurWorkPage() {
   return (
     <main className="bg-[#ffffff] pb-24 pt-24 md:pt-12  text-on-background selection:bg-primary-container selection:text-on-primary-container">
-{/* HERO */}
-<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-  {/* Modern Background Accents */}
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+        {/* Modern Background Accents */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-  <div className="mx-auto max-w-5xl text-center">
-    {/* Refined Modern Badge */}
-    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-      <span className="text-balance">Case Studies</span>
-    </span>
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Refined Modern Badge */}
+          <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+            <span className="text-balance">Case Studies</span>
+          </span>
 
-    {/* Stronger, Cleaner Typographic Hierarchy */}
-    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
-      <span className="block text-balance">Empowering the</span>
-      <span className="mt-1 block sm:mt-2">
-        <span className="bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm">
-          Maldives Hospitality
-        </span>{" "}
-        <span className="text-on-surface">Ecosystem</span>
-      </span>
-    </h1>
+          {/* Stronger, Cleaner Typographic Hierarchy */}
+          <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+            <span className="block text-balance">Empowering the</span>
+            <span className="mt-1 block sm:mt-2">
+              <span className="bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm">
+                Maldives Hospitality
+              </span>{" "}
+              <span className="text-on-surface">Ecosystem</span>
+            </span>
+          </h1>
 
-    {/* Optimized Description Reading Width */}
-    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
-      We partner with the world's most prestigious island resorts and
-      marine conservationists to redefine digital operations in paradise.
-    </p>
+          {/* Optimized Description Reading Width */}
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+            We partner with the world's most prestigious island resorts and
+            marine conservationists to redefine digital operations in paradise.
+          </p>
 
-    {/* Premium Split-Action Controller */}
-    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
-      <Link
-        to="/case-studies"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-center font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
-      >
-        View Case Studies
-      </  Link>
+          {/* Premium Split-Action Controller */}
+          <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+            <Link
+              to="/case-studies"
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 text-center font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+            >
+              View Case Studies
+            </Link>
 
-      <button
-        type="button"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
-      >
-        Become a Partner
-      </button>
-    </div>
-  </div>
-</section>
+            <button
+              type="button"
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+            >
+              Become a Partner
+            </button>
+          </div>
+        </div>
+      </section>
 
       <section className="max-w-7xl mx-auto px-6 sm:px-8 md:px-9 lg:px-0 pb-8 sm:pb-10 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
@@ -309,41 +309,73 @@ function OurWorkPage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-16 sm:mt-24 md:mt-32 max-w-7xl px-4 sm:px-6 md:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-8 text-center sm:p-12 md:p-16 lg:p-24">
-          {/* Background texture */}
+      <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
           <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+            className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+            style={{ backgroundImage: `url('/cta.jpg')` }}
+          >
+            {/* Dark Overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+            />
 
-          {/* Content */}
-          <div className="relative z-10 mx-auto max-w-2xl">
-            <h2 className="mb-4 sm:mb-6 md:mb-8 font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-on-primary">
-              Ready to transform your resort experience?
-            </h2>
-            <p className="mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base md:text-xl text-white">
-              Join the Maldives&apos; leading hospitality brands in the digital
-              future.
-            </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-              <button className="scale-100 rounded-full bg-surface-container-lowest px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-primary transition-all active:scale-95 hover:shadow-xl">
-                Start a Project
-              </button>
-              <button className="rounded-full border border-white/80 backdrop-blur-sm bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10">
-                View all Services
-              </button>
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+              {/* Content */}
+              <div className="lg:col-span-2 max-w-2xl">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                  <span>Hospitality Solutions</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white">
+                  Ready to transform your
+                  <br className="hidden sm:block" />
+                  resort experience?
+                </h2>
+
+                <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200">
+                  Join the Maldives&apos; leading hospitality brands in the
+                  digital future.
+                </p>
+
+                {/* Buttons */}
+                <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                  <button
+                    type="button"
+                    className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span className="relative z-10">Start a Project</span>
+
+                    <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
+
+                    <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span>View all Services</span>
+
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Empty column to preserve the right-side image composition */}
+              <div
+                className="hidden lg:block lg:col-span-1 pointer-events-none"
+                aria-hidden="true"
+              />
             </div>
           </div>
-
-          {/* Decorative blobs */}
-          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl sm:-right-16 sm:-top-16 sm:h-52 sm:w-52 md:-right-20 md:-top-20 md:h-64 md:w-64" />
-          <div className="absolute -bottom-16 -left-16 h-52 w-52 rounded-full bg-secondary-container/20 blur-3xl sm:-bottom-24 sm:-left-24 sm:h-72 sm:w-72 md:-bottom-32 md:-left-32 md:h-96 md:w-96" />
         </div>
       </section>
     </main>

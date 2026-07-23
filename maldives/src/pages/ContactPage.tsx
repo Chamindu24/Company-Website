@@ -448,44 +448,71 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="relative w-full bg-white py-16 sm:py-24 lg:py-40 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32">
-            {/* Editorial Content Block */}
-            <div className="flex-1">
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-gray-950 text-center lg:text-left">
-                Ready to start your <br />
-                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-medium">
+      <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
+          <div
+            className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+            style={{ backgroundImage: `url('/cta.jpg')` }}
+          >
+            {/* Dark Overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+            />
+
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+              {/* Content */}
+              <div className="lg:col-span-2 max-w-2xl">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                  <span>Digital Transformation</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] tracking-tight text-white">
+                  Ready to start your <br className="hidden sm:block" />
                   digital journey?
-                </span>
-              </h2>
-            </div>
+                </h2>
 
-            {/* Structured Action Block */}
-            <div className="flex-1 flex flex-col items-center lg:items-end justify-center border-t lg:border-t-0 lg:border-l border-gray-100 pt-10 lg:pt-0 pl-0 lg:pl-16">
-              <p className="text-base sm:text-lg leading-relaxed text-center lg:text-right text-gray-600 mb-8 sm:mb-12 max-w-md">
-                Join the leading resorts and businesses in the Maldives who
-                trust Viduvaru for their digital transformation. We deliver
-                precision-engineered solutions for the modern enterprise.
-              </p>
+                <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200">
+                  Join the leading resorts and businesses in the Maldives who
+                  trust Viduvaru for their digital transformation. We deliver
+                  precision-engineered solutions for the modern enterprise.
+                </p>
 
-              <div className="flex flex-wrap justify-center lg:justify-end gap-4 w-full sm:w-auto">
-                <a
-                  href="/our-work"
-                  className="flex items-center justify-center gap-3 border-b-2 border-gray-950 px-2 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-950 transition-all hover:text-primary hover:border-primary"
-                >
-                  Explore Portfolio
-                </a>
-                <a
-                  href="#contact-form"
-                  className="group flex rounded-full items-center justify-center gap-3 bg-gradient-to-br from-primary to-primary-container text-white px-8 sm:px-10 py-4 sm:py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-primary w-full sm:w-auto"
-                >
-                  Request Consultation
-                  <span className="transition-transform group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
+                {/* Buttons */}
+                <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                  <a
+                    href="/our-work"
+                    className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span className="relative z-10">Explore Portfolio</span>
+
+                    <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
+
+                    <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                  </a>
+
+                  <a
+                    href="#contact-form"
+                    className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span>Request Consultation</span>
+
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </a>
+                </div>
               </div>
+
+              {/* Empty column to preserve image composition */}
+              <div
+                className="hidden lg:block lg:col-span-1 pointer-events-none"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </div>

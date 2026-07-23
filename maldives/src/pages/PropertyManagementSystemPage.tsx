@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import FAQSection from "../components/FAQSection";
 
 // TODO: replace with the client's live WhatsApp Business number (international format, no + or spaces)
-const WHATSAPP_NUMBER = "9607XXXXXXX";
+const WHATSAPP_NUMBER = "94716430053";
 const WHATSAPP_MESSAGE =
-  "Hi! I'd like to book a free demo of the Property Management System.";
+  "Hi LushWare! I'm interested in your Property Management System for Travel Agencies. Could we book a free demo to see how it can work for my business?";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
 )}`;
@@ -789,45 +789,78 @@ function PropertyManagementSystemPage() {
       />
 
       {/* 10. FINAL CTA */}
-      <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-container p-7 text-center sm:p-10 md:p-12 lg:p-20">
+      <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
           <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-          <div className="absolute right-0 top-0 h-40 w-40 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl sm:h-52 sm:w-52 md:h-64 md:w-64" />
+            className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+            style={{ backgroundImage: `url('/cta.jpg')` }}
+          >
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+            />
 
-          <div className="relative z-10">
-            <h2 className="mb-4 font-headline text-2xl font-extrabold text-on-primary sm:mb-5 sm:text-3xl md:text-4xl lg:mb-6 lg:text-5xl">
-              Ready to simplify your property management?
-            </h2>
-            <p className="mx-auto mb-7 max-w-xl text-sm text-white/80 sm:mb-8 sm:text-base md:mb-10 md:text-lg">
-              Book a free demo and discover how our Property Management System
-              can help your travel business operate more efficiently.
-            </p>
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-bold text-primary transition-shadow hover:shadow-xl active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
-              >
-                <span className="material-symbols-outlined text-xl leading-none">
-                  chat
-                </span>
-                Book a Free Demo
-              </a>
-              <Link
-                to="/contact"
-                className="w-full rounded-full border backdrop-blur-sm border-white/80 px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 active:scale-95 sm:w-auto sm:px-10 sm:py-4 sm:text-base md:text-lg"
-              >
-                Contact Us
-              </Link>
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+              {/* Content */}
+              <div className="lg:col-span-2 max-w-2xl">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                  <span>Property Management System</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white">
+                  Ready to simplify your
+                  <br className="hidden sm:block" />
+                  property management?
+                </h2>
+
+                <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200">
+                  Book a free demo and discover how our Property Management
+                  System can help your travel business operate more efficiently.
+                </p>
+
+                {/* Buttons */}
+                <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                  <a
+                    href={WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[240px]"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-lg">
+                        chat
+                      </span>
+                      Book a Free Demo
+                    </span>
+
+                    <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
+
+                    <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                  </a>
+
+                  <Link
+                    to="/contact"
+                    className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span>Contact Us</span>
+
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Empty column to preserve right-side composition */}
+              <div
+                className="hidden lg:block lg:col-span-1 pointer-events-none"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </div>

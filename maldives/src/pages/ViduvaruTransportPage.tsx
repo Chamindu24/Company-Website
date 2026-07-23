@@ -4,6 +4,10 @@ import FAQSection from "../components/FAQSection";
 import InquiryForm from "../components/InquiryForm";
 import WhyChooseUs from "../components/WhyChooseUs";
 
+const WHATSAPP_NUMBER = "94716430053";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi LushWare! I'm interested in your Viduvaru Speedboat Ticketing & Dispatch system. Could we book a free demo to see how it can help my fleet operations?")}`;
+
+
 const audiences = [
   { icon: "directions_boat", label: "Speedboat operators" },
   { icon: "sailing", label: "Ferry service providers" },
@@ -85,53 +89,59 @@ function ViduvaruTransportPage() {
   return (
     <div className="selection:bg-primary-container selection:text-on-primary-container">
       <main className="pt-24 md:pt-12 bg-[#ffffff] selection:bg-primary-container selection:text-on-primary-container">
-{/* HERO */}
-<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-  {/* Modern Background Accents */}
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+        {/* HERO */}
+        <section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+          {/* Modern Background Accents */}
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-  <div className="mx-auto max-w-5xl text-center">
-    {/* Refined Modern Badge */}
-    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-      <span className="text-balance">Speedboat Ticketing & Operations</span>
-    </span>
+          <div className="mx-auto max-w-5xl text-center">
+            {/* Refined Modern Badge */}
+            <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+              <span className="text-balance">
+                Speedboat Ticketing & Operations
+              </span>
+            </span>
 
-    {/* Stronger, Cleaner Typographic Hierarchy */}
-    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
-      <span className="block text-balance">Run Your Speedboat Business</span>
-      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
-        From One Platform
-      </span>
-    </h1>
+            {/* Stronger, Cleaner Typographic Hierarchy */}
+            <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+              <span className="block text-balance">
+                Run Your Speedboat Business
+              </span>
+              <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+                From One Platform
+              </span>
+            </h1>
 
-    {/* Optimized Description Reading Width */}
-    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
-      Routes, bookings, boats, guest house partnerships, payments, and
-      performance — one cloud-based system built for Maldivian speedboat,
-      ferry, and water taxi operators.
-    </p>
+            {/* Optimized Description Reading Width */}
+            <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+              Routes, bookings, boats, guest house partnerships, payments, and
+              performance — one cloud-based system built for Maldivian
+              speedboat, ferry, and water taxi operators.
+            </p>
 
-    {/* Premium Split-Action Controller */}
-    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
-      <button
-        type="button"
-        onClick={openInquiryModal}
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
-      >
-        Book a Free Demo
-      </button>
+            {/* Premium Split-Action Controller */}
+            <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto sm:min-w-[180px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+              >
+                <span className="material-symbols-outlined text-xl leading-none">chat</span>
+                Book a Free Demo
+              </a>
 
-      <Link
-        to="/contact"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
-      >
-        View Demo
-      </Link>
-    </div>
-  </div>
-</section>
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+              >
+                Contact Sales
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {isInquiryOpen ? (
           <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -191,14 +201,13 @@ function ViduvaruTransportPage() {
                 friction your passengers and your team both feel.
               </p>
             </div>
-{/* Premium Interactive Cards Grid */}
+            {/* Premium Interactive Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {challenges.map((c, index) => (
                 <div
                   key={c.title}
                   className="group relative rounded-2xl bg-white border border-outline-variant/40 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-secondary/40 flex flex-col justify-between"
                 >
-
                   <div>
                     {/* Icon Container with subtle background ring */}
                     <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-surface border border-outline-variant/30 group-hover:border-secondary/20 transition-colors duration-300">
@@ -248,12 +257,14 @@ function ViduvaruTransportPage() {
                 </div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary tracking-tight mb-4 md:mb-6">
                   Real-time{" "}
-                  <span className="font-semibold">Boat & Capacity Management</span>
+                  <span className="font-semibold">
+                    Boat & Capacity Management
+                  </span>
                 </h3>
                 <p className="text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed opacity-80">
                   Register every boat, assign it to a route, and track
-                  operational status and live seat occupancy across your
-                  entire fleet from one screen.
+                  operational status and live seat occupancy across your entire
+                  fleet from one screen.
                 </p>
               </div>
 
@@ -435,8 +446,8 @@ function ViduvaruTransportPage() {
                 Guest House Portal
               </h3>
               <p className="text-on-surface-variant text-sm md:text-md leading-relaxed opacity-80">
-                Guest houses and tour operators book, schedule, and track
-                guest transfers themselves, through their own portal.
+                Guest houses and tour operators book, schedule, and track guest
+                transfers themselves, through their own portal.
               </p>
             </div>
           </div>
@@ -502,8 +513,7 @@ function ViduvaruTransportPage() {
                     </h4>
                     <p className="text-on-surface-variant">
                       Daily overview, quick actions, support, and user
-                      management — everything an operator needs, in one
-                      place.
+                      management — everything an operator needs, in one place.
                     </p>
                   </div>
                 </div>
@@ -515,110 +525,119 @@ function ViduvaruTransportPage() {
         {/* ---------------------------------------------------------- */}
         {/* How it works                                                 */}
         {/* ---------------------------------------------------------- */}
-<section className="relative max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-20 md:py-32 overflow-hidden">
-  {/* Modern ambient line grid pattern behind content */}
-  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        <section className="relative max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-20 md:py-32 overflow-hidden">
+          {/* Modern ambient line grid pattern behind content */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary-rgb,15,23,42),0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
-    
-    {/* Left Anchor Column: Sticky Brand Hub */}
-    <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">
-              How It Works
-            </span>
-      <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-primary leading-[1.15]">
-        From Booking <br className="hidden lg:block" />to Boarding
-      </h2>
-      <p className="text-sm md:text-base text-on-surface-variant/70 leading-relaxed font-normal max-w-md">
-        An interconnected infrastructure engineering a fluid transition between dynamic reservations and live maritime operations.
-      </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+            {/* Left Anchor Column: Sticky Brand Hub */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">
+                How It Works
+              </span>
+              <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-primary leading-[1.15]">
+                From Booking <br className="hidden lg:block" />
+                to Boarding
+              </h2>
+              <p className="text-sm md:text-base text-on-surface-variant/70 leading-relaxed font-normal max-w-md">
+                An interconnected infrastructure engineering a fluid transition
+                between dynamic reservations and live maritime operations.
+              </p>
 
-      {/* Mini Visual Stepper Widget Metric */}
-      <div className="hidden lg:flex items-center gap-1.5 p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest/50 backdrop-blur-sm max-w-xs shadow-sm">
-        <div className="flex -space-x-2">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <div key={num} className="w-6 h-6 rounded-full bg-primary border-2 border-surface-container-lowest flex items-center justify-center font-mono text-[8px] font-bold text-white shadow-sm">
-              {num}
-            </div>
-          ))}
-        </div>
-        <span className="text-[11px] font-medium text-on-surface-variant/80 pl-2">100% Automated Flow</span>
-      </div>
-    </div>
-
-    {/* Right Column: The Interconnected Vertical Stepper Pipeline */}
-    <div className="lg:col-span-8 relative">
-      {/* The Continuous Vertical Stepper Axis Line */}
-      <div className="absolute top-8 bottom-8 left-6 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent z-0" />
-
-      <div className="space-y-8 relative z-10">
-        {[
-          {
-            step: "01",
-            title: "Set up your fleet",
-            tagline: "Infrastructure Initialization",
-            description: "Configure boats, routes, schedules, and destinations with micro-precision control filters.",
-          },
-          {
-            step: "02",
-            title: "Take the booking",
-            tagline: "Omnichannel Acquisition",
-            description: "Customers seamlessly check out online, or localized port staff create instant manual reservations.",
-          },
-          {
-            step: "03",
-            title: "Confirm the trip",
-            tagline: "Instantaneous Telemetry",
-            description: "Passengers receive atomic, real-time dispatch confirmations accompanied by modern live updates.",
-          },
-          {
-            step: "04",
-            title: "Coordinate transfers",
-            tagline: "B2B Ecosystem Integration",
-            description: "Affiliated guest houses and external cruise operators securely provision tickets via dedicated APIs.",
-          },
-          {
-            step: "05",
-            title: "Track performance",
-            tagline: "Analytical Overview Dashboard",
-            description: "Supervise historical global bookings, live revenue margins, and deep operational logistics dynamically.",
-          },
-        ].map((s) => (
-          <div 
-            key={s.step} 
-            className="group relative flex flex-row items-start gap-6 rounded-2xl p-2 transition-all duration-300 hover:bg-primary/[0.01]"
-          >
-            {/* Elegant Circular Node Step Indicator */}
-            <div className="flex-shrink-0 relative mt-1">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full font-mono text-xs font-bold bg-surface-container-lowest text-primary border-2 border-outline-variant/80 shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:scale-105 transition-all duration-300">
-                {s.step}
-              </div>
-              {/* Active pulsing dynamic dot positioned on the pipeline core */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary/5 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-            </div>
-
-            {/* Stepper Content Block Card */}
-            <div className="flex-1 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur-sm p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-300 group-hover:border-outline-variant/60 group-hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
-                <h3 className="text-base sm:text-lg font-bold text-primary tracking-tight">
-                  {s.title}
-                </h3>
-                <span className="inline-block  text-[9px] font-bold tracking-wider text-primary/80 uppercase bg-primary/[0.03] px-2 py-0.5 rounded border border-primary/5 group-hover:text-primary group-hover:bg-primary/5 transition-colors duration-300">
-                  {s.tagline}
+              {/* Mini Visual Stepper Widget Metric */}
+              <div className="hidden lg:flex items-center gap-1.5 p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest/50 backdrop-blur-sm max-w-xs shadow-sm">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <div
+                      key={num}
+                      className="w-6 h-6 rounded-full bg-primary border-2 border-surface-container-lowest flex items-center justify-center font-mono text-[8px] font-bold text-white shadow-sm"
+                    >
+                      {num}
+                    </div>
+                  ))}
+                </div>
+                <span className="text-[11px] font-medium text-on-surface-variant/80 pl-2">
+                  100% Automated Flow
                 </span>
               </div>
-              <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant/80 font-normal">
-                {s.description}
-              </p>
             </div>
 
-          </div>
-        ))}
-      </div>
-    </div>
+            {/* Right Column: The Interconnected Vertical Stepper Pipeline */}
+            <div className="lg:col-span-8 relative">
+              {/* The Continuous Vertical Stepper Axis Line */}
+              <div className="absolute top-8 bottom-8 left-6 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent z-0" />
 
-  </div>
-</section>
+              <div className="space-y-8 relative z-10">
+                {[
+                  {
+                    step: "01",
+                    title: "Set up your fleet",
+                    tagline: "Infrastructure Initialization",
+                    description:
+                      "Configure boats, routes, schedules, and destinations with micro-precision control filters.",
+                  },
+                  {
+                    step: "02",
+                    title: "Take the booking",
+                    tagline: "Omnichannel Acquisition",
+                    description:
+                      "Customers seamlessly check out online, or localized port staff create instant manual reservations.",
+                  },
+                  {
+                    step: "03",
+                    title: "Confirm the trip",
+                    tagline: "Instantaneous Telemetry",
+                    description:
+                      "Passengers receive atomic, real-time dispatch confirmations accompanied by modern live updates.",
+                  },
+                  {
+                    step: "04",
+                    title: "Coordinate transfers",
+                    tagline: "B2B Ecosystem Integration",
+                    description:
+                      "Affiliated guest houses and external cruise operators securely provision tickets via dedicated APIs.",
+                  },
+                  {
+                    step: "05",
+                    title: "Track performance",
+                    tagline: "Analytical Overview Dashboard",
+                    description:
+                      "Supervise historical global bookings, live revenue margins, and deep operational logistics dynamically.",
+                  },
+                ].map((s) => (
+                  <div
+                    key={s.step}
+                    className="group relative flex flex-row items-start gap-6 rounded-2xl p-2 transition-all duration-300 hover:bg-primary/[0.01]"
+                  >
+                    {/* Elegant Circular Node Step Indicator */}
+                    <div className="flex-shrink-0 relative mt-1">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-full font-mono text-xs font-bold bg-surface-container-lowest text-primary border-2 border-outline-variant/80 shadow-[0_2px_6px_rgba(0,0,0,0.03)] group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:scale-105 transition-all duration-300">
+                        {s.step}
+                      </div>
+                      {/* Active pulsing dynamic dot positioned on the pipeline core */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary/5 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                    </div>
+
+                    {/* Stepper Content Block Card */}
+                    <div className="flex-1 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest/80 backdrop-blur-sm p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-300 group-hover:border-outline-variant/60 group-hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.08)]">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
+                        <h3 className="text-base sm:text-lg font-bold text-primary tracking-tight">
+                          {s.title}
+                        </h3>
+                        <span className="inline-block  text-[9px] font-bold tracking-wider text-primary/80 uppercase bg-primary/[0.03] px-2 py-0.5 rounded border border-primary/5 group-hover:text-primary group-hover:bg-primary/5 transition-colors duration-300">
+                          {s.tagline}
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm leading-relaxed text-on-surface-variant/80 font-normal">
+                        {s.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         <FAQSection
           items={transportFAQs}
@@ -627,40 +646,76 @@ function ViduvaruTransportPage() {
         />
         <WhyChooseUs />
 
-        <section className="px-4 py-12 sm:px-6 mb-32 sm:py-16 md:px-8 md:py-20">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-gradient-to-r from-primary to-secondary p-8 sm:p-10 md:p-16 text-center text-on-primary shadow-2xl">
+        <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24 mb-32">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
             <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBf_jCDnFb7ScgTd7MCsxJ6ubygfDu0eC7oJrB4PuKZIYkAkzy2etBnT28oCsfh9lScHb_BzOHPrFkBSd40EZpXLCUzIXv6LBMFQXC0d52JRJcRBU3iNls9_zKuMJDKOLjgnixN_fJUyWzKlXicrQjg5mM6x-aGcEOMDLjwb39YF6BjC5tamMXaCGWW72V-uhzARgu-7ELWJNlJqccNBKBOBbjGpUnHAf5X0TWDeBfeifAsRe1K_Fq0noM0nqbQRTBTII-lKzOTjnA')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            <div className="absolute right-0 top-0 -mr-32 -mt-32 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-            <div className="relative z-10">
-              <h2 className="mb-4 md:mb-6 text-2xl sm:text-3xl md:text-4xl font-bold font-headline">
-                Ready to Modernize Your Speedboat Operations?
-              </h2>
-              <p className="mx-auto mb-7 md:mb-10 max-w-xl text-sm sm:text-base md:text-lg opacity-90 font-body">
-                Manage bookings, routes, customers, finances, and guest
-                transfers from one intelligent platform.
-              </p>
-              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                <button
-                  type="button"
-                  onClick={openInquiryModal}
-                  className="w-full sm:w-auto rounded-full bg-white px-8 md:px-10 py-3.5 md:py-4 font-bold text-primary shadow-xl transition-transform hover:scale-105 font-headline"
-                >
-                  Book a Free Demo
-                </button>
-                <Link
-                  to="/contact"
-                  className="w-full sm:w-auto rounded-full border-2 backdrop-blur-sm border-white/80 bg-transparent px-8 md:px-10 py-3.5 md:py-4 font-bold text-white transition-colors hover:bg-white/10 font-headline"
-                >
-                  Contact Sales
-                </Link>
+              className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+              style={{ backgroundImage: `url('/cta.jpg')` }}
+            >
+              {/* Dark Overlay */}
+              <div
+                className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+              />
+
+              <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+                {/* Content */}
+                <div className="lg:col-span-2 max-w-2xl">
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md shadow-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                    <span>Speedboat Management</span>
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white">
+                    Ready to Modernize Your
+                    <br className="hidden sm:block" />
+                    Speedboat Operations?
+                  </h2>
+
+                  <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200">
+                    Manage bookings, routes, customers, finances, and guest
+                    transfers from one intelligent platform.
+                  </p>
+
+                  {/* Buttons */}
+                  <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                    <a
+                      href={WHATSAPP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[240px]"
+                    >
+                      <span className="relative z-10 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-lg">chat</span>
+                        Book a Free Demo
+                      </span>
+
+                      <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                        →
+                      </span>
+
+                      <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                    </a>
+
+                    <Link
+                      to="/contact"
+                      className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                    >
+                      <span>Contact Sales</span>
+
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Empty right column for image composition */}
+                <div
+                  className="hidden lg:block lg:col-span-1 pointer-events-none"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </div>

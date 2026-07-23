@@ -1,5 +1,9 @@
 import FAQSection from "../components/FAQSection";
 import WhyChooseUs from "../components/WhyChooseUs.tsx";
+import { Link } from "react-router-dom";
+
+const WHATSAPP_NUMBER = "94716430053";
+const WHATSAPP_SERVICES_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi LushWare! I'm interested in your digital services for my business. Could we schedule a free consultation to discuss my needs?")}`;
 
 const servicesFAQs = [
   {
@@ -37,54 +41,58 @@ const servicesFAQs = [
 function ServicesPage() {
   return (
     <main className="bg-[#ffffff] pb-24 pt-24  text-on-surface antialiased">
-{/* HERO */}
-<section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
-  {/* Modern Background Accents */}
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-  <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#ffffff] px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24">
+        {/* Modern Background Accents */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 mx-auto h-[250px] w-full max-w-7xl bg-gradient-to-tr from-primary/5 via-primary-container/10 to-transparent blur-3xl opacity-70 sm:h-[320px] md:h-[400px]" />
 
-  <div className="mx-auto max-w-5xl text-center">
-    {/* Refined Modern Badge */}
-    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
-      <span className="text-balance">Elevating Hospitality & Enterprise</span>
-    </span>
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Refined Modern Badge */}
+          <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-wider text-on-secondary-container backdrop-blur-sm border border-secondary-container/30 shadow-sm transition-all duration-300 hover:bg-secondary-container sm:px-4 sm:py-1.5 sm:text-xs">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary animate-pulse" />
+            <span className="text-balance">
+              Elevating Hospitality & Enterprise
+            </span>
+          </span>
 
-    {/* Stronger, Cleaner Typographic Hierarchy */}
-    <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
-      <span className="block text-balance">Expert Digital Services for</span>
-      <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
-        Island Businesses
-      </span>
-    </h1>
+          {/* Stronger, Cleaner Typographic Hierarchy */}
+          <h1 className="mt-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-[1.2] xs:text-4xl sm:mt-8 sm:text-5xl sm:leading-[1.15] md:text-6xl lg:text-7xl">
+            <span className="block text-balance">
+              Expert Digital Services for
+            </span>
+            <span className="mt-1 block bg-gradient-to-r from-primary via-primary/90 to-primary-container bg-clip-text text-transparent drop-shadow-sm py-1 sm:mt-2">
+              Island Businesses
+            </span>
+          </h1>
 
-    {/* Optimized Description Reading Width */}
-    <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
-      Transforming the Maldivian business landscape with tailored software
-      solutions, automated intelligence, and premium digital experiences.
-    </p>
+          {/* Optimized Description Reading Width */}
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant font-medium xs:max-w-sm sm:mt-6 sm:max-w-2xl sm:text-lg md:text-xl">
+            Transforming the Maldivian business landscape with tailored software
+            solutions, automated intelligence, and premium digital experiences.
+          </p>
 
-    {/* Premium Split-Action Controller */}
-    <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
-      <button
-        type="button"
-        className="w-full sm:w-auto sm:min-w-[180px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
-      >
-        Get Started
-        <span className="material-symbols-outlined text-xl leading-none">
-          arrow_forward
-        </span>
-      </button>
+          {/* Premium Split-Action Controller */}
+          <div className="mt-8 inline-flex w-full max-w-xs flex-col items-center justify-center gap-2.5 sm:mt-10 sm:w-auto sm:max-w-none sm:flex-row sm:gap-3 sm:bg-surface-container-low/60 sm:p-2 sm:rounded-full sm:border sm:border-surface-variant/30 sm:backdrop-blur-md">
+            <a
+              href={WHATSAPP_SERVICES_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto sm:min-w-[180px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-primary to-primary-container px-6 py-3 font-bold text-on-primary shadow-md shadow-primary/5 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:py-3.5"
+            >
+              <span className="material-symbols-outlined text-xl leading-none">chat</span>
+              Get Started
+            </a>
 
-      <button
-        type="button"
-        className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
-      >
-        View Portfolio
-      </button>
-    </div>
-  </div>
-</section>
+            <Link
+              to="/our-work"
+              className="w-full sm:w-auto sm:min-w-[180px] rounded-full px-6 py-3 text-center text-sm font-bold text-on-surface transition-all duration-200 hover:bg-surface-container-high hover:text-primary active:scale-[0.98] sm:py-3.5 md:text-base"
+            >
+              View Portfolio
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-[#ffffff] px-6 pb-24 md:px-8">
         <div className="mx-auto max-w-7xl">
@@ -240,49 +248,80 @@ function ServicesPage() {
 
       <WhyChooseUs />
 
-      <section className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-24">
-        <div
-          className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-3xl shadow-2xl
-                  h-auto min-h-[360px] sm:min-h-[400px] md:h-[450px]"
-        >
-          {/* Background Image */}
-          <img
-            alt="Luxurious resort setting"
-            className="absolute inset-0 h-full w-full object-cover"
-            src="https://t4.ftcdn.net/jpg/02/74/31/83/360_F_274318370_wBHOPOO8AYRapUFkxgkioO2xtCsZvkXi.jpg"
-          />
+      <section className="relative w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-2">
+          <div
+            className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-cover bg-center bg-no-repeat p-8 sm:p-12 md:p-16 lg:p-20"
+            style={{ backgroundImage: `url('/cta.jpg')` }}
+          >
+            {/* Dark Gradient Overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r
+          from-slate-950/90 via-slate-950/85 to-slate-950/70
+          lg:from-slate-950/90 lg:via-slate-950/40 lg:to-transparent"
+            />
 
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/25" />
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-3 lg:gap-12">
+              {/* Content */}
+              <div className="lg:col-span-2 max-w-2xl">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white ring-1 ring-inset ring-white/30 backdrop-blur-md shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                  <span>Digital Transformation</span>
+                </div>
 
-          {/* Gradient + Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-6 sm:p-10 md:p-12 text-center">
-            <div className="relative z-10 max-w-3xl w-full">
-              <h2 className="mb-4 sm:mb-5 md:mb-6 font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-                Ready to start your digital journey?
-              </h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white">
+                  Ready to start your
+                  <br className="hidden sm:block" />
+                  digital journey?
+                </h2>
 
-              <p className="mb-7 sm:mb-8 md:mb-10 text-sm sm:text-base md:text-lg lg:text-xl text-slate-100 max-w-xl mx-auto">
-                Join the leading resorts and businesses in the Maldives who
-                trust Viduvaru for their digital transformation. Our solutions
-                currently power operations for over 45 luxury island
-                destinations.
-              </p>
+                <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-slate-200">
+                  Join the leading resorts and businesses in the Maldives who
+                  trust Viduvaru for their digital transformation. Our solutions
+                  currently power operations for over 45 luxury island
+                  destinations.
+                </p>
 
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:gap-6">
-                <button className="w-full sm:w-auto rounded-full bg-white px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-primary shadow-xl transition-all hover:scale-105 active:scale-95">
-                  Schedule a Free Consultation
-                </button>
-                <button className="w-full sm:w-auto rounded-full border border-white/30 bg-white/10 px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all hover:bg-white/20">
-                  View Case Studies
-                </button>
+                {/* Buttons */}
+                <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
+                  <a
+                    href={WHATSAPP_SERVICES_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center justify-center gap-3 sm:justify-between overflow-hidden rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg transition-all duration-500 hover:bg-primary/90 hover:shadow-[0_0_35px_rgba(0,112,243,0.5)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[260px]"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-lg">chat</span>
+                      Schedule a Free Consultation
+                    </span>
+
+                    <span className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                      →
+                    </span>
+
+                    <div className="absolute inset-0 translate-x-[-100%] bg-white/20 transition-transform duration-700 group-hover:translate-x-0" />
+                  </a>
+
+                  <Link
+                    to="/our-work"
+                    className="group flex items-center justify-center gap-3 sm:justify-between rounded-xl border border-white/20 bg-slate-900/40 px-7 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl transition-all duration-300 hover:bg-white hover:text-slate-950 hover:border-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:min-w-[220px]"
+                  >
+                    <span>View Case Studies</span>
+
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center text-slate-300 transition-all duration-300 group-hover:text-slate-950 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
               </div>
+
+              {/* Empty right column to preserve image composition */}
+              <div
+                className="hidden lg:block lg:col-span-1 pointer-events-none"
+                aria-hidden="true"
+              />
             </div>
           </div>
-
-          {/* Decorative glows */}
-          <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/20 blur-3xl sm:-left-16 sm:-top-16 sm:h-52 sm:w-52 md:-left-24 md:-top-24 md:h-64 md:w-64" />
-          <div className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-secondary/20 blur-3xl sm:-bottom-16 sm:-right-16 sm:h-52 sm:w-52 md:-bottom-24 md:-right-24 md:h-64 md:w-64" />
         </div>
       </section>
     </main>

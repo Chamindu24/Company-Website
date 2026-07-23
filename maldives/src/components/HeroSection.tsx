@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 type Accent = "teal" | "ocean" | "emerald" | "lagoon";
 
@@ -221,8 +222,8 @@ const HeroSection = () => {
                   </p>
 
                   <div className="pt-2">
-                    <a
-                      href={slides[current].ctaLink}
+                    <Link
+                      to={slides[current].ctaLink}
                       className="group inline-flex items-center gap-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-xs px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl shadow-md transition-all duration-300 transform active:scale-95"
                     >
                       {slides[current].ctaLabel}
@@ -239,7 +240,7 @@ const HeroSection = () => {
                           d="M9 5l7 7-7 7"
                         />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </motion.div>
               </AnimatePresence>
