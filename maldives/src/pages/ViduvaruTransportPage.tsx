@@ -83,7 +83,6 @@ const transportFAQs = [
 function ViduvaruTransportPage() {
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
-  const openInquiryModal = () => setIsInquiryOpen(true);
   const closeInquiryModal = () => setIsInquiryOpen(false);
 
   return (

@@ -168,7 +168,6 @@ const howItWorks = [
 function TravelCrmPage() {
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
-  const openInquiryModal = () => setIsInquiryOpen(true);
   const closeInquiryModal = () => setIsInquiryOpen(false);
 
   return (
