@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -7,18 +8,18 @@ import {
 } from "react-icons/fa6";
 
 const solutionLinks = [
-  "Digital Transformation",
-  "Hospitality Tech",
-  "Cloud Solutions",
-  "UI/UX Design",
-  "Systems Integration",
+  { label: "Property Operations", to: "/real-estate-control" },
+  { label: "Guest House Management", to: "/hotelcloud" },
+  { label: "Marine Transport", to: "/viduvaru" },
+  { label: "Travel Operations", to: "/travel-crm" },
 ];
+
 const companyLinks = [
-  "Our Vision",
-  "Privacy Policy",
-  "Terms of Service",
-  "Corporate Governance",
-  "Contact Us",
+  { label: "Our Work", to: "/our-work" },
+  { label: "Services", to: "/services" },
+  { label: "Contact Us", to: "/contact" },
+  { label: "Privacy Policy", to: "#" },
+  { label: "Terms of Service", to: "#" },
 ];
 
 function Footer() {
@@ -48,27 +49,30 @@ function Footer() {
               </h2>
 
               <p className="mt-4 sm:mt-5 max-w-md text-sm sm:text-base font-light text-[#f2f4f6]/90 leading-relaxed">
-                Designing the future of{" "}
+                Empowering businesses with{" "}
                 <span className="text-white font-medium underline decoration-[#96f0ff] decoration-2 underline-offset-4">
-                  Island Tech
+                  Smart Solutions
                 </span>
-                . Bridging the gap between the tranquility of the atolls and the
-                global tech landscape.
+                . Delivering innovative software that drives growth across the
+                Maldives and beyond.
               </p>
             </div>
 
             {/* Premium Social Dock */}
             <div className="mt-8 sm:mt-10 flex flex-wrap gap-2 sm:gap-2.5">
               {[
-                FaLinkedinIn,
-                FaInstagram,
-                FaFacebookF,
-                FaXTwitter,
-                FaYoutube,
-              ].map((Icon, i) => (
+                { Icon: FaLinkedinIn, href: "https://www.linkedin.com/company/lushware", label: "LinkedIn" },
+                { Icon: FaInstagram, href: "https://www.instagram.com/lush_ware_org/", label: "Instagram" },
+                { Icon: FaFacebookF, href: "https://web.facebook.com/lushware/", label: "Facebook" },
+                { Icon: FaXTwitter, href: "#", label: "Twitter" },
+                { Icon: FaYoutube, href: "#", label: "YouTube" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white transition-all duration-300 hover:bg-[#96f0ff] hover:text-[#001f24] hover:border-[#96f0ff] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#96f0ff]/20"
                 >
                   <Icon className="text-base sm:text-lg" />
@@ -84,14 +88,14 @@ function Footer() {
                 Solutions
               </h5>
               <ul className="space-y-3 sm:space-y-4 text-sm font-medium">
-                {solutionLinks.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                {solutionLinks.map(({ label, to }) => (
+                  <li key={to}>
+                    <Link
+                      to={to}
                       className="text-[#f2f4f6]/80 hover:text-white transition-colors duration-200 block"
                     >
-                      {link}
-                    </a>
+                      {label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -101,14 +105,23 @@ function Footer() {
                 Company
               </h5>
               <ul className="space-y-3 sm:space-y-4 text-sm font-medium">
-                {companyLinks.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-[#f2f4f6]/80 hover:text-white transition-colors duration-200 block"
-                    >
-                      {link}
-                    </a>
+                {companyLinks.map(({ label, to }) => (
+                  <li key={to}>
+                    {to.startsWith("/") ? (
+                      <Link
+                        to={to}
+                        className="text-[#f2f4f6]/80 hover:text-white transition-colors duration-200 block"
+                      >
+                        {label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={to}
+                        className="text-[#f2f4f6]/80 hover:text-white transition-colors duration-200 block"
+                      >
+                        {label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -165,4 +178,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Footer;
