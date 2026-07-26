@@ -105,27 +105,27 @@ export default function Navbar() {
                 to={item.to}
                 className="group/item relative flex flex-col justify-between py-1 border-b border-stone-100 transition-colors duration-300"
               >
-                <div className="flex items-center justify-between w-full">
-                  {/* Clean, Editorial Typography */}
-                  <span
-                    className={`text-[16px] tracking-wide font-medium transition-all duration-300 ${isActive
-                      ? "text-stone-950 font-semibold"
-                      : "text-stone-600 group-hover/item:text-stone-950 group-hover/item:translate-x-2"
-                      }`}
-                  >
-                    {item.name}
-                  </span>
+<div className="flex flex-col w-full">
+  <span
+    className={`text-[16px] tracking-wide font-medium transition-all duration-300 ${
+      isActive
+        ? "text-stone-950 font-semibold"
+        : "text-stone-600 group-hover/item:text-stone-950 "
+    }`}
+  >
+    {item.name}
+  </span>
 
-                  {/* Ultra-minimal Micro-indicator */}
-                  <span
-                    className={`text-[11px] tracking-widest uppercase transition-all duration-500 font-light ${isActive
-                      ? "text-stone-950 opacity-100 translate-x-0"
-                      : "opacity-0 -translate-x-2 text-stone-400 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                      }`}
-                  >
-                    {isActive ? "Active" : "Discover"}
-                  </span>
-                </div>
+  <span
+    className={`mt-1 text-[11px] tracking-widest uppercase transition-all duration-500 font-light ${
+      isActive
+        ? "text-stone-950 opacity-100"
+        : "opacity-0 text-stone-400 group-hover/item:opacity-100"
+    }`}
+  >
+    {isActive ? "Active" : "Discover"}
+  </span>
+</div>
               </Link>
             );
           })}
