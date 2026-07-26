@@ -143,7 +143,6 @@ const Websites: React.FC = () => {
                 className="group relative border border-slate-100 bg-white overflow-hidden transition-all duration-500 hover:border-emerald-300 hover:shadow-[0_24px_64px_rgba(16,185,129,0.08)]"
               >
                 {/* Emerald top accent on hover */}
-                <div className="absolute top-0 left-0 w-0 h-0.5 bg-emerald-500 group-hover:w-full transition-all duration-700" />
 
                 <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-16 p-4 sm:px-6 sm:py-10">
 

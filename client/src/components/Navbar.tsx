@@ -93,39 +93,27 @@ export default function Navbar() {
     }, 140);
   };
 
-  const renderDropdownPanel = (items: { name: string; to: string }[]) => (
-    <div className="overflow-hidden rounded-[2px] bg-white  shadow-[0_20px_50px_-12px_rgba(28,25,23,0.4)]">
+const renderDropdownPanel = (items: { name: string; to: string }[]) => (
+    <div className="overflow-hidden rounded-[2px] bg-white shadow-[0_20px_50px_-12px_rgba(28,25,23,0.4)]">
       <div className="w-[720px] px-10 py-8">
-        <nav className="grid grid-cols-2 gap-x-14 gap-y-3">
+        <nav className="grid grid-cols-2 gap-x-14 gap-y-2">
           {items.map((item) => {
             const isActive = location.pathname === item.to;
             return (
               <Link
                 key={item.to}
                 to={item.to}
-                className="group/item relative flex flex-col justify-between py-1 border-b border-stone-100 transition-colors duration-300"
+                className="group/item relative flex flex-col justify-between py-2"
               >
-<div className="flex flex-col w-full">
-  <span
-    className={`text-[16px] tracking-wide font-medium transition-all duration-300 ${
-      isActive
-        ? "text-stone-950 font-semibold"
-        : "text-stone-600 group-hover/item:text-stone-950 "
-    }`}
-  >
-    {item.name}
-  </span>
-
-  <span
-    className={`mt-1 text-[11px] tracking-widest uppercase transition-all duration-500 font-light ${
-      isActive
-        ? "text-stone-950 opacity-100"
-        : "opacity-0 text-stone-400 group-hover/item:opacity-100"
-    }`}
-  >
-    {isActive ? "Active" : "Discover"}
-  </span>
-</div>
+                <span
+                  className={`inline-block w-fit text-[16px] tracking-wide font-medium border-b transition-all duration-300 ${
+                    isActive
+                      ? "text-stone-950 font-semibold border-stone-950"
+                      : "text-stone-600 border-transparent group-hover/item:text-stone-950 group-hover/item:border-stone-400"
+                  }`}
+                >
+                  {item.name}
+                </span>
               </Link>
             );
           })}

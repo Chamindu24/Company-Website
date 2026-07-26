@@ -41,7 +41,7 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question, answer, index }) 
       `}</style>
 
       <div
-        className="qi-root qi-row relative border-b border-slate-200 bg-white cursor-pointer"
+        className="qi-root qi-row max-w-5xl mx-auto relative border-b border-slate-200 bg-white cursor-pointer"
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
         onClick={() => setOpen((prev) => !prev)}
