@@ -126,7 +126,7 @@ const IoTProductDevelopment: React.FC = () => {
         hover:shadow-[0_10px_40px_rgba(16,185,129,0.5)] hover:scale-105 active:scale-[0.98]"
                 >
                   <span className="relative z-20 transition-colors duration-300 group-hover:text-emerald-600 whitespace-nowrap">
-                    Discover the Platform
+                    Start Your Project
                   </span>
 
                   <svg
