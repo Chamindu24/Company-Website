@@ -75,7 +75,7 @@ export default function Homepage() {
       <HeroSection />
 
       <div className="hp-root text-gray-800">
-        {/* ── CRM SOLUTIONS SECTION ────────────────── */}
+{/* ── DIGITAL TWINS SECTION ────────────────── */}
         <section className="relative px-6 sm:px-10 py-24 md:py-28 bg-white overflow-hidden">
           <div className="relative max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -86,39 +86,55 @@ export default function Homepage() {
                   <div className="flex items-center justify-center lg:justify-start gap-3">
                     <div className="h-px w-8 bg-emerald-600" />
                     <div className="px-3 py-1 border border-emerald-600 text-[10px] font-bold text-emerald-700 uppercase tracking-[0.22em]">
-                      Customer Relationship Management
+                      Digital Twins
                     </div>
                   </div>
 
                   {/* Headline */}
                   <h2 className="hp-serif text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-normal text-slate-900 leading-[1.05] tracking-tight text-center lg:text-left">
-                    Transforming <br />
-                    <span className=" text-emerald-600">
-                      Client Relationships
-                    </span>
+                    Your Physical World, <br />
+                    <span className=" text-emerald-600">Digitally Mirrored</span>
                   </h2>
 
                   {/* Body */}
                   <div className="space-y-4 text-slate-500 text-base sm:text-lg font-light leading-relaxed max-w-xl lg:max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
                     <p>
-                      Our Customer Relationship Management platform centralizes{" "}
+                      Our Digital Twin platform creates a living, real-time
+                      replica of your{" "}
                       <span className="text-slate-900 font-medium">
-                        client data
+                        assets, facilities, and operations
                       </span>
-                      , interactions, and business intelligence into a single,
-                      secure ecosystem.
+                      , connecting sensors, systems, and data into one
+                      intelligent virtual environment.
                     </p>
                     <p>
-                      From first contact to long-term partnerships, we empower
-                      teams to build trust, improve engagement, and drive
-                      measurable growth through actionable insights.
+                      Monitor performance as it happens, simulate scenarios
+                      before they cost you, and predict failures before they
+                      occur — turning live data into smarter, faster decisions.
                     </p>
+
+                    {/* Key capabilities */}
+                    <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-left">
+                      {[
+                        "Real-time monitoring",
+                        "Predictive maintenance",
+                        "What-if simulation",
+                      ].map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-center gap-2 text-sm text-slate-700 font-medium"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
 
                     {/* Quote */}
                     <div className="relative py-2 border-l-2 border-emerald-600 pl-6 text-left">
-                      <p className="hp-serif text-slate-600 text-sm sm:text-base md:text-lg italic font-normal">
-                        "One unified source of truth for every client, every
-                        interaction, and every opportunity."
+                      <p className="hp-serif text-slate-600 text-sm sm:text-base md:text-lg  font-normal">
+                        "See every asset, test every decision, and fix problems
+                        before they happen — all from one virtual twin."
                       </p>
                     </div>
                   </div>
@@ -126,12 +142,12 @@ export default function Homepage() {
                   {/* CTA */}
                   <div className="flex items-center justify-center lg:justify-start">
                     <Link
-                      to="/solutions/crm"
+                      to="/solutions/digital-twins"
                       className="group relative inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-[0.18em] overflow-hidden transition-shadow duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] active:scale-[0.98]"
                       style={{ color: "#ffffff" }}
                     >
                       <span className="relative z-10">
-                        Explore CRM Solution
+                        Explore Digital Twins
                       </span>
                       <svg
                         className="relative z-10 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"
@@ -152,7 +168,7 @@ export default function Homepage() {
                 </div>
               </div>
 
-              {/* RIGHT: Phone mockup — 100% untouched */}
+              {/* RIGHT: Phone mockup — same device frame, new Digital Twin screen */}
               <div className="lg:col-span-6 flex justify-center lg:justify-center relative">
                 <div className="relative">
                   <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-10 bg-black/20 blur-[50px] rounded-[100%]" />
@@ -165,94 +181,95 @@ export default function Homepage() {
                       </div>
                       <div className="w-full h-full bg-white rounded-[2.2rem] overflow-hidden flex flex-col">
                         <div className="bg-emerald-700 p-8 pt-14 text-white">
-                          <p className="text-[10px] uppercase tracking-widest opacity-90 mb-1">
-                            Secure Dashboard
+                          <p className="text-[10px] uppercase tracking-widest opacity-90 mb-1 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                            Live Twin Sync
                           </p>
-                          <h4 className="text-xl font-serif">CRM Enterprise</h4>
+                          <h4 className="text-xl font-serif">Digital Twin Console</h4>
                         </div>
                         <div className="p-5 space-y-6">
                           <div className="relative">
                             <div className="h-9 w-full bg-slate-50 border border-slate-200 rounded-xl flex items-center px-3 gap-2">
                               <div className="w-3 h-3 rounded-full border-2 border-slate-300" />
                               <span className="text-[10px] text-slate-400 font-medium">
-                                Search clients...
+                                Search assets...
                               </span>
                             </div>
                           </div>
                           <div className="grid grid-cols-2 gap-3">
                             <div className="bg-white rounded-2xl border border-slate-100 p-3 shadow-sm">
                               <p className="text-[9px] uppercase tracking-wider text-slate-400 font-bold">
-                                Revenue
+                                Twin Health
                               </p>
                               <p className="text-lg font-serif text-emerald-900 leading-tight mt-1">
-                                £124,500
+                                98.6%
                               </p>
                               <div className="mt-2 flex items-center gap-1">
                                 <span className="text-[8px] text-emerald-500 font-bold">
-                                  +12%
+                                  +2.4%
                                 </span>
                                 <div className="h-[2px] w-8 bg-emerald-100 rounded-full" />
                               </div>
                             </div>
                             <div className="bg-white rounded-2xl border border-slate-100 p-3 shadow-sm">
                               <p className="text-[9px] uppercase tracking-wider text-slate-400 font-bold">
-                                Active Deals
+                                Live Sensors
                               </p>
                               <p className="text-lg font-serif text-slate-800 leading-tight mt-1">
-                                42
+                                1,248
                               </p>
                               <div className="mt-2 flex items-center gap-1">
                                 <span className="text-[8px] text-amber-500 font-bold">
-                                  High Priority
+                                  3 Alerts
                                 </span>
                               </div>
                             </div>
                           </div>
                           <div className="space-y-4">
                             <h5 className="text-[10px] uppercase tracking-[0.15em] font-bold text-slate-900 border-b border-slate-100 pb-2">
-                              Recent Leads
+                              Connected Assets
                             </h5>
                             <div className="space-y-3">
                               {[
                                 {
-                                  name: "Alexander Sterling",
-                                  company: "Mayfair Holdings",
-                                  status: "Negotiation",
+                                  name: "Chiller Unit A",
+                                  location: "Building 2 · Floor 3",
+                                  status: "Optimal",
                                 },
                                 {
-                                  name: "Sophia Chen",
-                                  company: "Aura Tech Ltd",
-                                  status: "Follow up",
+                                  name: "Conveyor Line 4",
+                                  location: "Plant North",
+                                  status: "Maintenance Due",
                                 },
                                 {
-                                  name: "Julian Rossi",
-                                  company: "Global Logistics",
-                                  status: "Qualified",
+                                  name: "Water Pump P12",
+                                  location: "Pump Station",
+                                  status: "Simulating",
                                 },
-                              ].map((lead, i) => (
+                              ].map((asset, i) => (
                                 <div
                                   key={i}
                                   className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
                                 >
                                   <div className="w-10 h-10 rounded-full bg-emerald-900 flex items-center justify-center text-[10px] text-white font-bold">
-                                    {lead.name
+                                    {asset.name
                                       .split(" ")
                                       .map((n) => n[0])
                                       .join("")}
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <p className="text-[11px] font-bold text-slate-900 truncate">
-                                      {lead.name}
+                                      {asset.name}
                                     </p>
                                     <p className="text-[9px] text-slate-400 truncate">
-                                      {lead.company}
+                                      {asset.location}
                                     </p>
                                   </div>
                                   <div className="text-right">
                                     <div
-                                      className={`text-[8px] px-2 py-0.5 rounded-full inline-block ${i === 0 ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"}`}
+                                      className={`text-[8px] px-2 py-0.5 rounded-full inline-block ${i === 0 ? "bg-emerald-100 text-emerald-700" : i === 1 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-600"}`}
                                     >
-                                      {lead.status}
+                                      {asset.status}
                                     </div>
                                   </div>
                                 </div>
@@ -260,7 +277,7 @@ export default function Homepage() {
                             </div>
                           </div>
                           <button className="w-full py-3 bg-emerald-900 text-white rounded-xl text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-emerald-900/20">
-                            + Add New Entry
+                            + Connect New Twin
                           </button>
                         </div>
                         <div className="mt-auto pb-2 flex justify-center">

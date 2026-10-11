@@ -492,7 +492,7 @@ export default function Navbar() {
         }`}
       />
 
-      <div className="relative z-10 w-[98%] max-w-[1800px] px-5 sm:px-8 lg:px-14 xl:px-20 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4 bg-white">
+      <div className="relative z-10 w-[98%] max-w-[1800px] px-5 sm:px-8 lg:px-14 xl:px-22 mx-auto flex lg:grid lg:grid-cols-3 justify-between items-center gap-4 bg-white">
         <div className="flex justify-start">
           <Link
             to="/"
@@ -543,7 +543,7 @@ export default function Navbar() {
           >
             <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full" />
             <span className="relative z-10 text-[10px] font-bold tracking-[0.2em] uppercase text-white">
-              Free Tech Consultation
+              Book a Call
             </span>
           </Link>
         </div>
@@ -555,7 +555,7 @@ export default function Navbar() {
           >
             <span className="absolute inset-0 w-0 h-full bg-emerald-600 transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-full" />
             <span className="relative z-10 text-[9px] font-bold tracking-[0.18em] uppercase text-white whitespace-nowrap">
-              Free Consultation
+              Book a Call
             </span>
           </Link>
         </div>
@@ -703,7 +703,7 @@ export default function Navbar() {
                   className="nb-sans group relative w-full overflow-hidden bg-slate-900 px-6 py-4 font-bold tracking-wide transition-shadow duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.15)] inline-flex items-center justify-center"
                 >
                   <span className="relative z-10 text-[10px] font-bold tracking-[0.2em] uppercase text-white leading-none">
-                    Free Consultation
+                    Book a Call
                   </span>
                 </Link>
               </div>
