@@ -223,7 +223,7 @@ const menus: Record<MenuKey, MegaMenu> = {
 
 const links = [
   { name: "Projects", to: "/work" },
-  { name: "Products", to: "/products" },
+  //{ name: "Products", to: "/products" },
 ];
 
 /* ── Component ─────────────────────────────────────────────────── */
