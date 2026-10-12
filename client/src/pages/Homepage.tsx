@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import WorkCard, { type WorkProject } from "../components/WorkCard";
+import { Link } from "react-router-dom";
 import ValueCard from "../components/ValueCard";
 //import GlobalPresence from "@/components/GlobalPresence";
 import HeroSection from "@/components/HeroSection";
@@ -9,8 +8,6 @@ import ServicesSection from "@/components/ServicesSection";
 import WebKitSection from "@/components/WebKitSection";
 
 export default function Homepage() {
-  const navigate = useNavigate();
-
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("[data-reveal]"));
     if (!("IntersectionObserver" in window)) {
@@ -31,29 +28,6 @@ export default function Homepage() {
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  const featuredProjects: WorkProject[] = [
-    {
-      name: "All-in-one Travel Agency Web Application",
-      client: "Islekey Holidays",
-      summary:
-        "Islekey Holidays is a unified platform for travel agencies to manage bookings, inventory, and customer journeys.",
-      description:
-        "We delivered a scalable system that centralizes B2B/B2C workflows, improving operations and customer experiences.",
-      image: "/work/islekeyholidays.png",
-      link: "https://islekeyholidays.com/",
-    },
-    {
-      name: "Speedboat Ticket Booking System",
-      client: "Dream Speed",
-      summary:
-        "A real-time ticketing platform for maritime travel with live route availability and instant booking.",
-      description:
-        "Built to handle vessel capacity, passenger validation, and fast checkouts across busy routes.",
-      image: "/work/dreamspeed.png",
-      link: "https://www.dreamspeedmaldives.com/",
-    },
-  ];
 
   return (
     <>
@@ -440,10 +414,9 @@ export default function Homepage() {
           </div>
         </section>
 
-        {/* ── SOFTWARE PRODUCTS ────────────────────── */}
+        {/*
         <section data-reveal className="bg-white px-4 md:px-0 py-24 relative">
           <div className="max-w-7xl mx-auto relative z-10">
-            {/* Header */}
             <div className="max-w-7xl mx-auto px-6 mb-24">
               <div className="pt-8">
                 <div className="max-w-5xl mx-auto text-center px-4">
@@ -463,7 +436,6 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* WorkCards — untouched */}
             <div className="max-w-7xl mx-auto px-6">
               <div className="grid grid-cols-1 md:grid-cols-1 gap-x-16 gap-y-20">
                 {featuredProjects.map((project, index) => (
@@ -478,7 +450,6 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* Footer CTA */}
             <div className="mt-24 mb-2 flex flex-col items-center">
               <button
                 onClick={() => navigate("/work")}
@@ -503,6 +474,7 @@ export default function Homepage() {
             </div>
           </div>
         </section>
+        */}
       </div>
 
 
